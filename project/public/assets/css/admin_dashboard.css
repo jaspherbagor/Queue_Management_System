@@ -1,0 +1,65 @@
+/* Font Family */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+
+:root {
+    --font-family: "Montserrat", sans-serif !important;
+}
+
+
+/* Dashboard Card */
+.department-card, .counter-card, .user-card, .total-token-card, .pending-token-card, .complete-token-card {
+    border-radius: 10px;
+    margin-right: 8px;
+}
+
+.department-card:hover, .counter-card:hover, .user-card:hover, .total-token-card:hover, .pending-token-card:hover, .complete-token-card:hover {
+    /* transform: scale(1.05) !important; */
+    box-shadow: rgba(0, 0, 0, 0.17) 0px -23px 25px 0px inset, rgba(0, 0, 0, 0.15) 0px -36px 30px 0px inset, rgba(0, 0, 0, 0.1) 0px -79px 40px 0px inset, rgba(0, 0, 0, 0.06) 0px 2px 1px, rgba(0, 0, 0, 0.09) 0px 4px 2px, rgba(0, 0, 0, 0.09) 0px 8px 4px, rgba(0, 0, 0, 0.09) 0px 16px 8px, rgba(0, 0, 0, 0.09) 0px 32px 16px !important;
+}
+
+.dashboard-heading {
+    font-family: var(--font-family) !important;
+}
+
+
+/* .counter-table {
+    border-collapse: collapse;
+    width: 100%;
+}
+
+.counter-td, .counter-th {
+border: 1px solid #dddddd;
+text-align: left;
+padding: 8px;
+}
+
+.counter-tr:nth-child(even) {
+background-color: #dddddd;
+} */
+
+.counters-div {
+    display: inline-block;
+    /* align-items: center;
+    justify-content: center; */
+}
+
+.department-list {
+    font-size: 20px !important;
+}
+
+.counters-div h4 {
+    border-top: 2px solid black !important
+}
+
+.card-rows {
+    margin-top: 10px 10px 0 0 !important
+}
+
+
+.counter-card {
+    background: red !important;
+}
+
+.department-card {
+   background: green !important;
+}

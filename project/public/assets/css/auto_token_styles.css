@@ -1,0 +1,27 @@
+.department_list_container {
+    /* padding: 10px; */
+    /* border-radius: 7px; */
+    /* background: yellow */
+    border:none
+}
+
+.department_name {
+    font-size: 40px;
+}
+
+.department_list_items {
+    /* background: red !important; */
+    display:inline-block;;
+}
+
+.department_list_items_btn {
+    background: #3397db !important;
+    margin: 0 0 5px 5px;
+    border-radius: 10px;
+    padding: 16px
+}
+
+.department_list_items_btn:hover {
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    transform: scale(1.108)
+}

@@ -1,0 +1,54 @@
+/* Login Page Styles */
+.login-body-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    /* background: url('../../assets/images/pclu-logo.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center; */
+}
+
+.login-heading {
+    font-weight:800;
+    font-family: Verdana, Geneva, Tahoma, sans-serif !important;
+    margin-bottom: 10px !important;
+}
+
+.login-container {
+    width: 450px;
+    background: #ffff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
+}
+
+.form-input-group > input[type=text], .form-input-group > input[type=password] {
+    border-radius: 5px
+}
+
+.form-container {
+    margin-top: 25px
+}
+
+.form-button {
+    margin-bottom: 20px
+}
+
+.login-btn {
+    width: 100%;
+    margin-top: 20px;
+    border-radius: 5px
+}
+
+.login-logo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.login-logo img {
+    height: 150px
+}
