@@ -3,7 +3,7 @@
 
 {{-- @section('content') --}}
 <div class="panel panel-primary" id="toggleScreenArea">
-
+    <h2>Hi??????</h2>
     <div class="panel-heading pt-0 pb-0">
         <ul class="row m-0 list-inline">
             <li class="col-xs-6 col-sm-4 p-0 text-left">
@@ -127,7 +127,7 @@
         <h4 class="modal-title">{{ trans('app.user_information') }}</h4>
       </div>
       <div class="modal-body">
-        @if($display->sms_alert)
+        {{-- @if($display->sms_alert)
         <p><input type="text" name="client_mobile" class="form-control" placeholder="{{ trans('app.client_mobile') }}" required><span class="text-danger">The Mobile No. field is required!</span></p>
         @endif
 
@@ -136,7 +136,7 @@
                 <textarea name="note" id="note" class="form-control" placeholder="{{ trans('app.note') }}">{{ old('note') }}</textarea>
                 <span class="text-danger">The Note field is required!</span>
             </p>
-        @endif
+        @endif --}}
 
         <input type="hidden" name="department_id">
         <input type="hidden" name="counter_id">
@@ -360,5 +360,5 @@ $(document).ready(function(){
     });
 });
 </script>
-<!-- @endpush -->
+@endpush
 
