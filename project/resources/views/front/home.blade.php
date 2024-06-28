@@ -4,6 +4,7 @@
 {{-- @section('content') --}}
 <div class="panel panel-primary" id="toggleScreenArea">
     <h2>Hi??????</h2>
+    <h3>This is a test</h3>
     <div class="panel-heading pt-0 pb-0">
         <ul class="row m-0 list-inline">
             <li class="col-xs-6 col-sm-4 p-0 text-left">
