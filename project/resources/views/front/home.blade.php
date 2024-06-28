@@ -5,6 +5,7 @@
 <div class="panel panel-primary" id="toggleScreenArea">
     <h2>Hi??????</h2>
     <h4>This is a test h4 tag</h4>
+    <h2>Test h2 tag</h2>
     <div class="panel-heading pt-0 pb-0">
         <ul class="row m-0 list-inline">
             <li class="col-xs-6 col-sm-4 p-0 text-left">
