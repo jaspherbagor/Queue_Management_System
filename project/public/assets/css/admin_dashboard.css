@@ -57,12 +57,12 @@
 }
 
 
-.counter-table {
+.counter-table, .department-table {
     border-collapse: collapse;
     width: 100%;
 }
 
-.counter-td, .counter-th {
+.counter-td, .counter-th, .department-td, .department-th {
 border: 1.8px solid white;
 text-align: center;
 padding: 8px;
@@ -71,6 +71,10 @@ font-weight: 600;
 
 .counter-tr:nth-child(even) {
 background-color: #003135;
+}
+
+.department-tr:nth-child(even) {
+    background: #10a4b0;
 }
 
 .counters-div {

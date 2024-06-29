@@ -73,7 +73,7 @@
                             <th class="department-th text-uppercase">Status</th>
                         </tr>
 
-                        @foreach($apartments as $row)
+                        @foreach($departments as $row)
                         <tr class="department-tr">
                             <td class="department-td mr-1 text-uppercase">{{$row->name}}</td>
                             <td class="department-td mr-1 text-uppercase fw-bold">{{$row->description}}</td>
