@@ -161,10 +161,9 @@ div.dt-button-collection > .dropdown-menu>li>a:focus {
     font-weight: 400;
 }
 
-.panel.panel-primary {
-    background: darkturquoise !important;
+.panel-heading h3 {
+    font-weight:800
 }
-
 
 
 /*--- back to top ---*/

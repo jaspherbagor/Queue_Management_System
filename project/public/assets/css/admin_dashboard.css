@@ -1,8 +1,16 @@
 /* Font Family */
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+/* @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap'); */
+/* @import url('https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap'); */
+@import url('https://fonts.googleapis.com/css2?family=Source+Code+Pro:ital,wght@0,200..900;1,200..900&display=swap');
 
 :root {
-    --font-family: "Montserrat", sans-serif !important;
+    /* --font-family: "Montserrat", sans-serif !important; */
+    /* --font-family: "Nunito", sans-serif !important; */
+    --font-family: "Source Code Pro", monospace !important;
+}
+
+* {
+    font-family: var(--font-family);
 }
 
 
@@ -13,8 +21,8 @@
 }
 
 .department-card:hover, .counter-card:hover, .user-card:hover, .total-token-card:hover, .pending-token-card:hover, .complete-token-card:hover {
-    /* transform: scale(1.05) !important; */
-    box-shadow: rgba(0, 0, 0, 0.17) 0px -23px 25px 0px inset, rgba(0, 0, 0, 0.15) 0px -36px 30px 0px inset, rgba(0, 0, 0, 0.1) 0px -79px 40px 0px inset, rgba(0, 0, 0, 0.06) 0px 2px 1px, rgba(0, 0, 0, 0.09) 0px 4px 2px, rgba(0, 0, 0, 0.09) 0px 8px 4px, rgba(0, 0, 0, 0.09) 0px 16px 8px, rgba(0, 0, 0, 0.09) 0px 32px 16px !important;
+    transform: scale(1.05) !important;
+    box-shadow: rgba(14, 30, 37, 0.12) 0px 2px 4px 0px, rgba(14, 30, 37, 0.32) 0px 2px 16px 0px !important;
 }
 
 .dashboard-heading {
@@ -22,25 +30,26 @@
 }
 
 
-/* .counter-table {
+.counter-table {
     border-collapse: collapse;
     width: 100%;
 }
 
 .counter-td, .counter-th {
-border: 1px solid #dddddd;
-text-align: left;
+border: 1.5px solid black;
+text-align: center;
 padding: 8px;
+font-weight: 600;
 }
 
 .counter-tr:nth-child(even) {
 background-color: #dddddd;
-} */
+}
 
 .counters-div {
     display: inline-block;
-    /* align-items: center;
-    justify-content: center; */
+    align-items: center;
+    justify-content: center;
 }
 
 .department-list {
@@ -55,16 +64,32 @@ background-color: #dddddd;
     margin-top: 10px 10px 0 0 !important
 }
 
+.department-card-info, .counter-card-info {
+    margin-top: 20px;
+    margin-bottom: 20px;
+    background: gray;
+    /* height: 240px; */
+    /* border-radius: 10px; */
 
-/* .counter-card {
-    background: blue !important;
-    padding: 10px !important
 }
 
-.department-card {
-   background: green !important;
-} */
+.department-card-info h2, .counter-card-info h2 {
+    font-family: var(--font-family);
+}
 
-.panel-body {
-    background: red !important;
+.dashboard_panel {
+    background: rgb(134,207,243);
+    background: linear-gradient(106deg, rgba(134,207,243,1) 0%, rgba(241,238,235,0.99781162464986) 50%, rgba(111,150,131,1) 100%);
+}
+
+.dashboard-cards {
+    /* display: flex; */
+    align-items: center;
+    justify-content: center;
+}
+
+.dashboard-card-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
