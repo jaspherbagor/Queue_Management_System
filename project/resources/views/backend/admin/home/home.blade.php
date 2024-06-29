@@ -73,7 +73,7 @@
             </div>
             <div class="col-md-6">
                 <div class="card counter-card-info p-1">
-                    <h4 class="card-header text-center fw-bold">Counters</h4>
+                    <h4 class="card-header text-center fw-bold">Department</h4>
                     @php
                     $counters = App\Models\Department::all();
                     @endphp
