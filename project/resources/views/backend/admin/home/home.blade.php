@@ -25,14 +25,14 @@
                         </div>
                     </div>
                 </a>
-            <a href="{{route('users')}}">
-                <div class="btn btn-primary col-lg-2 col-md-4 col-sm-6 col-xs-12 mb-1 user-card">
+                <a href="{{route('users')}}">
+                    <div class="btn btn-info col-lg-2 col-md-4 col-sm-6 col-xs-12 mb-1 user-card">
                         <div class="p-1">
                             <i class="fa fa-users fa-2x"></i>
                             <h5>{{ (isset($infobox->user)?$infobox->user:0) }} {{ trans('app.users') }}</h5>
                         </div>
                     </div>
-            </a>
+                </a>
                 <a href="{{route('token_report')}}">
                     <div class="btn btn-success col-lg-2 col-md-4 col-sm-6 col-xs-12 mb-1 total-token-card">
                         <div class="p-1">

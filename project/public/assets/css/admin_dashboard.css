@@ -56,11 +56,15 @@ background-color: #dddddd;
 }
 
 
-.counter-card {
+/* .counter-card {
     background: blue !important;
     padding: 10px !important
 }
 
 .department-card {
    background: green !important;
+} */
+
+.panel-body {
+    background: red !important;
 }
