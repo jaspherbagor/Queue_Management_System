@@ -66,9 +66,34 @@
                     $departments = App\Models\Department::all();
                     @endphp
 
-                    @foreach($departments as $row)
-                    <p class="department-list"><i class="fa fa-check-square-o" aria-hidden="true"></i> {{$row->name}}</p>
-                    @endforeach
+                    <table class="department-table">
+                        <tr class="department-tr">
+                            <th class="department-th text-uppercase">Namer</th>
+                            <th class="department-th text-uppercase">Description/th>
+                            <th class="department-th text-uppercase">Status</th>
+                        </tr>
+
+                        @foreach($apartments as $row)
+                        <tr class="department-tr">
+                            <td class="department-td mr-1 text-uppercase">{{$row->name}}</td>
+                            <td class="department-td mr-1 text-uppercase fw-bold">{{$row->description}}</td>
+                            @if($row->status === 1)
+                            <td class="department-td text-center">
+                                <button class="btn btn-success">Active</button>
+                            </td>
+                            @elseif($row->status === 0)
+                            <td class="department-td">
+                                <button class="btn btn-danger">Inactive</button>
+                            </td>
+                            @else
+                            <td class="department-td">
+                                <button class="btn btn-dark">Unknown</button>
+                            </td>
+                            @endif
+                        </tr>
+                        @endforeach
+
+                    </table>
                 </div>
             </div>
             <div class="col-md-6">
