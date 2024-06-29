@@ -57,7 +57,8 @@ background-color: #dddddd;
 
 
 .counter-card {
-    background: red !important;
+    background: blue !important;
+    padding: 10px !important
 }
 
 .department-card {

@@ -56,8 +56,8 @@
             </div>
         </div>
 
-        <div class="row card-rows mt-1">
-            <div class="col-md-6">
+        <div class="row card-rows mt-1 mb-2">
+            <div class="col-md-6 mb-1">
                 <div class="card department-card p-1">
                     <h2 class="card-header text-center">Department</h2>
                     @php
@@ -70,12 +70,12 @@
                 </div>
             </div>
             <div class="col-md-6">
-                <div class="card counter-card p-1">
+                <div class="card counter-card p-1 bg-success">
                     <h2 class="card-header text-center">Counter</h2>
                     @php
                     $counters = App\Models\Counter::all();
                     @endphp
-                    <!-- <table class="counter-table">
+                    {{-- <table class="counter-table">
                         <tr class="counter-tr">
                             <th class="counter-th mr-1"></th>
                             <th class="counter-th mr-1"></th>
@@ -102,14 +102,14 @@
                         </tr>
                         @endforeach
 
-                    </table> -->
+                    </table> --}}
 
                     @foreach($counters as $row)
-                        <div class="counters-div">
+                        <div class="counters-div d-glex">
                             <h4>{{$row->name}}  &nbsp- &nbsp {{$row->description}}  &nbsp- &nbsp @if($row->status === 1)Active @else Inactive @endif</h4>
-                             <!-- <li>{{$row->name}}</li>
+                             {{-- <li>{{$row->name}}</li>
                              <li>{{$row->description}}</li>
-                             <li>{{$row->status}}</li> -->
+                             <li>{{$row->status}}</li>  --}}
                         </div>
                     @endforeach
 
