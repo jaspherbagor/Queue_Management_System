@@ -75,7 +75,7 @@
                 <div class="card counter-card-info p-1">
                     <h4 class="card-header text-center fw-bold">Counters</h4>
                     @php
-                    $counters = App\Models\Counter::all();
+                    $counters = App\Models\Department::all();
                     @endphp
                     <table class="counter-table">
                         <tr class="counter-tr">
@@ -86,7 +86,7 @@
 
                         @foreach($counters as $row)
                         <tr class="counter-tr">
-                            <td class="counter-td mr-1">{{$row->name}}</td>
+                            <td class="counter-td mr-1 text-uppercase">{{$row->name}}</td>
                             <td class="counter-td mr-1 text-uppercase fw-bold">{{$row->description}}</td>
                             @if($row->status === 1)
                             <td class="counter-td text-center">
