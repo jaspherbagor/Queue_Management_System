@@ -63,14 +63,14 @@
 }
 
 .counter-td, .counter-th {
-border: 1.5px solid black;
+border: 1.8px solid white;
 text-align: center;
 padding: 8px;
 font-weight: 600;
 }
 
 .counter-tr:nth-child(even) {
-background-color: #dddddd;
+background-color: #003135;
 }
 
 .counters-div {
@@ -123,4 +123,12 @@ background-color: #dddddd;
     display: flex;
     align-items: center;
     justify-content: center;
+}
+
+.line-chart, .bar-chart {
+    border-radius: 10px !important;
+}
+
+.line-chart > .panel-heading, .bar-chart > .panel-heading {
+    border-radius: 10px 10px 0 0 !important
 }

@@ -39,7 +39,7 @@
                     <div class="col-md-4 col-sm-6 col-xs-12 mb-1">
                         <div class="p-1 total-token-card">
                             <i class="fa fa-ticket fa-2x"></i>
-                            <h5>{{ (isset($infobox->token->total)?$infobox->token->total:0) }} {{ trans('app.token') }}</h5>
+                            <h5>{{ (isset($infobox->token->total)?$infobox->token->total:0) }} {{ trans('app.token') }}s</h5>
                         </div>
                     </div>
                 </a>
@@ -111,14 +111,14 @@
 
         <div class="row mt-1">
             <div class="col-sm-6">
-                <div class="panel panel-primary shadowed">
+                <div class="panel panel-primary line-chart shadowed">
                     <div class="panel-heading">{{ trans('app.this_month') }}</div>
                     <div class="panel-body"><canvas id="lineChart"></canvas></div>
                 </div>
             </div>
 
             <div class="col-sm-6">
-                <div class="panel panel-primary shadowed">
+                <div class="panel panel-primary bar-chart shadowed">
                     <div class="panel-heading">{{ trans('app.this_year') }}</div>
                     <div class="panel-body"><canvas id="singelBarChart" style="height:200px"></canvas></div>
                 </div>
