@@ -73,14 +73,14 @@
             </div>
             <div class="col-md-6">
                 <div class="card counter-card-info p-1">
-                    <h4 class="card-header text-center fw-bold">Department</h4>
+                    <h4 class="card-header text-center fw-bold">Counters</h4>
                     @php
-                    $counters = App\Models\Department::all();
+                    $counters = App\Models\Counter::all();
                     @endphp
                     <table class="counter-table">
                         <tr class="counter-tr">
+                            <th class="counter-th text-uppercase">Counter</th>
                             <th class="counter-th text-uppercase">Name</th>
-                            <th class="counter-th text-uppercase">Description</th>
                             <th class="counter-th text-uppercase">Status</th>
                         </tr>
 
