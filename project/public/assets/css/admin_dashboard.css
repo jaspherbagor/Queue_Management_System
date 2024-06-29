@@ -17,7 +17,34 @@
 /* Dashboard Card */
 .department-card, .counter-card, .user-card, .total-token-card, .pending-token-card, .complete-token-card {
     border-radius: 10px;
-    margin-right: 8px;
+    background: #000;
+    padding: 15px !important;
+    margin-bottom: 5px;
+    color:white !important
+}
+
+.department-card {
+    background: #003135;
+}
+
+.counter-card {
+    background: #10a4b0;
+}
+
+.user-card {
+    background: #034951;
+}
+
+.total-token-card {
+    background: #874f42;
+}
+
+.pending-token-card{
+    background: #e74833;
+}
+
+.complete-token-card {
+    background: #376f70;
 }
 
 .department-card:hover, .counter-card:hover, .user-card:hover, .total-token-card:hover, .pending-token-card:hover, .complete-token-card:hover {
@@ -52,10 +79,6 @@ background-color: #dddddd;
     justify-content: center;
 }
 
-.department-list {
-    font-size: 20px !important;
-}
-
 .counters-div h4 {
     border-top: 2px solid black !important
 }
@@ -67,11 +90,19 @@ background-color: #dddddd;
 .department-card-info, .counter-card-info {
     margin-top: 20px;
     margin-bottom: 20px;
-    background: gray;
-    /* height: 240px; */
-    /* border-radius: 10px; */
-
+    border-radius: 10px;
+    color: white;
+    padding: 10px !important
 }
+
+.department-card-info {
+    background: #003135;
+}
+
+.counter-card-info {
+    background: #10a4b0;
+}
+
 
 .department-card-info h2, .counter-card-info h2 {
     font-family: var(--font-family);

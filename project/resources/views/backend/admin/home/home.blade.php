@@ -12,68 +12,68 @@
         <div class="row dashboard-card-container">
             <div class="col-sm-12 shadowed dashboard-cards">
                 <a href="{{route('department')}}">
-                    <div class=" col-lg-2 col-md-4 col-sm-6 col-xs-12 mb-1 department-card">
-                        <div class="p-1">
+                    <div class="col-md-4 col-sm-6 col-xs-12 mb-1">
+                        <div class="p-1 department-card">
                             <i class="fa fa-cubes fa-2x"></i>
-                            <h5>{{ (isset($infobox->department)?$infobox->department:0) }} {{ trans('app.department') }}</h5>
+                            <h5>{{ (isset($infobox->department)?$infobox->department:0) }} {{ trans('app.department') }}s</h5>
                         </div>
                     </div>
                 </a>
                 <a href="{{route('counter')}}">
-                    <div class=" col-lg-2 col-md-4 col-sm-6 col-xs-12 mb-1 counter-card">
-                        <div class="p-1">
+                    <div class="col-md-4 col-sm-6 col-xs-12 mb-1">
+                        <div class="p-1 counter-card">
                             <i class="fa fa-plus-square-o fa-2x"></i>
-                            <h5>{{ (isset($infobox->counter)?$infobox->counter:0) }} {{ trans('app.counter') }}</h5>
+                            <h5>{{ (isset($infobox->counter)?$infobox->counter:0) }} {{ trans('app.counter') }}s</h5>
                         </div>
                     </div>
                 </a>
                 <a href="{{route('users')}}">
-                    <div class=" col-lg-2 col-md-4 col-sm-6 col-xs-12 mb-1 user-card">
-                        <div class="p-1">
+                    <div class="col-md-4 col-sm-6 col-xs-12 mb-1">
+                        <div class="p-1 user-card">
                             <i class="fa fa-users fa-2x"></i>
                             <h5>{{ (isset($infobox->user)?$infobox->user:0) }} {{ trans('app.users') }}</h5>
                         </div>
                     </div>
                 </a>
                 <a href="{{route('token_report')}}">
-                    <div class=" col-lg-2 col-md-4 col-sm-6 col-xs-12 mb-1 total-token-card">
-                        <div class="p-1">
+                    <div class="col-md-4 col-sm-6 col-xs-12 mb-1">
+                        <div class="p-1 total-token-card">
                             <i class="fa fa-ticket fa-2x"></i>
                             <h5>{{ (isset($infobox->token->total)?$infobox->token->total:0) }} {{ trans('app.token') }}</h5>
                         </div>
                     </div>
                 </a>
-                <div class=" col-lg-2 col-md-4 col-sm-6 col-xs-12 mb-1 pending-token-card">
-                    <div class="p-1">
+                <div class="col-md-4 col-sm-6 col-xs-12 mb-1">
+                    <div class="p-1 pending-token-card">
                         <i class="fa fa-clock-o fa-2x"></i>
                         <h5>{{ (isset($infobox->token->pending)?$infobox->token->pending:0) }} {{ trans('app.pending') }} {{ trans('app.token') }}</h5>
                     </div>
                 </div>
-                <div class=" col-lg-2 col-md-4 col-sm-6 col-xs-12 mb-1 complete-token-card">
-                    <div class="p-1">
-                        <i class="fa  fa-check-circle-o fa-2x"></i>
+                <div class="col-md-4 col-sm-6 col-xs-12 mb-1">
+                    <div class="p-1 complete-token-card">
+                        <i class="fa fa-check-circle-o fa-2x"></i>
                         <h5>{{ (isset($infobox->token->complete)?$infobox->token->complete:0) }} {{ trans('app.complete') }} {{ trans('app.token') }}</h5>
                     </div>
                 </div>
             </div>
         </div>
 
-        <div class="row card-rows mt-1 mb-2">
+        <div class="row card-rows mt-1">
             <div class="col-md-6 mb-1">
-                <div class="card department-card-info p-1">
-                    <h2 class="card-header text-center">Departments</h2>
+                <div class="card department-card-info">
+                    <h4 class="card-header text-center">Departments</h4>
                     @php
                     $departments = App\Models\Department::all();
                     @endphp
 
                     @foreach($departments as $row)
-                    <h4 class="department-list">* {{$row->name}}</h4>
+                    <p class="department-list"><i class="fa fa-check-square-o" aria-hidden="true"></i> {{$row->name}}</p>
                     @endforeach
                 </div>
             </div>
             <div class="col-md-6">
-                <div class="card counter-card-info p-1 bg-success">
-                    <h2 class="card-header text-center fw-bold">Counters</h2>
+                <div class="card counter-card-info p-1">
+                    <h4 class="card-header text-center fw-bold">Counters</h4>
                     @php
                     $counters = App\Models\Counter::all();
                     @endphp
@@ -105,16 +105,6 @@
                         @endforeach
 
                     </table>
-
-                    {{-- @foreach($counters as $row)
-                        <div class="counters-div d-flex">
-                            <h4>{{$row->name}}  &nbsp- &nbsp {{$row->description}}  &nbsp- &nbsp @if($row->status === 1)Active @else Inactive @endif</h4>
-                             <li>{{$row->name}}</li>
-                             <li>{{$row->description}}</li>
-                             <li>{{$row->status}}</li> 
-                        </div>
-                    @endforeach --}}
-
                 </div>
             </div>
         </div>
