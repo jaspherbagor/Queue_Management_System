@@ -68,15 +68,15 @@
 
                     <table class="department-table">
                         <tr class="department-tr">
-                            <th class="department-th text-uppercase">Namer</th>
-                            <th class="department-th text-uppercase">Description/th>
+                            <th class="department-th text-uppercase">Name</th>
+                            <!-- Anong ilagay kapalit sa description statustas yung action yung dalawang magkatabi sa dulo po ... okayy -->
                             <th class="department-th text-uppercase">Status</th>
+                            <th class="department-th text-uppercase">Action</th>
                         </tr>
 
                         @foreach($departments as $row)
                         <tr class="department-tr">
                             <td class="department-td mr-1 text-uppercase">{{$row->name}}</td>
-                            <td class="department-td mr-1 text-uppercase fw-bold">{{$row->description}}</td>
                             @if($row->status === 1)
                             <td class="department-td text-center">
                                 <button class="btn btn-success">Active</button>
@@ -90,6 +90,12 @@
                                 <button class="btn btn-dark">Unknown</button>
                             </td>
                             @endif
+                            <td class="department-td">
+                                <div class="btn-group">
+                                    <a href="{{ url("admin/department/edit/$row->id") }}" class="btn btn-success btn-sm me-3" data-toggle="tooltip"  title="Edit" ><i class="fa fa-edit"></i></a>
+                                    <a href="{{ url("admin/department/delete/$row->id") }}" class="btn btn-danger btn-sm" onclick="return confirm('{{ trans("app.are_you_sure") }}')" data-toggle="tooltip"  title="Delete"><i class="fa fa-trash"></i></a>
+                                </div>
+                            </td>
                         </tr>
                         @endforeach
 
