@@ -18,7 +18,7 @@
 @stop
 
 @section('info.powered-by')
-    Powered by <a href="#" target="_blank">QMS-FOR PCLU</a> All rights reserved.
+    Powered by <a href="#" target="_blank">QMS FOR PCLU</a> All rights reserved.
 @stop
 
 @section('info.version')

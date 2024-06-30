@@ -327,7 +327,12 @@ div.dt-button-collection > .dropdown-menu>li>a:focus {
 }
 
 /*header title*/
-.cm-navbar h1{font-size:24px}
+.cm-navbar h1{
+    font-size:24px;
+    font-weight: 700;
+    letter-spacing: 2.5px;
+    color:rgb(56, 54, 54)
+}
 /* customize menu */
 #cm-menu li.cm-submenu ul {display:none;position:relative;}
 #cm-menu li.open ul {display:block;}

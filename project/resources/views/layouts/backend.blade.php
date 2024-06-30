@@ -61,9 +61,11 @@
         <!-- Starts of Sidebar -->
         <div id="cm-menu">
             <nav class="cm-navbar cm-navbar-primary">
-                <div class="cm-flex"><a href="javascript:void(0)" class="cm-logo">
-                    <img src="{{ asset('public/assets/img/icons/logo.jpg') }}" width="210" height="50">
-                </a></div>
+                <div class="cm-flex">
+                    <a href="javascript:void(0)" class="cm-logo">
+                        <img src="{{ asset('public/assets/img/icons/logo.jpg') }}" width="210" height="50">
+                    </a>
+                </div>
                 <div class="btn btn-primary md-menu-white" data-toggle="cm-menu"></div>
             </nav>
             <div id="cm-menu-content">
@@ -286,7 +288,7 @@
             <nav class="cm-navbar cm-navbar-primary">
                 <div class="btn btn-primary md-menu-white hidden-md hidden-lg" data-toggle="cm-menu"></div>
                 <div class="cm-flex">
-                    <h1 class="clearfix">{{ \Session::get('app.title') }}</h1>
+                    <h1 class="clearfix">{{ Session::get('app.title') }}</h1>
                 </div>
 
                 <!-- Buy Now -->
