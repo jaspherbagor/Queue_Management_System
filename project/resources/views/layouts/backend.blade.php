@@ -7,6 +7,9 @@
         <title>{{ \Session::get('app.title') }} :: @yield('title')</title>
         <!-- favicon -->
         <link rel="shortcut icon" href="{{ asset(Session::get('app.favicon')) }}" type="image/x-icon" />
+
+        {{-- Bootstrap Icons --}}
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
         <!-- template bootstrap -->
         <link href="{{ asset('public/assets/css/template.min.css') }}" rel='stylesheet prefetch'>
         <!-- roboto -->
@@ -81,7 +84,9 @@
                             </li>
 
                             <li class="cm-submenu {{ (Request::segment(2)=='department' ? 'open' : '') }}">
-                                <a class="sf-carton">{{ trans('app.department') }} <span class="caret"></span></a>
+                                <a class="sf-building">
+                                    {{ trans('app.department') }} <span class="caret"></span>
+                                </a>
                                 <ul>
                                     <li class="{{ (Request::is('admin/department/create') ? 'active' : '') }}">
                                         <a href="{{ url('admin/department/create') }}">{{ trans('app.add_department') }}</a>
