@@ -23,31 +23,36 @@
     background: #000;
     padding: 15px !important;
     margin-bottom: 5px;
-    color:white !important
+    color:black;
+    box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;
 }
 
 .department-card {
-    background: #003135;
+    background: #59afe8;
+}
+
+.department-card h5, .counter-card h5, .user-card h5, .total-token-card h5, .pending-token-card h5, .complete-token-card h5 {
+    font-weight:600
 }
 
 .counter-card {
-    background: #10a4b0;
+    background: #fceed4;
 }
 
 .user-card {
-    background: #034951;
+    background: #fcede8;
 }
 
 .total-token-card {
-    background: #874f42;
+    background: #dcecd2;
 }
 
 .pending-token-card{
-    background: #e74833;
+    background: #bd8a83;
 }
 
 .complete-token-card {
-    background: #376f70;
+    background: #dcecd2;
 }
 
 .department-card:hover, .counter-card:hover, .user-card:hover, .total-token-card:hover, .pending-token-card:hover, .complete-token-card:hover {
@@ -66,18 +71,18 @@
 }
 
 .counter-td, .counter-th, .department-td, .department-th {
-border: 1.8px solid white;
+border: 1.8px solid rgb(120, 116, 116);
 text-align: center;
 padding: 8px;
 font-weight: 600;
 }
 
 .counter-tr:nth-child(even) {
-background-color: #003135;
+    background-color: rgb(184, 182, 182);
 }
 
 .department-tr:nth-child(even) {
-    background: #10a4b0;
+    background-color: rgb(184, 182, 182);
 }
 
 .counters-div {
@@ -98,21 +103,25 @@ background-color: #003135;
     margin-top: 20px;
     margin-bottom: 20px;
     border-radius: 10px;
-    color: white;
-    padding: 10px !important
+    font-weight: 600 !important;
+    padding: 10px !important;
+    box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;
 }
 
 .department-card-info {
-    background: #003135;
+    background: #f1f1f1;
+    /* background: linear-gradient(90deg, rgba(252,238,212,1) 37%, rgba(89,175,232,1) 100%); */
+    color: #000
 }
 
 .department-card-info:hover, .counter-card-info:hover {
     cursor:pointer;
-    box-shadow: rgba(0, 0, 0, 0.25) 0px 0.0625em 0.0625em, rgba(0, 0, 0, 0.25) 0px 0.125em 0.5em, rgba(255, 255, 255, 0.1) 0px 0px 0px 1px inset;
-}
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;}
 
 .counter-card-info {
-    background: #10a4b0;
+    background: #f1f1f1;
+    /* background: linear-gradient(90deg, rgba(252,238,212,1) 37%, rgba(89,175,232,1) 100%); */
+    color: #000
 }
 
 
@@ -121,8 +130,8 @@ background-color: #003135;
 }
 
 .dashboard_panel {
-    background: rgb(255,255,255);
-    background: linear-gradient(90deg, rgba(255,255,255,1) 0%, rgba(134,207,243,1) 50%, rgba(52,152,219,1) 100%);
+    background: rgb(238,238,238);
+    background: linear-gradient(90deg, rgba(238,238,238,1) 0%, rgba(241,241,241,1) 100%);
 }
 
 .dashboard-cards {
