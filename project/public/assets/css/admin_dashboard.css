@@ -109,19 +109,12 @@ font-weight: 600;
     box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;
 }
 
-.department-card-info {
-    background: #f1f1f1;
-    /* background: linear-gradient(90deg, rgba(252,238,212,1) 37%, rgba(89,175,232,1) 100%); */
-    color: #000
-}
-
 .department-card-info:hover, .counter-card-info:hover {
     cursor:pointer;
     box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;}
 
-.counter-card-info {
+.department-card-info, .counter-card-info {
     background: #f1f1f1;
-    /* background: linear-gradient(90deg, rgba(252,238,212,1) 37%, rgba(89,175,232,1) 100%); */
     color: #000
 }
 
@@ -132,13 +125,7 @@ font-weight: 600;
 
 .dashboard_panel {
     background: rgb(238,238,238);
-    background: linear-gradient(90deg, rgb(214, 192, 192) 0%, rgb(129, 188, 209) 100%);
-}
-
-.dashboard-cards {
-    /* display: flex; */
-    align-items: center;
-    justify-content: center;
+    background: linear-gradient(90deg, rgb(231, 222, 222) 0%, rgb(244, 247, 248) 100%);
 }
 
 .dashboard-card-container {
@@ -157,5 +144,5 @@ font-weight: 600;
 
 .cm-flex {
     background: rgb(238,238,238);
-    background: linear-gradient(90deg, rgba(238,238,238,1) 0%, rgba(52,152,219,1) 100%);
+    background: linear-gradient(90deg, rgb(104, 188, 236) 0%, rgba(52,152,219,1) 100%);
 }
