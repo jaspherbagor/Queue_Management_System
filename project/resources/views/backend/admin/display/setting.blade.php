@@ -94,14 +94,6 @@
   
 
         <div class="col-sm-6">
-
-            <div class="form-group">
-                <h2 for="corn_info">Cron Job Setting for SMS Alert</h2>
-                <div class="bg-info well" id="corn_info">
-                    You only need to add the following Cron entry to your server to activate schedule sms.  
-                    <p class="text-success">* * * * * wget -q -t 5 -O - "http://yourdomain.com/<strong class="text-danger" title="Actual Path of Artisan file">jobs/sms/</strong> </p> 
-                </div>
-            </div>
  
             <div class="form-group @error('alert_position') has-error @enderror">
                 <label for="alert_position">{{ trans('app.alert_position') }} <span>(Position of Waiting Before Process)</span></label>

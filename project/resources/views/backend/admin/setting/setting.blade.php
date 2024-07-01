@@ -80,7 +80,7 @@
                 <input type="hidden" name="old_favicon" value="{{ ((session('favicon') != null) ? session('favicon') : $setting->favicon) }}">
                 <input type="file" name="favicon" id="favicon" class="form-control">
                 <span class="text-danger">{{ $errors->first('favicon') }}</span>
-                <span class="help-block">Diamension: (32x32)px</span>
+                <span class="help-block">Dimension: (32x32)px</span>
             </div>
 
             <div class="form-group @error('logo') has-error @enderror">
