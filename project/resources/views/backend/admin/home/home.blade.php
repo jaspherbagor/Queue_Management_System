@@ -14,7 +14,7 @@
                 <a href="{{route('department')}}">
                     <div class="col-md-4 col-sm-6 col-xs-12 mb-1">
                         <div class="p-1 department-card">
-                            <i class="fa fa-cubes fa-2x"></i>
+                            <i class="fa fa-building fa-2x" aria-hidden="true"></i>
                             <h5>{{ (isset($infobox->department)?$infobox->department:0) }} {{ trans('app.department') }}s</h5>
                         </div>
                     </div>
@@ -22,7 +22,7 @@
                 <a href="{{route('counter')}}">
                     <div class="col-md-4 col-sm-6 col-xs-12 mb-1">
                         <div class="p-1 counter-card">
-                            <i class="fa fa-plus-square-o fa-2x"></i>
+                            <i class="fa fa-plus-square fa-2x"></i>
                             <h5>{{ (isset($infobox->counter)?$infobox->counter:0) }} {{ trans('app.counter') }}s</h5>
                         </div>
                     </div>
