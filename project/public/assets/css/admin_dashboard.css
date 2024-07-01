@@ -28,13 +28,13 @@
     background: #83c9ed
 }
 
-/* .department-card {
-    background: #59afe8;
-} */
-
 .department-card h5, .counter-card h5, .user-card h5, .total-token-card h5, .pending-token-card h5, .complete-token-card h5 {
     font-weight:600
 }
+
+/* .department-card {
+    background: #59afe8;
+} */
 
 /* .counter-card {
     background: #fceed4;
@@ -119,8 +119,9 @@ font-weight: 600;
 }
 
 
-.department-card-info h2, .counter-card-info h2 {
+.department-card-info h4, .counter-card-info h4 {
     font-family: var(--font-family);
+    font-weight:600
 }
 
 .dashboard_panel {
