@@ -92,7 +92,7 @@
                             @endif
                             <td class="department-td">
                                 <div class="btn-group">
-                                    <a href="{{ url("admin/department/edit/$row->id") }}" class="btn btn-success btn-sm me-3" data-toggle="tooltip"  title="Edit" ><i class="fa fa-edit"></i></a>
+                                    <a href="{{ url("admin/department/edit/$row->id") }}" class="btn btn-primary btn-sm me-3" data-toggle="tooltip"  title="Edit" ><i class="fa fa-edit"></i></a>
                                     <a href="{{ url("admin/department/delete/$row->id") }}" class="btn btn-danger btn-sm" onclick="return confirm('{{ trans("app.are_you_sure") }}')" data-toggle="tooltip"  title="Delete"><i class="fa fa-trash"></i></a>
                                 </div>
                             </td>
