@@ -334,7 +334,11 @@ div.dt-button-collection > .dropdown-menu>li>a:focus {
     color:rgb(56, 54, 54)
 }
 /* customize menu */
-#cm-menu li.cm-submenu ul {display:none;position:relative;}
+#cm-menu li.cm-submenu ul {
+    display:none;
+    position:relative;
+}
+
 #cm-menu li.open ul {display:block;}
 .cm-menu-toggled #cm-menu .cm-submenu ul{
     display: none;
@@ -343,6 +347,15 @@ div.dt-button-collection > .dropdown-menu>li>a:focus {
     border-left:3px solid #3498db;
     color: #333;
 }
+
+/* .cm-submenu a:hover, a.sf-lock:hover {
+    background: #83c9ed !important
+} */
+
+li.active {
+    background: #83c9ed !important
+}
+
 .cm-menu-toggled #cm-menu .cm-submenu ul li a{
     width: 8ch;
     overflow: hidden;
