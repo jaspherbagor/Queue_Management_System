@@ -25,17 +25,18 @@
     margin-bottom: 5px;
     color:black;
     box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;
+    background: #83c9ed
 }
 
-.department-card {
+/* .department-card {
     background: #59afe8;
-}
+} */
 
 .department-card h5, .counter-card h5, .user-card h5, .total-token-card h5, .pending-token-card h5, .complete-token-card h5 {
     font-weight:600
 }
 
-.counter-card {
+/* .counter-card {
     background: #fceed4;
 }
 
@@ -53,7 +54,7 @@
 
 .complete-token-card {
     background: #dcecd2;
-}
+} */
 
 .department-card:hover, .counter-card:hover, .user-card:hover, .total-token-card:hover, .pending-token-card:hover, .complete-token-card:hover {
     transform: scale(1.05) !important;
@@ -131,7 +132,7 @@ font-weight: 600;
 
 .dashboard_panel {
     background: rgb(238,238,238);
-    background: linear-gradient(90deg, rgba(238,238,238,1) 0%, rgba(241,241,241,1) 100%);
+    background: linear-gradient(90deg, rgb(214, 192, 192) 0%, rgb(129, 188, 209) 100%);
 }
 
 .dashboard-cards {
