@@ -69,7 +69,6 @@
                     <table class="department-table">
                         <tr class="department-tr">
                             <th class="department-th text-uppercase">Name</th>
-                            <!-- Anong ilagay kapalit sa description statustas yung action yung dalawang magkatabi sa dulo po ... okayy -->
                             <th class="department-th text-uppercase">Status</th>
                             <th class="department-th text-uppercase">Action</th>
                         </tr>
