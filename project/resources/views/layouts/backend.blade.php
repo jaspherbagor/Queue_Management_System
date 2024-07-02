@@ -142,9 +142,9 @@
                                     <li class="{{ (Request::is('admin/token/list') ? 'active' : '') }}">
                                         <a href="{{ url('admin/token/auto') }}">{{ trans('app.auto_token') }}</a>
                                     </li>
-                                    <!-- <li class="{{ (Request::is('admin/token/create') ? 'active' : '') }}">
+                                    {{-- <li class="{{ (Request::is('admin/token/create') ? 'active' : '') }}">
                                         <a href="{{ url('admin/token/create') }}">{{ trans('app.manual_token') }}</a>
-                                    </li> -->
+                                    </li> --}}
                                     <li class="{{ (Request::is('admin/token/current') ? 'active' : '') }}">
                                         <a href="{{ url('admin/token/current') }}">{{ trans('app.active') }} / {{ trans('app.todays_token') }} <i class="fa fa-dot-circle-o" style="color:#03d003"></i></a>
                                     </li>
@@ -260,14 +260,14 @@
                             <li class="cm-submenu {{ (Request::segment(2)=='setting' ? 'open' : '') }}">
                                 <a class="sf-cog">{{ trans('app.setting') }} <span class="caret"></span></a>
                                 <ul>
-                                    @if (auth()->user()->hasRole('admin'))
+                                    {{-- @if (auth()->user()->hasRole('admin'))
                                     <li class="{{ (Request::is('admin/setting') ? 'active' : '') }}">
                                         <a href="{{ url('admin/setting') }}">{{ trans('app.app_setting') }}</a>
                                     </li>
                                     <li class="{{ (Request::is('admin/setting/display') ? 'active' : '') }}">
                                         <a href="{{ url('admin/setting/display') }}">{{ trans('app.display_setting') }}</a>
                                     </li>
-                                    @endif
+                                    @endif --}}
 
                                     <li class="{{ (Request::is('common/setting/*') ? 'active' : '') }}">
                                         <a href="{{ url('common/setting/profile') }}">{{ trans('app.profile_information') }}</a>
