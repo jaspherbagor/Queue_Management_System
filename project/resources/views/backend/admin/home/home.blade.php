@@ -61,7 +61,7 @@
         <div class="row card-rows mt-1">
             <div class="col-md-6 mb-1">
                 <div class="card department-card-info">
-                    <h4 class="card-header text-center">DEPARTMENTS</h4>
+                    <h4 class="card-header">DEPARTMENTS</h4>
                     @php
                     $departments = App\Models\Department::all();
                     @endphp
@@ -103,7 +103,7 @@
             </div>
             <div class="col-md-6">
                 <div class="card counter-card-info p-1">
-                    <h4 class="card-header text-center fw-bold">COUNTERS</h4>
+                    <h4 class="card-header">COUNTERS</h4>
                     @php
                     $counters = App\Models\Counter::all();
                     @endphp

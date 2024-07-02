@@ -73,7 +73,7 @@
 
 .counter-td, .counter-th, .department-td, .department-th {
 border: 1.8px solid rgb(120, 116, 116);
-text-align: center;
+text-align: left;
 padding: 8px;
 font-weight: 600;
 }
