@@ -45,21 +45,21 @@
     <body class="cm-no-transition cm-1-navbar loader-process">
         @include('backend.common.info')
 
-        <!-- <div class="loader">
+        {{-- <div class="loader">
             <div>
+                <span>P</span>
                 <span>C</span>
-                <span>O</span>
-                <span>D</span>
+                <span>L</span>
+                <span>U</span>
+                <span></span>
+                <span>Q</span>
+                <span>U</span>
+                <span>E</span>
+                <span>U</span>
                 <span>E</span>
                 <span></span>
-                <span>K</span>
-                <span>E</span>
-                <span>R</span>
-                <span>N</span>
-                <span>E</span>
-                <span>L</span>
             </div>
-        </div> -->
+        </div> --}}
 
         <!-- Starts of Sidebar -->
         <div id="cm-menu">
