@@ -78,13 +78,10 @@ padding: 8px;
 font-weight: 600;
 }
 
-.counter-tr:nth-child(even) {
-    background-color: rgb(184, 182, 182);
+.counter-tr:nth-child(1), .department-tr:nth-child(1) {
+    background: #83c9ed
 }
 
-.department-tr:nth-child(even) {
-    background-color: rgb(184, 182, 182);
-}
 
 .counters-div {
     display: inline-block;
