@@ -86,7 +86,7 @@
    <div class="login-body-container">
     <div class="login-container">
         <div class="login-logo">
-            <img src="{{asset('public/assets/images/pclu-logo.jpg')}}" alt="">
+            <img src="{{asset('public/assets/images/logo.svg')}}" alt="">
         </div>
         <div class="text-center login-heading">
             <h2 class="text-center text-uppercase">{{ \Session::get('app.title') }}</h2>
