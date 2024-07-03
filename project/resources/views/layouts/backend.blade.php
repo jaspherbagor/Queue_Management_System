@@ -31,8 +31,9 @@
         <!-- bootstrap cdn -->
         <!-- <link rel="stylesheet" href="{{asset('public/assets/css/bootstrap.min.css')}}"> -->
         <!-- Admin Dashboard Styles -->
-         <link rel="stylesheet" href="{{asset('public/assets/css/admin_dashboard.css')}}">
-
+        <link rel="stylesheet" href="{{asset('public/assets/css/admin_dashboard.css')}}">
+        {{-- Forms Styles --}}
+        <link rel="stylesheet" href="{{ asset('public/assets/css/forms_styles.css') }}">
         <!-- Page styles -->
         @stack('styles')
 
