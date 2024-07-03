@@ -151,12 +151,12 @@
                                     <li class="{{ (Request::is('admin/token/report') ? 'active' : '') }}">
                                         <a href="{{ url('admin/token/report') }}">{{ trans('app.token_report') }}</a>
                                     </li>
-                                    <li class="{{ (Request::is('admin/token/performance') ? 'active' : '') }}">
+                                    <!-- <li class="{{ (Request::is('admin/token/performance') ? 'active' : '') }}">
                                         <a href="{{ url('admin/token/performance') }}">{{ trans('app.performance_report') }}</a>
-                                    </li>
-                                    <li class="bg-danger {{ (Request::is('admin/token/setting') ? 'active' : '') }}">
+                                    </li> -->
+                                    <!-- <li class="bg-danger {{ (Request::is('admin/token/setting') ? 'active' : '') }}">
                                         <a href="{{ url('admin/token/setting') }}">{{ trans('app.auto_token_setting') }}</a>
-                                    </li>
+                                    </li> -->
                                 </ul>
                             </li>
                             @endif
