@@ -89,7 +89,7 @@
             <img src="{{asset('public/assets/images/pclu-logo.jpg')}}" alt="">
         </div>
         <div class="text-center login-heading">
-            <h2 class="text-center text-primary text-uppercase">{{ \Session::get('app.title') }}</h2>
+            <h2 class="text-center text-uppercase">{{ \Session::get('app.title') }}</h2>
         </div>
         <div class="login-body">
                 @include('backend.common.info')
@@ -102,19 +102,19 @@
                     <div class="mb-4 form-group">
                        <div class="form-input-group">
                             <label for="email" class="form-label">Email</label>
-                            <input type="text" name="email" class="form-control" id="email" placeholder="{{ trans('app.email') }}"  value="{{ old('email') }}" autocomplete="off">
+                            <input type="text" name="email" class="form-control" id="email"  value="{{ old('email') }}" autocomplete="off">
                        </div>
                         <span class="text-danger">{{ $errors->first('email') }}</span>
                     </div>
                     <div class="mb-4 form-group">
                         <div class="form-input-group">
                             <label for="password" class="form-label">Password</label>
-                            <input type="password" name="password" id="password" class="form-control" placeholder="{{ trans('app.password') }}" value="{{ old('password') }}" autocomplete="off">
+                            <input type="password" name="password" id="password" class="form-control" value="{{ old('password') }}" autocomplete="off">
                         </div>
                         <span class="text-danger">{{ $errors->first('password') }}</span>
                     </div>
                     <div class="form-button">
-                        <button type="submit" class="btn btn-primary login-btn">{{ trans('app.signin')}}</button>
+                        <button type="submit" class="btn btn-primary login-btn">LOGIN</button>
                     </div>
                 </div>
                 {{ Form::close() }}
