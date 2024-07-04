@@ -126,14 +126,14 @@ Route::group(['middleware' => ['auth']], function() {
 		Route::post('counter/edit','CounterController@update');
 		Route::get('counter/delete/{id}','CounterController@delete');
 
-		# sms
-		Route::get('sms/new', 'SmsSettingController@form');
-		Route::post('sms/new', 'SmsSettingController@send');
-		Route::get('sms/list', 'SmsSettingController@show');
-		Route::post('sms/data', 'SmsSettingController@smsData');
-		Route::get('sms/delete/{id}', 'SmsSettingController@delete');
-		Route::get('sms/setting', 'SmsSettingController@setting');
-		Route::post('sms/setting', 'SmsSettingController@updateSetting');
+		// # sms
+		// Route::get('sms/new', 'SmsSettingController@form');
+		// Route::post('sms/new', 'SmsSettingController@send');
+		// Route::get('sms/list', 'SmsSettingController@show');
+		// Route::post('sms/data', 'SmsSettingController@smsData');
+		// Route::get('sms/delete/{id}', 'SmsSettingController@delete');
+		// Route::get('sms/setting', 'SmsSettingController@setting');
+		// Route::post('sms/setting', 'SmsSettingController@updateSetting');
 
 		# token
 		Route::get('token/setting','TokenController@tokenSettingView');
