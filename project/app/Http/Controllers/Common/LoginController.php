@@ -80,7 +80,7 @@ class LoginController extends Controller
     { 
         Session::flush();
         Auth::logout();        
-        return redirect('login')->with('message', trans('app.signout_successfully'));
+        return redirect()->route('login')->with('message', trans('app.signout_successfully'));
     }
 
     //prerequisite for login throttling
