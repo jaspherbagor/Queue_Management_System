@@ -65,18 +65,18 @@ Route::prefix('common')
 	# -----------------------------------------------------------
 	Route::middleware('auth')
 	    ->group(function() {
-		#message notification
-		Route::get('message/notify','NotificationController@message');
-		# message
-		Route::get('message','MessageController@show');
-		Route::post('message','MessageController@send');
-		Route::get('message/inbox','MessageController@inbox');
-		Route::post('message/inbox/data','MessageController@inboxData');
-		Route::get('message/sent','MessageController@sent');
-		Route::post('message/sent/data','MessageController@sentData');
-		Route::get('message/details/{id}/{type}','MessageController@details');
-		Route::get('message/delete/{id}/{type}','MessageController@delete');
-		Route::post('message/attachment','MessageController@UploadFiles');
+		// #message notification
+		// Route::get('message/notify','NotificationController@message');
+		// # message
+		// Route::get('message','MessageController@show');
+		// Route::post('message','MessageController@send');
+		// Route::get('message/inbox','MessageController@inbox');
+		// Route::post('message/inbox/data','MessageController@inboxData');
+		// Route::get('message/sent','MessageController@sent');
+		// Route::post('message/sent/data','MessageController@sentData');
+		// Route::get('message/details/{id}/{type}','MessageController@details');
+		// Route::get('message/delete/{id}/{type}','MessageController@delete');
+		// Route::post('message/attachment','MessageController@UploadFiles');
 
 		# profile
 		Route::get('setting/profile','ProfileController@profile');
