@@ -19,7 +19,7 @@ use Illuminate\Support\Facades\Route;
 # -----------------------------------------------------------
 # login
 // Route::get('/', 'Common\LoginController@login');
-Route::get('login', 'Common\LoginController@login')->name('login');
+Route::get('/', 'Common\LoginController@login')->name('login');
 Route::post('login', 'Common\LoginController@checkLogin');
 Route::get('logout', 'Common\LoginController@logout')->name('logout');
 # login - {provider: google}
@@ -222,4 +222,4 @@ Route::group(['middleware' => ['auth']], function() {
 	});
 });
 
-Route::get('/', [HomeController::class, 'index'])->name('front_page');
+// Route::get('/', [HomeController::class, 'index'])->name('front_page');
