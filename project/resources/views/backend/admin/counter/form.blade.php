@@ -18,13 +18,13 @@
      
             <div class="form-group @error('name') has-error @enderror">
                 <label for="name">{{ trans('app.name') }} <i class="text-danger">*</i></label>
-                <input type="text" name="name" id="name" class="form-control" placeholder="{{ trans('app.name') }}" value="{{ old('name') }}">
+                <input type="text" name="name" id="name" class="form-control" value="{{ old('name') }}">
                 <span class="text-danger">{{ $errors->first('name') }}</span>
             </div>
 
             <div class="form-group @error('description') has-error @enderror">
                 <label for="description">{{ trans('app.description') }} </label> 
-                <textarea name="description" id="description" class="form-control" placeholder="{{ trans('app.description') }}">{{ old('description') }}</textarea>
+                <textarea name="description" id="description" class="form-control">{{ old('description') }}</textarea>
                 <span class="text-danger">{{ $errors->first('description') }}</span>
             </div>
 
