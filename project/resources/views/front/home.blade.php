@@ -1,6 +1,6 @@
 {{-- @extends('layouts.backend')  --}}
 @section('title', trans('app.auto_token'))
-
+{{-- This is a comment --}}
 {{-- @section('content') --}}
 <div class="panel panel-primary" id="toggleScreenArea">
     <h2>Hi??????</h2>
