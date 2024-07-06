@@ -2,6 +2,7 @@
 @section('title', trans('app.auto_token'))
 {{-- This is a comment --}}
 {{-- @section('content') --}}
+{{-- Another comment --}}
 <div class="panel panel-primary" id="toggleScreenArea">
     <h2>Hi??????</h2>
     <h4>This is a test h4 tag</h4>
