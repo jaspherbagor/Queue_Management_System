@@ -220,10 +220,9 @@
                                     <!-- <li class="{{ (session()->get('app.display')==1 ? 'active' : '') }}">
                                         <a href="{{ url('common/display?type=1') }}" target="_blank">{{ trans('app.display_1') }}</a>
                                     </li> -->
-                                    <!-- <li class="{{ (session()->get('app.display')==2 ? 'active' : '') }}">
+                                    <li class="{{ (session()->get('app.display')==2 ? 'active' : '') }}">
                                         <a href="{{ url('common/display?type=2') }}" target="_blank">{{ trans('app.display_2') }}</a>
-                                    </li> -->
-                                    <li class="{{ (session()->get('app.display')==3 ? 'active' : '') }}">
+                                    </li>                                    <li class="{{ (session()->get('app.display')==3 ? 'active' : '') }}">
                                         <a href="{{ url('common/display?type=3') }}" target="_blank">{{ trans('app.display_3') }}</a>
                                     </li>
                                     <li class="{{ (session()->get('app.display')==4 ? 'active' : '') }}">
