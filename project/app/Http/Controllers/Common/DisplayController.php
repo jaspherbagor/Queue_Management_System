@@ -537,6 +537,7 @@ class DisplayController extends Controller
 
     public function display3b(Request $request) {
         //this is an upcoming controller for the second display of the queue
+        //this will be modified and figured out
     }
 
 
