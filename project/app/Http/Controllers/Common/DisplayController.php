@@ -533,7 +533,11 @@ class DisplayController extends Controller
         $data['interval'] = 10000 * (count($newTokens) ? count($newTokens) : 1);
 
         return Response::json($data);
-    } 
+    }
+
+    public function display3b(Request $request) {
+        //this is an upcoming controller for the second display of the queue
+    }
 
 
     public function display4(Request $request)
