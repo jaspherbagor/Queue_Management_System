@@ -47,10 +47,11 @@ label {
     justify-content: center;
 }
 
-/* .add-counter-form {
-    border: 2px solid red
-} */
-
 .panel-heading h3 {
     text-transform: capitalize;
+}
+
+.select-input {
+    border:none !important;
+    border-bottom: 2px solid black !important;
 }

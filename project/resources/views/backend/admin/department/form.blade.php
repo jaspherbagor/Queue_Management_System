@@ -28,7 +28,7 @@
 
                 <div class="form-group @error('key') has-error @enderror">
                     <label for="key">Keyboard Mode: </label><br/>
-                    {{ Form::select('key', $keyList, null, ['placeholder' => trans('app.select_option'), 'class'=>'select2 form-control', 'style'=>'border: none !important; border-bottom: 2px solid !important;']) }}<br/>
+                    {{ Form::select('key', $keyList, null, ['placeholder' => 'Select an option: ', 'class'=>'select2 form-control select-input']) }}<br/>
                     <span class="text-danger">{{ $errors->first('key') }}</span>
                 </div>
 
