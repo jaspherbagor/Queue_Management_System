@@ -14,3 +14,43 @@ textarea#description {
 label {
     font-size: 16px;
 }
+
+.reset-btn {
+    margin-right: 10px;
+    background: #f2aa84;
+}
+
+.reset-btn:hover {
+    background: #ec8f5d;
+    color:black
+}
+
+.save-btn {
+    background: #c1e5f5;
+}
+
+.save-btn:hover {
+    background: #8cd5f5;
+    color:black
+}
+
+.reset-btn, .save-btn {
+    border-radius:10px;
+    border: 1.5px solid black;
+    text-transform: lowercase;
+    color:black
+}
+
+.form-container {
+    display:flex;
+    align-items:center;
+    justify-content: center;
+}
+
+/* .add-counter-form {
+    border: 2px solid red
+} */
+
+.panel-heading h3 {
+    text-transform: capitalize;
+}
