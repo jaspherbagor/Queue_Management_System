@@ -16,19 +16,19 @@
         {{ Form::open(['url' => 'admin/department/create', 'class'=>'col-md-7 col-sm-8']) }}
 
             <div class="form-group @error('name') has-error @enderror">
-                <label for="name">{{ trans('app.name') }} <i class="text-danger">*</i></label>
+                <label for="name">Name:</label>
                 <input type="text" name="name" id="name" class="form-control" placeholder="Enter department name:" value="{{ old('name') }}">
                 <span class="text-danger">{{ $errors->first('name') }}</span>
             </div>
 
             <div class="form-group @error('description') has-error @enderror">
-                <label for="description">{{ trans('app.description') }} </label>
+                <label for="description">Description: </label>
                 <textarea name="description" id="description" placeholder="Enter department description:" class="form-control">{{ old('description') }}</textarea>
                 <span class="text-danger">{{ $errors->first('description') }}</span>
             </div>
 
             <div class="form-group @error('key') has-error @enderror">
-                <label for="key">{{ trans('app.key_for_keyboard_mode') }} <i class="text-danger">*</i></label><br/>
+                <label for="key">Keyboard Mode: </label><br/>
                 {{ Form::select('key', $keyList, null, ['placeholder' => trans('app.select_option'), 'class'=>'select2 form-control']) }}<br/>
                 <span class="text-danger">{{ $errors->first('key') }}</span>
             </div>
