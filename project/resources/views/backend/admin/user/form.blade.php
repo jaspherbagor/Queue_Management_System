@@ -17,31 +17,31 @@
 
             <div class="form-group @error('firstname') has-error @enderror">
                 <label for="firstname">{{ trans('app.firstname') }} <i class="text-danger">*</i></label>
-                <input type="text" name="firstname" id="firstname" class="form-control" value="{{ old('firstname') }}"> 
+                <input type="text" name="firstname" id="firstname" placeholder="Enter your firstname" class="form-control" value="{{ old('firstname') }}"> 
                 <span class="text-danger">{{ $errors->first('firstname') }}</span>
             </div>
 
             <div class="form-group @error('lastname') has-error @enderror">
                 <label for="lastname">{{ trans('app.lastname') }}  <i class="text-danger">*</i></label> 
-                <input type="text" name="lastname" id="lastname" class="form-control" value="{{ old('lastname') }}">
+                <input type="text" name="lastname" id="lastname" placeholder="Enter your lastname" class="form-control" value="{{ old('lastname') }}">
                 <span class="text-danger">{{ $errors->first('lastname') }}</span>
             </div>
 
             <div class="form-group @error('email') has-error @enderror">
                 <label for="email">{{ trans('app.email') }}  <i class="text-danger">*</i></label> 
-                <input type="text" name="email" id="email" class="form-control" value="{{ old('email') }}">
+                <input type="text" name="email" id="email" placeholder="Enter your email" class="form-control" value="{{ old('email') }}">
                 <span class="text-danger">{{ $errors->first('email') }}</span>
             </div>
 
             <div class="form-group @error('password') has-error @enderror">
                 <label for="password">{{ trans('app.password') }}  <i class="text-danger">*</i></label> 
-                <input type="password" name="password" id="password" class="form-control" value="{{ old('password') }}">
+                <input type="password" name="password" id="password" placeholder="Enter your password" class="form-control" value="{{ old('password') }}">
                 <span class="text-danger">{{ $errors->first('password') }}</span>
             </div>
 
             <div class="form-group @error('conf_password') has-error @enderror">
                 <label for="conf_password">{{ trans('app.conf_password') }}  <i class="text-danger">*</i></label> 
-                <input type="password" name="conf_password" id="conf_password" class="form-control" value="{{ old('conf_password') }}">
+                <input type="password" name="conf_password" placeholder="Enter your confirm password" id="conf_password" class="form-control" value="{{ old('conf_password') }}">
                 <span class="text-danger">{{ $errors->first('conf_password') }}</span>
             </div>
 
@@ -59,7 +59,7 @@
 
             <div class="form-group @error('mobile') has-error @enderror">
                 <label for="mobile">{{ trans('app.mobile') }} <i class="text-danger">*</i></label> 
-                <input type="text" name="mobile" id="mobile" class="form-control" value="{{ old('mobile') }}">
+                <input type="text" name="mobile" id="mobile" placeholder="Enter your mobile number" class="form-control" value="{{ old('mobile') }}">
                 <span class="text-danger">{{ $errors->first('mobile') }}</span>
             </div>
 
@@ -86,8 +86,8 @@
 
                 <div class="col-sm-4">
                     <div class="form-group">
-                        <button class="button btn btn-info" type="reset"><span>{{ trans('app.reset') }}</span></button>
-                        <button class="button btn btn-success" type="submit"><span>{{ trans('app.save') }}</span></button>
+                        <button class="button btn btn-info reset-btn" type="reset"><span>{{ trans('app.reset') }}</span></button>
+                        <button class="button btn btn-success save-btn" type="submit"><span>{{ trans('app.save') }}</span></button>
                     </div>
                 </div>
             </div>
