@@ -1,14 +1,7 @@
 /* Font Family */
-/* @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap'); */
-/* @import url('https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap'); */
-/* @import url('https://fonts.googleapis.com/css2?family=Source+Code+Pro:ital,wght@0,200..900;1,200..900&display=swap'); */
 @import url('https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&display=swap');
 
-
 :root {
-    /* --font-family: "Montserrat", sans-serif !important; */
-    /* --font-family: "Nunito", sans-serif !important; */
-    /* --font-family: "Source Code Pro", monospace !important; */
     --font-family: "Manrope", sans-serif !important;
 }
 
@@ -20,21 +13,20 @@
 /* Dashboard Card */
 .department-card, .counter-card, .user-card, .total-token-card, .pending-token-card, .complete-token-card {
     border-radius: 10px;
-    background: #000;
     padding: 15px !important;
     margin-bottom: 5px;
     color:black;
     box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;
-    background: #83c9ed
+    /* background: #83c9ed */
 }
 
 .department-card h5, .counter-card h5, .user-card h5, .total-token-card h5, .pending-token-card h5, .complete-token-card h5 {
     font-weight:600
 }
 
-/* .department-card {
-    background: #59afe8;
-} */
+.department-card {
+    background: #008080;
+}
 
 /* .counter-card {
     background: #fceed4;
@@ -129,7 +121,7 @@ font-weight: 600;
 
 .dashboard_panel {
     background: rgb(238,238,238);
-    background: linear-gradient(90deg, rgb(231, 222, 222) 0%, rgb(244, 247, 248) 100%);
+    background: linear-gradient(90deg, rgb(222, 230, 231) 0%, rgb(244, 247, 248) 100%);
 }
 
 .dashboard-card-container {
