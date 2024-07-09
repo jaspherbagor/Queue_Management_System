@@ -150,18 +150,18 @@
             select    : true,
             pagingType: "full_numbers",
             lengthMenu: [[25, 50, 100, 150, 200, 500, -1], [25, 50, 100, 150, 200, 500, "All"]],
-            dom: "<'row'<'col-sm-4'l><'col-sm-4 text-center'B><'col-sm-4'f>><'row'<'col-sm-12't>><'row'<'col-sm-6'i><'col-sm-6'p>>",
-            columnDefs: [
-                { "orderable": false, "targets": [1, 2, 5, 7] }
-            ],
-            buttons: [
-                { extend:'copy', text:'<i class="fa fa-copy"></i>', className:'btn-sm',exportOptions:{columns:':visible'}},
-                { extend: 'print', text  :'<i class="fa fa-print"></i>', className:'btn-sm', exportOptions: { columns: ':visible',  modifier: { selected: null } }},
-                { extend: 'print',className:'btn-sm', text:'<i class="fa fa-print"></i>  Selected',exportOptions:{columns: ':visible'}},
-                { extend:'excel',  text:'<i class="fa fa-file-excel-o"></i>', className:'btn-sm',exportOptions:{columns:':visible'}},
-                { extend:'pdf',  text:'<i class="fa fa-file-pdf-o"></i>',  className:'btn-sm',exportOptions:{columns:':visible'}},
-                { extend:'colvis', text:'<i class="fa fa-eye"></i>',className:'btn-sm'}
-            ]
+            // dom: "<'row'<'col-sm-4'l><'col-sm-4 text-center'B><'col-sm-4'f>><'row'<'col-sm-12't>><'row'<'col-sm-6'i><'col-sm-6'p>>",
+            // columnDefs: [
+            //     { "orderable": false, "targets": [1, 2, 5, 7] }
+            // ],
+            // buttons: [
+            //     { extend:'copy', text:'<i class="fa fa-copy"></i>', className:'btn-sm',exportOptions:{columns:':visible'}},
+            //     { extend: 'print', text  :'<i class="fa fa-print"></i>', className:'btn-sm', exportOptions: { columns: ':visible',  modifier: { selected: null } }},
+            //     { extend: 'print',className:'btn-sm', text:'<i class="fa fa-print"></i>  Selected',exportOptions:{columns: ':visible'}},
+            //     { extend:'excel',  text:'<i class="fa fa-file-excel-o"></i>', className:'btn-sm',exportOptions:{columns:':visible'}},
+            //     { extend:'pdf',  text:'<i class="fa fa-file-pdf-o"></i>',  className:'btn-sm',exportOptions:{columns:':visible'}},
+            //     { extend:'colvis', text:'<i class="fa fa-eye"></i>',className:'btn-sm'}
+            // ]
         });
     }
 })();
