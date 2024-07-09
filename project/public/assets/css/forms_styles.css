@@ -55,3 +55,21 @@ label {
     border:none !important;
     border-bottom: 2px solid black !important;
 }
+
+.form-heading {
+    margin-top: 20px !important;
+}
+
+.panel-body, .panel-heading {
+    border:none !important
+}
+
+.panel-heading {
+    border-radius: 10px 10px 0 0 !important;
+    /* border: 2px solid red !important */
+}
+.panel-container {
+    border-radius: 10px !important;
+    /* border: 2px solid red !important */
+    box-shadow: rgba(17, 17, 26, 0.1) 0px 4px 16px, rgba(17, 17, 26, 0.1) 0px 8px 24px, rgba(17, 17, 26, 0.1) 0px 16px 56px !important;
+}

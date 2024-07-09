@@ -2,11 +2,11 @@
 @section('title', trans('app.add_department'))
 
 @section('content')
-<div class="panel panel-primary" id="printMe">
+<div class="panel panel-primary panel-container" id="printMe">
     <div class="panel-heading">
         <div class="row">
             <div class="col-sm-12 text-center">
-                <h3>{{ trans('app.add_department') }}</h3>
+                <h3 class="form-heading">{{ trans('app.add_department') }}</h3>
             </div>
         </div>
     </div>
