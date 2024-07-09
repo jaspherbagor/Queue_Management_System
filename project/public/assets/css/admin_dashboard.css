@@ -28,25 +28,25 @@
     background: #008080;
 }
 
-/* .counter-card {
-    background: #fceed4;
+.counter-card {
+    background: #60B0C0;
 }
 
 .user-card {
-    background: #fcede8;
+    background: #C0DFFF;
 }
 
 .total-token-card {
-    background: #dcecd2;
+    background: #9999FF;
 }
 
 .pending-token-card{
-    background: #bd8a83;
+    background: #5252d0;
 }
 
 .complete-token-card {
-    background: #dcecd2;
-} */
+    background: #008080;
+}
 
 .department-card:hover, .counter-card:hover, .user-card:hover, .total-token-card:hover, .pending-token-card:hover, .complete-token-card:hover {
     transform: scale(1.05) !important;
