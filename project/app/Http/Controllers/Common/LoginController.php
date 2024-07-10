@@ -45,7 +45,7 @@ class LoginController extends Controller
         //start login throttoling
         if ($this->hasTooManyLoginAttempts($request)) {
             $this->fireLockoutEvent($request);
-            return redirect('login')->with('exception', trans('app.to_many_login_attempts'));
+            return redirect()->route('login')->with('exception', trans('app.to_many_login_attempts'));
         }
         $this->incrementLoginAttempts($request);
         //end login throttoling

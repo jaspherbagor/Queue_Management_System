@@ -18,7 +18,7 @@ use Illuminate\Support\Facades\Route;
 # LOGIN
 # -----------------------------------------------------------
 # login
-// Route::get('/', 'Common\LoginController@login');
+Route::get('/', 'Common\LoginController@login');
 Route::get('/', 'Common\LoginController@login')->name('login');
 Route::post('login', 'Common\LoginController@checkLogin');
 Route::get('logout', 'Common\LoginController@logout')->name('logout');
