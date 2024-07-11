@@ -1,16 +1,50 @@
+/* Font Family */
+@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&display=swap');
+
+:root {
+    --font-family: "Manrope", sans-serif !important;
+}
+
+* {
+    font-family: var(--font-family);
+}
+
 .content-container {
-    min-height: 100vh
+    min-height: 100vh;
+    background: url('../../images/login-bg.svg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
 }
 
 .content {
     width: 400px;
     border-radius: 10px;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    backdrop-filter: blur(20px);
+}
+
+input {
+    background: rgba(62, 157, 236, 0.3) !important;
+    border: 1.5px solid black !important
 }
 
 .logo img {
     height: 120px
 }
 
-label {
-    font-size: 16px;
+.submit-btn, .back-to-login-btn {
+    border: 1.5px solid black;
+    background: rgb(40, 177, 245);
+    color: white
+}
+
+.submit-btn:hover, .back-to-login-btn:hover {
+    border: 1.5px solid black;
+    background: rgb(18, 157, 226);
+    color:white
+}
+
+.heading h2 {
+    letter-spacing: 2px;
 }

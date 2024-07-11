@@ -10,13 +10,13 @@
     <link rel="stylesheet" href="{{ asset('public/assets/authentication_assets/css/styles.css') }}">
 </head>
 <body>
-    <div class="container-fluid d-flex align-items-center justify-content-center bg-danger content-container">
-        <div class="container bg-info py-4 px-3 content">
+    <div class="container-fluid d-flex align-items-center justify-content-center content-container">
+        <div class="container py-4 px-3 content">
             <div class="logo d-flex align-items-center justify-content-center mb-2">
                 <img src="{{asset('public/assets/images/logo.svg')}}" alt="">
             </div>
             <div class="heading text-center mb-4">
-                <h2>@yield('heading')</h2>
+                <h2 class="fw-bolder">@yield('heading')</h2>
             </div>
             
             @if(Session::has('success'))
@@ -26,7 +26,7 @@
             @if(Session::has('error'))
             <div class="alert alert-danger">{{ Session::get('error') }}</div>
             @endif
-            
+
             @yield('main_content')
         </div>
     </div>
