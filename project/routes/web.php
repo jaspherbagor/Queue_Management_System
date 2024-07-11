@@ -225,3 +225,5 @@ Route::group(['middleware' => ['auth']], function() {
 
 // Authentication Routes
 Route::get('/forgot-password', [AuthenticationController::class, 'forgot_password'])->name('forgot_password');
+
+Route::get('/reset-password', [AuthenticationController::class, 'reset_password'])->name('reset_password');

@@ -34,13 +34,27 @@ input {
 }
 
 .submit-btn, .back-to-login-btn {
-    border: 1.5px solid black;
+    /* border: 1.5px solid black; */
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
     background: rgb(40, 177, 245);
     color: white
 }
 
+.reset-password-btn {
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    background: rgb(40, 177, 245);
+    color: white
+}
+
+.reset-password-btn:hover {
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    background: rgb(10, 138, 203);
+    color: white;
+}
+
 .submit-btn:hover, .back-to-login-btn:hover {
-    border: 1.5px solid black;
+    /* border: 1.5px solid black; */
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
     background: rgb(18, 157, 226);
     color:white
 }

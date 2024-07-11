@@ -13,7 +13,7 @@
 }
 
 .login-heading {
-    font-weight:800;
+    font-weight:800 !important;
     font-family: var(--font-family);
     margin-bottom: 10px !important;
 }
@@ -63,7 +63,7 @@ label {
 }
 
 .login-logo img {
-    height: 150px
+    height: 120px
 }
 
 .forgot-password-link {
