@@ -171,7 +171,7 @@ Route::group(['middleware' => ['auth']], function() {
 	    ->middleware('roles:officer')
 	    ->group(function() {
 		# home
-		Route::get('/', 'HomeController@home');
+		Route::get('/', 'HomeController@home')->name('officer_home');
 		# user
 		Route::get('user/view/{id}', 'UserController@view');
 
@@ -193,7 +193,7 @@ Route::group(['middleware' => ['auth']], function() {
 	    ->middleware('roles:receptionist')
 	    ->group(function() {
 		# home
-		Route::get('/','TokenController@tokenAutoView');
+		Route::get('/','TokenController@tokenAutoView')->name('receptionist_home');
 
 		# token
 		Route::get('token/auto','TokenController@tokenAutoView');

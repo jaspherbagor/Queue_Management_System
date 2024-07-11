@@ -18,6 +18,24 @@ class LoginController extends Controller
     
     public function login()
     {  
+        if (\Auth::check()) {
+            // Get the authenticated user
+            $user = \Auth::user();
+            
+            // Redirect to the user's specific dashboard
+            // Assuming you have different routes for different dashboards
+            // You can customize this part based on your route structure
+            if ($user->user_type === 5) {
+                return redirect()->route('admin_home');
+            } elseif ($user->user_type === 2) {
+                return redirect()->route('receptionist_home');
+            }elseif ($user->user_type === 1) {
+                return redirect()->route('officer_home');
+            } else {
+                return redirect()->route('login');
+            }
+        }
+
         $app = Setting::first(); 
         $customDisplays = DisplayCustom::where('status', 1)->orderBy('name', 'ASC')->pluck('name', 'id');
         if (!empty($customDisplays))
