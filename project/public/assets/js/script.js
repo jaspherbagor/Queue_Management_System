@@ -1,11 +1,11 @@
 (function($) {
 
-    // enable FastClick 
-    FastClick.attach(document.body); 
-    
-    // select 2 dropdown  
-    var $customSelects = $('select'); 
-    $customSelects.select2({ 
+    // enable FastClick
+    FastClick.attach(document.body);
+
+    // select 2 dropdown
+    var $customSelects = $('select');
+    $customSelects.select2({
         templateResult: function(result, container) {
             if (!result.id) {
                 return result.text;
@@ -28,22 +28,22 @@
         changeYear: true
     });
 
-    //datatable 
-    $('.datatable').DataTable({ 
-        responsive: true,  
+    //datatable
+    $('.datatable').DataTable({
+        responsive: true,
         select    : true,
         pagingType: "full_numbers",
         lengthMenu: [[25, 50, 100, 150, 200, 500, -1], [25, 50, 100, 150, 200, 500, "All"]],
-        // dom: "<'row'<'col-sm-4'l><'col-sm-4 text-center'B><'col-sm-4'f>><'row'<'col-sm-12't>><'row'<'col-sm-6'i><'col-sm-6'p>>", 
+        // dom: "<'row'<'col-sm-4'l><'col-sm-4 text-center'B><'col-sm-4'f>><'row'<'col-sm-12't>><'row'<'col-sm-6'i><'col-sm-6'p>>",
         // buttons: [
         //     { extend:'copy', footer:true, text:'<i class="fa fa-copy"></i>', className:'btn-sm',exportOptions:{columns:':visible'}},
-        //     { extend: 'print', footer:true, text:'<i class="fa fa-print"></i>', className:'btn-sm', exportOptions: { columns: ':visible',  modifier: { selected: null } }},  
-        //     { extend: 'print', footer:true, text:'<i class="fa fa-print"></i>  Selected', className:'btn-sm', exportOptions:{columns: ':visible'}},  
+        //     { extend: 'print', footer:true, text:'<i class="fa fa-print"></i>', className:'btn-sm', exportOptions: { columns: ':visible',  modifier: { selected: null } }},
+        //     { extend: 'print', footer:true, text:'<i class="fa fa-print"></i>  Selected', className:'btn-sm', exportOptions:{columns: ':visible'}},
         //     { extend:'excel',  footer:true, text:'<i class="fa fa-file-excel-o"></i>', className:'btn-sm',exportOptions:{columns:':visible'}},
         //     { extend:'pdf',  footer:true, text:'<i class="fa fa-file-pdf-o"></i>',  className:'btn-sm',exportOptions:{columns:':visible'}},
-        //     { extend:'colvis', footer:true, text:'<i class="fa fa-eye"></i>',className:'btn-sm'} 
+        //     { extend:'colvis', footer:true, text:'<i class="fa fa-eye"></i>',className:'btn-sm'}
         // ]
-    }); 
+    });
 
     //back to top
     $('body').append('<div id="toTop" class="btn back-top"><span class="fa fa-arrow-up"></span></div>');
@@ -59,10 +59,10 @@
         $("html, body").animate({scrollTop: 0}, 600);
         return false;
     });
-    
+
 }(jQuery));
 
- 
+
 //preloader
 $(window).load(function() {
     $(".loader").fadeOut("slow");
@@ -72,10 +72,10 @@ $(window).load(function() {
 //print a div
 function printThis(content = "", reload = false) {
 
-    if (content.length < 64 && $('#' + content).length > 0) { 
+    if (content.length < 64 && $('#' + content).length > 0) {
         // if element length less than 64 characters and is a ID
         content = $('head').html() + $('#' + content).clone().html();
-    }  
+    }
 
     try {
         var ua = navigator.userAgent;
@@ -89,23 +89,23 @@ function printThis(content = "", reload = false) {
             .contents().find('body')
             .append(content);
 
-            setTimeout(() => { 
+            setTimeout(() => {
                 window.frames['myiframe'].focus();
                 window.frames['myiframe'].print();
                 $('iframe.printFrame').remove();
             }, 200);
 
-        } else if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini|Mobile|mobile|CriOS/i.test(ua)) {     
-           
+        } else if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini|Mobile|mobile|CriOS/i.test(ua)) {
+
             var win = window.open('about:blank', 'Token' + (new Date()).getTime());
-            win.document.write(content); 
+            win.document.write(content);
 
             setTimeout(function () {
                 win.document.close();
                 win.focus();
                 win.print();
-                win.close(); 
-            }, 200);   
+                win.close();
+            }, 200);
 
         } else {
 
@@ -129,5 +129,5 @@ function printThis(content = "", reload = false) {
         history.go(0);
     }
 }
- 
+
 
