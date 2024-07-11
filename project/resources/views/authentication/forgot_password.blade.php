@@ -1,1 +1,6 @@
-<h1>This is a forgot password page...</h1>
+@extends('authentication.layout.app')
+@section('heading', 'Forgot Password')
+
+@section('main_content')
+
+@endsection
