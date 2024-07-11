@@ -174,7 +174,7 @@
 
 
 <!-- Custom Display -->
-<div class="panel panel-primary"> 
+{{-- <div class="panel panel-primary"> 
     <div class="panel-heading"> 
         <ul class="row list-inline m-0">
             <li class="col-xs-10 p-0 text-left">
@@ -229,7 +229,7 @@
             </tbody>
         </table> 
     </div>
-</div>
+</div> --}}
 
 <!-- Modal -->
 <div class="modal fade customDisplayModal" tabindex="-1" role="dialog" aria-labelledby="customDisplayModalLabel">
