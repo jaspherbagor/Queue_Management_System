@@ -2,10 +2,10 @@
 @section('heading', 'RESET PASSWORD')
 
 @section('main_content')
-<form action="" method="">
+<form action="{{ route('reset_password_submit') }}" method="post">
     @csrf
     <input type="hidden" value="{{ $email }}" name="email">
-    <input type="hidden" value="{{ $verification_token }}" name="verification_token">
+    <input type="hidden" value="{{ $token }}" name="token">
     <div class="mb-3">
         <label for="password" class="form-label fw-semibold">Password</label>
         <input type="password" class="form-control" name="password">

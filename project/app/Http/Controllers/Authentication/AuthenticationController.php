@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Mail\WebsiteMail;
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Mail;
 
 class AuthenticationController extends Controller
@@ -33,7 +34,7 @@ class AuthenticationController extends Controller
             $subject = 'PCLU Queue Management System - Reset Password';
             
             // Create the email message content with the password reset link
-            $message = '<p>Dear'.$user->firstname.',</p>';
+            $message = '<p>Dear '.$user->firstname.',</p>';
             $message .= '<p>We received a request to reset your password for the PCLU Queue Management System account associated with this email address. If you did not request a password reset, please ignore this email.</p>';
             $message .= '<p>To reset your password, please click on the following link or copy and paste it into your browser:</p>';
             $message .= '<a href="' . $reset_link . '">Click here</a>';
@@ -51,7 +52,7 @@ class AuthenticationController extends Controller
     }
 
     public function reset_password($token, $email) {
-        $user_data = User::where('token', $token)->where('email', $email)->first();
+        $user_data = User::where('verification_token', $token)->where('email', $email)->first();
 
         if($user_data) {
             return view('authentication.reset_password', compact('token', 'email'));
@@ -59,5 +60,25 @@ class AuthenticationController extends Controller
             return redirect()->route('login')->with('error', 'Something went wrong. Please try again!');
         }
     }
-    
+
+    public function reset_password_submit(Request $request)
+    {
+        $request->validate([
+            'password' => 'required',
+            'confirm_password' => 'required|same:password'
+        ]);
+
+        $user_data = User::where('verification_token', $request->token)->where('email', $request->email)->first();
+
+        if($user_data) {
+            $user_data->password = Hash::make($request->password);
+            $user_data->verification_token = '';
+            $user_data->update();
+
+            return redirect()->route('login')->with('success', 'Password has been successfully reset!');
+        } else {
+            return redirect()->route('login')->with('error', 'Something went wrong. Please try again!');
+        }
+    }
+
 }
