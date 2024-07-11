@@ -91,6 +91,9 @@
         <div class="text-center login-heading">
             <h2 class="text-center text-uppercase">{{ \Session::get('app.title') }}</h2>
         </div>
+        @if(Session::has('success'))
+        <div class="alert alert-success">{{ Session::get('success') }}</div>
+        @endif
         <div class="login-body">
                 @include('backend.common.info')
                 <!-- Starts of Message -->
