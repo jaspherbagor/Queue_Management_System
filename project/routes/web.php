@@ -228,4 +228,4 @@ Route::get('/forgot-password', [AuthenticationController::class, 'forgot_passwor
 
 Route::post('/forgot-password-submit', [AuthenticationController::class, 'forgot_password_submit'])->name('forgot_password_submit');
 
-Route::get('/reset-password', [AuthenticationController::class, 'reset_password'])->name('reset_password');
+Route::get('/reset-password/{token}/{email}', [AuthenticationController::class, 'reset_password'])->name('reset_password');

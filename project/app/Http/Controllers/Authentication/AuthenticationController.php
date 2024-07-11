@@ -14,10 +14,6 @@ class AuthenticationController extends Controller
         return view('authentication.forgot_password');
     }
 
-    public function reset_password() {
-        return view('authentication.reset_password');
-    }
-
     public function forgot_password_submit(Request $request)
     {
         $request->validate([
@@ -53,4 +49,15 @@ class AuthenticationController extends Controller
             return redirect()->back()->with('error', 'No record found!');
         }
     }
+
+    public function reset_password($token, $email) {
+        $user_data = User::where('token', $token)->where('email', $email)->first();
+
+        if($user_data) {
+            return view('authentication.reset_password', compact('token', 'email'));
+        } else {
+            return redirect()->route('login')->with('error', 'Something went wrong. Please try again!');
+        }
+    }
+    
 }
