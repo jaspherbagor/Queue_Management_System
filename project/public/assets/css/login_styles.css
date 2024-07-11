@@ -19,7 +19,7 @@
 }
 
 .login-container {
-    width: 450px;
+    width: 400px;
     backdrop-filter: blur(25px);
     padding: 25px;
     border-radius: 10px;
@@ -29,8 +29,9 @@
 .form-input-group > input[type=text], .form-input-group > input[type=password] {
     border-radius: 10px;
     padding: 20px 10px 20px 10px;
-    border: 1.5px solid rgb(42, 41, 41);
+    border: 2px solid rgb(42, 41, 41);
     font-size: 16px;
+    background: rgba(62, 157, 236, 0.3)
 }
 
 label {
