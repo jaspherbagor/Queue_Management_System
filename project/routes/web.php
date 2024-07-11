@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Authentication\AuthenticationController;
 use App\Http\Controllers\Front\HomeController;
 use Illuminate\Support\Facades\Route;
 
@@ -222,4 +223,5 @@ Route::group(['middleware' => ['auth']], function() {
 	});
 });
 
-// Route::get('/', [HomeController::class, 'index'])->name('front_page');
+// Authentication Routes
+Route::get('/forgot-password', [AuthenticationController::class, 'forgot_password'])->name('forgot_password');

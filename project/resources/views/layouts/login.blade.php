@@ -113,6 +113,9 @@
                         </div>
                         <span class="text-danger">{{ $errors->first('password') }}</span>
                     </div>
+                    <div>
+                        <p><a href="{{ route('forgot_password') }}">Forgot password? Limtanon man gud ka!</a></p>
+                    </div>
                     <div class="form-button">
                         <button type="submit" class="btn btn-primary login-btn">LOGIN</button>
                     </div>
