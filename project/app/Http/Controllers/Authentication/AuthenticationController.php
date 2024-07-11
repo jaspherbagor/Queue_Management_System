@@ -14,4 +14,9 @@ class AuthenticationController extends Controller
     public function reset_password() {
         return view('authentication.reset_password');
     }
+
+    public function forgot_password_submit(Request $request)
+    {
+        dd($request);
+    }
 }
