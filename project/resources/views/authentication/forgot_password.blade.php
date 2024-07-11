@@ -2,7 +2,8 @@
 @section('heading', 'FORGOT PASSWORD')
 
 @section('main_content')
-<form action="" method="">
+<form action="{{ route('forgot_password_submit') }}" method="post">
+    @csrf
     <div class="mb-3">
         <label for="email" class="form-label fw-semibold">Email address</label>
         <input type="email" class="form-control" name="email">
