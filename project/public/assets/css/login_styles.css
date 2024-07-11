@@ -65,3 +65,7 @@ label {
 .login-logo img {
     height: 150px
 }
+
+.forgot-password-link {
+    font-size: 16px;
+}
