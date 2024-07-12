@@ -47,11 +47,6 @@ Route::get('clean', function () {
 Route::prefix('common')
     ->namespace('Common')
     ->group(function() {
-	// # switch language
-	// Route::get('language/{locale?}', 'LanguageController@index');
-
-	// # cron job
-	// Route::get('jobs/sms', 'CronjobController@sms');
 
 	# display
 	Route::get('display','DisplayController@display');
