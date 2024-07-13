@@ -228,7 +228,8 @@
                                     </li>
                                     {{-- <li class="{{ (session()->get('app.display')==4 ? 'active' : '') }}">
                                         <a href="{{ url('common/display?type=4') }}" target="_blank">{{ trans('app.display_4') }}</a>
-                                    </li>                                     <!-- <li class="{{ (session()->get('app.display')==5 ? 'active' : '') }}"> --}}
+                                    </li>                                      --}}
+                                    <!-- <li class="{{ (session()->get('app.display')==5 ? 'active' : '') }}">
                                         <a href="{{ url('common/display?type=5') }}" target="_blank">{{ trans('app.display_5') }}</a>
                                     </li> -->
 
