@@ -652,7 +652,8 @@ class DisplayController extends Controller
                             if ($key == 'token') {
                                 $html .=  "<h1 class=\"title\">$item</h1>";
                             } elseif ($key == 'department') {
-                                $html .=  "<strong>".trans("app.department")."</strong>: <span>$item</span><br>";
+                                // $html .=  "<strong>".trans("app.department")."</strong>: <span>$item</span><br>";
+                                $html .=  "<strong>".$item."</strong><br>";
                             }
                         endforeach;
                         $html .=  "</div>";
