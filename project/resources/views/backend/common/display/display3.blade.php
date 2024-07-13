@@ -25,7 +25,7 @@
       </div>
 
         <div class="row">  
-           <div id="display3"></div>
+          <div id="display3"></div>
         </div>
 
 
