@@ -3,7 +3,7 @@
 
 
 @section('content')
-<div class="panel panel-primary">
+<div class="panel panel-primary panel-containerpanel-container">
     <div class="panel-heading">
         <ul class="row list-inline m-0">
             <li class="col-xs-10 p-0 text-left">

@@ -2,7 +2,7 @@
 @section('title', trans('app.app_setting'))
 
 @section('content')
-<div class="panel panel-primary" id="printMe">
+<div class="panel panel-primary panel-container" id="printMe">
 
     <div class="panel-heading">
         <div class="row">

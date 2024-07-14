@@ -2,7 +2,7 @@
 @section('title', trans('app.counter_list'))
 
 @section('content')
-<div class="panel panel-primary">
+<div class="panel panel-primary panel-container">
 
     <div class="panel-heading">
         <ul class="row list-inline m-0">
