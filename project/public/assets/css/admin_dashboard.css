@@ -158,5 +158,5 @@ font-weight: 600;
 .department-card:hover .card-qty, .counter-card:hover .card-qty, .user-card:hover .card-qty, .total-token-card:hover .card-qty, .pending-token-card:hover .card-qty, .complete-token-card:hover .card-qty {
     transform: scale(1.3) !important;
     /* color: white !important; */
-    font-weight: 800;
+    /* font-weight: 800; */
 }

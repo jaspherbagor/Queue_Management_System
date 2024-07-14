@@ -46,13 +46,13 @@
                 <div class="col-md-4 col-sm-6 col-xs-12 mb-1">
                     <div class="p-1 pending-token-card">
                         <i class="fa fa-clock-o fa-2x card_icon"></i>
-                        <h5><span class="card-qty">{{ (isset($infobox->token->pending)?$infobox->token->pending:0) }} {{ trans('app.pending') }} {{ trans('app.token') }}</span></h5>
+                        <h5><span class="card-qty">{{ (isset($infobox->token->pending)?$infobox->token->pending:0) }} {{ trans('app.pending') }} {{ trans('app.token') }}s</span></h5>
                     </div>
                 </div>
                 <div class="col-md-4 col-sm-6 col-xs-12 mb-1">
                     <div class="p-1 complete-token-card">
                         <i class="fa fa-check-circle-o fa-2x card_icon"></i>
-                        <h5><span class="card-qty">{{ (isset($infobox->token->complete)?$infobox->token->complete:0) }} {{ trans('app.complete') }} {{ trans('app.token') }}</span></h5>
+                        <h5><span class="card-qty">{{ (isset($infobox->token->complete)?$infobox->token->complete:0) }} {{ trans('app.complete') }} {{ trans('app.token') }}s</span></h5>
                     </div>
                 </div>
             </div>
