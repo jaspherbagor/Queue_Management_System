@@ -17,37 +17,42 @@
     margin-bottom: 5px;
     color:black;
     box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;
-    /* background: #83c9ed */
+    background: #00B4D8
 }
 
 .department-card h5, .counter-card h5, .user-card h5, .total-token-card h5, .pending-token-card h5, .complete-token-card h5 {
     font-weight:600
 }
 
-.department-card {
-    /* background: #008080; */
-    background: #D6E48F;
-}
+/* .department-card { */
+    /* background: #D6E48F; */
+    /* background: #0096C7; */
+/* } */
 
-.counter-card {
-    background: #60B0C0;
-}
+/* .counter-card { */
+    /* background: #60B0C0; */
+    /* background: #00B4D8; */
+/* } */
 
-.user-card {
-    background: #FF9A00;
-}
+/* .user-card { */
+    /* background: #FF9A00; */
+    /* background: #48CAE4; */
+/* } */
 
-.total-token-card {
-    background: #78C1F3;
-}
+/* .total-token-card { */
+    /* background: #78C1F3; */
+    /* background: #90E0EF; */
+/* } */
 
-.pending-token-card{
-    background: #FF0000;
-}
+/* .pending-token-card{ */
+    /* background: #FF0000; */
+    /* background: #CAF0F8; */
+/* } */
 
-.complete-token-card {
-    background: #06D001;
-}
+/* .complete-token-card { */
+    /* background: #06D001; */
+    /* background: #ADE8F4; */
+/* } */
 
 .department-card:hover, .counter-card:hover, .user-card:hover, .total-token-card:hover, .pending-token-card:hover, .complete-token-card:hover {
     transform: scale(1.05) !important;
@@ -143,4 +148,15 @@ font-weight: 600;
     background: rgb(238,238,238);
     background: linear-gradient(90deg, rgb(203, 225, 237) 0%, rgb(166, 203, 227) 100%);
     box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
+}
+
+.department-card:hover .card_icon, .counter-card:hover .card_icon, .user-card:hover .card_icon, .total-token-card:hover .card_icon, .pending-token-card:hover .card_icon, .complete-token-card:hover .card_icon {
+    transform: scale(1.3) !important;
+    /* color: white !important */
+}
+
+.department-card:hover .card-qty, .counter-card:hover .card-qty, .user-card:hover .card-qty, .total-token-card:hover .card-qty, .pending-token-card:hover .card-qty, .complete-token-card:hover .card-qty {
+    transform: scale(1.3) !important;
+    /* color: white !important; */
+    font-weight: 800;
 }
