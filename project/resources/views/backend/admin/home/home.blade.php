@@ -70,7 +70,6 @@
                         <tr class="department-tr">
                             <th class="department-th text-uppercase">Name</th>
                             <th class="department-th text-uppercase">Status</th>
-                            {{-- <th class="department-th text-uppercase">Action</th> --}}
                         </tr>
 
                         @foreach($departments as $row)
@@ -89,12 +88,7 @@
                                 <button class="btn btn-dark">Unknown</button>
                             </td>
                             @endif
-                            {{-- <td class="department-td text-center">
-                                <div class="btn-group text-center">
-                                    <a href="{{ url("admin/department/edit/$row->id") }}" class="btn-edit btn-sm me-3" data-toggle="tooltip"  title="Edit" ><i class="fa fa-pencil"></i></a>
-                                    <a href="{{ url("admin/department/delete/$row->id") }}" class="btn-delete btn-sm" onclick="return confirm('{{ trans("app.are_you_sure") }}')" data-toggle="tooltip"  title="Delete"><i class="fa fa-trash"></i></a>
-                                </div>
-                            </td> --}}
+                            
                         </tr>
                         @endforeach
 
