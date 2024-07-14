@@ -89,7 +89,7 @@
                 <input type="hidden" name="old_logo" value="{{ $setting->logo }}">
                 <input type="file" name="logo" id="logo">
                 <span class="text-danger">{{ $errors->first('logo') }}</span>
-                <span class="help-block">Diamension: (250x50)px</span>
+                <span class="help-block">Dimension: (250x50)px</span>
             </div>
 
 
