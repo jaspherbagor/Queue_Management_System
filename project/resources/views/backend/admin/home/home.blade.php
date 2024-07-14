@@ -4,7 +4,7 @@
 @section('content')
 <div class="panel panel-primary dashboard_panel panel-container">
     <div class="panel-heading">
-        <h3 class="text-left dashboard-heading">DASHBOARD</h3>
+        <h3 class="text-left">DASHBOARD</h3>
     </div>
 
     <div class="panel-body">
@@ -70,7 +70,7 @@
                         <tr class="department-tr">
                             <th class="department-th text-uppercase">Name</th>
                             <th class="department-th text-uppercase">Status</th>
-                            <th class="department-th text-uppercase">Action</th>
+                            {{-- <th class="department-th text-uppercase">Action</th> --}}
                         </tr>
 
                         @foreach($departments as $row)
@@ -89,12 +89,12 @@
                                 <button class="btn btn-dark">Unknown</button>
                             </td>
                             @endif
-                            <td class="department-td text-center">
+                            {{-- <td class="department-td text-center">
                                 <div class="btn-group text-center">
                                     <a href="{{ url("admin/department/edit/$row->id") }}" class="btn-edit btn-sm me-3" data-toggle="tooltip"  title="Edit" ><i class="fa fa-pencil"></i></a>
                                     <a href="{{ url("admin/department/delete/$row->id") }}" class="btn-delete btn-sm" onclick="return confirm('{{ trans("app.are_you_sure") }}')" data-toggle="tooltip"  title="Delete"><i class="fa fa-trash"></i></a>
                                 </div>
-                            </td>
+                            </td> --}}
                         </tr>
                         @endforeach
 

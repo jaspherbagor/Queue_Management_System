@@ -26,9 +26,9 @@
                         <th>#</th>
                         <th>{{ trans('app.name') }}</th>
                         <th>{{ trans('app.description') }}</th>
-                        <th>{{ trans('app.key_for_keyboard_mode') }}</th>
-                        <th>{{ trans('app.created_at') }}</th>
-                        <th>{{ trans('app.updated_at') }}</th>
+                        <th>Hot Keys</th>
+                        <th>Date Created</th>
+                        {{-- <th>{{ trans('app.updated_at') }}</th> --}}
                         <th>{{ trans('app.status') }}</th>
                         <th width="80"><i class="fa fa-cogs"></i></th>
                     </tr>
@@ -44,12 +44,12 @@
                                 <td>{{ $department->description }}</td>
                                 <td>{{ $department->key }}</td>
                                 <td>{{ (!empty($department->created_at)?date('j M Y h:i a',strtotime($department->created_at)):null) }}</td>
-                                <td>{{ (!empty($department->updated_at)?date('j M Y h:i a',strtotime($department->updated_at)):null) }}</td>
-                                <td>{!! (($department->status==1)?"<span class='label label-success'>". trans('app.active') ."</span>":"<span class='label label-dander'>". trans('app.deactive') ."</span>") !!}</td>
+                                {{-- <td>{{ (!empty($department->updated_at)?date('j M Y h:i a',strtotime($department->updated_at)):null) }}</td> --}}
+                                <td>{!! (($department->status==1)?"<span class='label label-success btn-active'>". trans('app.active') ."</span>":"<span class='label label-dander'>". trans('app.deactive') ."</span>") !!}</td>
                                 <td>
                                     <div class="btn-group">
-                                        <a href="{{ url("admin/department/edit/$department->id") }}" class="btn btn-success btn-sm me-3" data-toggle="tooltip"  title="Edit" ><i class="fa fa-edit"></i></a>
-                                        <a href="{{ url("admin/department/delete/$department->id") }}" class="btn btn-danger btn-sm" onclick="return confirm('{{ trans("app.are_you_sure") }}')" data-toggle="tooltip"  title="Delete"><i class="fa fa-trash"></i></a>
+                                        <a href="{{ url("admin/department/edit/$department->id") }}" class="btn btn-edit btn-sm me-3" data-toggle="tooltip"  title="Edit" ><i class="fa fa-edit"></i></a>
+                                        <a href="{{ url("admin/department/delete/$department->id") }}" class="btn btn-delete btn-sm" onclick="return confirm('{{ trans("app.are_you_sure") }}')" data-toggle="tooltip"  title="Delete"><i class="fa fa-trash"></i></a>
                                     </div>
                                 </td>
                             </tr>

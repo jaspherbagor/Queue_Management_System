@@ -25,8 +25,8 @@
                         <th>#</th>
                         <th>{{ trans('app.counter') }}</th>
                         <th>{{ trans('app.description') }}</th>
-                        <th>{{ trans('app.created_at') }}</th>
-                        <th>{{ trans('app.updated_at') }}</th>
+                        <th>Date Created</th>
+                        {{-- <th>{{ trans('app.updated_at') }}</th> --}}
                         <th>{{ trans('app.status') }}</th>
                         <th width="80"><i class="fa fa-cogs"></i></th>
                     </tr>
@@ -41,12 +41,12 @@
                                 <td>{{ $counter->name }}</td>
                                 <td>{{ $counter->description }}</td>
                                 <td>{{ (!empty($counter->created_at)?date('j M Y h:i a',strtotime($counter->created_at)):null) }}</td>
-                                <td>{{ (!empty($counter->updated_at)?date('j M Y h:i a',strtotime($counter->updated_at)):null) }}</td>
-                                <td>{!! (($counter->status==1)?"<span class='label label-success'>". trans('app.active') ."</span>":"<span class='label label-dander'>". trans('app.deactive') ."</span>") !!}</td>
+                                {{-- <td>{{ (!empty($counter->updated_at)?date('j M Y h:i a',strtotime($counter->updated_at)):null) }}</td> --}}
+                                <td>{!! (($counter->status==1)?"<span class='label label-success btn-active'>". trans('app.active') ."</span>":"<span class='label label-dander'>". trans('app.deactive') ."</span>") !!}</td>
                                 <td>
                                     <div class="btn-group">
-                                        <a href="{{ url("admin/counter/edit/$counter->id") }}" class="btn btn-success btn-sm" data-toggle="tooltip"  title="Edit"><i class="fa fa-edit"></i></a>
-                                        <a href="{{ url("admin/counter/delete/$counter->id") }}" class="btn btn-danger btn-sm" onclick="return confirm('{{ trans("app.are_you_sure") }}')" data-toggle="tooltip"  title="Delete"><i class="fa fa-trash"></i></a>
+                                        <a href="{{ url("admin/counter/edit/$counter->id") }}" class="btn btn-edit btn-sm" data-toggle="tooltip"  title="Edit"><i class="fa fa-edit"></i></a>
+                                        <a href="{{ url("admin/counter/delete/$counter->id") }}" class="btn btn-delete btn-sm" onclick="return confirm('{{ trans("app.are_you_sure") }}')" data-toggle="tooltip"  title="Delete"><i class="fa fa-trash"></i></a>
                                     </div>
                                 </td>
                             </tr>
