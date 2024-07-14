@@ -12,7 +12,7 @@
 
 /* Dashboard Card */
 .department-card, .counter-card, .user-card, .total-token-card, .pending-token-card, .complete-token-card {
-    border-radius: 10px;
+    border-radius: 10px 2px 10px 2px;
     padding: 15px !important;
     margin-bottom: 5px;
     color:black;
@@ -98,7 +98,7 @@ font-weight: 600;
 .department-card-info, .counter-card-info {
     margin-top: 20px;
     margin-bottom: 20px;
-    border-radius: 10px;
+    border-radius: 10px 2px 10px 2px;
     font-weight: 600 !important;
     padding: 15px !important;
     box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(131, 201, 237, 0.15) 0px 2px 6px 2px;
@@ -159,4 +159,54 @@ font-weight: 600;
     transform: scale(1.3) !important;
     /* color: white !important; */
     /* font-weight: 800; */
+}
+
+.btn-delete {
+    background: transparent;
+    color:rgb(202, 11, 11);
+    outline:none;
+    border:none;
+    font-size: 16px;
+    padding:0;
+    margin:0
+}
+
+.btn-edit {
+    background: transparent;
+    color:#0ba2ed;
+    outline:none;
+    border:none;
+    font-size: 16px;
+    padding:0;
+    margin-right:10px
+}
+
+.btn-delete:hover {
+    background: transparent;
+    color:rgb(202, 11, 11);
+    outline:none;
+    border:none;
+    font-size: 16px;
+    transform:scale(1.05);
+    padding:0;
+}
+
+.btn-edit:hover {
+    background: transparent;
+    color:#0ba2ed;
+    outline:none;
+    border:none;
+    font-size: 16px;
+    transform:scale(1.05);
+    padding:0;
+}
+
+.btn-active {
+    border-radius: 15px;
+    border: 2px solid #03d003
+}
+
+.btn-inactive {
+    border-radius: 15px;
+    border: 2px solid #d00303
 }

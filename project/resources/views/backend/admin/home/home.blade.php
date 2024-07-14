@@ -78,21 +78,21 @@
                             <td class="department-td mr-1 text-uppercase">{{$row->name}}</td>
                             @if($row->status === 1)
                             <td class="department-td text-center">
-                                <button class="btn btn-success">Active</button>
+                                <button class="btn btn-active"><i class="fa fa-dot-circle-o" style="color:#03d003"></i> Active</button>
                             </td>
                             @elseif($row->status === 0)
                             <td class="department-td">
-                                <button class="btn btn-danger">Inactive</button>
+                                <button class="btn btn-inactive"><i class="fa fa-dot-circle-o" style="color:#d00303"></i> Inactive</button>
                             </td>
                             @else
                             <td class="department-td">
                                 <button class="btn btn-dark">Unknown</button>
                             </td>
                             @endif
-                            <td class="department-td">
-                                <div class="btn-group">
-                                    <a href="{{ url("admin/department/edit/$row->id") }}" class="btn btn-primary btn-sm me-3" data-toggle="tooltip"  title="Edit" ><i class="fa fa-edit"></i></a>
-                                    <a href="{{ url("admin/department/delete/$row->id") }}" class="btn btn-danger btn-sm" onclick="return confirm('{{ trans("app.are_you_sure") }}')" data-toggle="tooltip"  title="Delete"><i class="fa fa-trash"></i></a>
+                            <td class="department-td text-center">
+                                <div class="btn-group text-center">
+                                    <a href="{{ url("admin/department/edit/$row->id") }}" class="btn-edit btn-sm me-3" data-toggle="tooltip"  title="Edit" ><i class="fa fa-pencil"></i></a>
+                                    <a href="{{ url("admin/department/delete/$row->id") }}" class="btn-delete btn-sm" onclick="return confirm('{{ trans("app.are_you_sure") }}')" data-toggle="tooltip"  title="Delete"><i class="fa fa-trash"></i></a>
                                 </div>
                             </td>
                         </tr>
@@ -120,11 +120,11 @@
                             <td class="counter-td mr-1 text-uppercase fw-bold">{{$row->description}}</td>
                             @if($row->status === 1)
                             <td class="counter-td text-center">
-                                <button class="btn btn-success">Active</button>
+                                <button class="btn btn-active"><i class="fa fa-dot-circle-o" style="color:#03d003"></i> Active</button>
                             </td>
                             @elseif($row->status === 0)
                             <td class="counter-td">
-                                <button class="btn btn-danger">Inactive</button>
+                                <button class="btn btn-inactive"><i class="fa fa-dot-circle-o" style="color:#d00303"></i> Inactive</button>
                             </td>
                             @else
                             <td class="counter-td">
