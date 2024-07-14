@@ -88,8 +88,8 @@
 
                 <div class="col-sm-4">
                     <div class="form-group">
-                        <button class="button btn btn-info" type="reset"><span>{{ trans('app.reset') }}</span></button>
-                        <button class="button btn btn-success" type="submit"><span>{{ trans('app.update') }}</span></button> 
+                        <button class="button btn btn-info reset-btn" type="reset"><span>{{ trans('app.reset') }}</span></button>
+                        <button class="button btn btn-success save-btn" type="submit"><span>{{ trans('app.update') }}</span></button> 
                     </div>
                 </div>
             </div>

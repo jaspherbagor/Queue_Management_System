@@ -22,7 +22,7 @@ label {
 }
 
 .reset-btn:hover {
-    background: #ec8f5d;
+    background: #0279a1;
     color:black
 }
 
@@ -31,7 +31,7 @@ label {
 }
 
 .save-btn:hover {
-    background: #8cd5f5;
+    background: #94dceb;
     color:black
 }
 
@@ -40,6 +40,11 @@ label {
     border: 1.5px solid black;
     text-transform: lowercase;
     color:black
+}
+
+.reset-btn:hover, .save-btn:hover {
+    border: 1.5px solid black;
+    /* background: transparent; */
 }
 
 
