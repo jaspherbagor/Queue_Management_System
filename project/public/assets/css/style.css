@@ -181,7 +181,7 @@ div.dt-button-collection > .dropdown-menu>li>a:focus {
     padding: 7px 9px;
     height: 34px;
     width: 34px;
-    border-radius: 0% !important;
+    border-radius: 10px 5px 10px 5px !important;
     color: #fff;
 }
 .back-top:hover {

@@ -62,7 +62,7 @@
 .dashboard-heading {
     font-family: var(--font-family) !important;
     font-weight: 800 !important;
-    
+
 }
 
 
@@ -216,4 +216,9 @@ font-weight: 600;
 .card-header {
     color: #34b4eb;
     font-weight: 800 !important;
+}
+
+/* Footer */
+.footer_year {
+    border-radius: 8px 2px 8px 2px
 }
