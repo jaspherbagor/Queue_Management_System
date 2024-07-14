@@ -2,7 +2,7 @@
 @section('title', trans('profile_information'))
 
 @section('content')
-<div class="panel panel-primary">
+<div class="panel panel-primary panel-container">
 
     <div class="panel-heading">
         <div class="row">

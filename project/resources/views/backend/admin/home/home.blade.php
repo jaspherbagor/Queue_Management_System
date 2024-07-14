@@ -4,7 +4,7 @@
 @section('content')
 <div class="panel panel-primary dashboard_panel panel-container">
     <div class="panel-heading">
-        <h3 class="text-left dashboard-heading">{{ trans('app.dashboard') }}</h3>
+        <h3 class="text-left dashboard-heading">DASHBOARD</h3>
     </div>
 
     <div class="panel-body">

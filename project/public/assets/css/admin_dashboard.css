@@ -61,6 +61,8 @@
 
 .dashboard-heading {
     font-family: var(--font-family) !important;
+    font-weight: 800 !important;
+    
 }
 
 
@@ -70,14 +72,14 @@
 }
 
 .counter-td, .counter-th, .department-td, .department-th {
-border: 1.8px solid rgb(120, 116, 116);
+border: 1px solid rgb(120, 116, 116);
 text-align: left;
 padding: 8px;
 font-weight: 600;
 }
 
 .counter-tr:nth-child(1), .department-tr:nth-child(1) {
-    background: #83c9ed
+    background: #34b4eb
 }
 
 
@@ -98,7 +100,7 @@ font-weight: 600;
 .department-card-info, .counter-card-info {
     margin-top: 20px;
     margin-bottom: 20px;
-    border-radius: 10px 2px 10px 2px;
+    border-radius: 15px 2px 15px 2px;
     font-weight: 600 !important;
     padding: 15px !important;
     box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(131, 201, 237, 0.15) 0px 2px 6px 2px;
@@ -145,8 +147,8 @@ font-weight: 600;
 }
 
 .cm-flex {
-    background: rgb(238,238,238);
-    background: linear-gradient(90deg, rgb(203, 225, 237) 0%, rgb(166, 203, 227) 100%);
+    background: #34b4eb;
+    /* background: linear-gradient(90deg, rgb(203, 225, 237) 0%, rgb(166, 203, 227) 100%); */
     box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
 }
 
@@ -202,11 +204,16 @@ font-weight: 600;
 }
 
 .btn-active {
-    border-radius: 15px;
+    border-radius: 15px 2px 15px 2px;
     border: 2px solid #03d003
 }
 
 .btn-inactive {
-    border-radius: 15px;
+    border-radius: 15px 2px 15px 2px;
     border: 2px solid #d00303
+}
+
+.card-header {
+    color: #34b4eb;
+    font-weight: 800 !important;
 }
