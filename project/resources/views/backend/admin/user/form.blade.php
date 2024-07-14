@@ -6,7 +6,7 @@
 
     <div class="panel-heading">
         <div class="row">
-            <div class="col-sm-12 text-center">
+            <div class="col-sm-12 text-start">
                 <h3 class="form-heading">{{ trans('app.add_user') }}</h3>
             </div> 
         </div>

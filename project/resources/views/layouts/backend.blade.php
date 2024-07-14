@@ -67,7 +67,7 @@
             <nav class="cm-navbar cm-navbar-primary">
                 <div class="cm-flex">
                     <a href="javascript:void(0)" class="cm-logo">
-                        <img src="{{ asset('public/assets/img/icons/logo.jpg') }}" width="212" height="50">
+                        <img src="{{ asset('public/assets/images/pclu_banner.svg') }}" width="212" height="50">
                     </a>
                 </div>
                 <div class="btn btn-primary md-menu-white" data-toggle="cm-menu"></div>

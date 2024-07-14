@@ -15,9 +15,10 @@ label {
     font-size: 16px;
 }
 
+
 .reset-btn {
     margin-right: 10px;
-    background: #f2aa84;
+    background: #0096C7;
 }
 
 .reset-btn:hover {
@@ -26,7 +27,7 @@ label {
 }
 
 .save-btn {
-    background: #c1e5f5;
+    background: #CAF0F8;
 }
 
 .save-btn:hover {
@@ -41,14 +42,16 @@ label {
     color:black
 }
 
+
 .form-container {
     display:flex;
     align-items:center;
-    justify-content: center;
+    justify-content: start;
 }
 
 .panel-heading h3 {
     text-transform: capitalize;
+    text-align: start !important;
 }
 
 .select-input {
@@ -56,9 +59,9 @@ label {
     border-bottom: 2px solid black !important;
 }
 
-.form-heading {
+/* .form-heading {
     margin-top: 20px !important;
-}
+} */
 
 .panel-body, .panel-heading {
     border:none !important
@@ -72,4 +75,8 @@ label {
     border-radius: 10px !important;
     /* border: 2px solid red !important */
     box-shadow: rgba(17, 17, 26, 0.1) 0px 4px 16px, rgba(17, 17, 26, 0.1) 0px 8px 24px, rgba(17, 17, 26, 0.1) 0px 16px 56px !important;
+}
+
+input[type=search] {
+    border-radius: 10px !important
 }
