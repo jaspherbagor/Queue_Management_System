@@ -10,7 +10,7 @@
                 <h3>{{ trans('app.user_list') }}</h3>
             </li>
             <li class="col-xs-2 p-0 text-right">
-                <button type="button" class="btn btn-warning btn-sm" data-toggle="modal" data-target="#infoModal">
+                <button type="button" class="btn btn-warning info-button btn-sm" data-toggle="modal" data-target="#infoModal">
                   <i class="fa fa-info-circle"></i>
                 </button>
             </li>
@@ -88,8 +88,8 @@
         <h4 class="modal-title" id="infoModalLabel">{{ trans('app.note') }}</h4>
       </div>
       <div class="modal-body">
-            <p><strong class="label label-warning"> Note 1 </strong> &nbsp;If you delete a User then, the related tokens are not calling on the Display screen. Because the token is dependent on User ID</p>
-            <p><strong class="label label-warning"> Note 2 </strong> &nbsp;If you want to change a User name you must rename the User instead of deleting it.
+            <p><strong class="label label-warning info-button"> Note 1 </strong> &nbsp;If you delete a User then, the related tokens are not calling on the Display screen. Because the token is dependent on User ID</p>
+            <p><strong class="label label-warning info-button"> Note 2 </strong> &nbsp;If you want to change a User name you must rename the User instead of deleting it.
             </p>
       </div>
       <div class="modal-footer">

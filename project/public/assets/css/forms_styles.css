@@ -85,3 +85,17 @@ label {
 input[type=search] {
     border-radius: 10px !important
 }
+
+.info-button {
+    border-radius: 50px !important;
+    background: #48CAE4 !important;
+    border:none !important
+}
+
+.modal-content {
+    border-radius: 10px !important;
+}
+
+.modal-footer button {
+    border-radius: 10px;
+}

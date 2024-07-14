@@ -15,7 +15,7 @@
                     <div class="col-md-4 col-sm-6 col-xs-12 mb-1">
                         <div class="p-1 department-card">
                             <i class="fa fa-building fa-2x card_icon" aria-hidden="true"></i>
-                            <h5><span class="card-qty">{{ (isset($infobox->department)?$infobox->department:0) }} {{ trans('app.department') }}s</span> </h5>
+                            <h5><span class="card-qty">{{ (isset($infobox->department)?$infobox->department:0) }} Departments</span> </h5>
                         </div>
                     </div>
                 </a>
@@ -23,7 +23,7 @@
                     <div class="col-md-4 col-sm-6 col-xs-12 mb-1">
                         <div class="p-1 counter-card">
                             <i class="fa fa-plus-square fa-2x card_icon"></i>
-                            <h5><span class="card-qty">{{ (isset($infobox->counter)?$infobox->counter:0) }} {{ trans('app.counter') }}s</span></h5>
+                            <h5><span class="card-qty">{{ (isset($infobox->counter)?$infobox->counter:0) }} Counters</span></h5>
                         </div>
                     </div>
                 </a>
@@ -31,7 +31,7 @@
                     <div class="col-md-4 col-sm-6 col-xs-12 mb-1">
                         <div class="p-1 user-card">
                             <i class="fa fa-users fa-2x card_icon"></i>
-                            <h5><span class="card-qty">{{ (isset($infobox->user)?$infobox->user:0) }} {{ trans('app.users') }}</span></h5>
+                            <h5><span class="card-qty">{{ (isset($infobox->user)?$infobox->user:0) }} Users</span></h5>
                         </div>
                     </div>
                 </a>
@@ -39,20 +39,20 @@
                     <div class="col-md-4 col-sm-6 col-xs-12 mb-1">
                         <div class="p-1 total-token-card">
                             <i class="fa fa-ticket fa-2x card_icon"></i>
-                            <h5><span class="card-qty">{{ (isset($infobox->token->total)?$infobox->token->total:0) }} {{ trans('app.token') }}s</span></h5>
+                            <h5><span class="card-qty">{{ (isset($infobox->token->total)?$infobox->token->total:0) }} Queues Created</span></h5>
                         </div>
                     </div>
                 </a>
                 <div class="col-md-4 col-sm-6 col-xs-12 mb-1">
                     <div class="p-1 pending-token-card">
                         <i class="fa fa-clock-o fa-2x card_icon"></i>
-                        <h5><span class="card-qty">{{ (isset($infobox->token->pending)?$infobox->token->pending:0) }} {{ trans('app.pending') }} {{ trans('app.token') }}s</span></h5>
+                        <h5><span class="card-qty">{{ (isset($infobox->token->pending)?$infobox->token->pending:0) }} Waiting</span></h5>
                     </div>
                 </div>
                 <div class="col-md-4 col-sm-6 col-xs-12 mb-1">
                     <div class="p-1 complete-token-card">
                         <i class="fa fa-check-circle-o fa-2x card_icon"></i>
-                        <h5><span class="card-qty">{{ (isset($infobox->token->complete)?$infobox->token->complete:0) }} {{ trans('app.complete') }} {{ trans('app.token') }}s</span></h5>
+                        <h5><span class="card-qty">{{ (isset($infobox->token->complete)?$infobox->token->complete:0) }} Served</span></h5>
                     </div>
                 </div>
             </div>
