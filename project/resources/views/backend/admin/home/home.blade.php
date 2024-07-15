@@ -25,7 +25,8 @@
                 <a href="{{route('counter')}}">
                     <div class="col-md-4 col-sm-6 col-xs-12 mb-1">
                         <div class="p-1 counter-card">
-                            <i class="fa fa-plus-square fa-2x card_icon"></i>
+                            <img src="{{ asset('public/assets/img/sf/star.svg') }} " alt="" class="icon-img">
+                            {{-- <i class="fa fa-plus-square fa-2x card_icon"></i> --}}
                             <h5><span class="card-qty">{{ (isset($infobox->counter)?$infobox->counter:0) }} Counters</span></h5>
                         </div>
                     </div>
