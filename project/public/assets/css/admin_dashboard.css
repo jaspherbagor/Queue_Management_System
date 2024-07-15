@@ -225,5 +225,6 @@ font-weight: 600;
 }
 
 .icon-img {
-    transform: scale(1.5)
+    transform: scale(1.5);
+    padding: 4px 4px 0 0;
 }
