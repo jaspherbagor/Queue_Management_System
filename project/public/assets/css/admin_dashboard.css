@@ -223,3 +223,7 @@ font-weight: 600;
 .footer_year {
     border-radius: 8px 2px 8px 2px
 }
+
+.icon-img {
+    transform: scale(1.5)
+}
