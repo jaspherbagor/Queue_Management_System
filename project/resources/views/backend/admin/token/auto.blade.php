@@ -58,17 +58,17 @@
             @else
                 <!-- Without Mobile No -->
                 @foreach ($departmentList as $department )
-                  {{ Form::open(['url' => 'admin/token/auto', 'class' => 'AutoFrm p-1 m-1 btn btn-primary capitalize text-center']) }}
+                  {{ Form::open(['url' => 'admin/token/auto', 'class' => 'AutoFrm p-1 m-1 btn btn-primary capitalize text-center queue-card']) }}
                   <input type="hidden" name="department_id" value="{{ $department->department_id }}">
                   <input type="hidden" name="counter_id" value="{{ $department->counter_id }}">
                   <input type="hidden" name="user_id" value="{{ $department->user_id }}">
                   <button
                     type="submit"
-                    class="p-1 m-1 btn btn-primary capitalize text-center"
-                    style="min-width: 15vw;white-space: pre-wrap;box-shadow:0px 0px 0px 2px#<?= substr(dechex(crc32($department->name)), 0, 6); ?>"
+                    class="p-1 m-1 queue-card-button capitalize text-center"
+                    style="min-width: 15vw;white-space: pre-wrap"
                     >
                         <h5>{{ $department->name }}</h5>
-                        <h6>{{ $department->officer }}</h6>
+                        {{-- <h6>{{ $department->officer }}</h6> --}}
                 </button>
                   {{ Form::close() }}
                 @endforeach

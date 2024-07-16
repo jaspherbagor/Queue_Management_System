@@ -99,3 +99,24 @@ input[type=search] {
 .modal-footer button {
     border-radius: 10px;
 }
+
+/* Queue Styles */
+.queue-card {
+    border-radius: 10px !important;
+    background: #caf0f8 !important;
+    margin-right: 10px !important;
+    font-weight: 800 !important;
+    padding: 5px 10px 0 0 !important;
+}
+
+.queue-card:hover {
+    transform: scale(1.05);
+}
+
+.queue-card-button {
+    background: transparent;
+    color: black;
+    border: none;
+    text-transform: uppercase;
+    font-weight: 800 !important;
+}
