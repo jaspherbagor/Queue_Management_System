@@ -14,10 +14,7 @@
                 <a href="{{route('department')}}">
                     <div class="col-md-4 col-sm-6 col-xs-12 mb-1">
                         <div class="p-1 department-card">
-                            {{-- <div class="icon-img"> --}}
                                 <img src="{{ asset('public/assets/img/sf/building.svg') }} " alt="" class="icon-img">
-                            {{-- </div> --}}
-                            {{-- <i class="fa fa-building fa-2x card_icon" aria-hidden="true"></i> --}}
                             <h5><span class="card-qty">{{ (isset($infobox->department)?$infobox->department:0) }} Departments</span> </h5>
                         </div>
                     </div>
