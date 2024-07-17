@@ -52,7 +52,6 @@
                 <div class="col-md-4 col-sm-6 col-xs-12 mb-1">
                     <div class="p-1 complete-token-card">
                         <img src="{{ asset('public/assets/img/sf/sign-check.svg') }} " alt="" class="icon-img">
-                        {{-- <i class="fa fa-check-circle-o fa-2x card_icon"></i> --}}
                         <h5><span class="card-qty">{{ (isset($infobox->token->complete)?$infobox->token->complete:0) }} Served</span></h5>
                     </div>
                 </div>
