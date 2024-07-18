@@ -65,10 +65,9 @@
                         <input type="hidden" name="user_id" value="{{ $department->user_id }}">
                         <button
                             type="submit"
-                            class="btn btn-success capitalize text-center queue-card-button"
+                            class="btn btn-success queue-card-button capitalize text-center p-1 m-1" style="min-width: 15vw;white-space: pre-wrap"
                             >
-                                <h5 class="department_name">{{ $department->name }}</h5>
-                                {{-- <h6>{{ $department->officer }}</h6> --}}
+                                <h5>{{ $department->name }}</h5>
                         </button>
                   </div>
                   {{ Form::close() }}
@@ -76,7 +75,7 @@
                 <!--Ends of Without Mobile No -->
             @endif
             <br><br>
-            <h2>Note: Sa pag kuha ng number, kailangan niyo lamang po pumili sa pag pipilian at pindutin ito para makaroon kayo ng number. </h2>
+            <h5>Note: Sa pag kuha ng number, kailangan niyo lamang po pumili sa pag pipilian at pindutin ito para makaroon kayo ng number. </h5>
         </div>
     </div>
 </div>
