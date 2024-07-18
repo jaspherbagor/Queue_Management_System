@@ -302,7 +302,7 @@
                     content += "<h1>"+data.token.token_no+"</h1>";
                     content +="<ul>";
                     content += "<li><strong>{{ trans('app.department') }}:</strong> "+data.token.department+"</li>";
-                    content += "<li><strong>{{ trans('app.counter') }}:</strong> "+data.token.counter+"</li>";
+                    content += "<li><strong>Window:</strong> "+data.token.counter+"</li>";
                     content += "<li><strong>{{ trans('app.date') }}:</strong> "+formattedDate+"</li>";
                     content += "</ul>";
                     content += "</div>";
