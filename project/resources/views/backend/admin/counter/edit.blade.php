@@ -1,5 +1,5 @@
 @extends('layouts.backend')
-@section('title', trans('app.update_counter'))
+@section('title', 'Edit Window')
  
 @section('content')
 <div class="panel panel-primary">
@@ -7,7 +7,7 @@
     <div class="panel-heading">
         <div class="row">
             <div class="col-sm-8 text-left">
-                <h3>{{ trans('app.update_counter') }}</h3>
+                <h3>Update Window</h3>
             </div>
             <div class="col-sm-4 text-right">
                 <button type="button" onclick="printContent('PrintMe')" class="btn btn-info" ><i class="fa fa-print"></i></button> 

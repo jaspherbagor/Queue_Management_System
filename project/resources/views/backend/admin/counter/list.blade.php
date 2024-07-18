@@ -1,5 +1,5 @@
 @extends('layouts.backend')
-@section('title', trans('app.counter_list'))
+@section('title', 'Window List')
 
 @section('content')
 <div class="panel panel-primary panel-container">
@@ -7,7 +7,7 @@
     <div class="panel-heading">
         <ul class="row list-inline m-0">
             <li class="col-xs-10 p-0 text-left">
-                <h3>{{ trans('app.counter_list') }}</h3>
+                <h3>Window List</h3>
             </li>
             <li class="col-xs-2 p-0 text-right">
                 <button type="button" class="btn btn-warning info-button btn-sm" data-toggle="modal" data-target="#infoModal">

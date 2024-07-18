@@ -99,13 +99,13 @@
                             </li>
 
                             <li class="cm-submenu {{ (Request::segment(2)=='counter' ? 'open' : '') }}">
-                                <a class="sf-star">{{ trans('app.counter') }} <span class="caret"></span></a>
+                                <a class="sf-star">Window <span class="caret"></span></a>
                                 <ul>
                                     <li class="{{ (Request::is('admin/counter/create') ? 'active' : '') }}">
-                                        <a href="{{ url('admin/counter/create') }}">{{ trans('app.add_counter') }}</a>
+                                        <a href="{{ url('admin/counter/create') }}">Add Window</a>
                                     </li>
                                     <li class="{{ (Request::is('admin/counter') ? 'active' : '') }}">
-                                        <a href="{{ url('admin/counter') }}">{{ trans('app.counter_list') }}</a>
+                                        <a href="{{ url('admin/counter') }}">Windows List</a>
                                     </li>
                                 </ul>
                             </li>
