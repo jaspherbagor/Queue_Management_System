@@ -63,20 +63,12 @@
                         <input type="hidden" name="department_id" value="{{ $department->department_id }}">
                         <input type="hidden" name="counter_id" value="{{ $department->counter_id }}">
                         <input type="hidden" name="user_id" value="{{ $department->user_id }}">
-                        <!-- <button
-                            type="submit"
-                            class="p-1 m-1 btn btn-primary capitalize text-center"
-                            style="min-width: 15vw;white-space: pre-wrap;box-shadow:0px 0px 0px 2px#<?= substr(dechex(crc32($department->name)), 0, 6); ?>"
-                            >
-                                <h5 class="department_name">{{ $department->name }}</h5>
-                                <h6>{{ $department->officer }}</h6>
-                        </button> -->
                         <button
                             type="submit"
-                            class="btn btn-success capitalize text-center department_list_items_btn"
+                            class="btn btn-success capitalize text-center queue-card-button"
                             >
                                 <h5 class="department_name">{{ $department->name }}</h5>
-                                <h6>{{ $department->officer }}</h6>
+                                {{-- <h6>{{ $department->officer }}</h6> --}}
                         </button>
                   </div>
                   {{ Form::close() }}
