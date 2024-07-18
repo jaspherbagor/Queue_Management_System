@@ -7,7 +7,7 @@
     <div class="panel-heading pt-0 pb-0">
         <ul class="row m-0 list-inline">
             <li class="col-xs-6 col-sm-4 p-0 text-left">
-                <img src="{{ asset('public/assets/img/icons/logo.jpg') }}" width="210" height="50">
+                <img src="{{ asset('public/assets/images/pclu_banner.svg') }}" width="210" height="50">
             </li>
             <li class="col-xs-4 col-sm-4 hidden-xs" id="screen-title">
                 <h3 class="mt-1 pt-1">{{ trans('app.auto_token') }}</h3>
