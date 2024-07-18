@@ -57,21 +57,22 @@
                 <!--Ends of With Mobile No -->
             @else
                 <!-- Without Mobile No -->
-                @foreach ($departmentList as $department )
-                  {{ Form::open(['url' => 'receptionist/token/auto', 'class' => 'AutoFrm p-1 department_list_items capitalize text-center']) }}
-                  <div class="department_list_container">
+                <div class="department-form-container">
+                    @foreach ($departmentList as $department )
+                  {{ Form::open(['url' => 'receptionist/token/auto', 'class' => 'AutoFrm p-1 capitalize text-center department-list-form']) }}
                         <input type="hidden" name="department_id" value="{{ $department->department_id }}">
                         <input type="hidden" name="counter_id" value="{{ $department->counter_id }}">
                         <input type="hidden" name="user_id" value="{{ $department->user_id }}">
                         <button
                             type="submit"
-                            class="btn btn-success queue-card-button capitalize text-center p-1 m-1" style="min-width: 15vw;white-space: pre-wrap"
-                            >
+                            class="p-1 m-1 capitalize text-center department-list-button"
+                            style="min-width: 15vw;white-space: pre-wrap"
+                        >
                                 <h5>{{ $department->name }}</h5>
                         </button>
-                  </div>
                   {{ Form::close() }}
                 @endforeach
+                </div>
                 <!--Ends of Without Mobile No -->
             @endif
             <br><br>
