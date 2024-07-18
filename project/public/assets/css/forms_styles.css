@@ -124,3 +124,7 @@ input[type=search] {
     text-transform: uppercase;
     font-weight: 800 !important;
 }
+
+.queue-card-button h5 {
+    font-weight: 800;
+}
