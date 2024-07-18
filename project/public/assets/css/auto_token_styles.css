@@ -2,10 +2,15 @@
     border-radius: 10px !important;
     background: #caf0f8 !important;
     margin-right: 10px !important;
-    font-weight: 800 !important;
     padding: 20px !important;
     border: none !important;
     box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
+    width: 200px;
+    text-transform:uppercase !important;
+}
+
+.department-list-button h5 {
+    font-weight: 800 !important;
 }
 
 .department-list-button:hover {
@@ -15,5 +20,6 @@
 }
 
 .department-form-container {
-    background: red;
+    display:flex;
+    flex-wrap: wrap;
 }
