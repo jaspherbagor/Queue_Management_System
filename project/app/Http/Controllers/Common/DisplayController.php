@@ -437,7 +437,7 @@ class DisplayController extends Controller
 
         foreach ($token_list as $key => $value):
             $html .= "<div class=\"queue-box queue-box-element\" style=\"width:{$width}px\">
-                <h4 class='deprt'>".trans('app.counter')." $key</h4> 
+                <h4 class='deprt'>".'Window'." $key</h4> 
                 <div class=\"item text-center\">";
 
                 $sl = 5;
@@ -476,7 +476,7 @@ class DisplayController extends Controller
 
         // Add the right half for the video
         $html .= "<div class='right-half col-md-6'>
-                    <iframe width='658' height='545' src='https://www.youtube.com/embed/ZCmKgUC67sw?si=tUVKhI2RExQgzWDD'></iframe>
+                    <iframe width='727' height='620' src='https://www.youtube.com/embed/ZCmKgUC67sw?si=tUVKhI2RExQgzWDD'></iframe>
                 </div>";
 
         /*NOTIFICATION*/
