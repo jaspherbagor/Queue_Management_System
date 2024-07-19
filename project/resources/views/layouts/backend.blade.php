@@ -199,9 +199,9 @@
                                     <!-- <li class="{{ (Request::is('receptionist/token/create') ? 'active' : '') }}">
                                         <a href="{{ url('receptionist/token/create') }}">{{ trans('app.manual_token') }}</a>
                                     </li> -->
-                                    <li class="{{ (Request::is('receptionist/token/current') ? 'active' : '') }}">
+                                    <!-- <li class="{{ (Request::is('receptionist/token/current') ? 'active' : '') }}">
                                         <a href="{{ url('receptionist/token/current') }}">{{ trans('app.active') }} / Current Queue <i class="fa fa-dot-circle-o" style="color:#03d003"></i></a>
-                                    </li>
+                                    </li> -->
                                 </ul>
                             </li>
                             @endif
@@ -210,7 +210,7 @@
                             <!-------------------------------------------------------->
                             <!-- COMMON MENU                                        -->
                             <!-------------------------------------------------------->
-
+                            @if(!Auth::user()->hasRole('receptionist'))
                             <li class="cm-submenu {{ (Request::segment(2)=='display' ? 'open' : '') }}">
                                 <a target="_blank" class="sf-device-tablet">
                                     {{ trans('app.display') }}
@@ -242,6 +242,7 @@
                                     @endif -->
                                 </ul>
                             </li>
+                            @endif
 
                             <!-- <li class="cm-submenu {{ (Request::segment(2)=='message' ? 'open' : '') }}">
                                 <a class="sf-envelope-letter">{{ trans('app.message') }} <span class="caret"></span></a>
@@ -257,7 +258,7 @@
                                     </li>
                                 </ul> -->
                             </li>
-
+                            @if(!Auth::user()->hasRole('receptionist'))
                             <li class="cm-submenu {{ (Request::segment(2)=='setting' ? 'open' : '') }}">
                                 <a class="sf-cog">{{ trans('app.setting') }} <span class="caret"></span></a>
                                 <ul>
@@ -275,6 +276,7 @@
                                     </li>
                                 </ul>
                             </li>
+                            @endif
 
                             <li class="{{ ((Request::is('logout')) ? 'active' : '') }}">
                                 <a href="{{ url('logout') }}" class="sf-lock">
