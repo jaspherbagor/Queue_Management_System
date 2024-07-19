@@ -277,12 +277,13 @@
                                 </ul>
                             </li>
                             @endif
-
+                            @if(!Auth::user()->hasRole('receptionist'))
                             <li class="{{ ((Request::is('logout')) ? 'active' : '') }}">
                                 <a href="{{ url('logout') }}" class="sf-lock">
                                     {{ trans('app.signout') }}
                                 </a>
                             </li>
+                            @endif
                         </ul>
                     </div>
                 </div>
@@ -391,9 +392,11 @@
                             <span class="label label-success">{{ auth()->user()->role() }}</span>
                         </li>
                         <li class="divider"></li>
+                        @if(!Auth::user()->hasRole('receptionist'))=
                         <li>
                             <a href="{{ url('common/setting/profile') }}"><i class="fa fa-user"></i> {{ trans('app.profile_information') }}</a>
                         </li>
+                        @endif
                         <li>
                             <a href="{{ url('logout') }}"><i class="fa fa-sign-out"></i> {{ trans('app.signout') }}</a>
                         </li>
