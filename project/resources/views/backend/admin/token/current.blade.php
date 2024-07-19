@@ -7,7 +7,7 @@
     <div class="panel-heading">
         <div class="row">
             <div class="col-sm-12 text-left">
-                <h3>{{ trans('app.active') }} / {{ trans('app.todays_token') }}</h3>
+                <h3>{{ trans('app.active') }} / Current Queue</h3>
             </div> 
         </div>
     </div>

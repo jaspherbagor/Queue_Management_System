@@ -1,5 +1,5 @@
 @extends('layouts.backend')
-@section('title', 'Auto Token Setting')
+@section('title', 'Queue Setting')
 
 @section('content')
 <div class="panel panel-primary">
@@ -7,7 +7,7 @@
     <div class="panel-heading">
         <div class="row">
             <div class="col-sm-12 text-left">
-                <h3>{{ trans('app.auto_token_setting') }}</h3>
+                <h3>Queue Setting</h3>
             </div> 
         </div>
     </div>

@@ -23,7 +23,7 @@
                 <thead>
                     <tr>
                         <th>#</th>
-                        <th>{{ trans('app.counter') }}</th>
+                        <th>Window</th>
                         <th>{{ trans('app.description') }}</th>
                         <th>Date Created</th>
                         {{-- <th>{{ trans('app.updated_at') }}</th> --}}

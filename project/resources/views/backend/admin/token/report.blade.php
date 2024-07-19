@@ -1,12 +1,12 @@
 @extends('layouts.backend')
-@section('title', trans('app.token_report'))
+@section('title', 'Queue Report')
 
 @section('content')
 <div class="panel panel-primary panel-container">
     <div class="panel-heading">
         <div class="row">
             <div class="col-sm-12 text-left">
-                <h3>{{ trans('app.token_report') }}</h3>
+                <h3>Queue Report</h3>
             </div>
         </div>
     </div>
