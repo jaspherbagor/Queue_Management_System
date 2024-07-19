@@ -17,9 +17,9 @@
             <thead>
                 <tr>
                     <th>#</th>
-                    <th>{{ trans('app.token_no') }}</th>
+                    <th>Queue</th>
                     <th>{{ trans('app.department') }}</th>
-                    <th>{{ trans('app.counter') }}</th>
+                    <th>Window</th>
                     <th>{{ trans('app.officer') }}</th>
                     <th>{{ trans('app.client_mobile') }}</th>
                     <th>{{ trans('app.note') }}</th>
