@@ -1,5 +1,5 @@
 @extends('layouts.backend')
-@section('title', trans('app.auto_token'))
+@section('title', 'Create Queue Number')
 
 @section('content')
 <div class="panel panel-primary" id="toggleScreenArea">
@@ -10,7 +10,7 @@
                 <img src="{{ asset('public/assets/images/pclu_banner.svg') }}" width="210" height="50">
             </li>
             <li class="col-xs-4 col-sm-4 hidden-xs" id="screen-title">
-                <h3 class="mt-1 pt-1">{{ trans('app.auto_token') }}</h3>
+                <h3 class="mt-1 pt-1">Create Queue Number</h3>
             </li>
             <li class="col-xs-6 col-sm-4 p-1 text-right">
                 <div class="mt-1 pt-1">

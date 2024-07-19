@@ -174,13 +174,13 @@
 
 
                             <li class="cm-submenu {{ (Request::segment(2)=='token' ? 'open' : '') }}">
-                                <a class="sf-user-id">{{ trans('app.token') }} <span class="caret"></span></a>
+                                <a class="sf-user-id">Queues <span class="caret"></span></a>
                                 <ul>
                                     <li class="{{ (Request::is('officer/token/current') ? 'active' : '') }}">
-                                        <a href="{{ url('officer/token/current') }}">{{ trans('app.active') }} / {{ trans('app.todays_token') }} <i class="fa fa-dot-circle-o" style="color:#03d003"></i></a>
+                                        <a href="{{ url('officer/token/current') }}">{{ trans('app.active') }} / Current Queue <i class="fa fa-dot-circle-o" style="color:#03d003"></i></a>
                                     </li>
                                     <li class="{{ (Request::is('officer/token') ? 'active' : '') }}">
-                                        <a href="{{ url('officer/token') }}">{{ trans('app.token_list') }}</a>
+                                        <a href="{{ url('officer/token') }}">Queue List</a>
                                     </li>
                                 </ul>
                             </li>
@@ -191,16 +191,16 @@
                             <!-------------------------------------------------------->
                             @if(Auth::user()->hasRole('receptionist'))
                             <li class="cm-submenu {{ ((Request::is('receptionist') || Request::segment(2)=='token') ? 'open' : '') }}">
-                                <a class="sf-user-id">{{ trans('app.token') }} <span class="caret"></span></a>
+                                <a class="sf-user-id">Queue <span class="caret"></span></a>
                                 <ul>
                                     <li class="{{ (Request::is('receptionist/token/list') ? 'active' : '') }}">
-                                        <a href="{{ url('receptionist/token/auto') }}">{{ trans('app.auto_token') }}</a>
+                                        <a href="{{ url('receptionist/token/auto') }}">Create Queue </a>
                                     </li>
                                     <!-- <li class="{{ (Request::is('receptionist/token/create') ? 'active' : '') }}">
                                         <a href="{{ url('receptionist/token/create') }}">{{ trans('app.manual_token') }}</a>
                                     </li> -->
                                     <li class="{{ (Request::is('receptionist/token/current') ? 'active' : '') }}">
-                                        <a href="{{ url('receptionist/token/current') }}">{{ trans('app.active') }} / {{ trans('app.todays_token') }} <i class="fa fa-dot-circle-o" style="color:#03d003"></i></a>
+                                        <a href="{{ url('receptionist/token/current') }}">{{ trans('app.active') }} / Current Queue <i class="fa fa-dot-circle-o" style="color:#03d003"></i></a>
                                     </li>
                                 </ul>
                             </li>

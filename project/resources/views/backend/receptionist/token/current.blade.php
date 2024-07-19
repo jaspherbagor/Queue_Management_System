@@ -1,5 +1,5 @@
 @extends('layouts.backend')
-@section('title', trans('app.todays_token'))
+@section('title', 'Current Queue')
 
 @section('content')
 <div class="panel panel-primary">
@@ -7,7 +7,7 @@
     <div class="panel-heading">
         <div class="row">
             <div class="col-sm-12 text-left">
-                <h3>{{ trans('app.active') }} / {{ trans('app.todays_token') }}</h3>
+                <h3>{{ trans('app.active') }} / Current Queue</h3>
             </div> 
         </div>
     </div>
@@ -17,9 +17,9 @@
             <thead>
                 <tr>
                     <th>#</th>
-                    <th>{{ trans('app.token_no') }}</th>
+                    <th>Queue Number</th>
                     <th>{{ trans('app.department') }}</th>
-                    <th>{{ trans('app.counter') }}</th>
+                    <th>Window</th>
                     <th>{{ trans('app.officer') }}</th>
                     <th>{{ trans('app.client_mobile') }}</th>
                     <th>{{ trans('app.note') }}</th>
