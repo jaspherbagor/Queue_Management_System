@@ -1,17 +1,17 @@
 @extends('layouts.backend')
-@section('title', trans('app.token_list'))
+@section('title', 'Queue List')
 
-@section('content')  
+@section('content')
 <div class="panel panel-primary">
     <div class="panel-heading">
         <div class="row">
             <div class="col-sm-12 text-left">
-                <h3>{{ trans('app.token_list') }}</h3>
-            </div> 
+                <h3>QUEUE LIST</h3>
+            </div>
         </div>
-    </div> 
+    </div>
 
-    <div class="panel-body"> 
+    <div class="panel-body">
         <table class="dataTables-server display table table-bordered" width="100%" cellspacing="0">
             <thead>
                 <tr>
@@ -25,49 +25,49 @@
                         <input type="text" class="datepicker form-control input-sm filter" id="end_date" placeholder="{{ trans('app.end_date') }}" autocomplete="off" style="width:100px"/>
                     </td>
                     <th colspan="9">
-                        
+
                     </th>
-                </tr> 
+                </tr>
                 <tr>
                     <th></th>
-                    <th> 
-                        {{ Form::select('department', $departments, null, ['id'=>'department', 'class'=>'select2 filter', 'placeholder'=> trans('app.department')]) }} 
-                    </th>  
-                    <th> 
-                        {{ Form::select('counter', $counters, null, ['id'=>'counter', 'class'=>'select2 filter', 'placeholder'=> trans('app.counter')]) }} 
-                    </th>     
+                    <th>
+                        {{ Form::select('department', $departments, null, ['id'=>'department', 'class'=>'select2 filter', 'placeholder'=> trans('app.department')]) }}
+                    </th>
+                    <th>
+                        {{ Form::select('counter', $counters, null, ['id'=>'counter', 'class'=>'select2 filter', 'placeholder'=> trans('app.counter')]) }}
+                    </th>
                     <th></th>
                     <th></th>
-                    <th> 
-                        {{ Form::select('status', ["'0'"=>trans("app.pending"), '1'=>trans("app.complete"), '2'=>trans("app.stop")],  null,  ['placeholder' => trans("app.status"), 'id'=> 'status', 'class'=>'select2 filter']) }} 
-                    </th>  
+                    <th>
+                        {{ Form::select('status', ["'0'"=>trans("app.pending"), '1'=>trans("app.complete"), '2'=>trans("app.stop")],  null,  ['placeholder' => trans("app.status"), 'id'=> 'status', 'class'=>'select2 filter']) }}
+                    </th>
                     <th></th>
                     <th></th>
                     <th></th>
                     <th></th>
                     <th></th>
-                </tr> 
+                </tr>
                 <tr>
-                    <th>{{ trans('app.token_no') }}</th> 
+                    <th>Queue</th>
                     <th>{{ trans('app.department') }}</th>
-                    <th>{{ trans('app.counter') }}</th>
+                    <th>Window</th>
                     <th>{{ trans('app.client_mobile') }}</th>
-                    <th>{{ trans('app.note') }}</th> 
+                    <th>{{ trans('app.note') }}</th>
                     <th>{{ trans('app.status') }}</th>
                     <th>{{ trans('app.created_by') }}</th>
                     <th>{{ trans('app.created_at') }}</th>
                     <th>{{ trans('app.updated_at') }}</th>
                     <th>{{ trans('app.complete_time') }}</th>
                     <th>{{ trans('app.action') }}</th>
-                </tr> 
-            </thead>  
-        </table>  
-    </div> 
-</div> 
+                </tr>
+            </thead>
+        </table>
+    </div>
+</div>
 @endsection
 
-@push('scripts') 
-<script> 
+@push('scripts')
+<script>
 (function(){
     // DATATABLE
     drawDataTable();
@@ -77,10 +77,10 @@
     });
 
     function drawDataTable()
-    {   
+    {
         $('.dataTables-server').DataTable().destroy();
         $('.dataTables-server').DataTable({
-            responsive: true, 
+            responsive: true,
             processing: true,
             serverSide: true,
             ajax: {
@@ -88,7 +88,7 @@
                 dataType: 'json',
                 type    : 'post',
                 data    : {
-                    _token : '{{ csrf_token() }}', 
+                    _token : '{{ csrf_token() }}',
                     search: {
                         status     : $('#status').val(),
                         counter    : $('#counter').val(),
@@ -98,49 +98,49 @@
                     }
                 }
             },
-            columns: [ 
+            columns: [
                 { data: 'serial' },
                 { data: 'token_no' },
                 { data: 'department' },
                 { data: 'counter' },
-                { data: 'client_mobile' }, 
-                { data: 'note' }, 
-                { data: 'status' }, 
+                { data: 'client_mobile' },
+                { data: 'note' },
+                { data: 'status' },
                 { data: 'created_by' },
                 { data: 'created_at' },
-                { data: 'updated_at' }, 
+                { data: 'updated_at' },
                 { data: 'complete_time' },
-                { data: 'options' }  
-            ],  
-            order: [ [0, 'desc'] ], 
+                { data: 'options' }
+            ],
+            order: [ [0, 'desc'] ],
             select    : true,
             pagingType: "full_numbers",
             lengthMenu: [[25, 50, 100, 150, 200, 500, -1], [25, 50, 100, 150, 200, 500, "All"]],
-            dom: "<'row'<'col-sm-4'l><'col-sm-4 text-center'B><'col-sm-4'f>><'row'<'col-sm-12't>><'row'<'col-sm-6'i><'col-sm-6'p>>", 
+            dom: "<'row'<'col-sm-4'l><'col-sm-4 text-center'B><'col-sm-4'f>><'row'<'col-sm-12't>><'row'<'col-sm-6'i><'col-sm-6'p>>",
             columnDefs: [
                 { "orderable": false, "targets": [11] }
-            ], 
+            ],
             buttons: [
                 { extend:'copy', text:'<i class="fa fa-copy"></i>', className:'btn-sm',exportOptions:{columns:':visible'}},
-                { extend: 'print', text  :'<i class="fa fa-print"></i>', className:'btn-sm', exportOptions: { columns: ':visible',  modifier: { selected: null } }},  
-                { extend: 'print', text:'<i class="fa fa-print"></i>  Selected', className:'btn-sm', exportOptions:{columns: ':visible'}},  
+                { extend: 'print', text  :'<i class="fa fa-print"></i>', className:'btn-sm', exportOptions: { columns: ':visible',  modifier: { selected: null } }},
+                { extend: 'print', text:'<i class="fa fa-print"></i>  Selected', className:'btn-sm', exportOptions:{columns: ':visible'}},
                 { extend:'excel',  text:'<i class="fa fa-file-excel-o"></i>', className:'btn-sm',exportOptions:{columns:':visible'}},
                 { extend:'pdf',  text:'<i class="fa fa-file-pdf-o"></i>',  className:'btn-sm',exportOptions:{columns:':visible'}},
-                { extend:'colvis', text:'<i class="fa fa-eye"></i>',className:'btn-sm'} 
-            ] 
-        });   
-    } 
+                { extend:'colvis', text:'<i class="fa fa-eye"></i>',className:'btn-sm'}
+            ]
+        });
+    }
 
 
     // modal open with token id
     $('.modal').on('show.bs.modal', function (event) {
         var button = $(event.relatedTarget);
         $('input[name=id]').val(button.data('token-id'));
-    }); 
+    });
 
 
     // print token
-    $("body").on("click", ".tokenPrint", function(e) { 
+    $("body").on("click", ".tokenPrint", function(e) {
         e.preventDefault();
         $.ajax({
             url: $(this).attr('href'),
@@ -171,19 +171,18 @@
                     content += "<li><strong>{{ trans('app.note') }} </strong>"+data.note+"</li>";
                 }
                 content += "<li><strong>{{ trans('app.date') }} </strong>"+data.created_at+"</li>";
-                content += "</ul>";  
-                content += "</div>";    
-                
-                // print 
+                content += "</ul>";
+                content += "</div>";
+
+                // print
                 printThis(content);
 
             }, error:function(err){
                 alert('failed!');
             }
-        });  
+        });
     });
 
-})(); 
+})();
 </script>
 @endpush
- 
