@@ -15,7 +15,6 @@
         <table class="dataTables-server display table table-bordered" width="100%" cellspacing="0">
             <thead>
                 <tr>
-                    <th rowspan="3">#</th>
                     <td>
                         <label>{{ trans('app.start_date') }}</label><br/>
                         <input type="text" class="datepicker form-control input-sm filter" id="start_date" placeholder="{{ trans('app.start_date') }}" autocomplete="off" style="width:100px" />
@@ -24,12 +23,10 @@
                         <label>{{ trans('app.end_date') }}</label><br/>
                         <input type="text" class="datepicker form-control input-sm filter" id="end_date" placeholder="{{ trans('app.end_date') }}" autocomplete="off" style="width:100px"/>
                     </td>
-                    <th colspan="10">
-
-                    </th>
+                    <th colspan="8"></th>
                 </tr>
                 <tr>
-                    <th></th>
+                    <th>Queue</th>
                     <th>
                         {{ Form::select('department', $departments, null, ['id'=>'department', 'class'=>'select2 filter', 'placeholder'=> trans('app.department')]) }}
                     </th>
@@ -39,28 +36,10 @@
                     <th>
                         {{ Form::select('officer', $officers, null, ['id'=>'officer', 'class'=>'select2 filter', 'placeholder'=> trans('app.officer')]) }}
                     </th>
-                    <th></th>
-                    <th></th>
                     <th>
                         {{ Form::select('status', ["'0'"=>trans("app.pending"), '1'=>trans("app.complete"), '2'=>trans("app.stop")],  null,  ['placeholder' => trans("app.status"), 'id'=> 'status', 'class'=>'select2 filter']) }}
                     </th>
-                    <th></th>
-                    <th></th>
-                    <th></th>
-                    <th></th>
-                    <th></th>
-                </tr>
-                <tr>
-                    <th>Queue</th>
-                    <th>{{ trans('app.department') }}</th>
-                    <th>Window</th>
-                    <th>{{ trans('app.officer') }}</th>
-                    <th>{{ trans('app.client_mobile') }}</th>
-                    <th>{{ trans('app.note') }}</th>
-                    <th>{{ trans('app.status') }}</th>
                     <th>{{ trans('app.created_by') }}</th>
-                    <th>{{ trans('app.created_at') }}</th>
-                    <th>{{ trans('app.updated_at') }}</th>
                     <th>{{ trans('app.complete_time') }}</th>
                     <th>{{ trans('app.action') }}</th>
                 </tr>
@@ -68,7 +47,6 @@
         </table>
     </div>
 </div>
-
 
 <!-- Transfer Modal -->
 <div class="modal fade transferModal" tabindex="-1" role="dialog" aria-labelledby="transferModalLabel">
@@ -86,12 +64,10 @@
             <label for="department_id" class="control-label">{{ trans('app.department') }} </label>
             {{ Form::select('department_id', $departments, null, ['placeholder' => 'Select Option', 'class'=>'select2', 'id'=>'department_id']) }}
         </p>
-
         <p>
             <label for="counter_id" class="control-label">{{ trans('app.counter') }} </label>
             {{ Form::select('counter_id', $counters, null, ['placeholder' => 'Select Option', 'class'=>'select2', 'id'=>'counter_id']) }}
         </p>
-
         <p>
             <label for="user_id" class="control-label">{{ trans('app.officer') }} </label>
             {{ Form::select('user_id', $officers, null, ['placeholder' => 'Select Option', 'class'=>'select2', 'id'=>'user_id']) }}
@@ -110,7 +86,6 @@
 @push('scripts')
 <script>
 (function(){
-    // DATATABLE
     drawDataTable();
 
     $("body").on("change",".filter", function(){
@@ -141,17 +116,12 @@
                 }
             },
             columns: [
-                { data: 'serial' },
                 { data: 'token_no' },
                 { data: 'department' },
                 { data: 'counter' },
                 { data: 'officer' },
-                { data: 'client_mobile' },
-                { data: 'note' },
                 { data: 'status' },
                 { data: 'created_by' },
-                { data: 'created_at' },
-                { data: 'updated_at' },
                 { data: 'complete_time' },
                 { data: 'options' }
             ],
@@ -159,29 +129,26 @@
             select    : true,
             pagingType: "full_numbers",
             lengthMenu: [[25, 50, 100, 150, 200, 500, -1], [25, 50, 100, 150, 200, 500, "All"]],
-             dom: "<'row'<'col-sm-4'l><'col-sm-4 text-center'B><'col-sm-4'f>><'row'<'col-sm-12't>><'row'<'col-sm-6'i><'col-sm-6'p>>",
-             columnDefs: [
-                 { "orderable": false, "targets": [12] }
-             ],
-             buttons: [
-                 { extend:'copy', text:'<i class="fa fa-copy"></i>', className:'btn-sm',exportOptions:{columns:':visible'}},
-                 { extend: 'print', text  :'<i class="fa fa-print"></i>', className:'btn-sm', exportOptions: { columns: ':visible',  modifier: { selected: null } }},
-                 { extend: 'print', text:'<i class="fa fa-print"></i>  Selected', className:'btn-sm', exportOptions:{columns: ':visible'}},
-                 { extend:'excel',  text:'<i class="fa fa-file-excel-o"></i>', className:'btn-sm',exportOptions:{columns:':visible'}},
-                 { extend:'pdf',  text:'<i class="fa fa-file-pdf-o"></i>',  className:'btn-sm',exportOptions:{columns:':visible'}},
-                 { extend:'colvis', text:'<i class="fa fa-eye"></i>',className:'btn-sm'}
-             ] 
+            dom: "<'row'<'col-sm-4'l><'col-sm-4 text-center'B><'col-sm-4'f>><'row'<'col-sm-12't>><'row'<'col-sm-6'i><'col-sm-6'p>>",
+            columnDefs: [
+                { "orderable": false, "targets": [7] }
+            ],
+            buttons: [
+                { extend:'copy', text:'<i class="fa fa-copy"></i>', className:'btn-sm',exportOptions:{columns:':visible'}},
+                { extend: 'print', text  :'<i class="fa fa-print"></i>', className:'btn-sm', exportOptions: { columns: ':visible',  modifier: { selected: null } }},
+                { extend: 'print', text:'<i class="fa fa-print"></i>  Selected', className:'btn-sm', exportOptions:{columns: ':visible'}},
+                { extend:'excel',  text:'<i class="fa fa-file-excel-o"></i>', className:'btn-sm',exportOptions:{columns:':visible'}},
+                { extend:'pdf',  text:'<i class="fa fa-file-pdf-o"></i>',  className:'btn-sm',exportOptions:{columns:':visible'}},
+                { extend:'colvis', text:'<i class="fa fa-eye"></i>',className:'btn-sm'}
+            ]
         });
     }
 
-
-    // modal open with token id
     $('.modal').on('show.bs.modal', function (event) {
         var button = $(event.relatedTarget);
         $('input[name=id]').val(button.data('token-id'));
     });
 
-    // transfer token
     $('body').on('submit', '.transferFrm', function(e){
         e.preventDefault();
         $.ajax({
@@ -190,7 +157,6 @@
             dataType: 'json',
             headers: {'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')},
             contentType: false,
-            // cache: false,
             processData: false,
             data:  new FormData($(this)[0]),
             beforeSend: function() {
@@ -206,7 +172,6 @@
                         .addClass('alert-success')
                         .removeClass('hide alert-danger')
                         .html(data.message);
-
                     setTimeout(() => { window.location.reload() }, 1500);
                 }
                 else
@@ -222,11 +187,8 @@
                 alert('wait...');
             }
         });
-
     });
 
-
-    // print token
     $("body").on("click", ".tokenPrint", function(e) {
         e.preventDefault();
         $.ajax({
@@ -261,15 +223,12 @@
                 content += "</ul>";
                 content += "</div>";
 
-                // print
                 printThis(content);
-
             }, error:function(err){
                 alert('failed!');
             }
         });
     });
-
 })();
 </script>
 @endpush
