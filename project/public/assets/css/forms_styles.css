@@ -128,3 +128,7 @@ input[type=search] {
 .queue-card-button h5 {
     font-weight: 800;
 }
+
+.queue_note {
+    margin-bottom: 40px !important;
+}

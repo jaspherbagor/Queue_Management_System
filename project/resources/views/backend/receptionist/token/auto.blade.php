@@ -34,6 +34,7 @@
 
     <div class="panel-body">
         <div class="col-sm-12" id="screen-content">
+        <h3 class="mb-1 queue_note"><strong>Note: Sa pag kuha ng number, kailangan niyo lamang po pumili sa pag pipilian at pindutin ito para makaroon kayo ng number.</strong> </h3>
             @if($display->sms_alert || $display->show_note)
                 <!-- With Mobile No -->
                 @foreach ($departmentList as $department)
@@ -75,8 +76,6 @@
                 </div>
                 <!--Ends of Without Mobile No -->
             @endif
-            <br><br>
-            <h5>Note: Sa pag kuha ng number, kailangan niyo lamang po pumili sa pag pipilian at pindutin ito para makaroon kayo ng number. </h5>
         </div>
     </div>
 </div>
@@ -298,7 +297,7 @@ $(document).ready(function(){
                         "}</style>";
 
                     content += "<div class=\"receipt-token\">";
-                    content += "<h4>{{ \Session::get('app.title') }}</h4>";
+                    content += "<h4>QUEUEING SYSTEM FOR PCLU</h4>";
                     content += "<h1>"+data.token.token_no+"</h1>";
                     content +="<ul>";
                     content += "<li><strong>{{ trans('app.department') }}:</strong> "+data.token.department+"</li>";

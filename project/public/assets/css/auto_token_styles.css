@@ -20,6 +20,6 @@
 }
 
 .department-form-container {
-    display:flex;
+    display:block;
     flex-wrap: wrap;
 }
