@@ -29,18 +29,18 @@ class AuthenticationController extends Controller
             $user->update();
             // Generate a password reset link for the customer
             $reset_link = url('reset-password/' . $token . '/' . $request->email);
-            
+
             // Define the subject for the password reset email
-            $subject = 'PCLU Queue Management System - Reset Password';
-            
+            $subject = 'REALQUEUEK: A QUEUEING SYSTEM FOR PCLU - Reset Password';
+
             // Create the email message content with the password reset link
             $message = '<p>Dear '.$user->firstname.',</p>';
-            $message .= '<p>We received a request to reset your password for the PCLU Queue Management System account associated with this email address. If you did not request a password reset, please ignore this email.</p>';
+            $message .= '<p>We received a request to reset your password for the REALQUEUEK QUEUEING SYSTEM FOR PCLU account associated with this email address. If you did not request a password reset, please ignore this email.</p>';
             $message .= '<p>To reset your password, please click on the following link or copy and paste it into your browser:</p>';
             $message .= '<a href="' . $reset_link . '">Click here</a>';
             $message .= '<p>If you have any issues or did not request this change, please contact our support team immediately.</p><br>';
             $message .= '<p>Best Regard,</p>';
-            $message .= '<p>PCLU Queue Management System Team</p>';
+            $message .= '<p>REALQUEUEK QUEUEING SYSTEM FOR PCLU Team</p>';
             // Send the password reset email to the customer
             Mail::to($request->email)->send(new WebsiteMail($subject, $message));
 
