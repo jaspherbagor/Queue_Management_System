@@ -14,30 +14,24 @@
     <div class="panel-body">
         <table class="dataTables-server display table table-bordered" width="100%" cellspacing="0">
             <thead>
-                <tr>
-                    <td>
-                        <label>{{ trans('app.start_date') }}</label><br/>
-                        <input type="text" class="datepicker form-control input-sm filter" id="start_date" placeholder="{{ trans('app.start_date') }}" autocomplete="off" style="width:100px" />
-                    </td>
-                    <td>
-                        <label>{{ trans('app.end_date') }}</label><br/>
-                        <input type="text" class="datepicker form-control input-sm filter" id="end_date" placeholder="{{ trans('app.end_date') }}" autocomplete="off" style="width:100px"/>
-                    </td>
-                    <th colspan="8"></th>
-                </tr>
+                
                 <tr>
                     <th>Queue</th>
                     <th>
                         {{ Form::select('department', $departments, null, ['id'=>'department', 'class'=>'select2 filter', 'placeholder'=> trans('app.department')]) }}
+                        <p class="text-center mb-0 pb-0">Department</p>
                     </th>
                     <th>
                         {{ Form::select('counter', $counters, null, ['id'=>'counter', 'class'=>'select2 filter', 'placeholder'=> trans('app.counter')]) }}
+                        <p class="text-center mb-0 pb-0">Window</p>
                     </th>
                     <th>
                         {{ Form::select('officer', $officers, null, ['id'=>'officer', 'class'=>'select2 filter', 'placeholder'=> trans('app.officer')]) }}
+                        <p class="text-center mb-0 pb-0">Officer</p>
                     </th>
                     <th>
                         {{ Form::select('status', ["'0'"=>trans("app.pending"), '1'=>trans("app.complete"), '2'=>trans("app.stop")],  null,  ['placeholder' => trans("app.status"), 'id'=> 'status', 'class'=>'select2 filter']) }}
+                        <p class="text-center mb-0 pb-0">Status</p>
                     </th>
                     <th>{{ trans('app.complete_time') }}</th>
                     <th>{{ trans('app.action') }}</th>
