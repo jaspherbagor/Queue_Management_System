@@ -21,15 +21,15 @@
         <table class="dataTables-server table table-bordered" cellspacing="0">
             <thead>
                 <tr>
-                    <th rowspan="3">#</th>
-                    <td>
+                    {{-- <th rowspan="3">#</th> --}}
+                    {{-- <td>
                         <label>{{ trans('app.start_date') }}</label>
                         <input type="text" class="datepicker form-control input-sm filter" id="start_date" placeholder="{{ trans('app.start_date') }}" autocomplete="off" style="width:100px" />
                     </td>
                     <td>
                         <label>{{ trans('app.end_date') }}</label>
                         <input type="text" class="datepicker form-control input-sm filter" id="end_date" placeholder="{{ trans('app.end_date') }}" autocomplete="off" style="width:100px"/>
-                    </td>
+                    </td> --}}
                     <th colspan="8">
 
                     </th>
@@ -50,7 +50,7 @@
                     <th>
                         {{ Form::select('department', $departments, null, ['id'=>'department', 'class'=>'select2 filter', 'placeholder'=> trans('app.department')]) }}
                     </th>
-                    <th></th>
+                    {{-- <th></th> --}}
                     <th>
                         <select id="status" class="select2 filter">
                             <option value="">{{ trans('app.status') }}</option>
@@ -58,8 +58,8 @@
                             <option value="'0'">{{trans('app.deactive')}}</option>
                         </select>
                     </th>
-                    <th></th>
-                    <th></th>
+                    {{-- <th></th> --}}
+                    {{-- <th></th> --}}
                     <th></th>
                 </tr>
                 <tr>
@@ -68,10 +68,10 @@
                     <th>{{ trans('app.name') }}</th>
                     <th>{{ trans('app.email') }}</th>
                     <th>{{ trans('app.department') }}</th>
-                    <th>{{ trans('app.mobile') }}</th>
+                    {{-- <th>{{ trans('app.mobile') }}</th> --}}
                     <th>{{ trans('app.status') }}</th>
-                    <th>{{ trans('app.created_at') }}</th>
-                    <th>{{ trans('app.updated_at') }}</th>
+                    {{-- <th>{{ trans('app.created_at') }}</th>
+                    <th>{{ trans('app.updated_at') }}</th> --}}
                     <th width="80"><i class="fa fa-cogs"></i></th>
                 </tr>
             </thead>
@@ -102,6 +102,69 @@
 
 @push('scripts')
 <script>
+// (function(){
+//     // DATATABLE
+//     drawDataTable();
+
+//     $("body").on("change",".filter", function(){
+//         drawDataTable();
+//     });
+
+//     function drawDataTable()
+//     {
+//         var oTable = $('.dataTables-server');
+//         oTable.DataTable().destroy();
+//         var oTable = $('.dataTables-server').DataTable({
+//             responsive: true,
+//             processing: true,
+//             serverSide: true,
+//             ajax: {
+//                 url:'<?= url('admin/user/data'); ?>',
+//                 dataType: 'json',
+//                 type    : 'post',
+//                 data    : {
+//                     _token : '{{ csrf_token() }}',
+//                     search: {
+//                         status     : $('#status').val(),
+//                         department : $('#department').val(),
+//                         user_type  : $('#user_type').val(),
+//                         start_date : $('#start_date').val(),
+//                         end_date   : $('#end_date').val(),
+//                     }
+//                 }
+//             },
+//             columns: [
+//                 // { data: 'serial' },
+//                 { data: 'photo' },
+//                 { data: 'user_type' },
+//                 { data: 'name' },
+//                 { data: 'email' },
+//                 { data: 'department' },
+//                 // { data: 'mobile' },
+//                 { data: 'status' },
+//                 // { data: 'created_at' },
+//                 // { data: 'updated_at' },
+//                 { data: 'options' }
+//             ],
+//             order: [ [0, 'desc'] ],
+//             select    : true,
+//             pagingType: "full_numbers",
+//             lengthMenu: [[25, 50, 100, 150, 200, 500, -1], [25, 50, 100, 150, 200, 500, "All"]],
+//             // dom: "<'row'<'col-sm-4'l><'col-sm-4 text-center'B><'col-sm-4'f>><'row'<'col-sm-12't>><'row'<'col-sm-6'i><'col-sm-6'p>>",
+//             // columnDefs: [
+//             //     { "orderable": false, "targets": [1, 2, 5, 7] }
+//             // ],
+//             // buttons: [
+//             //     { extend:'copy', text:'<i class="fa fa-copy"></i>', className:'btn-sm',exportOptions:{columns:':visible'}},
+//             //     { extend: 'print', text  :'<i class="fa fa-print"></i>', className:'btn-sm', exportOptions: { columns: ':visible',  modifier: { selected: null } }},
+//             //     { extend: 'print',className:'btn-sm', text:'<i class="fa fa-print"></i>  Selected',exportOptions:{columns: ':visible'}},
+//             //     { extend:'excel',  text:'<i class="fa fa-file-excel-o"></i>', className:'btn-sm',exportOptions:{columns:':visible'}},
+//             //     { extend:'pdf',  text:'<i class="fa fa-file-pdf-o"></i>',  className:'btn-sm',exportOptions:{columns:':visible'}},
+//             //     { extend:'colvis', text:'<i class="fa fa-eye"></i>',className:'btn-sm'}
+//             // ]
+//         });
+//     }
+// })();
 (function(){
     // DATATABLE
     drawDataTable();
@@ -119,11 +182,11 @@
             processing: true,
             serverSide: true,
             ajax: {
-                url:'<?= url('admin/user/data'); ?>',
+                url: '<?= url('admin/user/data'); ?>',
                 dataType: 'json',
-                type    : 'post',
-                data    : {
-                    _token : '{{ csrf_token() }}',
+                type: 'post',
+                data: {
+                    _token: '{{ csrf_token() }}',
                     search: {
                         status     : $('#status').val(),
                         department : $('#department').val(),
@@ -134,36 +197,21 @@
                 }
             },
             columns: [
-                { data: 'serial' },
                 { data: 'photo' },
                 { data: 'user_type' },
                 { data: 'name' },
                 { data: 'email' },
                 { data: 'department' },
-                { data: 'mobile' },
                 { data: 'status' },
-                { data: 'created_at' },
-                { data: 'updated_at' },
                 { data: 'options' }
             ],
             order: [ [0, 'desc'] ],
-            select    : true,
+            select: true,
             pagingType: "full_numbers",
-            lengthMenu: [[25, 50, 100, 150, 200, 500, -1], [25, 50, 100, 150, 200, 500, "All"]],
-            dom: "<'row'<'col-sm-4'l><'col-sm-4 text-center'B><'col-sm-4'f>><'row'<'col-sm-12't>><'row'<'col-sm-6'i><'col-sm-6'p>>",
-            columnDefs: [
-                { "orderable": false, "targets": [1, 2, 5, 7] }
-            ],
-            buttons: [
-                { extend:'copy', text:'<i class="fa fa-copy"></i>', className:'btn-sm',exportOptions:{columns:':visible'}},
-                { extend: 'print', text  :'<i class="fa fa-print"></i>', className:'btn-sm', exportOptions: { columns: ':visible',  modifier: { selected: null } }},
-                { extend: 'print',className:'btn-sm', text:'<i class="fa fa-print"></i>  Selected',exportOptions:{columns: ':visible'}},
-                { extend:'excel',  text:'<i class="fa fa-file-excel-o"></i>', className:'btn-sm',exportOptions:{columns:':visible'}},
-                { extend:'pdf',  text:'<i class="fa fa-file-pdf-o"></i>',  className:'btn-sm',exportOptions:{columns:':visible'}},
-                { extend:'colvis', text:'<i class="fa fa-eye"></i>',className:'btn-sm'}
-            ]
+            lengthMenu: [[25, 50, 100, 150, 200, 500, -1], [25, 50, 100, 150, 200, 500, "All"]]
         });
     }
 })();
+
 </script>
 @endpush

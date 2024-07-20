@@ -24,37 +24,33 @@ class UserController extends Controller
     public function userData(Request $request) 
     {
         $columns = [
-            0 => 'id',
-            1 => 'photo',
-            2 => 'user_type',
-            3 => 'firstname',
-            4 => 'email',
-            5 => 'department_id',
-            6 => 'mobile',
-            7 => 'created_at',
-            8 => 'updated_at',
-            9 => 'status',
-            10 => 'id',
+            0 => 'photo',
+            1 => 'user_type',
+            2 => 'firstname',
+            3 => 'email',
+            4 => 'department_id',
+            5 => 'status',
+            6 => 'id',
         ];
-  
+
         $totalData = User::count();
         $totalFiltered = $totalData; 
         $limit = $request->input('length'); 
         $start = $request->input('start');
         $order = $columns[$request->input('order.0.column')];
-        $dir   = $request->input('order.0.dir'); 
+        $dir = $request->input('order.0.dir'); 
         $search = $request->input('search'); 
             
         if(empty($search))
         {            
             $users = User::offset($start)
-                 ->limit($limit)
-                 ->orderBy($order,$dir)
-                 ->get();
+                ->limit($limit)
+                ->orderBy($order, $dir)
+                ->get();
         }
         else 
         { 
-            $usersProccess = User::where(function($query)  use($search) {
+            $usersProccess = User::where(function($query) use($search) {
                 if (!empty($search['status'])) {
                     $query->where('status', '=', $search['status']);
                 }
@@ -77,8 +73,7 @@ class UserController extends Controller
                 if (!empty($search['value'])) {
                     $query->where(DB::raw('CONCAT(firstname, " ", lastname)'), 'LIKE',"%{$search['value']}%")
                         ->orWhere('email', 'LIKE',"%{$search['value']}%")
-                        ->orWhere('mobile', 'LIKE',"%{$search['value']}%")
-                        ->orWhere(function($query)  use($search) {
+                        ->orWhere(function($query) use($search) {
                             $date = date('Y-m-d', strtotime($search['value']));
                             $query->whereDate('created_at', 'LIKE',"%{$date}%");
                         }); 
@@ -88,7 +83,7 @@ class UserController extends Controller
             $totalFiltered = $usersProccess->count();
             $users = $usersProccess->offset($start)
                 ->limit($limit)
-                ->orderBy($order,$dir)
+                ->orderBy($order, $dir)
                 ->get(); 
 
         }
@@ -96,30 +91,23 @@ class UserController extends Controller
         $data = array();
         if(!empty($users))
         {
-            $loop = 1;
             foreach ($users as $user)
             {  
                 $data[] = [
-                    'serial'     => $loop++,
                     'photo'      => '<img src="'.asset((!empty($user->photo)?$user->photo:'public/assets/img/icons/no_user.jpg')).'" alt="" width="64">',
                     'user_type'  => auth()->user()->roles($user->user_type),
                     'name'       => $user->firstname. ' ' . $user->lastname,
                     'email'      => $user->email,
                     'department' => (!empty($user->department)?$user->department->name:null),
-                    'mobile'     => $user->mobile,
-                    'created_at' => (!empty($user->created_at)?date('j M Y h:i a',strtotime($user->created_at)):null),
-                    'updated_at' => (!empty($user->updated_at)?date('j M Y h:i a',strtotime($user->updated_at)):null),
-
-                    'status'     => (($user->status==1)?"<span class='label label-success'>".trans('app.active')."</span>":"<span class='label label-danger'>".trans('app.deactive')."</span>"),
-
+                    'status'     => (($user->status == 1) ? "<span class='label label-success'>".trans('app.active')."</span>" : "<span class='label label-danger'>".trans('app.deactive')."</span>"),
                     'options'    => "<div class=\"btn-group\">
                         <a href='".url("admin/user/view/$user->id")."' class=\"btn btn-sm btn-info\"><i class=\"fa fa-eye\"></i></a>". 
                         (
-                            ($user->user_type != 5)?
+                            ($user->user_type != 5) ?
                             "<a href='".url("admin/user/edit/$user->id")."' class=\"btn btn-sm btn-success\"><i class=\"fa fa-edit\"></i></a>
-                            <a href='".url("admin/user/delete/$user->id")."' onclick=\"return confirm('".trans('app.are_you_sure')."')\" class=\"btn btn-sm btn-danger\"><i class=\"fa fa-times\"></i></a>":""
+                            <a href='".url("admin/user/delete/$user->id")."' onclick=\"return confirm('".trans('app.are_you_sure')."')\" class=\"btn btn-sm btn-danger\"><i class=\"fa fa-times\"></i></a>" : ""
                         ).
-                        "</div>" 
+                        "</div>"
                 ];  
             }
         }
@@ -131,6 +119,7 @@ class UserController extends Controller
             "data"            => $data   
         ]);
     }
+
 
 
     public function showForm()
