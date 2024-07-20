@@ -39,7 +39,6 @@
                     <th>
                         {{ Form::select('status', ["'0'"=>trans("app.pending"), '1'=>trans("app.complete"), '2'=>trans("app.stop")],  null,  ['placeholder' => trans("app.status"), 'id'=> 'status', 'class'=>'select2 filter']) }}
                     </th>
-                    <th>{{ trans('app.created_by') }}</th>
                     <th>{{ trans('app.complete_time') }}</th>
                     <th>{{ trans('app.action') }}</th>
                 </tr>
@@ -121,7 +120,6 @@
                 { data: 'counter' },
                 { data: 'officer' },
                 { data: 'status' },
-                { data: 'created_by' },
                 { data: 'complete_time' },
                 { data: 'options' }
             ],
