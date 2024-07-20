@@ -23,11 +23,11 @@
             <table class="datatable table table-bordered" cellspacing="0">
                 <thead>
                     <tr>
-                        <th>#</th>
+                        {{-- <th>#</th> --}}
                         <th>{{ trans('app.name') }}</th>
                         <th>{{ trans('app.description') }}</th>
                         <th>Hot Keys</th>
-                        <th>Date Created</th>
+                        {{-- <th>Date Created</th> --}}
                         {{-- <th>{{ trans('app.updated_at') }}</th> --}}
                         <th>{{ trans('app.status') }}</th>
                         <th width="80"><i class="fa fa-cogs"></i></th>
@@ -39,11 +39,11 @@
                         <?php $sl = 1 ?>
                         @foreach ($departments as $department)
                             <tr>
-                                <td>{{ $sl++ }}</td>
+                                {{-- <td>{{ $sl++ }}</td> --}}
                                 <td>{{ $department->name }}</td>
                                 <td>{{ $department->description }}</td>
                                 <td>{{ $department->key }}</td>
-                                <td>{{ (!empty($department->created_at)?date('j M Y h:i a',strtotime($department->created_at)):null) }}</td>
+                                {{-- <td>{{ (!empty($department->created_at)?date('j M Y h:i a',strtotime($department->created_at)):null) }}</td> --}}
                                 {{-- <td>{{ (!empty($department->updated_at)?date('j M Y h:i a',strtotime($department->updated_at)):null) }}</td> --}}
                                 <td>{!! (($department->status==1)?"<span class='label label-success btn-active'>". trans('app.active') ."</span>":"<span class='label label-dander'>". trans('app.deactive') ."</span>") !!}</td>
                                 <td>

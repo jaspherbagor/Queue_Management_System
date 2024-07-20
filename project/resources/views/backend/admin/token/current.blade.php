@@ -25,7 +25,7 @@
                     <th>{{ trans('app.note') }}</th> --}}
                     <th>{{ trans('app.status') }}</th>
                     {{-- <th>{{ trans('app.created_by') }}</th> --}}
-                    <th>{{ trans('app.created_at') }}</th>
+                    {{-- <th>{{ trans('app.created_at') }}</th> --}}
                     <th width="120">{{ trans('app.action') }}</th>
                 </tr>
             </thead> 
@@ -59,7 +59,7 @@
                                 {!! (!empty($token->is_vip)?('<span class="label label-danger" title="VIP">VIP</span>'):'') !!}
                             </td>
                             {{-- <td>{!! (!empty($token->generated_by)?("<a href='".url("admin/user/view/{$token->generated_by->id}")."'>".$token->generated_by->firstname." ". $token->generated_by->lastname."</a>"):null) !!}</td>  --}}
-                            <td>{{ (!empty($token->created_at)?date('j M Y h:i a',strtotime($token->created_at)):null) }}</td>
+                            {{-- <td>{{ (!empty($token->created_at)?date('j M Y h:i a',strtotime($token->created_at)):null) }}</td> --}}
                             <td>
                                 <div class="btn-group"> 
                                     <a href="{{ url("admin/token/complete/$token->id") }}"  class="btn btn-success btn-sm" onclick="return confirm('Are you sure?')" title="Complete"><i class="fa fa-check"></i></a>

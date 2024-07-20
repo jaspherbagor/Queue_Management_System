@@ -22,10 +22,10 @@
             <table class="datatable table table-bordered" cellspacing="0">
                 <thead>
                     <tr>
-                        <th>#</th>
+                        {{-- <th>#</th> --}}
                         <th>Window</th>
                         <th>{{ trans('app.description') }}</th>
-                        <th>Date Created</th>
+                        {{-- <th>Date Created</th> --}}
                         {{-- <th>{{ trans('app.updated_at') }}</th> --}}
                         <th>{{ trans('app.status') }}</th>
                         <th width="80"><i class="fa fa-cogs"></i></th>
@@ -37,10 +37,10 @@
                         <?php $sl = 1 ?>
                         @foreach ($counters as $counter)
                             <tr>
-                                <td>{{ $sl++ }}</td>
+                                {{-- <td>{{ $sl++ }}</td> --}}
                                 <td>{{ $counter->name }}</td>
                                 <td>{{ $counter->description }}</td>
-                                <td>{{ (!empty($counter->created_at)?date('j M Y h:i a',strtotime($counter->created_at)):null) }}</td>
+                                {{-- <td>{{ (!empty($counter->created_at)?date('j M Y h:i a',strtotime($counter->created_at)):null) }}</td> --}}
                                 {{-- <td>{{ (!empty($counter->updated_at)?date('j M Y h:i a',strtotime($counter->updated_at)):null) }}</td> --}}
                                 <td>{!! (($counter->status==1)?"<span class='label label-success btn-active'>". trans('app.active') ."</span>":"<span class='label label-dander'>". trans('app.deactive') ."</span>") !!}</td>
                                 <td>
