@@ -1,0 +1,21 @@
+@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&display=swap');
+
+::root {
+    /* --font-family: "Manrope", sans-serif; */
+    --font-family: Arial, sans-serif;
+}
+
+.deprt, .queue2 {
+    font-family: var(--font-family);
+    font-family: Arial, Helvetica, sans-serif;
+    padding: 20px;
+}
+
+.deprt {
+    padding: 5px !important
+}
+
+.queue-code-number, .queue_dept {
+    font-weight: 600 !important;
+    font-family: var(--font-family);
+}

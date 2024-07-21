@@ -253,7 +253,7 @@ class TokenController extends Controller
             ->where('user_id', auth()->user()->id )
             ->update(['updated_at' => date('Y-m-d H:i:s'), 'status' => 1]);
         return redirect()->back()->with('message', trans('app.complete_successfully'));
-    } 
+    }
 
 }
 

@@ -16,6 +16,9 @@
         <!-- custom style -->
         <link href="{{ asset('public/assets/css/style.css') }}" rel='stylesheet'>
 
+        {{-- Display Style --}}
+        <link href="{{ asset('public/assets/css/display_styles.css') }}" rel='stylesheet'>
+
         <!-- Jquery  -->
         <script src="{{ asset('public/assets/js/jquery.min.js') }}"></script>
     </head>

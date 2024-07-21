@@ -423,7 +423,7 @@ class DisplayController extends Controller
         $height = (($request->height - 200) / 5);
 
         $html = "<div class='left-half'>
-                    <div id=\"clock\" class=\"well text-center\" style=\"background-color:".(!empty($setting->background_color) ? $setting->background_color : '#cdcdcd') .";border-color:".(!empty($setting->border_color) ? $setting->border_color : '#fff') .";color:".(!empty($setting->color) ? $setting->color : '#fff') .";padding:5px 0;margin:-20px 0 0 0;font-size:24px;\">".date("$setting->date_format $setting->time_format")."</div>
+                    <div id=\"clock\" class=\"well text-center\" style=\"background-color:".(!empty($setting->background_color) ? $setting->background_color : '#cdcdcd') .";border-color:".(!empty($setting->border_color) ? $setting->border_color : '#fff') .";color:".(!empty($setting->color) ? $setting->color : '#fff') .";padding:5px 0;margin:-20px 0 0 0;font-size:24px; font-family: Arial;\">".date("$setting->date_format $setting->time_format")."</div>
                     <div class=\"queue-box queue-box-status col-md-6\">
                         <h4 class='deprt'>".trans('app.q_c')."</h4> 
                         <div class=\"item text-center\">
@@ -458,10 +458,10 @@ class DisplayController extends Controller
                     $html .=  "<div class=\"queue2 ".(($x==$sl)?'active':null)." \" style='height:{$height}px;background-color:".(!empty($setting->background_color) ? $setting->background_color : '#cdcdcd') .";border-color:".(!empty($setting->border_color) ? $setting->border_color : '#fff') .";color:".(!empty($setting->color) ? $setting->color : '#cdcdcd') .";'>";
                         foreach ($html2 as $key => $item):
                             if ($key == 'token') {
-                                $html .=  "<h1 class=\"title\">$item</h1>";
+                                $html .=  "<h1 class=\"title queue-code-number\">$item</h1>";
                             } elseif ($key == 'department') {
                                 // $html .=  "<strong>".trans("app.department")."</strong>: <span>$item</span><br>";
-                                $html .=  "<strong>".$item."</strong><br>";
+                                $html .=  "<strong class='queue_dept'>".$item."</strong><br>";
                             }
                         endforeach;
                         $html .=  "</div>";
