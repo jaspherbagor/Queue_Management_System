@@ -132,3 +132,12 @@ input[type=search] {
 .queue_note {
     margin-bottom: 40px !important;
 }
+
+.account-menu {
+    /* border: 2px solid red !important; */
+    border-radius: 10px;
+}
+
+.account-profile-container {
+    border-radius: 10px 10px 0 0;
+}

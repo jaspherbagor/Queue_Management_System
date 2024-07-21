@@ -382,8 +382,8 @@
                 @if($user = Auth::user())
                 <div class="dropdown pull-right">
                     <button class="btn btn-primary md-account-circle-white" data-toggle="dropdown"></button>
-                    <ul class="dropdown-menu">
-                        <li class="disabled text-center">
+                    <ul class="dropdown-menu account-menu">
+                        <li class="disabled text-center account-profile-container">
                             <img src="{{ !empty($user->photo)?asset($user->photo):asset('public/assets/img/icons/no_user.jpg') }}" width="140" height="105">
                         </li>
                         <li class="disabled text-center">
