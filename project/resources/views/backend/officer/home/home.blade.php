@@ -6,8 +6,9 @@
     <div class="panel-heading"><h3 class="text-left">{{ trans('app.dashboard') }}</h3></div>
     <div class="panel-body"> 
         <div class="row">
+            
 
-            <div class="col-sm-12">
+            {{-- <div class="col-sm-12">
                 <div class="panel panel-default">
                     <div class="panel-heading">{{ trans('app.this_month') }}</div>
                     <div class="panel-body"><canvas id="lineChart" style="height:200px"></canvas></div>
@@ -59,7 +60,7 @@
                     <div class="panel-heading">{{ trans('app.from_the_begining') }}</div>
                     <div class="panel-body"><canvas id="pieChart" style="height:200px"></canvas></div>
                 </div>
-            </div> 
+            </div>  --}}
 
         </div> 
     </div>
