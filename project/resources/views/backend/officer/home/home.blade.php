@@ -2,7 +2,7 @@
 @section('title', trans('app.dashboard'))
 
 @section('content')
-<div class="panel panel-primary">
+<div class="panel panel-primary panel-container">
     <div class="panel-heading"><h3 class="text-left">{{ trans('app.dashboard') }}</h3></div>
     <div class="panel-body"> 
         <div class="row">
