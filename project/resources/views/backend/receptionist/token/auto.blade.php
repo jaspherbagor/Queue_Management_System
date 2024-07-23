@@ -297,7 +297,7 @@ $(document).ready(function(){
                         "}</style>";
 
                     content += "<div class=\"receipt-token\">";
-                    content += "<h4>QUEUEING SYSTEM FOR PCLU</h4>";
+                    content += "<h4>QS FOR PCLU</h4>";
                     content += "<h1>"+data.token.token_no+"</h1>";
                     content +="<ul>";
                     content += "<li><strong>{{ trans('app.department') }}:</strong> "+data.token.department+"</li>";
