@@ -10,20 +10,20 @@
                 <div class="col-md-4 col-sm-6 col-xs-12 mb-1">
                     <div class="p-1 total-token-card">
                         <img src="{{ asset('public/assets/img/sf/user-id.svg') }} " alt="" class="icon-img">
-                        <h5><span class="card-qty">2 Total Queues</span></h5>
+                        <h5><span class="card-qty">{{ $total_queues }} Total Queues</span></h5>
                     </div>
                 </div>
             </a>
             <div class="col-md-4 col-sm-6 col-xs-12 mb-1">
                 <div class="p-1 pending-token-card">
                     <img src="{{ asset('public/assets/img/sf/clock.svg') }} " alt="" class="icon-img">
-                    <h5><span class="card-qty">2 Waiting</span></h5>
+                    <h5><span class="card-qty">{{ $total_waiting }} Waiting</span></h5>
                 </div>
             </div>
             <div class="col-md-4 col-sm-6 col-xs-12 mb-1">
                 <div class="p-1 complete-token-card">
                     <img src="{{ asset('public/assets/img/sf/sign-check.svg') }} " alt="" class="icon-img">
-                    <h5><span class="card-qty">2 Served</span></h5>
+                    <h5><span class="card-qty">{{ $total_completed }} Served</span></h5>
                 </div>
             </div>
 

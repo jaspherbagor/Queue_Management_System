@@ -15,6 +15,12 @@ class HomeController extends Controller
     {
         @date_default_timezone_set(session('app.timezone'));
 
+        $total_queues = Token::where('department_id', auth()->user()->department_id)->count();
+
+        $total_waiting = Token::where('department_id', auth()->user()->department_id)->where('status', 'pending')->count();
+
+        $total_completed = Token::where('department_id', auth()->user()->department_id)->where('status', 1)->count();
+
         $month = $this->chart_month();
         $year = $this->chart_year();
         $begin = $this->chart_begin();
@@ -23,7 +29,10 @@ class HomeController extends Controller
             'month',
             'year',
             'begin',
-            'performance',
+            'performance', 
+            'total_queues',
+            'total_waiting',
+            'total_completed',
         "" ));
     }
 
