@@ -547,15 +547,15 @@ class TokenController extends Controller
                     $options .= "<a href=\"" . url("admin/token/complete/$token->id") . "\"  class=\"btn btn-success btn-sm btn-complete\" onclick=\"return confirm('Are you sure?')\" title=\"Complete\"><i class=\"fa fa-check\"></i></a>";
                 }
                 if ($token->status != 0 || !empty($token->updated_at)) {
-                    $options .= "<a href=\"" . url("admin/token/recall/$token->id") . "\"  class=\"btn btn-info btn-sm\" onclick=\"return confirm('Are you sure?')\" title=\"Re-call\"><i class=\"fa fa-phone\"></i></a>";
+                    $options .= "<a href=\"" . url("admin/token/recall/$token->id") . "\"  class=\"btn btn-info btn-sm btn-call\" onclick=\"return confirm('Are you sure?')\" title=\"Re-call\"><i class=\"fa fa-phone\"></i></a>";
                 }
                 if ($token->status == 0) {
-                    $options .= "<button type=\"button\" data-toggle=\"modal\" data-target=\".transferModal\" data-token-id='{$token->id}' class=\"btn btn-primary btn-sm\" title=\"Transfer\"><i class=\"fa fa-exchange\"></i></button>
-                        <a href=\"" . url("admin/token/stoped/$token->id") . "\"  class=\"btn btn-warning btn-sm\" onclick=\"return confirm('Are you sure?')\" title=\"Stoped\"><i class=\"fa fa-stop\"></i></a>";
+                    $options .= "<button type=\"button\" data-toggle=\"modal\" data-target=\".transferModal\" data-token-id='{$token->id}' class=\"btn btn-primary btn-sm btn-transfer\" title=\"Transfer\"><i class=\"fa fa-exchange\"></i></button>
+                        <a href=\"" . url("admin/token/stoped/$token->id") . "\"  class=\"btn btn-warning btn-sm btn-stop\" onclick=\"return confirm('Are you sure?')\" title=\"Stop\"><i class=\"fa fa-stop\"></i></a>";
                 }
 
                 $options .= "<button type=\"button\" href=\"" . url("admin/token/print") . "\" data-token-id='$token->id' class=\"tokenPrint btn btn-default btn-sm\" title=\"Print\"><i class=\"fa fa-print\"></i></button>
-                    <a href=\"" . url("admin/token/delete/$token->id") . "\" class=\"btn btn-danger btn-sm\" onclick=\"return confirm('Are you sure?');\" title=\"Delete\"><i class=\"fa fa-times\"></i></a>";
+                    <a href=\"" . url("admin/token/delete/$token->id") . "\" class=\"btn btn-danger btn-sm btn-delete\" onclick=\"return confirm('Are you sure?');\" title=\"Delete\"><i class=\"fa fa-trash\"></i></a>";
                 $options .= "</div>";
 
                 $data[] = [

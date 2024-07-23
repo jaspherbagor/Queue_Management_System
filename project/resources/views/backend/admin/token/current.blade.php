@@ -69,7 +69,7 @@
 
                                     <button type="button" href='{{ url("admin/token/print") }}' data-token-id='{{ $token->id }}' class="tokenPrint btn btn-default btn-sm btn-print" title="Print" ><i class="fa fa-print"></i></button>
 
-                                    <a href='{{ url("admin/token/delete/$token->id") }}'class="btn btn-danger btn-sm btn-delete" onclick="return confirm('Are you sure?');" title="Delete"><i class="fa fa-times"></i></a>
+                                    <a href='{{ url("admin/token/delete/$token->id") }}'class="btn btn-danger btn-sm btn-delete" onclick="return confirm('Are you sure?');" title="Delete"><i class="fa fa-trash"></i></a>
                                 </div>
                             </td>
                         </tr> 
