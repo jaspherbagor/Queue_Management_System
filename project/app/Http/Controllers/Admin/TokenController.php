@@ -544,7 +544,7 @@ class TokenController extends Controller
                 # buttons
                 $options = "<div class=\"btn-group\">";
                 if ($token->status == 0) {
-                    $options .= "<a href=\"" . url("admin/token/complete/$token->id") . "\"  class=\"btn btn-success btn-sm\" onclick=\"return confirm('Are you sure?')\" title=\"Complete\"><i class=\"fa fa-check\"></i></a>";
+                    $options .= "<a href=\"" . url("admin/token/complete/$token->id") . "\"  class=\"btn btn-success btn-sm btn-complete\" onclick=\"return confirm('Are you sure?')\" title=\"Complete\"><i class=\"fa fa-check\"></i></a>";
                 }
                 if ($token->status != 0 || !empty($token->updated_at)) {
                     $options .= "<a href=\"" . url("admin/token/recall/$token->id") . "\"  class=\"btn btn-info btn-sm\" onclick=\"return confirm('Are you sure?')\" title=\"Re-call\"><i class=\"fa fa-phone\"></i></a>";
