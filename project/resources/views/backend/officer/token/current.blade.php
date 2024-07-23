@@ -127,13 +127,13 @@
                 content += "<h4>Queueing System for PCLU</h4>";
                 content += "<h1>"+data.token_no+"</h1>";
                 content +="<ul class=\"list-unstyled\">";
-                content += "<li><strong>{{ trans('app.department') }} </strong>"+data.department+"</li>";
+                content += "<li><strong>{{ trans('app.department') }}: </strong>"+data.department+"</li>";
                 content += "<li><strong>Window: </strong>"+data.counter+"</li>";
                 if (data.note)
                 {
                     content += "<li><strong>{{ trans('app.note') }} </strong>"+data.note+"</li>";
                 }
-                content += "<li><strong>{{ trans('app.date') }} </strong>"+data.created_at+"</li>";
+                content += "<li><strong>{{ trans('app.date') }}: </strong>"+data.created_at+"</li>";
                 content += "</ul>";  
                 content += "</div>";   
                 
