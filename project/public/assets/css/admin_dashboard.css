@@ -175,6 +175,17 @@ font-weight: 600;
     margin:0
 }
 
+.btn-view {
+    background: transparent;
+    color:#0bed5a;
+    outline:none;
+    border:none;
+    font-size: 16px;
+    padding:0;
+    margin-right:10px
+
+}
+
 .btn-edit {
     background: transparent;
     color:#0ba2ed;
@@ -183,6 +194,16 @@ font-weight: 600;
     font-size: 16px;
     padding:0;
     margin-right:10px
+}
+
+.btn-view:hover {
+    background: transparent;
+    color:#0bed5a;
+    outline:none;
+    border:none;
+    font-size: 16px;
+    transform:scale(1.05);
+    padding:0;
 }
 
 .btn-delete:hover {

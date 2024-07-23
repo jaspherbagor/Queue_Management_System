@@ -101,11 +101,11 @@ class UserController extends Controller
                     'department' => (!empty($user->department)?$user->department->name:null),
                     'status'     => (($user->status == 1) ? "<span class='label label-success btn-success status-active'>".trans('app.active')."</span>" : "<span class='label label-danger status-inactive'>".trans('app.deactive')."</span>"),
                     'options'    => "<div class=\"btn-group\">
-                        <a href='".url("admin/user/view/$user->id")."' class=\"btn btn-sm btn-info\"><i class=\"fa fa-eye\"></i></a>". 
+                        <a href='".url("admin/user/view/$user->id")."' class=\"btn btn-sm btn-info btn-view\"><i class=\"fa fa-eye\"></i></a>". 
                         (
                             ($user->user_type != 5) ?
-                            "<a href='".url("admin/user/edit/$user->id")."' class=\"btn btn-sm btn-success\"><i class=\"fa fa-edit\"></i></a>
-                            <a href='".url("admin/user/delete/$user->id")."' onclick=\"return confirm('".trans('app.are_you_sure')."')\" class=\"btn btn-sm btn-danger\"><i class=\"fa fa-times\"></i></a>" : ""
+                            "<a href='".url("admin/user/edit/$user->id")."' class=\"btn btn-sm btn-success btn-edit\"><i class=\"fa fa-edit\"></i></a>
+                            <a href='".url("admin/user/delete/$user->id")."' onclick=\"return confirm('".trans('app.are_you_sure')."')\" class=\"btn btn-sm btn-danger btn-delete\"><i class=\"fa fa-trash\"></i></a>" : ""
                         ).
                         "</div>"
                 ];  
