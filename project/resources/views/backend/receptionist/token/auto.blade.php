@@ -252,31 +252,6 @@ $(document).ready(function(){
             {
                 if (data.status)
                 {
-                    //var content = "<style type=\"text/css\">@media print {"+
-                        //"html, body {display:block;margin:0!important; padding:0 !important;overflow:hidden;display:table;}"+
-                        //".receipt-token {width:100vw;height:100vw;text-align:center}"+
-                        //".receipt-token h4{margin:0;padding:0;font-size:7vw;line-height:7vw;text-align:center}"+
-                        //".receipt-token h1{margin:0;padding:0;font-size:15vw;line-height:20vw;text-align:center}"+
-                        //".receipt-token ul{margin:0;padding:0;font-size:7vw;line-height:8vw;text-align:center;list-style:none;}"+
-                        //"}</style>";
-
-                    //content += "<div class=\"receipt-token\">";
-                    //content += "<h4>{{ \Session::get('app.title') }}</h4>";
-                    //content += "<h1>"+data.token.token_no+"</h1>";
-                    //content +="<ul class=\"list-unstyled\">";
-                    //content += "<li><strong>{{ trans('app.department') }} </strong>"+data.token.department+"</li>";
-                    //content += "<li><strong>{{ trans('app.counter') }} </strong>"+data.token.counter+"</li>";
-                    //content += "<li><strong>{{ trans('app.officer') }} </strong>"+data.token.firstname+' '+data.token.lastname+"</li>";
-                    //content += "<li><strong>{{ trans('app.date') }} </strong>"+data.token.created_at+"</li>";
-                    //content += "</ul>";
-                    //content += "</div>";
-
-                    // print
-                    //printThis(content);
-
-                    //$("input[name=client_mobile]").val("");
-                    //$("textarea[name=note]").val("");
-                    //$('.modal button[type=submit]').addClass('hidden');
                     // Function to format the date
                     function formatDate(dateString) {
                         var options = { year: 'numeric', month: 'long', day: 'numeric', hour: 'numeric', minute: 'numeric', hour12: true };
