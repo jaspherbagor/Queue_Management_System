@@ -554,7 +554,7 @@ class TokenController extends Controller
                         <a href=\"" . url("admin/token/stoped/$token->id") . "\"  class=\"btn btn-warning btn-sm btn-stop\" onclick=\"return confirm('Are you sure?')\" title=\"Stop\"><i class=\"fa fa-stop\"></i></a>";
                 }
 
-                $options .= "<button type=\"button\" href=\"" . url("admin/token/print") . "\" data-token-id='$token->id' class=\"tokenPrint btn btn-default btn-sm\" title=\"Print\"><i class=\"fa fa-print\"></i></button>
+                $options .= "<button type=\"button\" href=\"" . url("admin/token/print") . "\" data-token-id='$token->id' class=\"tokenPrint btn btn-default btn-sm btn-print\" title=\"Print\"><i class=\"fa fa-print\"></i></button>
                     <a href=\"" . url("admin/token/delete/$token->id") . "\" class=\"btn btn-danger btn-sm btn-delete\" onclick=\"return confirm('Are you sure?');\" title=\"Delete\"><i class=\"fa fa-trash\"></i></a>";
                 $options .= "</div>";
 
