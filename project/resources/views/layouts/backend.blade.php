@@ -226,6 +226,9 @@
                                     <li class="{{ (session()->get('app.display')==3 ? 'active' : '') }}">
                                         <a href="{{ url('common/display?type=3') }}" target="_blank">{{ trans('app.display_3') }}</a>
                                     </li>
+                                    <li class="{{ (session()->get('app.display')=='3b' ? 'active' : '') }}">
+                                        <a href="{{ route('display3b') }}" target="_blank">Display 3b</a>
+                                    </li>
                                     {{-- <li class="{{ (session()->get('app.display')==4 ? 'active' : '') }}">
                                         <a href="{{ url('common/display?type=4') }}" target="_blank">{{ trans('app.display_4') }}</a>
                                     </li>                                      --}}

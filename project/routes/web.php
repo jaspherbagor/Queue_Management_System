@@ -53,6 +53,7 @@ Route::prefix('common')
 	Route::post('display1', 'DisplayController@display1');
 	Route::post('display2','DisplayController@display2');
 	Route::post('display3','DisplayController@display3');
+	Route::post('display3b','DisplayController@display3b')->name('display3b');
 	Route::post('display4','DisplayController@display4');
 	Route::post('display5','DisplayController@display5');
 

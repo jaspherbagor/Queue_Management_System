@@ -1,5 +1,5 @@
 @extends('layouts.display')
-@section('title', trans('app.display_3'))
+@section('title', 'Dislay 3B')
 
 @section('content')
 <div class="panel panel-primary">
@@ -25,7 +25,7 @@
       </div>
 
         <div class="row">  
-          <div id="display3"></div>
+          <div id="display3b"></div>
         </div>
 
 
