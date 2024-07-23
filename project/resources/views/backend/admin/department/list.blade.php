@@ -45,7 +45,7 @@
                                 <td>{{ $department->key }}</td>
                                 {{-- <td>{{ (!empty($department->created_at)?date('j M Y h:i a',strtotime($department->created_at)):null) }}</td> --}}
                                 {{-- <td>{{ (!empty($department->updated_at)?date('j M Y h:i a',strtotime($department->updated_at)):null) }}</td> --}}
-                                <td>{!! (($department->status==1)?"<span class='label label-success btn-active'>". trans('app.active') ."</span>":"<span class='label label-dander'>". trans('app.deactive') ."</span>") !!}</td>
+                                <td>{!! (($department->status==1)?"<span class='label label-success btn-active status-active'>". trans('app.active') ."</span>":"<span class='label label-danger status-inactive'>". trans('app.deactive') ."</span>") !!}</td>
                                 <td>
                                     <div class="btn-group">
                                         <a href="{{ url("admin/department/edit/$department->id") }}" class="btn btn-edit btn-sm me-3" data-toggle="tooltip"  title="Edit" ><i class="fa fa-edit"></i></a>

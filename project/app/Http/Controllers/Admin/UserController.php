@@ -99,7 +99,7 @@ class UserController extends Controller
                     'name'       => $user->firstname. ' ' . $user->lastname,
                     'email'      => $user->email,
                     'department' => (!empty($user->department)?$user->department->name:null),
-                    'status'     => (($user->status == 1) ? "<span class='label label-success'>".trans('app.active')."</span>" : "<span class='label label-danger'>".trans('app.deactive')."</span>"),
+                    'status'     => (($user->status == 1) ? "<span class='label label-success btn-success status-active'>".trans('app.active')."</span>" : "<span class='label label-danger status-inactive'>".trans('app.deactive')."</span>"),
                     'options'    => "<div class=\"btn-group\">
                         <a href='".url("admin/user/view/$user->id")."' class=\"btn btn-sm btn-info\"><i class=\"fa fa-eye\"></i></a>". 
                         (

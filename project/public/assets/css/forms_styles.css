@@ -142,7 +142,7 @@ input[type=search] {
     border-radius: 10px 10px 0 0;
 }
 
-.status-inactive {
-    border-radius: 10px;
-    padding: 5px;
+.status-inactive, .status-active {
+    border-radius: 10px !important;
+    padding: 5px !important;
 }
