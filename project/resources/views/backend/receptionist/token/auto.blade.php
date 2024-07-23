@@ -263,21 +263,21 @@ $(document).ready(function(){
                     var formattedDate = formatDate(data.token.created_at);
 
                     var content = "<style type=\"text/css\">@media print {"+
-                        "html, body {margin:0; padding:0; overflow:hidden; display:block; width:100%; font-family:Arial, sans-serif;}"+
-                        ".receipt-token {width:100%; text-align:center; margin-top:20px;}"+
-                        ".receipt-token h4 {margin:5px 0; padding:0; font-size:20px; line-height:24px;}"+
-                        ".receipt-token h1 {margin:10px 0; padding:0; font-size:40px; line-height:45px;}"+
-                        ".receipt-token ul {margin:0; padding:0; font-size:18px; line-height:22px; list-style:none; text-align:center; align-items:center; justify-content:center"+
-                        ".receipt-token ul li {margin:5px 0;}"+
+                        "html, body {margin:0; padding:0; overflow:hidden; display:block; width:80mm; height:80mm; font-family:Arial, sans-serif;}"+
+                        ".receipt-token {width:100%; text-align:center; margin-top:5mm;}"+
+                        ".receipt-token h4 {margin:2mm 0; padding:0; font-size:14px; line-height:16px;}"+
+                        ".receipt-token h1 {margin:4mm 0; padding:0; font-size:24px; line-height:28px;}"+
+                        ".receipt-token ul {margin:0; padding:0; font-size:12px; line-height:14px; list-style:none; text-align:center; align-items:center; justify-content:center;}"+
+                        ".receipt-token ul li {margin:3mm 0;}"+
                         "}</style>";
 
                     content += "<div class=\"receipt-token\">";
                     content += "<h4>QS FOR PCLU</h4>";
                     content += "<h1>"+data.token.token_no+"</h1>";
                     content +="<ul>";
-                    content += "<li><strong>{{ trans('app.department') }}:</strong> "+data.token.department+"</li>";
+                    content += "<li><strong>Department:</strong> "+data.token.department+"</li>";
                     content += "<li><strong>Window:</strong> "+data.token.counter+"</li>";
-                    content += "<li><strong>{{ trans('app.date') }}:</strong> "+formattedDate+"</li>";
+                    content += "<li><strong>Date:</strong> "+formattedDate+"</li>";
                     content += "</ul>";
                     content += "</div>";
 
@@ -287,6 +287,7 @@ $(document).ready(function(){
                     $("input[name=client_mobile]").val("");
                     $("textarea[name=note]").val("");
                     $('.modal button[type=submit]').addClass('hidden');
+
                 }
             },
             error: function(xhr)
