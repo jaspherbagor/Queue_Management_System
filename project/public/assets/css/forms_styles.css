@@ -148,7 +148,7 @@ input[type=search] {
 }
 
 /* Queue Table Buttons Styles */
-.btn-complete, .btn-transfer, .btn-stop, .btn-print {
+.btn-complete, .btn-transfer, .btn-stop, .btn-print, .btn-call {
     background: transparent;
     /* color:#0ba2ed; */
     outline:none;
@@ -168,6 +168,11 @@ input[type=search] {
 }
 
 .btn-transfer, .btn-transfer:hover {
+    color: rgb(32, 125, 232);
+    background: none;
+}
+
+.btn-call, .btn-call:hover {
     color: rgb(32, 125, 232);
     background: none;
 }

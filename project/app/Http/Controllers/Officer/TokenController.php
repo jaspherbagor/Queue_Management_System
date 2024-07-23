@@ -118,13 +118,13 @@ class TokenController extends Controller
                 # buttons
                 $options = "<div class=\"btn-group\">";
                 if ($token->status == 0) {
-                    $options .= "<a href=\"".url("officer/token/complete/$token->id")."\"  class=\"btn btn-success btn-sm\" onclick=\"return confirm('Are you sure?')\" title=\"Complete\"><i class=\"fa fa-check\"></i></a>";
-                    $options .= "<a href=\"". url("officer/token/stoped/$token->id")."\"  class=\"btn btn-warning btn-sm\" onclick=\"return confirm('Are you sure?')\" title=\"Stoped\"><i class=\"fa fa-stop\"></i></a>";
+                    $options .= "<a href=\"".url("officer/token/complete/$token->id")."\"  class=\"btn btn-success btn-sm btn-complete\" onclick=\"return confirm('Are you sure?')\" title=\"Complete\"><i class=\"fa fa-check\"></i></a>";
+                    $options .= "<a href=\"". url("officer/token/stoped/$token->id")."\"  class=\"btn btn-warning btn-sm btn-stop\" onclick=\"return confirm('Are you sure?')\" title=\"Stop\"><i class=\"fa fa-stop\"></i></a>";
                 } else {
-                    $options .= "<a href=\"".url("officer/token/recall/$token->id")."\"  class=\"btn btn-info btn-sm\" onclick=\"return confirm('Are you sure?')\" title=\"Call\"><i class=\"fa fa-phone\"></i></a>";
+                    $options .= "<a href=\"".url("officer/token/recall/$token->id")."\"  class=\"btn btn-info btn-sm btn-call\" onclick=\"return confirm('Are you sure?')\" title=\"Call\"><i class=\"fa fa-phone\"></i></a>";
                 }
 
-                $options .= "<button type=\"button\" href=\"".url("officer/token/print")."\" data-token-id='$token->id' class=\"tokenPrint btn btn-default btn-sm\" title=\"Print\"><i class=\"fa fa-print\"></i></button>"; 
+                $options .= "<button type=\"button\" href=\"".url("officer/token/print")."\" data-token-id='$token->id' class=\"tokenPrint btn btn-default btn-sm btn-print\" title=\"Print\"><i class=\"fa fa-print\"></i></button>"; 
                 $options .= "</div>"; 
 
                 $data[] = [

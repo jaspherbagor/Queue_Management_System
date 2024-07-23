@@ -7,7 +7,7 @@
     <div class="panel-heading">
         <div class="row">
             <div class="col-sm-12 text-left">
-                <h3>{{ trans('app.active') }} / {{ trans('app.todays_token') }}</h3>
+                <h3>{{ trans('app.active') }} / Current Queues</h3>
             </div> 
         </div>
     </div>
@@ -58,11 +58,11 @@
                             <td>{{ (!empty($token->created_at)?date('j M Y h:i a',strtotime($token->created_at)):null) }}</td> --}}
                             <td>
                                 <div class="btn-group"> 
-                                    <a href="{{ url("officer/token/complete/$token->id") }}"  class="btn btn-success btn-sm" onclick="return confirm('Are you sure?')" title="Complete"><i class="fa fa-check"></i></a> 
+                                    <a href="{{ url("officer/token/complete/$token->id") }}"  class="btn btn-success btn-sm btn-complete" onclick="return confirm('Are you sure?')" title="Complete"><i class="fa fa-check"></i></a> 
 
-                                    <a href="{{ url("officer/token/stoped/$token->id") }}"  class="btn btn-warning btn-sm" onclick="return confirm('Are you sure?')" title="Stoped"><i class="fa fa-stop"></i></a>
+                                    <a href="{{ url("officer/token/stoped/$token->id") }}"  class="btn btn-warning btn-sm btn-stop" onclick="return confirm('Are you sure?')" title="Stop"><i class="fa fa-stop"></i></a>
 
-                                    <button type="button" href='{{ url("officer/token/print") }}' data-token-id='{{ $token->id }}' class="tokenPrint btn btn-default btn-sm" title="Print" ><i class="fa fa-print"></i></button>
+                                    <button type="button" href='{{ url("officer/token/print") }}' data-token-id='{{ $token->id }}' class="tokenPrint btn btn-default btn-sm btn-print" title="Print" ><i class="fa fa-print"></i></button>
                                 </div>
                             </td>
                         </tr> 
