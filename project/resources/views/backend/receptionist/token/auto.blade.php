@@ -263,7 +263,7 @@ $(document).ready(function(){
                     var formattedDate = formatDate(data.token.created_at);
 
                     var content = "<style type=\"text/css\">@media print {"+
-                        "html, body {margin:0; padding:0; overflow:hidden; display:block; width:80mm; height:80mm; font-family:Arial, sans-serif;}"+
+                        "html, body {margin:0; padding:0; overflow:hidden; display:block; width:80mm; height:80mm; font-family:Arial, sans-serif; border:1px dotted #000;}"+
                         ".receipt-token {width:100%; text-align:center; margin-top:5mm;}"+
                         ".receipt-token h4 {margin:2mm 0; padding:0; font-size:14px; line-height:16px;}"+
                         ".receipt-token h1 {margin:4mm 0; padding:0; font-size:24px; line-height:28px;}"+
@@ -272,7 +272,7 @@ $(document).ready(function(){
                         "}</style>";
 
                     content += "<div class=\"receipt-token\">";
-                    content += "<h4>QS FOR PCLU</h4>";
+                    content += "<h4>QUEUEING SYSTEM FOR PCLU</h4>";
                     content += "<h1>"+data.token.token_no+"</h1>";
                     content +="<ul>";
                     content += "<li><strong>Department:</strong> "+data.token.department+"</li>";
