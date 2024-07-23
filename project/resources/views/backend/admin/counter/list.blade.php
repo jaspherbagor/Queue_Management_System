@@ -42,7 +42,7 @@
                                 <td>{{ $counter->description }}</td>
                                 {{-- <td>{{ (!empty($counter->created_at)?date('j M Y h:i a',strtotime($counter->created_at)):null) }}</td> --}}
                                 {{-- <td>{{ (!empty($counter->updated_at)?date('j M Y h:i a',strtotime($counter->updated_at)):null) }}</td> --}}
-                                <td>{!! (($counter->status==1)?"<span class='label label-success btn-active'>". trans('app.active') ."</span>":"<span class='label label-dander'>". trans('app.deactive') ."</span>") !!}</td>
+                                <td>{!! (($counter->status==1)?"<span class='label label-success btn-active'>". trans('app.active') ."</span>":"<span class='label label-danger status-inactive'>". trans('app.deactive') ."</span>") !!}</td>
                                 <td>
                                     <div class="btn-group">
                                         <a href="{{ url("admin/counter/edit/$counter->id") }}" class="btn btn-edit btn-sm" data-toggle="tooltip"  title="Edit"><i class="fa fa-edit"></i></a>
