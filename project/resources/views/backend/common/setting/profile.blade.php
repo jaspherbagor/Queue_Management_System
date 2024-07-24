@@ -28,14 +28,19 @@
                 <span class="label label-info">{{ auth()->user()->roles($user->user_type) }}</span> 
 
             </div> 
+            @php
+            use Carbon\Carbon;
+            @endphp
 
             <div class="col-sm-9"> 
                 <dl class="dl-horizontal"> 
                     <dt>{{ trans('app.department') }}</dt><dd>{{ ($user->department?$user->department:"N/A") }}</dd>
                     <dt>{{ trans('app.email') }}</dt><dd>{{ $user->email }}</dd>
-                    <dt>{{ trans('app.mobile') }}</dt><dd>{{ $user->mobile }}</dd>
-                    <dt>{{ trans('app.created_at') }}</dt><dd>{{ $user->created_at }}</dd>
-                    <dt>{{ trans('app.updated_at') }}</dt><dd>{{ $user->updated_at }}</dd>
+                    {{-- <dt>{{ trans('app.mobile') }}</dt><dd>{{ $user->mobile }}</dd> --}}
+                    <dt>Created</dt>
+                    <dd>{{ Carbon::parse($user->created_at)->format('F j, Y g:i A') }}</dd>
+                    <dt>Updated</dt>
+                    <dd>{{ Carbon::parse($user->updated_at)->format('F j, Y g:i A') }}</dd>
                     <dt>{{ trans('app.status') }}</dt>
                     <dd>
                         @if ($user->status==1)
@@ -55,7 +60,7 @@
                     <thead>
                         <tr class="active">
                             <th>{{ trans('app.status') }}</th>
-                            <td>{{ trans('app.my_token') }}</td>
+                            <td>My Queues</td>
                             <td>{{ trans('app.generated_by_me') }}</td>
                             <td>{{ trans('app.assigned_to_me') }}</td>
                             <td>{{ trans('app.total') }}</td>
