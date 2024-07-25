@@ -36,7 +36,6 @@
                 <dl class="dl-horizontal"> 
                     <dt>{{ trans('app.department') }}</dt><dd>{{ ($user->department?$user->department:"N/A") }}</dd>
                     <dt>{{ trans('app.email') }}</dt><dd>{{ $user->email }}</dd>
-                    {{-- <dt>{{ trans('app.mobile') }}</dt><dd>{{ $user->mobile }}</dd> --}}
                     <dt>Created</dt>
                     <dd>{{ Carbon::parse($user->created_at)->format('F j, Y g:i A') }}</dd>
                     <dt>Updated</dt>
