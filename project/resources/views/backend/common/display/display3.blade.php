@@ -1,5 +1,5 @@
 @extends('layouts.display')
-@section('title', trans('app.display_3'))
+@section('title', 'Display 1')
 
 @section('content')
 <div class="panel panel-primary">
@@ -7,7 +7,7 @@
     <div class="panel-heading">
         <div class="row">
             <div class="col-sm-12">
-                <h3>{{ trans('app.display_3') }} <button class="pull-right btn btn-sm btn-primary" onclick="goFullscreen('fullscreen'); return false"><i class="fa fa-arrows-alt" aria-hidden="true"></i></button></h3>
+                <h3>DISPLAY 1 <button class="pull-right btn btn-sm btn-primary" onclick="goFullscreen('fullscreen'); return false"><i class="fa fa-arrows-alt" aria-hidden="true"></i></button></h3>
                 <span class="text-danger">(enable full-screen mode and wait 10 seconds to adjust the screen)</span>
             </div> 
         </div>
