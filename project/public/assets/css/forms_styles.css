@@ -27,26 +27,28 @@ label {
 }
 
 .save-btn {
-    background: #0dc9ef;
+    background: #83dff1;
 }
 
 .save-btn:hover {
-    background: #028ba6;
+    background: #52bdd2;
     color:black
 }
 
 .reset-btn, .save-btn {
     border-radius:10px;
-    border: 1.5px solid black;
+    border: none;
     text-transform:capitalize;
     color:black;
-    padding: 10px 20px
+    padding: 10px 20px;
+    box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
 }
 
 .reset-btn:hover, .save-btn:hover {
-    border: 1.5px solid black;
+    border: none;
+    box-shadow: rgba(17, 248, 225, 0.12) 0px 2px 4px 0px, rgba(14, 30, 37, 0.32) 0px 2px 16px 0px;
+    transform:scale(1.05);
 }
-
 
 .form-container {
     display:flex;
