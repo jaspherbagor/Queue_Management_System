@@ -18,33 +18,33 @@ label {
 
 .reset-btn {
     margin-right: 10px;
-    background: #0096C7;
+    background: #e81333;
 }
 
 .reset-btn:hover {
-    background: #0279a1;
+    background: #d30423;
     color:black
 }
 
 .save-btn {
-    background: #CAF0F8;
+    background: #0dc9ef;
 }
 
 .save-btn:hover {
-    background: #94dceb;
+    background: #028ba6;
     color:black
 }
 
 .reset-btn, .save-btn {
     border-radius:10px;
     border: 1.5px solid black;
-    text-transform: lowercase;
-    color:black
+    text-transform:capitalize;
+    color:black;
+    padding: 10px 20px
 }
 
 .reset-btn:hover, .save-btn:hover {
     border: 1.5px solid black;
-    /* background: transparent; */
 }
 
 
