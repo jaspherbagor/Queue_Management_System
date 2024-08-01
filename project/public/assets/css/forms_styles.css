@@ -71,11 +71,14 @@ label {
 } */
 
 .panel-body, .panel-heading {
-    border:none !important
+    border:none !important;
+    background-image: linear-gradient(-225deg, #E3FDF5 0%, #FFE6FA 100%);
+    border-radius: 0 0 10px 10px;
 }
 
 .panel-heading {
     border-radius: 10px 10px 0 0 !important;
+    background: #F0F8FF !important;
     /* border: 2px solid red !important */
 }
 .panel-container {
@@ -183,3 +186,11 @@ input[type=search] {
     color: rgb(235, 159, 18);
     background: none;
 }
+
+.cm-submenu ul li a:hover {
+    background: #83c9ed !important;
+}
+/* 
+.cm-menu-items li a:hover {
+    background: #83c9ed !important;
+} */
