@@ -365,6 +365,7 @@ li.active {
     width: 8ch;
     overflow: hidden;
     padding:10px;
+    background: transparent
 }
 
 /* Department Table Buttons */
