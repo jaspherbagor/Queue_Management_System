@@ -76,6 +76,14 @@
                 <div id="cm-menu-items-wrapper">
                     <div id="cm-menu-scroller">
                         <ul class="cm-menu-items">
+                            {{-- <li class="">
+                                <div>
+                                    <img src="{{ !empty(Auth::user()->photo)?asset(Auth::user()->photo):asset('public/assets/img/icons/no_user.jpg') }}" width="140" height="105">
+                                </div>
+                                <a href="{{ url('admin') }}" class="sf-dashboard">
+                                    {{ Auth::user()->firstname .' '. Auth::user()->lastname }}
+                                </a>
+                            </li> --}}
                             <!-- // ADMIN MENU -->
                             @if(Auth::user()->hasRole('admin'))
                             <li class="{{ ((Request::is('admin')) ? 'active' : '') }}">
