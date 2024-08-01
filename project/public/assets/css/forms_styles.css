@@ -187,6 +187,14 @@ input[type=search] {
     background: none;
 }
 
+.cm-menu-items li a {
+    font-weight: 400 !important;
+}
+.cm-submenu ul li a {
+    padding-top: 6px !important;
+    padding-bottom: 6px !important;
+}
+
 .cm-submenu ul li a:hover {
     background: #83c9ed !important;
 }
