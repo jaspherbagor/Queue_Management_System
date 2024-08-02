@@ -23,7 +23,8 @@
         <!-- jquery-ui -->
         <link href="{{ asset('public/assets/css/jquery-ui.min.css') }}" rel='stylesheet'>
         <!-- datatable -->
-        <link href="{{ asset('public/assets/css/dataTables.min.css') }}" rel='stylesheet'>
+        {{-- <link href="{{ asset('public/assets/css/dataTables.min.css') }}" rel='stylesheet'> --}}
+        <link href="{{ asset('public/assets/css/datatables_css.min.css') }}" rel='stylesheet'>
         <!-- select2 -->
         <link href="{{ asset('public/assets/css/select2.min.css') }}"  rel='stylesheet'>
         <!-- custom style -->
@@ -42,6 +43,8 @@
 
         <!-- Jquery  -->
         <script src="{{ asset('public/assets/js/jquery.min.js') }}"></script>
+        {{-- Datatables Script --}}
+        <script src="{{ asset('public/assets/js/datatables.min.js') }}"></script>
     </head>
     <body class="cm-no-transition cm-1-navbar loader-process">
         @include('backend.common.info')
