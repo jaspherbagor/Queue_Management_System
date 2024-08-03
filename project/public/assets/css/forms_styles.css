@@ -202,3 +202,17 @@ input[type=search] {
 .cm-menu-items li a:hover {
     background: #83c9ed !important;
 } */
+
+.dataTables_filter {
+    /* margin-right: -20px !important; */
+    /* border: 2px solid red !important; */
+    display: flex;
+    align-items: end !important;
+    justify-content: flex-end !important;
+}
+
+.dataTables_filter label {
+    /* border: 2px solid green; */
+    /* margin-left: 390px !important; */
+    /* padding-right: -20px !important; */
+}
