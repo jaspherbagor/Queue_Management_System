@@ -210,9 +210,3 @@ input[type=search] {
     align-items: end !important;
     justify-content: flex-end !important;
 }
-
-.dataTables_filter label {
-    /* border: 2px solid green; */
-    /* margin-left: 390px !important; */
-    /* padding-right: -20px !important; */
-}
