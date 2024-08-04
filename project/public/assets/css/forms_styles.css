@@ -115,9 +115,9 @@ label {
 .panel-body, .panel-heading {
     border:none !important;
     /* background-image: linear-gradient(-225deg, #E3FDF5 0%, #FFE6FA 100%); */;
-    box-shadow:  -10px -10px 15px rgba(255,255,255,0.55),
+    /* box-shadow:  -10px -10px 15px rgba(255,255,255,0.55),
     10px 10px 15px rgba(70,70,70,0.12);
-    border-radius: 0 0 10px 10px;
+    border-radius: 0 0 10px 10px; */
 }
 
 .panel-heading {
@@ -131,8 +131,9 @@ label {
     box-shadow: rgba(17, 17, 26, 0.1) 0px 4px 16px, rgba(17, 17, 26, 0.1) 0px 8px 24px, rgba(17, 17, 26, 0.1) 0px 16px 56px !important;
 }
 
-input[type=search] {
-    border-radius: 10px !important
+input[type=search], select.input-sm {
+    border-radius: 10px !important;
+    border: 1.5px solid black !important
 }
 
 .info-button {
