@@ -1,5 +1,6 @@
 @extends('layouts.backend')
 @section('title', trans('app.display_setting'))
+{{-- This is a test comment --}}
 
 @section('content')
 <div class="panel panel-primary panel-container" id="printMe">
