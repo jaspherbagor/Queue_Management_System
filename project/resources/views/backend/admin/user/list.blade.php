@@ -20,16 +20,16 @@
     <div class="panel-body">
         <table class="dataTables-server table table-bordered" cellspacing="0">
             <thead>
-                <tr>
-                    {{-- <th rowspan="3">#</th> --}}
-                    {{-- <td>
+                {{-- <tr>
+                    <th rowspan="3">#</th>
+                    <td>
                         <label>{{ trans('app.start_date') }}</label>
                         <input type="text" class="datepicker form-control input-sm filter" id="start_date" placeholder="{{ trans('app.start_date') }}" autocomplete="off" style="width:100px" />
                     </td>
                     <td>
                         <label>{{ trans('app.end_date') }}</label>
                         <input type="text" class="datepicker form-control input-sm filter" id="end_date" placeholder="{{ trans('app.end_date') }}" autocomplete="off" style="width:100px"/>
-                    </td> --}}
+                    </td>
                     <th colspan="8">
 
                     </th>
@@ -50,7 +50,7 @@
                     <th>
                         {{ Form::select('department', $departments, null, ['id'=>'department', 'class'=>'select2 filter', 'placeholder'=> trans('app.department')]) }}
                     </th>
-                    {{-- <th></th> --}}
+                    <th></th>
                     <th>
                         <select id="status" class="select2 filter">
                             <option value="">{{ trans('app.status') }}</option>
@@ -58,10 +58,10 @@
                             <option value="'0'">{{trans('app.deactive')}}</option>
                         </select>
                     </th>
-                    {{-- <th></th> --}}
-                    {{-- <th></th> --}}
                     <th></th>
-                </tr>
+                    <th></th>
+                    <th></th>
+                </tr> --}}
                 <tr>
                     <th>{{ trans('app.photo') }}</th>
                     <th>{{ trans('app.user_type') }}</th>
