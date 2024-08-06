@@ -110,7 +110,7 @@ code,
     vertical-align: bottom;
 }
 table thead, table tfoot {
-    background: rgb(255, 254, 254)!important;
+    background: #f1f1f1 !important;
     color:#000;
 }
 
