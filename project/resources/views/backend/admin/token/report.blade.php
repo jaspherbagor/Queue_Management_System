@@ -18,19 +18,19 @@
                 <tr>
                     <th>Queue</th>
                     <th>
-                        {{ Form::select('department', $departments, null, ['id'=>'department', 'class'=>'select2 filter', 'placeholder'=> trans('app.department')]) }}
+                        {{-- {{ Form::select('department', $departments, null, ['id'=>'department', 'class'=>'select2 filter', 'placeholder'=> trans('app.department')]) }} --}}
                         <p class="text-center mb-0 pb-0">Department</p>
                     </th>
                     <th>
-                        {{ Form::select('counter', $counters, null, ['id'=>'counter', 'class'=>'select2 filter', 'placeholder'=> trans('app.counter')]) }}
+                        {{-- {{ Form::select('counter', $counters, null, ['id'=>'counter', 'class'=>'select2 filter', 'placeholder'=> trans('app.counter')]) }} --}}
                         <p class="text-center mb-0 pb-0">Window</p>
                     </th>
                     <th>
-                        {{ Form::select('officer', $officers, null, ['id'=>'officer', 'class'=>'select2 filter', 'placeholder'=> trans('app.officer')]) }}
+                        {{-- {{ Form::select('officer', $officers, null, ['id'=>'officer', 'class'=>'select2 filter', 'placeholder'=> trans('app.officer')]) }} --}}
                         <p class="text-center mb-0 pb-0">Officer</p>
                     </th>
                     <th>
-                        {{ Form::select('status', ["'0'"=>trans("app.pending"), '1'=>trans("app.complete"), '2'=>trans("app.stop")],  null,  ['placeholder' => trans("app.status"), 'id'=> 'status', 'class'=>'select2 filter']) }}
+                        {{-- {{ Form::select('status', ["'0'"=>trans("app.pending"), '1'=>trans("app.complete"), '2'=>trans("app.stop")],  null,  ['placeholder' => trans("app.status"), 'id'=> 'status', 'class'=>'select2 filter']) }} --}}
                         <p class="text-center mb-0 pb-0">Status</p>
                     </th>
                     <th>{{ trans('app.complete_time') }}</th>
