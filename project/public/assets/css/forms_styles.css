@@ -239,8 +239,6 @@ input[type=search], select.input-sm {
 } */
 
 .dataTables_filter {
-    /* margin-right: -20px !important; */
-    /* border: 2px solid red !important; */
     display: flex;
     align-items: end !important;
     justify-content: flex-end !important;
