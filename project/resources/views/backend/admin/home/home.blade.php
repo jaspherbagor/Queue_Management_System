@@ -2,10 +2,10 @@
 @section('title', trans('app.dashboard'))
 
 @section('content')
+<div class="panel-heading">
+    <h3 class="text-left">DASHBOARD</h3>
+</div>
 <div class="panel panel-primary dashboard_panel panel-container">
-    <div class="panel-heading">
-        <h3 class="text-left">DASHBOARD</h3>
-    </div>
 
     <div class="panel-body">
 

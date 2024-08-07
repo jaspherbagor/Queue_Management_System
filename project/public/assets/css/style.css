@@ -150,7 +150,9 @@ div.dt-button-collection > .dropdown-menu>li>a:focus {
 .panel-heading {
     font-family: Tahoma;
     border-radius:0;
-    background: #ffffff !important;
+    margin-top: 30px !important;
+    margin-bottom: 30px !important;
+    background: #fff !important;
     color: #3498db !important;
 }
 .panel-heading h3,
