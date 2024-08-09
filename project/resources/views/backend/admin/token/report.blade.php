@@ -2,15 +2,15 @@
 @section('title', 'Queue Report')
 
 @section('content')
-<div class="panel panel-primary panel-container">
-    <div class="panel-heading">
-        <div class="row">
-            <div class="col-sm-12 text-left">
-                <h3>Queue Report</h3>
-            </div>
+<div class="panel-heading">
+    <div class="row">
+        <div class="col-sm-12 text-left">
+            <h3>Queue Report</h3>
         </div>
     </div>
-
+</div>
+<div class="panel panel-primary panel-container">
+    
     <div class="panel-body">
         <table class="dataTables-server display table table-bordered" width="100%" cellspacing="0">
             <thead>

@@ -2,35 +2,34 @@
 @section('title', 'Create Queue Number')
 
 @section('content')
-<div class="panel panel-primary" id="toggleScreenArea">
-    <div class="panel-heading pt-0 pb-0">
-        <ul class="row m-0 list-inline">
-            <li class="col-xs-6 col-sm-4 p-0 text-left">
-                <img src="{{ asset('public/assets/images/pclu_banner.svg') }}" width="210" height="50">
-            </li>
-            <li class="col-xs-4 col-sm-4 hidden-xs" id="screen-title">
-                <h3 class="mt-1 pt-1">Create Queue Number</h3>
-            </li>
-            <li class="col-xs-6 col-sm-4 p-1 text-right">
-                <div class="mt-1 pt-1">
-                    <button type="button" class="btn btn-warning btn-sm" data-toggle="modal" data-target="#infoModal">
-                      <i class="fa fa-info-circle"></i>
-                    </button>
-                    @if ($display->keyboard_mode)
-                    <div class="disabled btn btn-success btn-sm" title="Keyboard Mode Enable">
-                        <i class="fa fa-keyboard-o"></i>&nbsp;&nbsp;<i class="fa fa-check"></i>
-                    </div>
-                    @else
-                    <div class="disabled btn btn-danger btn-sm" title="Keyboard Mode Disabled">
-                        <i class="fa fa-keyboard-o"></i>&nbsp;&nbsp;<i class="fa fa-times"></i>
-                    </div>
-                    @endif
-                    <button id="toggleScreen" class="btn btn-sm btn-primary"><i class="fa fa-arrows-alt"></i></button>
+<div class="panel-heading pt-0 pb-0">
+    <ul class="row m-0 list-inline">
+        <li class="col-xs-6 col-sm-4 p-0 text-left">
+            <img src="{{ asset('public/assets/images/pclu_banner.svg') }}" width="210" height="50">
+        </li>
+        <li class="col-xs-4 col-sm-4 hidden-xs" id="screen-title">
+            <h3 class="mt-1 pt-1">Create Queue Number</h3>
+        </li>
+        <li class="col-xs-6 col-sm-4 p-1 text-right">
+            <div class="mt-1 pt-1">
+                <button type="button" class="btn btn-warning btn-sm" data-toggle="modal" data-target="#infoModal">
+                  <i class="fa fa-info-circle"></i>
+                </button>
+                @if ($display->keyboard_mode)
+                <div class="disabled btn btn-success btn-sm" title="Keyboard Mode Enable">
+                    <i class="fa fa-keyboard-o"></i>&nbsp;&nbsp;<i class="fa fa-check"></i>
                 </div>
-            </li>
-        </ul>
-    </div>
-
+                @else
+                <div class="disabled btn btn-danger btn-sm" title="Keyboard Mode Disabled">
+                    <i class="fa fa-keyboard-o"></i>&nbsp;&nbsp;<i class="fa fa-times"></i>
+                </div>
+                @endif
+                <button id="toggleScreen" class="btn btn-sm btn-primary"><i class="fa fa-arrows-alt"></i></button>
+            </div>
+        </li>
+    </ul>
+</div>
+<div class="panel panel-primary panel-container" id="toggleScreenArea"> 
     <div class="panel-body">
         <div class="col-sm-12" id="screen-content">
             @if($display->sms_alert || $display->show_note)
