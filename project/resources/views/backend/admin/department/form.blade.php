@@ -2,15 +2,15 @@
 @section('title', trans('app.add_department'))
 
 @section('content')
-<div class="panel panel-primary panel-container" id="printMe">
-    <div class="panel-heading">
-        <div class="row">
-            <div class="col-sm-12 text-start">
-                <h3 class="form-heading">{{ trans('app.add_department') }}</h3>
-            </div>
+<div class="panel-heading">
+    <div class="row">
+        <div class="col-sm-12 text-start">
+            <h3 class="form-heading">{{ trans('app.add_department') }}</h3>
         </div>
     </div>
-
+</div>
+<div class="panel panel-primary panel-container" id="printMe">
+    
     <div class="panel-body">
         <div class="form-container">
             {{ Form::open(['url' => 'admin/department/create', 'class'=>'col-md-7 col-sm-8 add-counter-form']) }}

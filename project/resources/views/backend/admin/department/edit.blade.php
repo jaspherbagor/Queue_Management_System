@@ -2,15 +2,14 @@
 @section('title', trans('app.update_department')) 
 
 @section('content')
-<div class="panel panel-primary" id="printMe">
-
-    <div class="panel-heading">
-        <div class="row">
-            <div class="col-sm-12 text-left">
-                <h3>{{ trans('app.update_department') }}</h3>
-            </div> 
-        </div>
+<div class="panel-heading">
+    <div class="row">
+        <div class="col-sm-12 text-left">
+            <h3>{{ trans('app.update_department') }}</h3>
+        </div> 
     </div>
+</div>
+<div class="panel panel-primary panel-container" id="printMe">
 
     <div class="panel-body"> 
 
