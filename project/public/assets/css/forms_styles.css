@@ -1,4 +1,4 @@
-input[type=text], input[type=password], select {
+input[type=text], input[type=password], select, input[type=color] {
     border:none;
     font-size: 16px;
     border: none;
@@ -30,7 +30,7 @@ input[type=text], input[type=password], select {
     height: 45px
 }
 
-textarea#description {
+textarea#description, textarea[type=text] {
     border:none;
     font-size: 16px;  
     border: none;

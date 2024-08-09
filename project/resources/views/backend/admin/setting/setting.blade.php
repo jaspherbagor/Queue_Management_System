@@ -2,15 +2,14 @@
 @section('title', trans('app.app_setting'))
 
 @section('content')
-<div class="panel panel-primary panel-container" id="printMe">
-
-    <div class="panel-heading">
-        <div class="row">
-            <div class="col-sm-12 text-left">
-                <h3>{{ trans('app.app_setting') }}</h3>
-            </div>
+<div class="panel-heading">
+    <div class="row">
+        <div class="col-sm-12 text-left">
+            <h3>{{ trans('app.app_setting') }}</h3>
         </div>
     </div>
+</div>
+<div class="panel panel-primary panel-container" id="printMe">
 
     <div class="panel-body">
 

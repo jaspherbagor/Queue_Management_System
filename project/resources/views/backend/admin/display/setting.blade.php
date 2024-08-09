@@ -3,15 +3,14 @@
 {{-- This is a test comment --}}
 
 @section('content')
-<div class="panel panel-primary panel-container" id="printMe">
-
-    <div class="panel-heading">
-        <div class="row">
-            <div class="col-sm-12 text-left">
-                <h3>{{ trans('app.display_setting') }}</h3>
-            </div> 
-        </div>
+<div class="panel-heading">
+    <div class="row">
+        <div class="col-sm-12 text-left">
+            <h3>{{ trans('app.display_setting') }}</h3>
+        </div> 
     </div>
+</div>
+<div class="panel panel-primary panel-container" id="printMe">
 
     <div class="panel-body"> 
 
@@ -102,7 +101,7 @@
                 <span class="text-danger">{{ $errors->first('alert_position') }}</span>
             </div>
 
-            <div class="form-group @error('sms_alert') has-error @enderror">
+            {{-- <div class="form-group @error('sms_alert') has-error @enderror">
                 <label for="sms_alert">{{ trans('app.sms_alert') }}</label>
                 <div id="sms_alert">  
                     <label class="radio-inline">
@@ -112,7 +111,7 @@
                         <input type="radio" name="sms_alert" value="0" {{ (($setting->sms_alert)=='0')?"checked":"" }}> {{ trans('app.deactive') }}
                     </label> 
                 </div>
-            </div> 
+            </div>  --}}
 
             <div class="form-group @error('show_officer') has-error @enderror">
                 <label for="show_officer">{{ trans('app.show_officer') }}</label>

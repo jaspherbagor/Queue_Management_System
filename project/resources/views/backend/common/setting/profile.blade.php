@@ -2,21 +2,20 @@
 @section('title', trans('profile_information'))
 
 @section('content')
-<div class="panel panel-primary panel-container">
-
-    <div class="panel-heading">
-        <div class="row">
-            <div class="col-sm-8 text-left">
-                <h3>{{ trans('app.profile_information') }}</h3>
-            </div>
-            <div class="col-sm-4 text-right">
-                <div class="btn-group">
-                    <a href=" {{ url("common/setting/profile/edit/") }} "  class="btn btn-success btn-sm" ><i class="fa fa-edit"></i></a> 
-                    <button type="button" onclick="printThis('printThis')" class="btn btn-info btn-sm" ><i class="fa fa-print"></i></button> 
-                </div>
+<div class="panel-heading">
+    <div class="row">
+        <div class="col-sm-8 text-left">
+            <h3>{{ trans('app.profile_information') }}</h3>
+        </div>
+        <div class="col-sm-4 text-right">
+            <div class="btn-group">
+                <a href=" {{ url("common/setting/profile/edit/") }} "  class="btn btn-success btn-sm" ><i class="fa fa-edit"></i></a> 
+                <button type="button" onclick="printThis('printThis')" class="btn btn-info btn-sm" ><i class="fa fa-print"></i></button> 
             </div>
         </div>
     </div>
+</div>
+<div class="panel panel-primary panel-container">
 
     <div class="panel-body" id="printThis"> 
         <div class="row"> 
