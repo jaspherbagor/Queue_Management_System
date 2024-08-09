@@ -2,15 +2,14 @@
 @section('title', trans('app.add_user'))
 
 @section('content')
-<div class="panel panel-primary panel-container">
-
-    <div class="panel-heading">
-        <div class="row">
-            <div class="col-sm-12 text-start">
-                <h3 class="form-heading">{{ trans('app.add_user') }}</h3>
-            </div> 
-        </div>
+<div class="panel-heading">
+    <div class="row">
+        <div class="col-sm-12 text-start">
+            <h3 class="form-heading">{{ trans('app.add_user') }}</h3>
+        </div> 
     </div>
+</div>
+<div class="panel panel-primary panel-container">
 
     <div class="panel-body"> 
         <div class="form-container">

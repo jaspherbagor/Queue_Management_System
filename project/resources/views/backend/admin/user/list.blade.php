@@ -3,20 +3,20 @@
 
 
 @section('content')
-<div class="panel panel-primary panel-containerpanel-container">
-    <div class="panel-heading">
-        <ul class="row list-inline m-0">
-            <li class="col-xs-10 p-0 text-left">
-                <h3>{{ trans('app.user_list') }}</h3>
-            </li>
-            <li class="col-xs-2 p-0 text-right">
-                <button type="button" class="btn btn-warning info-button btn-sm" data-toggle="modal" data-target="#infoModal">
-                  <i class="fa fa-info-circle"></i>
-                </button>
-            </li>
-        </ul>
-    </div>
-
+<div class="panel-heading">
+    <ul class="row list-inline m-0">
+        <li class="col-xs-10 p-0 text-left">
+            <h3>{{ trans('app.user_list') }}</h3>
+        </li>
+        <li class="col-xs-2 p-0 text-right">
+            <button type="button" class="btn btn-warning info-button btn-sm" data-toggle="modal" data-target="#infoModal">
+              <i class="fa fa-info-circle"></i>
+            </button>
+        </li>
+    </ul>
+</div>
+<div class="panel panel-primary panel-container">
+    
     <div class="panel-body">
         <table class="dataTables-server table table-bordered" cellspacing="0">
             <thead>
