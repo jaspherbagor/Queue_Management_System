@@ -166,8 +166,7 @@ font-weight: 600;
 }
 
 .btn-delete {
-    background: transparent;
-    color:rgb(202, 11, 11);
+    background:rgb(202, 11, 11);
     outline:none;
     border:none;
     font-size: 16px;
@@ -176,8 +175,7 @@ font-weight: 600;
 }
 
 .btn-view {
-    background: transparent;
-    color:#0bed5a;
+    background:#0bed5a;
     outline:none;
     border:none;
     font-size: 16px;
@@ -187,8 +185,7 @@ font-weight: 600;
 }
 
 .btn-edit {
-    background: transparent;
-    color:#0ba2ed;
+    background:#0ba2ed;
     outline:none;
     border:none;
     font-size: 16px;
@@ -197,8 +194,7 @@ font-weight: 600;
 }
 
 .btn-view:hover {
-    background: transparent;
-    color:#0bed5a;
+    background:#0bed5a;
     outline:none;
     border:none;
     font-size: 16px;
@@ -207,8 +203,7 @@ font-weight: 600;
 }
 
 .btn-delete:hover {
-    background: transparent;
-    color:rgb(202, 11, 11);
+    background:rgb(202, 11, 11);
     outline:none;
     border:none;
     font-size: 16px;
@@ -217,8 +212,7 @@ font-weight: 600;
 }
 
 .btn-edit:hover {
-    background: transparent;
-    color:#0ba2ed;
+    background:#0ba2ed;
     outline:none;
     border:none;
     font-size: 16px;
@@ -254,11 +248,13 @@ font-weight: 600;
 .btn-delete, .btn-edit, .btn-view {
     /* height: 20px; */
     /* padding: 3px 6px; */
-    background: #000 !important;
+    color:white !important;
+    /* background: #000 !important; */
     width: 35px;
     height: 35px;
     margin:auto !important;
     border-radius: 5px !important;
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 10px 36px 0px, rgba(0, 0, 0, 0.06) 0px 0px 0px 1px;
 }
 
 .btn-delete i, .btn-edit i, .btn-view i {
