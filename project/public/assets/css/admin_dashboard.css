@@ -255,16 +255,20 @@ font-weight: 600;
     /* height: 20px; */
     /* padding: 3px 6px; */
     background: #000 !important;
-    width: 40px;
-    height: 40px;
-    margin:auto !important
+    width: 35px;
+    height: 35px;
+    margin:auto !important;
+    border-radius: 5px !important;
 }
 
 .btn-delete i, .btn-edit i, .btn-view i {
-    padding-top: 10px;
+    padding-top: 8px;
     transform: scale(1.1);
 }
 
 td {
-    margin: auto !important;
+    /* display: flex; */
+    text-align: left;
+    align-items: center;
+    justify-content: center;
 }
