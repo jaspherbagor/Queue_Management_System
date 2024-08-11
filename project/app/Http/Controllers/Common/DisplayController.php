@@ -481,7 +481,7 @@ class DisplayController extends Controller
 
         // Add the right half for the video
         $html .= "<div class='right-half col-md-6'>
-                    <iframe width='630' height='600' src='https://www.youtube.com/embed/-FGgF8Cxi5Q?si=TCYCbX5rYwGIU5Ew'></iframe>
+                    <iframe width='630' height='600' src='https://www.youtube.com/embed/-FGgF8Cxi5Q?si=TCYCbX5rYwGIU5Ew frameborder='0' allowfullscreen'></iframe>
                 </div>";
 
         /*NOTIFICATION*/
