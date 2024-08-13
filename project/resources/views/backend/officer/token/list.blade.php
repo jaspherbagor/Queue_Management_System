@@ -15,7 +15,7 @@
         <table class="dataTables-server display table table-bordered" width="100%" cellspacing="0">
             <thead>
 
-                <tr>
+                {{-- <tr>
                     <th></th>
                     <th>
                         {{ Form::select('department', $departments, null, ['id'=>'department', 'class'=>'select2 filter', 'placeholder'=> trans('app.department')]) }}
@@ -28,7 +28,7 @@
                     </th>
                     <th></th>
                     <th></th>
-                </tr>
+                </tr> --}}
                 <tr>
                     <th>Queue</th>
                     <th>{{ trans('app.department') }}</th>
