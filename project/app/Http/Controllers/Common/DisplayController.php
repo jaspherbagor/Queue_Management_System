@@ -484,9 +484,16 @@ class DisplayController extends Controller
         //             <iframe width='650' height='590' src='https://www.youtube.com/embed/-FGgF8Cxi5Q?si=TCYCbX5rYwGIU5Ew&autoplay=1' frameborder='0' autoPlay='true' allowfullscreen'></iframe>
         //         </div>";
 
+        // $html .= "<div class='right-half col-md-6'>
+        //      <iframe class='vdo-responsive-iframe' id='display1Video' src='" . asset('public/assets/videos/452316237_8129343823796595_8776604880839953755_n(2).mp4') . "'></iframe>
+        //      </div>";
+
         $html .= "<div class='right-half col-md-6'>
-                <iframe class='vdo-responsive-iframe' src='{{asset('public/assets/videos/452316237_8129343823796595_8776604880839953755_n(2).mp4')}}'></iframe>
-                </div>";
+             <video id='display1Video' class='vdo-responsive-iframe' controls>
+                <source src='" . asset('public/assets/videos/452316237_8129343823796595_8776604880839953755_n(2).mp4') . "' type='video/mp4'>
+                Your browser does not support the video tag.
+             </video>
+          </div>";
 
 
         /*NOTIFICATION*/
