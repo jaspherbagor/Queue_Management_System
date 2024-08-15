@@ -39,108 +39,6 @@
 @endsection
 
 @push('scripts')
-{{-- <script type="text/javascript">  
-$(document).ready(function(){
-  //get previous token
-  var view_token = [];
-  var interval = 1000; 
-
-  var display = function()
-  {
-      var width  = $(window).width();
-      var height = $(window).height();
-      var isFullScreen = document.fullScreen ||
-      document.mozFullScreen ||
-      document.webkitIsFullScreen || (document.msFullscreenElement != null);
-      if (isFullScreen)
-      {
-        var width  = $(window).width();
-        var height = $(window).height();
-      } 
-
-      $.ajax({
-          type:'post',
-          dataType:'json',
-          url:'{{ URL::to("common/display3") }}',
-          data:
-          {
-              _token: '<?php echo csrf_token() ?>',
-              view_token: view_token,
-              width: width,
-              height: height
-          },
-          success:function(data){
-            $("#display3").html(data.result); 
-
-            view_token = (data.all_token).map(function(item){
-                return {counter: item.counter, token  : item.token} 
-            }); 
-
-            //notification sound
-            if (data.status)
-            {  
-                var url  = "{{ URL::to('') }}"; 
-                var lang = "{{ in_array(session()->get('locale'), $setting->languages)?session()->get('locale'):'en' }}";
-                var player = new Notification;
-                player.call(data.new_token, lang, url);
-            } 
-
-            setTimeout(display, data.interval);
-         }
-      });
-  }; 
-
-  setTimeout(display, interval);
-
-  // // Function to set the video time from localStorage
-  // function setVideoTime() {
-  //       var $videoIframe = $('#display1Video');
-  //       var videoSrc = $videoIframe.attr('src');
-
-  //       // Get saved time from localStorage
-  //       var savedTime = localStorage.getItem('videoTime');
-  //       if (savedTime) {
-  //           // Append the saved time to the video URL
-  //           $videoIframe.attr('src', videoSrc + '#t=' + savedTime);
-  //       }
-  //   }
-
-  //   // Call the function on page load
-  //   setVideoTime();
-
-  //   // Save the current video time before the page unloads
-  //   $(window).on('unload', function() {
-  //       var $videoIframe = $('#display1Video')[0];
-  //       var video = $videoIframe.contentWindow.document.querySelector('video');
-
-  //       if (video) {
-  //           var currentVideoTime = video.currentTime;
-  //           // Save the current time to localStorage
-  //           localStorage.setItem('videoTime', currentVideoTime);
-  //       }
-  //   });
-
-  var $video = $('#display1Video');
-
-  // Function to set the video time from localStorage
-  function setVideoTime() {
-      var savedTime = localStorage.getItem('videoTime');
-      if (savedTime) {
-          $video[0].currentTime = savedTime;
-      }
-  }
-
-  // Set the video time when the page loads
-  setVideoTime();
-
-  // Save the current video time before the page unloads
-  $(window).on('beforeunload', function() {
-      var currentTime = $video[0].currentTime;
-      localStorage.setItem('videoTime', currentTime);
-  });
-
-});
-</script> --}}
 <script type="text/javascript">  
   $(document).ready(function(){
     // Get previous token
@@ -191,30 +89,30 @@ $(document).ready(function(){
         });
     };
 
-    // setTimeout(display, interval);
+    setTimeout(display, interval);
   
-      // // Video handling
-      // var $video = $('#display1Video');
+      // Video handling
+      var $video = $('#display1Video');
   
-      // // Function to set the video time from localStorage
-      // function setVideoTime() {
-      //     var savedTime = localStorage.getItem('videoTime');
-      //     if (savedTime) {
-      //         // Ensure the video metadata is loaded before setting the currentTime
-      //         $video.on('loadedmetadata', function() {
-      //             $video[0].currentTime = savedTime;
-      //         });
-      //     }
-      // }
+      // Function to set the video time from localStorage
+      function setVideoTime() {
+          var savedTime = localStorage.getItem('videoTime');
+          if (savedTime) {
+              // Ensure the video metadata is loaded before setting the currentTime
+              $video.on('loadedmetadata', function() {
+                  $video[0].currentTime = savedTime;
+              });
+          }
+      }
   
-      // // Set the video time when the page loads
-      // setVideoTime();
+      // Set the video time when the page loads
+      setVideoTime();
   
-      // // Save the current video time before the page unloads
-      // $(window).on('beforeunload', function() {
-      //     var currentTime = $video[0].currentTime;
-      //     localStorage.setItem('videoTime', currentTime);
-      // });
+      // Save the current video time before the page unloads
+      $(window).on('beforeunload', function() {
+          var currentTime = $video[0].currentTime;
+          localStorage.setItem('videoTime', currentTime);
+      });
   });
   </script>
 @endpush
