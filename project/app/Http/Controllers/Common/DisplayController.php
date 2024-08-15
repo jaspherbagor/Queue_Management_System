@@ -543,7 +543,7 @@ class DisplayController extends Controller
         return Response::json($data);
     }
 
-    public function display3b(Request $request)
+    public function display5(Request $request)
     {
         $allTokens  = [];
         $viewTokens = [];
@@ -910,159 +910,160 @@ class DisplayController extends Controller
     } 
     
     // counter wise queue
-    public function display5(Request $request)
-    {  
-        $allTokens = []; //all token
-        $viewTokens = []; //all token form view
-        $vTokens = [];
-        $cTokens = [];
-        $newTokens = []; //new token
+    // public function display5(Request $request)
+    // {  
+    //     $allTokens = []; //all token
+    //     $viewTokens = []; //all token form view
+    //     $vTokens = [];
+    //     $cTokens = [];
+    //     $newTokens = []; //new token
 
-        $setting = DisplaySetting::first();
-        $appSetting = Setting::first();   
-        date_default_timezone_set(session('app.timezone')?session('app.timezone'):$appSetting->timezone);
-        $counters = DB::table('counter')
-            ->where('status', 1)
-            ->orderBy(DB::raw('LENGTH(name)'), 'ASC')
-            ->orderBy('name', 'ASC')
-            ->get();
+    //     $setting = DisplaySetting::first();
+    //     $appSetting = Setting::first();   
+    //     date_default_timezone_set(session('app.timezone')?session('app.timezone'):$appSetting->timezone);
+    //     $counters = DB::table('counter')
+    //         ->where('status', 1)
+    //         ->orderBy(DB::raw('LENGTH(name)'), 'ASC')
+    //         ->orderBy('name', 'ASC')
+    //         ->get();
 
-        $html = "<div class=\"col-sm-12\">
-            <div id=\"clock\" class=\"well text-center\" style=\"background-color:".(!empty($setting->background_color)?$setting->background_color:'#cdcdcd') .";border-color:".(!empty($setting->border_color)?$setting->border_color:'#fff') .";padding:10px 0;font-size:28px;margin-bottom: 10px;\">".date("$setting->date_format $setting->time_format")."</div> 
-            </div>
-            <div class=\"row\">";
+    //     $html = "<div class=\"col-sm-12\">
+    //         <div id=\"clock\" class=\"well text-center\" style=\"background-color:".(!empty($setting->background_color)?$setting->background_color:'#cdcdcd') .";border-color:".(!empty($setting->border_color)?$setting->border_color:'#fff') .";padding:10px 0;font-size:28px;margin-bottom: 10px;\">".date("$setting->date_format $setting->time_format")."</div> 
+    //         </div>
+    //         <div class=\"row\">";
 
-        $count = 1;
-        $size = sizeof($counters);
-        foreach ($counters as $counter) 
-        { 
-            $token = DB::table("token AS t")
-                ->select(
-                    "t.token_no AS token",
-                    "d.name AS department",
-                    "c.name AS counter",
-                    DB::raw("CONCAT_WS(' ', o.firstname, o.lastname) as officer"),
-                    "t.updated_at",
-                    "t.status",
-                    "t.sms_status" 
-                )
-                ->leftJoin("department AS d", "d.id", "=", "t.department_id")
-                ->leftJoin("counter AS c", "c.id", "=", "t.counter_id")
-                ->leftJoin("user AS o", "o.id", "=", "t.user_id")
-                ->where("t.counter_id", $counter->id)
-                ->where("t.status", "0")
-                ->orderBy('t.is_vip', 'DESC')
-                ->orderBy('t.id', 'ASC')
-                ->first();
+    //     $count = 1;
+    //     $size = sizeof($counters);
+    //     foreach ($counters as $counter) 
+    //     { 
+    //         $token = DB::table("token AS t")
+    //             ->select(
+    //                 "t.token_no AS token",
+    //                 "d.name AS department",
+    //                 "c.name AS counter",
+    //                 DB::raw("CONCAT_WS(' ', o.firstname, o.lastname) as officer"),
+    //                 "t.updated_at",
+    //                 "t.status",
+    //                 "t.sms_status" 
+    //             )
+    //             ->leftJoin("department AS d", "d.id", "=", "t.department_id")
+    //             ->leftJoin("counter AS c", "c.id", "=", "t.counter_id")
+    //             ->leftJoin("user AS o", "o.id", "=", "t.user_id")
+    //             ->where("t.counter_id", $counter->id)
+    //             ->where("t.status", "0")
+    //             ->orderBy('t.is_vip', 'DESC')
+    //             ->orderBy('t.id', 'ASC')
+    //             ->first();
 
-            // Add Header
-            if ($count==1)
-            {
-               $html .= "<div class=\"col-sm-6\">
-                <div class=\"col-sm-12\"> 
-                    <div class=\"queue well text-center \" style=\"height:60px;padding:0;text-align:center;font-size:25px;line-height:60px;margin-bottom:2px;background:#222;color:#fff\">
-                        <strong style=\"width:50%;height:58px;float:left;\">".trans('app.counter')."</strong>
-                        <strong style=\"display:inline-block;\">".trans('app.token')."
-                        </strong>
-                    </div>
-                </div>";
-            } 
-            else if ($count == 9)
-            {
-               $html .= "</div>
-                <div class=\"col-sm-6\">
-                <div class=\"col-sm-12\"> 
-                    <div class=\"queue well text-center \" style=\"height:60px;padding:0;text-align:center;font-size:25px;line-height:60px;margin-bottom:2px;background:#222;color:#fff\">
-                        <strong style=\"width:50%;height:58px;float:left;\">".trans('app.counter')."</strong>
-                        <strong style=\"display:inline-block;\">".trans('app.token')."
-                        </strong>
-                    </div>
-                </div>";
-            }
-            else if($count == $size+1)
-            { 
-               $html .= "</div>";
-            }
+    //         // Add Header
+    //         if ($count==1)
+    //         {
+    //            $html .= "<div class=\"col-sm-6\">
+    //             <div class=\"col-sm-12\"> 
+    //                 <div class=\"queue well text-center \" style=\"height:60px;padding:0;text-align:center;font-size:25px;line-height:60px;margin-bottom:2px;background:#222;color:#fff\">
+    //                     <strong style=\"width:50%;height:58px;float:left;\">".trans('app.counter')."</strong>
+    //                     <strong style=\"display:inline-block;\">".trans('app.token')."
+    //                     </strong>
+    //                 </div>
+    //             </div>";
+    //         } 
+    //         else if ($count == 9)
+    //         {
+    //            $html .= "</div>
+    //             <div class=\"col-sm-6\">
+    //             <div class=\"col-sm-12\"> 
+    //                 <div class=\"queue well text-center \" style=\"height:60px;padding:0;text-align:center;font-size:25px;line-height:60px;margin-bottom:2px;background:#222;color:#fff\">
+    //                     <strong style=\"width:50%;height:58px;float:left;\">".trans('app.counter')."</strong>
+    //                     <strong style=\"display:inline-block;\">".trans('app.token')."
+    //                     </strong>
+    //                 </div>
+    //             </div>";
+    //         }
+    //         else if($count == $size+1)
+    //         { 
+    //            $html .= "</div>";
+    //         }
 
-            // Show Token 
-            $html .= "<div class=\"col-sm-12\"> 
-                <div class=\"queue well text-center \" style=\"background-color:".(!empty($setting->background_color)?$setting->background_color:'#cdcdcd') .";border-color:".(!empty($setting->border_color)?$setting->border_color:'#fff') .";height:60px;padding:0;text-align:center;font-size:25px;line-height:60px;margin-bottom:2px\">
-                    <div style=\"width:50%;height:58px;float:left;background:#222;color:#fff\"><span>$counter->name</span></div>
-                    <strong style=\"display:inline-block;\">".(!empty($token->token)?$token->token:'-----')."
-                    </strong>
-                </div>
-            </div>"; 
-
-
-            /*
-            * ---------------------------------------
-            */
-            if (!empty($token->token))
-            { 
-                $allTokens[] = array(
-                    'counter'    => $counter->name,
-                    'token'      => $token->token,
-                    'updated_at' => $token->updated_at
-                );  
-            } 
-
-            /*
-            * ---------------------------------------
-            */
-
-            $count++;
-        }    
-        $html .= "</div>";
+    //         // Show Token 
+    //         $html .= "<div class=\"col-sm-12\"> 
+    //             <div class=\"queue well text-center \" style=\"background-color:".(!empty($setting->background_color)?$setting->background_color:'#cdcdcd') .";border-color:".(!empty($setting->border_color)?$setting->border_color:'#fff') .";height:60px;padding:0;text-align:center;font-size:25px;line-height:60px;margin-bottom:2px\">
+    //                 <div style=\"width:50%;height:58px;float:left;background:#222;color:#fff\"><span>$counter->name</span></div>
+    //                 <strong style=\"display:inline-block;\">".(!empty($token->token)?$token->token:'-----')."
+    //                 </strong>
+    //             </div>
+    //         </div>"; 
 
 
-        /*NOTIFICATION*/
-        $viewTokens = $request->get('view_token'); 
-        // compare between view_token & all_token
-        if (is_array($viewTokens) && sizeof($viewTokens)>0)
-        { 
-            // extract view token
-            foreach($viewTokens as $t)
-            {
-                $vTokens[$t['counter']] = $t['token'];
-            }  
+    //         /*
+    //         * ---------------------------------------
+    //         */
+    //         if (!empty($token->token))
+    //         { 
+    //             $allTokens[] = array(
+    //                 'counter'    => $counter->name,
+    //                 'token'      => $token->token,
+    //                 'updated_at' => $token->updated_at
+    //             );  
+    //         } 
 
-            // extract controller/all token
-            foreach ($allTokens as $t) 
-            {
-                $recall = (!empty($t['updated_at']) && ((strtotime(date("Y-m-d H:i:s"))-strtotime($t['updated_at'])) <= 15));  
+    //         /*
+    //         * ---------------------------------------
+    //         */
 
-                if ($recall) 
-                {
-                    $data['status'] = true;
-                    $newTokens[] = array(
-                        'counter' => $t['counter'],
-                        'token'   => $t['token']
-                    ); 
-                }
-                $cTokens[$t['counter']] = $t['token'];
-            }  
+    //         $count++;
+    //     }    
+    //     $html .= "</div>";
 
-            //get new token
-            $nts = array_diff($cTokens,$vTokens);
-            if (sizeof($nts)>0)
-            {
-                foreach ($nts as $key => $value) 
-                {
-                    $newTokens[] = array(
-                        'counter' => $key,
-                        'token'   => $value
-                    );
-                }
-                $data['status'] = true;
-            }
-        }
+
+    //     /*NOTIFICATION*/
+    //     $viewTokens = $request->get('view_token'); 
+    //     // compare between view_token & all_token
+    //     if (is_array($viewTokens) && sizeof($viewTokens)>0)
+    //     { 
+    //         // extract view token
+    //         foreach($viewTokens as $t)
+    //         {
+    //             $vTokens[$t['counter']] = $t['token'];
+    //         }  
+
+    //         // extract controller/all token
+    //         foreach ($allTokens as $t) 
+    //         {
+    //             $recall = (!empty($t['updated_at']) && ((strtotime(date("Y-m-d H:i:s"))-strtotime($t['updated_at'])) <= 15));  
+
+    //             if ($recall) 
+    //             {
+    //                 $data['status'] = true;
+    //                 $newTokens[] = array(
+    //                     'counter' => $t['counter'],
+    //                     'token'   => $t['token']
+    //                 ); 
+    //             }
+    //             $cTokens[$t['counter']] = $t['token'];
+    //         }  
+
+    //         //get new token
+    //         $nts = array_diff($cTokens,$vTokens);
+    //         if (sizeof($nts)>0)
+    //         {
+    //             foreach ($nts as $key => $value) 
+    //             {
+    //                 $newTokens[] = array(
+    //                     'counter' => $key,
+    //                     'token'   => $value
+    //                 );
+    //             }
+    //             $data['status'] = true;
+    //         }
+    //     }
  
-        $data['result']    = $html;
-        $data['new_token'] = $newTokens;
-        $data['all_token'] = $allTokens;
-        $data['interval']  = 10000*(count($newTokens)?count($newTokens):1);
+    //     $data['result']    = $html;
+    //     $data['new_token'] = $newTokens;
+    //     $data['all_token'] = $allTokens;
+    //     $data['interval']  = 10000*(count($newTokens)?count($newTokens):1);
 
-        return Response::json($data);
-    }
+    //     return Response::json($data);
+    // }
+
 
 }

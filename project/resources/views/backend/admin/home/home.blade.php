@@ -9,50 +9,87 @@
 
     <div class="panel-body">
 
-        <div class="row dashboard-card-container">
-            <div class="col-sm-12 shadowed dashboard-cards">
-                <a href="{{route('department')}}">
-                    <div class="col-md-4 col-sm-6 col-xs-12 mb-1">
-                        <div class="p-1 department-card">
-                                <img src="{{ asset('public/assets/img/sf/building.svg') }} " alt="" class="icon-img">
-                            <h5><span class="card-qty">{{ (isset($infobox->department)?$infobox->department:0) }} Departments</span> </h5>
+        <div class="row">
+            <div class="col-md-6">
+                <div class="row dashboard-card-container">
+                    <div class="col-sm-12 shadowed dashboard-cards">
+                        <a href="{{route('department')}}">
+                            <div class="col-md-4 col-sm-6 col-xs-12 mb-1">
+                                <div class="p-1 department-card">
+                                        <img src="{{ asset('public/assets/img/sf/building.svg') }} " alt="" class="icon-img">
+                                    <h5><span class="card-qty">{{ (isset($infobox->department)?$infobox->department:0) }} Departments</span> </h5>
+                                </div>
+                            </div>
+                        </a>
+                        <a href="{{route('counter')}}">
+                            <div class="col-md-4 col-sm-6 col-xs-12 mb-1">
+                                <div class="p-1 counter-card">
+                                    <img src="{{ asset('public/assets/img/sf/star.svg') }} " alt="" class="icon-img">
+                                    <h5><span class="card-qty">{{ (isset($infobox->counter)?$infobox->counter:0) }} Windows</span></h5>
+                                </div>
+                            </div>
+                        </a>
+                        <a href="{{route('users')}}">
+                            <div class="col-md-4 col-sm-6 col-xs-12 mb-1">
+                                <div class="p-1 user-card">
+                                    <img src="{{ asset('public/assets/img/sf/profile-group.svg') }} " alt="" class="icon-img">
+                                    <h5><span class="card-qty">{{ (isset($infobox->user)?$infobox->user:0) }} Users</span></h5>
+                                </div>
+                            </div>
+                        </a>
+                        <a href="{{route('token_report')}}">
+                            <div class="col-md-4 col-sm-6 col-xs-12 mb-1">
+                                <div class="p-1 total-token-card">
+                                    <img src="{{ asset('public/assets/img/sf/user-id.svg') }} " alt="" class="icon-img">
+                                    <h5><span class="card-qty">{{ (isset($infobox->token->total)?$infobox->token->total:0) }} Queues Created</span></h5>
+                                </div>
+                            </div>
+                        </a>
+                        <div class="col-md-4 col-sm-6 col-xs-12 mb-1">
+                            <div class="p-1 pending-token-card">
+                                <img src="{{ asset('public/assets/img/sf/clock.svg') }} " alt="" class="icon-img">
+                                <h5><span class="card-qty">{{ (isset($infobox->token->pending)?$infobox->token->pending:0) }} Waiting</span></h5>
+                            </div>
                         </div>
-                    </div>
-                </a>
-                <a href="{{route('counter')}}">
-                    <div class="col-md-4 col-sm-6 col-xs-12 mb-1">
-                        <div class="p-1 counter-card">
-                            <img src="{{ asset('public/assets/img/sf/star.svg') }} " alt="" class="icon-img">
-                            <h5><span class="card-qty">{{ (isset($infobox->counter)?$infobox->counter:0) }} Windows</span></h5>
+                        <div class="col-md-4 col-sm-6 col-xs-12 mb-1">
+                            <div class="p-1 complete-token-card">
+                                <img src="{{ asset('public/assets/img/sf/sign-check.svg') }} " alt="" class="icon-img">
+                                <h5><span class="card-qty">{{ (isset($infobox->token->complete)?$infobox->token->complete:0) }} Served</span></h5>
+                            </div>
                         </div>
-                    </div>
-                </a>
-                <a href="{{route('users')}}">
-                    <div class="col-md-4 col-sm-6 col-xs-12 mb-1">
-                        <div class="p-1 user-card">
-                            <img src="{{ asset('public/assets/img/sf/profile-group.svg') }} " alt="" class="icon-img">
-                            <h5><span class="card-qty">{{ (isset($infobox->user)?$infobox->user:0) }} Users</span></h5>
-                        </div>
-                    </div>
-                </a>
-                <a href="{{route('token_report')}}">
-                    <div class="col-md-4 col-sm-6 col-xs-12 mb-1">
-                        <div class="p-1 total-token-card">
-                            <img src="{{ asset('public/assets/img/sf/user-id.svg') }} " alt="" class="icon-img">
-                            <h5><span class="card-qty">{{ (isset($infobox->token->total)?$infobox->token->total:0) }} Queues Created</span></h5>
-                        </div>
-                    </div>
-                </a>
-                <div class="col-md-4 col-sm-6 col-xs-12 mb-1">
-                    <div class="p-1 pending-token-card">
-                        <img src="{{ asset('public/assets/img/sf/clock.svg') }} " alt="" class="icon-img">
-                        <h5><span class="card-qty">{{ (isset($infobox->token->pending)?$infobox->token->pending:0) }} Waiting</span></h5>
                     </div>
                 </div>
-                <div class="col-md-4 col-sm-6 col-xs-12 mb-1">
-                    <div class="p-1 complete-token-card">
-                        <img src="{{ asset('public/assets/img/sf/sign-check.svg') }} " alt="" class="icon-img">
-                        <h5><span class="card-qty">{{ (isset($infobox->token->complete)?$infobox->token->complete:0) }} Served</span></h5>
+            </div>
+            <div class="col-md-6">
+                <div class="performance_heading">{{ trans('app.today_user_performance') }}</div>
+                <div class="panel panel-primary shadowed panel-container">
+                    
+                    <div class="panel-body">
+                    @if (!empty($performance))
+                    @foreach($performance as $user)
+                    @php
+                    $pending = number_format(((($user->pending?$user->pending:0)/($user->total?$user->total:1))*100),1);
+                    $complete = number_format(((($user->complete?$user->complete:0)/($user->total?$user->total:1))*100),1);
+                    $stop = number_format(((($user->stop?$user->stop:0)/($user->total?$user->total:1))*100),1);
+                    @endphp
+                        <div class="row">
+                            <label class="col-sm-3 col-xs-12">{{ $user->username }}</label>
+                            <div class="col-sm-9 col-xs-12">
+                                <div class="progress">
+                                  <div class="progress-bar progress-bar-danger" style="width: {{ $stop }}%">
+                                    <span>{{ $stop }}% {{trans("app.stop")}} (Total {{ $user->stop }}) </span>
+                                  </div>
+                                  <div class="progress-bar progress-bar-success" style="width: {{ $complete }}%">
+                                    <span>{{ $complete }}% {{trans("app.complete")}} (Total {{ $user->complete }}) </span>
+                                  </div>
+                                  <div class="progress-bar progress-bar-striped active" role="progressbar" aria-valuenow="{{ $pending }}" aria-valuemin="0" aria-valuemax="100" style="width: {{ $pending }}%">
+                                    <span>{{ $pending }}% {{trans("app.pending")}} (Total {{ $user->pending }}) </span>
+                                  </div>
+                                </div>
+                            </div>
+                        </div>
+                    @endforeach
+                    @endif
                     </div>
                 </div>
             </div>
@@ -134,7 +171,7 @@
         </div>
 
         <div class="row mt-1">
-            {{-- <div class="col-sm-6">
+            <div class="col-sm-6">
                 <div class="panel panel-primary line-chart shadowed">
                     <div class="panel-heading">{{ trans('app.this_month') }}</div>
                     <div class="panel-body"><canvas id="lineChart"></canvas></div>
@@ -146,40 +183,11 @@
                     <div class="panel-heading">{{ trans('app.this_year') }}</div>
                     <div class="panel-body"><canvas id="singelBarChart" style="height:200px"></canvas></div>
                 </div>
-            </div> --}}
+            </div>
 
-            {{-- <div class="col-sm-6">
-                <div class="panel panel-primary shadowed">
-                    <div class="panel-heading">{{ trans('app.today_user_performance') }}</div>
-                    <div class="panel-body">
-                    @if (!empty($performance))
-                    @foreach($performance as $user)
-                    @php
-                    $pending = number_format(((($user->pending?$user->pending:0)/($user->total?$user->total:1))*100),1);
-                    $complete = number_format(((($user->complete?$user->complete:0)/($user->total?$user->total:1))*100),1);
-                    $stop = number_format(((($user->stop?$user->stop:0)/($user->total?$user->total:1))*100),1);
-                    @endphp
-                        <div class="row">
-                            <label class="col-sm-3 col-xs-12">{{ $user->username }}</label>
-                            <div class="col-sm-9 col-xs-12">
-                                <div class="progress">
-                                  <div class="progress-bar progress-bar-danger" style="width: {{ $stop }}%">
-                                    <span>{{ $stop }}% {{trans("app.stop")}} (Total {{ $user->stop }}) </span>
-                                  </div>
-                                  <div class="progress-bar progress-bar-success" style="width: {{ $complete }}%">
-                                    <span>{{ $complete }}% {{trans("app.complete")}} (Total {{ $user->complete }}) </span>
-                                  </div>
-                                  <div class="progress-bar progress-bar-striped active" role="progressbar" aria-valuenow="{{ $pending }}" aria-valuemin="0" aria-valuemax="100" style="width: {{ $pending }}%">
-                                    <span>{{ $pending }}% {{trans("app.pending")}} (Total {{ $user->pending }}) </span>
-                                  </div>
-                                </div>
-                            </div>
-                        </div>
-                    @endforeach
-                    @endif
-                    </div>
-                </div>
-            </div> --}}
+            <div class="col-sm-6">
+                
+            </div>
 
             <!-- <div class="col-sm-6">
                 <div class="panel panel-primary shadowed mb-3">

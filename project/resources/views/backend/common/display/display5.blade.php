@@ -8,7 +8,7 @@
     <div class="panel-heading">
         <div class="row">
             <div class="col-sm-12">
-                <h3>{{ trans('app.display_5') }} <button class="pull-right btn btn-sm btn-primary" onclick="goFullscreen('fullscreen'); return false"><i class="fa fa-arrows-alt" aria-hidden="true"></i></button></h3>
+                <h3>Display 2 <button class="pull-right btn btn-sm btn-primary" onclick="goFullscreen('fullscreen'); return false"><i class="fa fa-arrows-alt" aria-hidden="true"></i></button></h3>
                 <span class="text-danger">(enable full-screen mode and wait 10 seconds to adjust the screen)</span>
             </div> 
         </div>
