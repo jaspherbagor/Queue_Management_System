@@ -131,7 +131,7 @@ class TokenController extends Controller
                     'token_no'   => (!empty($token->is_vip)?("<span class=\"label label-danger\" title=\"VIP\">$token->token_no</span>"):$token->token_no),
                     'department' => (!empty($token->department)?$token->department->name:null),
                     'counter'    => (!empty($token->counter)?$token->counter->name:null), 
-                    'status'     => (($token->status==1)?("<span class='label label-success'>".trans('app.complete')."</span>"):(($token->status==2)?"<span class='label label-danger'>".trans('app.stop')."</span>":"<span class='label label-primary'>".trans('app.pending')."</span>")).(!empty($token->is_vip)?('<span class="label label-danger" title="VIP">VIP</span>'):''),
+                    'status'     => (($token->status==1)?("<span class='label label-success status-complete'>".trans('app.complete')."</span>"):(($token->status==2)?"<span class='label label-danger'>".trans('app.stop')."</span>":"<span class='label label-primary status-pending'>".trans('app.pending')."</span>")).(!empty($token->is_vip)?('<span class="label label-danger" title="VIP">VIP</span>'):''),
                     'complete_time' => $complete_time,
                     'options'    => $options
                 ];  
