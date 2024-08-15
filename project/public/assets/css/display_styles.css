@@ -19,3 +19,19 @@
     font-weight: 600 !important;
     font-family: var(--font-family);
 }
+
+.queue2 {
+    /* border: 2px solid red !important; */
+    margin-bottom: 3px !important;
+    margin-top: 3px !important;
+    border-radius: 5px !important;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px !important;
+    border:none !important
+}
+
+.deprt {
+    /* background: red !important; */
+    border-radius: 5px !important;
+    padding: 10px !important;
+    margin-top: 5px !important;
+}
