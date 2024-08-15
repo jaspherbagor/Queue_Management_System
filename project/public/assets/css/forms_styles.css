@@ -192,35 +192,34 @@ input[type=search], select.input-sm {
 .btn-complete, .btn-transfer, .btn-stop, .btn-print, .btn-call {
     background: transparent;
     /* color:#0ba2ed; */
-    outline:none;
-    border:none;
+    border-radius: 5px !important;
     font-size: 16px;
-    padding:0;
     margin-right:10px
 }
 
-.btn-complete:hover, .btn-transfer:hover, .btn-stop:hover, .btn-print:hover {
+.btn-complete:hover, .btn-transfer:hover, .btn-stop:hover, .btn-print:hover, .btn-call:hover {
     transform: scale(1.05)
 }
 
 .btn-complete, .btn-complete:hover {
-    color: rgb(11, 228, 11);
-    background: none;
+    background: rgb(11, 228, 11);
 }
 
 .btn-transfer, .btn-transfer:hover {
-    color: rgb(32, 125, 232);
-    background: none;
+    background: rgb(32, 125, 232);
+    
+}
+
+.btn-print {
+    background: rgb(189, 222, 236)
 }
 
 .btn-call, .btn-call:hover {
-    color: rgb(32, 125, 232);
-    background: none;
+    background: rgb(32, 125, 232);
 }
 
 .btn-stop, .btn-stop:hover {
-    color: rgb(235, 18, 18);
-    background: none;
+    background: rgb(235, 18, 18);
 }
 
 .cm-menu-items li a {
