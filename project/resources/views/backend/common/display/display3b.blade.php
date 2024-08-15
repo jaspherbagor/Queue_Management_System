@@ -43,7 +43,7 @@
   $(document).ready(function(){
     // Get previous token
     var view_token = [];
-    var interval = 1000; 
+    var interval = 10000; 
 
     var display = function() {
         var width  = $(window).width();
