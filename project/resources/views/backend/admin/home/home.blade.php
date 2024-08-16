@@ -17,7 +17,7 @@
                             <div class="col-md-4 col-sm-6 col-xs-12 mb-1">
                                 <div class="p-1 department-card">
                                         <img src="{{ asset('public/assets/img/sf/building.svg') }} " alt="" class="icon-img">
-                                    <h5><span class="card-qty">{{ (isset($infobox->department)?$infobox->department:0) }} Departments</span> </h5>
+                                    <h5><span class="card-qty">{{ (isset($infobox->department)?$infobox->department:0) }} Services</span> </h5>
                                 </div>
                             </div>
                         </a>
@@ -41,20 +41,20 @@
                             <div class="col-md-4 col-sm-6 col-xs-12 mb-1">
                                 <div class="p-1 total-token-card">
                                     <img src="{{ asset('public/assets/img/sf/user-id.svg') }} " alt="" class="icon-img">
-                                    <h5><span class="card-qty">{{ (isset($infobox->token->total)?$infobox->token->total:0) }} Queues Created</span></h5>
+                                    <h5><span class="card-qty">{{ (isset($infobox->token->total)?$infobox->token->total:0) }} Number Created</span></h5>
                                 </div>
                             </div>
                         </a>
                         <div class="col-md-4 col-sm-6 col-xs-12 mb-1">
                             <div class="p-1 pending-token-card">
                                 <img src="{{ asset('public/assets/img/sf/clock.svg') }} " alt="" class="icon-img">
-                                <h5><span class="card-qty">{{ (isset($infobox->token->pending)?$infobox->token->pending:0) }} Waiting</span></h5>
+                                <h5><span class="card-qty">{{ (isset($infobox->token->pending)?$infobox->token->pending:0) }} Pending</span></h5>
                             </div>
                         </div>
                         <div class="col-md-4 col-sm-6 col-xs-12 mb-1">
                             <div class="p-1 complete-token-card">
                                 <img src="{{ asset('public/assets/img/sf/sign-check.svg') }} " alt="" class="icon-img">
-                                <h5><span class="card-qty">{{ (isset($infobox->token->complete)?$infobox->token->complete:0) }} Served</span></h5>
+                                <h5><span class="card-qty">{{ (isset($infobox->token->complete)?$infobox->token->complete:0) }} Completed</span></h5>
                             </div>
                         </div>
                     </div>
@@ -63,7 +63,7 @@
             <div class="col-md-6">
                 <div class="performance_heading">{{ trans('app.today_user_performance') }}</div>
                 <div class="panel panel-primary shadowed panel-container">
-                    
+
                     <div class="panel-body">
                     @if (!empty($performance))
                     @foreach($performance as $user)
@@ -98,7 +98,7 @@
         <div class="row card-rows mt-1">
             <div class="col-md-6 mb-1">
                 <div class="card department-card-info">
-                    <h4 class="card-header">DEPARTMENTS</h4>
+                    <h4 class="card-header">SERVICES</h4>
                     @php
                     $departments = App\Models\Department::all();
                     @endphp
@@ -125,7 +125,7 @@
                                 <button class="btn btn-dark">Unknown</button>
                             </td>
                             @endif
-                            
+
                         </tr>
                         @endforeach
 
@@ -186,7 +186,7 @@
             </div>
 
             <div class="col-sm-6">
-                
+
             </div>
 
             <!-- <div class="col-sm-6">
