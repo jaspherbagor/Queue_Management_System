@@ -16,6 +16,7 @@
             </li>
         </ul>
     </div>
+    {{-- This is a test comment --}}
 
     <div class="panel-body">
 
