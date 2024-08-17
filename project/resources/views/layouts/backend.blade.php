@@ -149,7 +149,7 @@
                             </li> -->
 
                             <li class="cm-submenu {{ (Request::segment(2)=='token' ? 'open' : '') }}">
-                                <a class="sf-user-id">Queues <span class="caret"></span></a>
+                                <a class="sf-user-id">Numbers <span class="caret"></span></a>
                                 <ul>
                                     <li class="{{ (Request::is('admin/token/list') ? 'active' : '') }}">
                                         <a href="{{ url('admin/token/auto') }}">Create Number</a>
@@ -158,10 +158,10 @@
                                         <a href="{{ url('admin/token/create') }}">{{ trans('app.manual_token') }}</a>
                                     </li> --}}
                                     <li class="{{ (Request::is('admin/token/current') ? 'active' : '') }}">
-                                        <a href="{{ url('admin/token/current') }}">{{ trans('app.active') }} / Current Queues <i class="fa fa-dot-circle-o" style="color:#03d003"></i></a>
+                                        <a href="{{ url('admin/token/current') }}">{{ trans('app.active') }} / Current Numbers <i class="fa fa-dot-circle-o" style="color:#03d003"></i></a>
                                     </li>
                                     <li class="{{ (Request::is('admin/token/report') ? 'active' : '') }}">
-                                        <a href="{{ url('admin/token/report') }}">Queue Report</a>
+                                        <a href="{{ url('admin/token/report') }}">Number Report</a>
                                     </li>
                                     <!-- <li class="{{ (Request::is('admin/token/performance') ? 'active' : '') }}">
                                         <a href="{{ url('admin/token/performance') }}">{{ trans('app.performance_report') }}</a>
