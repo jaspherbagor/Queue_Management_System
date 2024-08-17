@@ -33,11 +33,9 @@
                     {{ Form::select('user_id', $userList, null, ['placeholder' => 'Select Option', 'class'=>'select2 form-control']) }}<br/>
                     <span class="text-danger">{{ $errors->first('user_id') }}</span>
                 </div> 
-                
-                <div class="btn-group">
-                    <button type="reset" class="btn btn-primary reset-btn">{{ trans('app.reset') }}</button>
-                    <button type="submit" class="btn btn-success save-btn">{{ trans('app.save') }}</button> 
-                </div>
+            
+                <button type="reset" class="btn btn-primary reset-btn">{{ trans('app.reset') }}</button>
+                <button type="submit" class="btn btn-success save-btn">{{ trans('app.save') }}</button> 
             
             {{ Form::close() }}
         </div>
