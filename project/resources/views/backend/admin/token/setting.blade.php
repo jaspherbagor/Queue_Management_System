@@ -9,7 +9,7 @@
         </div> 
     </div>
 </div>
-<div class="panel panel-primary">
+<div class="panel panel-primary panel-container">
 
     <div class="panel-body">
         <!-- setting form -->
@@ -35,8 +35,8 @@
                 </div> 
                 
                 <div class="btn-group">
-                    <button type="reset" class="btn btn-primary">{{ trans('app.reset') }}</button>
-                    <button type="submit" class="btn btn-success">{{ trans('app.save') }}</button> 
+                    <button type="reset" class="btn btn-primary reset-btn">{{ trans('app.reset') }}</button>
+                    <button type="submit" class="btn btn-success save-btn">{{ trans('app.save') }}</button> 
                 </div>
             
             {{ Form::close() }}
