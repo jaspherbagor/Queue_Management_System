@@ -152,7 +152,7 @@
                                 <a class="sf-user-id">Queues <span class="caret"></span></a>
                                 <ul>
                                     <li class="{{ (Request::is('admin/token/list') ? 'active' : '') }}">
-                                        <a href="{{ url('admin/token/auto') }}">Create Queue</a>
+                                        <a href="{{ url('admin/token/auto') }}">Create Number</a>
                                     </li>
                                     {{-- <li class="{{ (Request::is('admin/token/create') ? 'active' : '') }}">
                                         <a href="{{ url('admin/token/create') }}">{{ trans('app.manual_token') }}</a>
@@ -166,9 +166,9 @@
                                     <!-- <li class="{{ (Request::is('admin/token/performance') ? 'active' : '') }}">
                                         <a href="{{ url('admin/token/performance') }}">{{ trans('app.performance_report') }}</a>
                                     </li> -->
-                                    <!-- <li class="bg-danger {{ (Request::is('admin/token/setting') ? 'active' : '') }}">
+                                    <li class="bg-danger {{ (Request::is('admin/token/setting') ? 'active' : '') }}">
                                         <a href="{{ url('admin/token/setting') }}">{{ trans('app.auto_token_setting') }}</a>
-                                    </li> -->
+                                    </li>
                                 </ul>
                             </li>
                             @endif
@@ -245,7 +245,7 @@
                                     </li>                                      --}}
                                     <li class="{{ (session()->get('app.display')==5 ? 'active' : '') }}">
                                         <a href="{{ url('common/display?type=5') }}" target="_blank">Display 2</a>
-                                    </li> 
+                                    </li>
                                     <!-- @if (session()->has('custom_displays'))
                                     @foreach(session()->get('custom_displays') as $key => $name)
                                     <li>
