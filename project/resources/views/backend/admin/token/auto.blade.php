@@ -1,5 +1,5 @@
 @extends('layouts.backend')
-@section('title', 'Create Queue Number')
+@section('title', 'Create Number')
 
 @section('content')
 <div class="panel-heading pt-0 pb-0">

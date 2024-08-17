@@ -5,7 +5,7 @@
 <div class="panel-heading">
     <div class="row">
         <div class="col-sm-12 text-left">
-            <h3>Queue Report</h3>
+            <h3>Number Report</h3>
         </div>
     </div>
 </div>

@@ -7,7 +7,7 @@
     <div class="panel-heading">
         <ul class="row list-inline m-0">
             <li class="col-xs-10 xs-view p-0 text-left" id="screen-title">
-                <h3>{{ trans('app.manual_token') }}</h3>
+                <h3>Manual Number</h3>
             </li>
             <li class="col-xs-2 p-0 text-right">
                 <button type="button" class="btn btn-warning btn-sm" data-toggle="modal" data-target="#infoModal">
