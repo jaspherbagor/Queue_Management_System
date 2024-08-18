@@ -565,7 +565,7 @@ class DisplayController extends Controller
             })
             ->orderBy(DB::raw('LENGTH(name)'), 'DESC')
             ->orderBy('name', 'DESC')
-            ->limit(2)
+            ->limit(3)
             ->get();
 
         $token_list = array();
