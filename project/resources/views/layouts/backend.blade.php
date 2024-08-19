@@ -170,7 +170,7 @@
                                         <a href="{{ url('admin/token/performance') }}">{{ trans('app.performance_report') }}</a>
                                     </li> -->
                                     <li class="bg-danger {{ (Request::is('admin/token/setting') ? 'active' : '') }}">
-                                        <a href="{{ url('admin/token/setting') }}"><i class="fa fa-arrow-right" aria-hidden="true"></i> Number Setting</a>
+                                        <a href="{{ url('admin/token/setting') }}"><i class="bi bi-chevron-right"></i> Number Setting</a>
                                     </li>
                                 </ul>
                             </li>
@@ -280,15 +280,15 @@
                                 <ul>
                                     @if (auth()->user()->hasRole('admin'))
                                     <li class="{{ (Request::is('admin/setting') ? 'active' : '') }}">
-                                        <a href="{{ url('admin/setting') }}">{{ trans('app.app_setting') }}</a>
+                                        <a href="{{ url('admin/setting') }}"><i class="bi bi-chevron-right"></i> {{ trans('app.app_setting') }}</a>
                                     </li>
                                     <li class="{{ (Request::is('admin/setting/display') ? 'active' : '') }}">
-                                        <a href="{{ url('admin/setting/display') }}">{{ trans('app.display_setting') }}</a>
+                                        <a href="{{ url('admin/setting/display') }}"><i class="bi bi-chevron-right"></i> {{ trans('app.display_setting') }}</a>
                                     </li>
                                     @endif
 
                                     <li class="{{ (Request::is('common/setting/*') ? 'active' : '') }}">
-                                        <a href="{{ url('common/setting/profile') }}">{{ trans('app.profile_information') }}</a>
+                                        <a href="{{ url('common/setting/profile') }}"><i class="bi bi-chevron-right"></i> {{ trans('app.profile_information') }}</a>
                                     </li>
                                 </ul>
                             </li>
