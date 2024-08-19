@@ -233,8 +233,9 @@ input[type=search], select.input-sm {
 }
 
 .cm-submenu ul li a:hover {
-    background: #83c9ed !important;
+    color: #83c9ed !important;
 }
+
 /* 
 .cm-menu-items li a:hover {
     background: #83c9ed !important;
@@ -244,4 +245,11 @@ input[type=search], select.input-sm {
     display: flex;
     align-items: end !important;
     justify-content: flex-end !important;
+}
+
+i.fa-arrow-circle-o-right {
+    /* transform: scale(1.2) !important; */
+    /* margin-left: -10px !important; */
+    margin-right: 10px !important;
+    color:#83c9ed !important
 }
