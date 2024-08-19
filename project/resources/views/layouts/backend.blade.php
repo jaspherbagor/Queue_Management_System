@@ -40,11 +40,14 @@
 
         <!-- Autoken Stylesheet -->
         <link rel="stylesheet" href="{{asset('public/assets/css/auto_token_styles.css')}}">
+        {{-- Bootstrap Icons --}}
+        <link rel="stylesheet" href="{{asset('public/assets/css/bootstrap.min.css')}}">
 
         <!-- Jquery  -->
         <script src="{{ asset('public/assets/js/jquery.min.js') }}"></script>
         {{-- Datatables Script --}}
         <script src="{{ asset('public/assets/js/datatables.min.js') }}"></script>
+
     </head>
     <body class="cm-no-transition cm-1-navbar loader-process">
         @include('backend.common.info')
@@ -101,10 +104,10 @@
                                 </a>
                                 <ul>
                                     <li class="{{ (Request::is('admin/department/create') ? 'active' : '') }}">
-                                        <a href="{{ url('admin/department/create') }}"><i class="fa fa-arrow-right" aria-hidden="true"></i> Add Services</a>
+                                        <a href="{{ url('admin/department/create') }}"><i class="bi bi-chevron-right"></i> Add Services</a>
                                     </li>
                                     <li class="{{ (Request::is('admin/department') ? 'active' : '') }}">
-                                        <a href="{{ url('admin/department') }}"><i class="fa fa-arrow-right" aria-hidden="true"></i> Services List</a>
+                                        <a href="{{ url('admin/department') }}"><i class="bi bi-chevron-right"></i> Services List</a>
                                     </li>
                                 </ul>
                             </li>
@@ -113,10 +116,10 @@
                                 <a class="sf-star">Window <span class="caret"></span></a>
                                 <ul>
                                     <li class="{{ (Request::is('admin/counter/create') ? 'active' : '') }}">
-                                        <a href="{{ url('admin/counter/create') }}"><i class="fa fa-arrow-right" aria-hidden="true"></i> Add Window</a>
+                                        <a href="{{ url('admin/counter/create') }}"><i class="bi bi-chevron-right"></i> Add Window</a>
                                     </li>
                                     <li class="{{ (Request::is('admin/counter') ? 'active' : '') }}">
-                                        <a href="{{ url('admin/counter') }}"><i class="fa fa-arrow-right" aria-hidden="true"></i> Windows List</a>
+                                        <a href="{{ url('admin/counter') }}"><i class="bi bi-chevron-right"></i> Windows List</a>
                                     </li>
                                 </ul>
                             </li>
@@ -125,10 +128,10 @@
                                 <a class="sf-profile-group">{{ trans('app.users') }} <span class="caret"></span></a>
                                 <ul>
                                     <li class="{{ (Request::is('admin/user/create') ? 'active' : '') }}">
-                                        <a href="{{ url('admin/user/create') }}"><i class="fa fa-arrow-right" aria-hidden="true"></i> {{ trans('app.add_user') }}</a>
+                                        <a href="{{ url('admin/user/create') }}"><i class="bi bi-chevron-right"></i> {{ trans('app.add_user') }}</a>
                                     </li>
                                     <li class="{{ (Request::is('admin/user') ? 'active' : '') }}">
-                                        <a href="{{ url('admin/user') }}"><i class="fa fa-arrow-right" aria-hidden="true"></i> {{ trans('app.user_list') }}</a>
+                                        <a href="{{ url('admin/user') }}"><i class="bi bi-chevron-right"></i> {{ trans('app.user_list') }}</a>
                                     </li>
                                 </ul>
                             </li>
@@ -152,22 +155,22 @@
                                 <a class="sf-user-id">Numbers <span class="caret"></span></a>
                                 <ul>
                                     <li class="{{ (Request::is('admin/token/list') ? 'active' : '') }}">
-                                        <a href="{{ url('admin/token/auto') }}"><i class="fa fa-arrow-right" aria-hidden="true"></i> Create Number</a>
+                                        <a href="{{ url('admin/token/auto') }}"><i class="bi bi-chevron-right"></i> Create Number</a>
                                     </li>
                                     {{-- <li class="{{ (Request::is('admin/token/create') ? 'active' : '') }}">
                                         <a href="{{ url('admin/token/create') }}">{{ trans('app.manual_token') }}</a>
                                     </li> --}}
                                     <li class="{{ (Request::is('admin/token/current') ? 'active' : '') }}">
-                                        <a href="{{ url('admin/token/current') }}"><i class="fa fa-arrow-right" aria-hidden="true"></i> {{ trans('app.active') }} / Current Numbers <i class="fa fa-dot-circle-o" style="color:#03d003"></i></a>
+                                        <a href="{{ url('admin/token/current') }}"><i class="bi bi-chevron-right"></i> {{ trans('app.active') }} / Current Numbers <i class="fa fa-dot-circle-o" style="color:#03d003"></i></a>
                                     </li>
                                     <li class="{{ (Request::is('admin/token/report') ? 'active' : '') }}">
-                                        <a href="{{ url('admin/token/report') }}"><i class="fa fa-arrow-right" aria-hidden="true"></i> Number Report</a>
+                                        <a href="{{ url('admin/token/report') }}"><i class="bi bi-chevron-right"></i> Number Report</a>
                                     </li>
                                     <!-- <li class="{{ (Request::is('admin/token/performance') ? 'active' : '') }}">
                                         <a href="{{ url('admin/token/performance') }}">{{ trans('app.performance_report') }}</a>
                                     </li> -->
                                     <li class="bg-danger {{ (Request::is('admin/token/setting') ? 'active' : '') }}">
-                                        <a href="{{ url('admin/token/setting') }}">Number Setting</a>
+                                        <a href="{{ url('admin/token/setting') }}"><i class="fa fa-arrow-right" aria-hidden="true"></i> Number Setting</a>
                                     </li>
                                 </ul>
                             </li>
@@ -188,10 +191,10 @@
                                 <a class="sf-user-id">Queues <span class="caret"></span></a>
                                 <ul>
                                     <li class="{{ (Request::is('officer/token/current') ? 'active' : '') }}">
-                                        <a href="{{ url('officer/token/current') }}"><i class="fa fa-arrow-right" aria-hidden="true"></i> {{ trans('app.active') }} / Current Queue <i class="fa fa-dot-circle-o" style="color:#03d003"></i></a>
+                                        <a href="{{ url('officer/token/current') }}"><i class="bi bi-chevron-right"></i> {{ trans('app.active') }} / Current Queue <i class="fa fa-dot-circle-o" style="color:#03d003"></i></a>
                                     </li>
                                     <li class="{{ (Request::is('officer/token') ? 'active' : '') }}">
-                                        <a href="{{ url('officer/token') }}"><i class="fa fa-arrow-right" aria-hidden="true"></i> Queue List</a>
+                                        <a href="{{ url('officer/token') }}"><i class="bi bi-chevron-right"></i> Queue List</a>
                                     </li>
                                 </ul>
                             </li>
@@ -205,7 +208,7 @@
                                 <a class="sf-user-id">Queue <span class="caret"></span></a>
                                 <ul>
                                     <li class="{{ (Request::is('receptionist/token/list') ? 'active' : '') }}">
-                                        <a href="{{ url('receptionist/token/auto') }}"><i class="fa fa-arrow-right" aria-hidden="true"></i> Create Queue </a>
+                                        <a href="{{ url('receptionist/token/auto') }}"><i class="bi bi-chevron-right"></i> Create Queue </a>
                                     </li>
                                     <!-- <li class="{{ (Request::is('receptionist/token/create') ? 'active' : '') }}">
                                         <a href="{{ url('receptionist/token/create') }}">{{ trans('app.manual_token') }}</a>
@@ -235,7 +238,7 @@
                                         <a href="{{ url('common/display?type=2') }}" target="_blank">{{ trans('app.display_2') }}</a>
                                     </li>                                     --}}
                                     <li class="{{ (session()->get('app.display')==3 ? 'active' : '') }}">
-                                        <a href="{{ url('common/display?type=3') }}" target="_blank"><i class="fa fa-arrow-right" aria-hidden="true"></i> Display 1</a>
+                                        <a href="{{ url('common/display?type=3') }}" target="_blank"><i class="bi bi-chevron-right"></i> Display 1</a>
                                     </li>
                                     {{-- <li class="{{ (session()->get('app.display')=='3b' ? 'active' : '') }}">
                                         <a href="{{ route('display3b') }}" target="_blank">Display 3b</a>
@@ -244,7 +247,7 @@
                                         <a href="{{ url('common/display?type=4') }}" target="_blank">{{ trans('app.display_4') }}</a>
                                     </li>                                      --}}
                                     <li class="{{ (session()->get('app.display')==5 ? 'active' : '') }}">
-                                        <a href="{{ url('common/display?type=5') }}" target="_blank"><i class="fa fa-arrow-right" aria-hidden="true"></i> Display 2</a>
+                                        <a href="{{ url('common/display?type=5') }}" target="_blank"><i class="bi bi-chevron-right"></i> Display 2</a>
                                     </li>
                                     <!-- @if (session()->has('custom_displays'))
                                     @foreach(session()->get('custom_displays') as $key => $name)
