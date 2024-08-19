@@ -360,7 +360,7 @@ div.dt-button-collection > .dropdown-menu>li>a:focus {
 } */
 
 li.active {
-    background: #83c9ed !important
+    /* background: #83c9ed !important */
 }
 
 .cm-menu-toggled #cm-menu .cm-submenu ul li a{

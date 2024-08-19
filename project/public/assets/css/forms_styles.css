@@ -233,8 +233,9 @@ input[type=search], select.input-sm {
 }
 
 .cm-submenu ul li a:hover {
-    background: #83c9ed !important;
+    color: #83c9ed !important;
 }
+
 /* 
 .cm-menu-items li a:hover {
     background: #83c9ed !important;
