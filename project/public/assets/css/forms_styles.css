@@ -246,3 +246,10 @@ input[type=search], select.input-sm {
     align-items: end !important;
     justify-content: flex-end !important;
 }
+
+i.fa-arrow-circle-o-right {
+    /* transform: scale(1.2) !important; */
+    /* margin-left: -10px !important; */
+    margin-right: 10px !important;
+    color:#83c9ed !important
+}
