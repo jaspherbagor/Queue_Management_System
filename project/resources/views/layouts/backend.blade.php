@@ -168,7 +168,7 @@
                                     </li> -->
                                     <li class="bg-danger {{ (Request::is('admin/token/setting') ? 'active' : '') }}">
                                         <a href="{{ url('admin/token/setting') }}">Number Setting</a>
-                                    </li>
+                              </li>
                                 </ul>
                             </li>
                             @endif
