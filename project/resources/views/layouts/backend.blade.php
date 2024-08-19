@@ -170,7 +170,7 @@
                                         <a href="{{ url('admin/token/performance') }}">{{ trans('app.performance_report') }}</a>
                                     </li> -->
                                     <li class="bg-danger {{ (Request::is('admin/token/setting') ? 'active' : '') }}">
-                                        <a href="{{ url('admin/token/setting') }}"><i class="bi bi-chevron-right"></i> Number Setting</a>
+                                        <a href="{{ url('admin/token/setting') }}"><i class="fa fa-arrow-right" aria-hidden="true"></i> Number Setting</a>
                                     </li>
                                 </ul>
                             </li>
