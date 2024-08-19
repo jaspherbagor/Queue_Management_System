@@ -17,7 +17,7 @@
      
                 <div class="form-group @error('name') has-error @enderror">
                     <label for="name">Name: </label>
-                    <input type="text" name="name" id="name" class="form-control" placeholder="Enter the counter name" value="{{ old('name') }}">
+                    <input type="text" name="name" id="name" class="form-control" placeholder="Enter the window name" value="{{ old('name') }}">
                     <span class="text-danger">{{ $errors->first('name') }}</span>
                 </div>
 
