@@ -10,7 +10,7 @@
     <div class="panel-body">
 
         <div class="row">
-            <div class="col-md-6">
+            {{-- <div class="col-md-6"> --}}
                 <div class="row dashboard-card-container">
                     <div class="col-sm-12 shadowed dashboard-cards">
                         <a href="{{route('department')}}">
@@ -59,8 +59,8 @@
                         </div>
                     </div>
                 </div>
-            </div>
-            <div class="col-md-6">
+            {{-- </div> --}}
+            {{-- <div class="col-md-6">
                 <div class="performance_heading">{{ trans('app.today_user_performance') }}</div>
                 <div class="panel panel-primary shadowed panel-container">
 
@@ -92,7 +92,7 @@
                     @endif
                     </div>
                 </div>
-            </div>
+            </div> --}}
         </div>
 
         <div class="row card-rows mt-1">
