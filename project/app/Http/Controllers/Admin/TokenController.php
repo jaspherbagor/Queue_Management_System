@@ -15,6 +15,11 @@ use App\Models\TokenSetting;
 use App\Models\SmsSetting;
 use App\Models\SmsHistory;
 use DB, Validator;
+use Google\Cloud\TextToSpeech\V1\TextToSpeechClient;
+use Google\Cloud\TextToSpeech\V1\SynthesisInput;
+use Google\Cloud\TextToSpeech\V1\VoiceSelectionParams;
+use Google\Cloud\TextToSpeech\V1\AudioConfig;
+use Google\Cloud\TextToSpeech\V1\AudioEncoding;
 
 class TokenController extends Controller
 {
@@ -652,66 +657,40 @@ class TokenController extends Controller
     }
 
     public function recall($id = null)
-    {
-        @date_default_timezone_set(session('app.timezone'));
+{
+    @date_default_timezone_set(session('app.timezone'));
 
-        //send sms immediately
-        $setting  = SmsSetting::first();
-        $token = DB::table('token AS t')
-            ->select(
-                "t.token_no AS token",
-                "t.client_mobile AS mobile",
-                "d.name AS department",
-                "c.name AS counter",
-                DB::raw("CONCAT_WS(' ', u.firstname, u.lastname) AS officer"),
-                "t.created_at AS date"
-            )
-            ->leftJoin('department AS d', 'd.id', '=', 't.department_id')
-            ->leftJoin('counter AS c', 'c.id', '=', 't.counter_id')
-            ->leftJoin('user AS u', 'u.id', '=', 't.user_id')
-            ->where('t.id', $id)
-            ->first();
+    $token = DB::table('token AS t')
+        ->select("t.token_no AS token", "c.name AS window")
+        ->leftJoin('counter AS c', 'c.id', '=', 't.counter_id')
+        ->where('t.id', $id)
+        ->first();
 
-        if (!empty($token->mobile))
-        {
-            $response = (new SMS_lib)
-                ->provider("$setting->provider")
-                ->api_key("$setting->api_key")
-                ->username("$setting->username")
-                ->password("$setting->password")
-                ->from("$setting->from")
-                ->to($token->mobile)
-                ->message($setting->recall_sms_template, array(
-                    'TOKEN'  =>$token->token,
-                    'MOBILE' =>$token->mobile,
-                    'DEPARTMENT'=>$token->department,
-                    'COUNTER'=>$token->counter,
-                    'OFFICER'=>$token->officer,
-                    'DATE'   =>$token->date
-                ))
-                ->response();
-            $api = json_decode($response, true);
+    if ($token) {
+        $announcement = "Token number " . $token->token . " please proceed to window " . $token->window;
 
-            //store sms information
-            $sms = new SmsHistory;
-            $sms->from        = $setting->from;
-            $sms->to          = $token->mobile;
-            $sms->message     = $api['message'];
-            $sms->response    = $response;
-            $sms->created_at  = date('Y-m-d H:i:s');
-            $sms->save();
-        }
+        $textToSpeechClient = new TextToSpeechClient();
+        $input = new SynthesisInput(['text' => $announcement]);
+        $voice = new VoiceSelectionParams([
+            'language_code' => 'en-US',
+            'ssml_gender' => 'FEMALE'
+        ]);
+        $audioConfig = new AudioConfig([
+            'audio_encoding' => AudioEncoding::MP3
+        ]);
 
-        Token::where('id', $id)
-            ->update([
-                'updated_at' => date('Y-m-d H:i:s'),
-                'status'     => 0,
-                'sms_status' => 2
-            ]);
+        $response = $textToSpeechClient->synthesizeSpeech($input, $voice, $audioConfig);
+        $audioContent = $response->getAudioContent();
 
-        //RECALL
-        return redirect()->back()->with('message', trans('app.recall_successfully'));
+        file_put_contents('path/to/save/announcement.mp3', $audioContent);
+
+        $textToSpeechClient->close();
+
+        // Return or play the audio file in the front-end
     }
+
+    return redirect()->back()->with('message', trans('app.recall_successfully'));
+}
 
     public function complete($id = null)
     {
