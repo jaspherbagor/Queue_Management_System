@@ -92,6 +92,19 @@ $(document).ready(function(){
 
   setTimeout(display, interval);
 
+  // TTS function using Web Speech API
+  function speakText(text) {
+      if ('speechSynthesis' in window) {
+          const utterance = new SpeechSynthesisUtterance(text);
+          utterance.lang = 'en-US'; // Set the language, customize if needed
+          utterance.pitch = 1;      // Set pitch level (0-2)
+          utterance.rate = 1;       // Set speed of speech (0.1-10)
+          window.speechSynthesis.speak(utterance);
+      } else {
+          console.log('Sorry, your browser does not support text-to-speech.');
+      }
+  }
+
 });
 </script>
 @endpush
