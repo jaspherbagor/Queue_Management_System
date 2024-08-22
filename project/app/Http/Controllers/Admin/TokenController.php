@@ -551,9 +551,9 @@ class TokenController extends Controller
                 if ($token->status == 0) {
                     $options .= "<a href=\"" . url("admin/token/complete/$token->id") . "\"  class=\"btn btn-success btn-sm btn-complete\" onclick=\"return confirm('Are you sure?')\" title=\"Complete\"><i class=\"fa fa-check\"></i></a>";
                 }
-                // if ($token->status != 0 || !empty($token->updated_at)) {
-                //     $options .= "<a href=\"" . url("admin/token/recall/$token->id") . "\"  class=\"btn btn-info btn-sm btn-call\" onclick=\"return confirm('Are you sure?')\" title=\"Re-call\"><i class=\"fa fa-phone\"></i></a>";
-                // }
+                if ($token->status != 0 || !empty($token->updated_at)) {
+                    $options .= "<a href=\"" . url("admin/token/recall/$token->id") . "\"  class=\"btn btn-info btn-sm btn-call\" onclick=\"return confirm('Are you sure?')\" title=\"Re-call\"><i class=\"fa fa-phone\"></i></a>";
+                }
                 if ($token->status == 0) {
                     $options .= "<button type=\"button\" data-toggle=\"modal\" data-target=\".transferModal\" data-token-id='{$token->id}' class=\"btn btn-primary btn-sm btn-transfer\" title=\"Transfer\"><i class=\"fa fa-exchange\"></i></button>
                         <a href=\"" . url("admin/token/stoped/$token->id") . "\"  class=\"btn btn-warning btn-sm btn-stop\" onclick=\"return confirm('Are you sure?')\" title=\"Stop\"><i class=\"fa fa-stop\"></i></a>";
