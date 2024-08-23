@@ -538,7 +538,7 @@ class DisplayController extends Controller
         $data['result'] = $html;
         $data['new_token'] = $newTokens;
         $data['all_token'] = $allTokens;
-        $data['interval'] = 10000 * (count($newTokens) ? count($newTokens) : 1);
+        $data['interval'] = 60000 * (count($newTokens) ? count($newTokens) : 1);
 
         return Response::json($data);
     }
@@ -913,7 +913,7 @@ class DisplayController extends Controller
         $data['result'] = $html;
         $data['new_token'] = $newTokens;
         $data['all_token'] = $allTokens;
-        $data['interval'] = 10000 * (count($newTokens) ? count($newTokens) : 1);
+        $data['interval'] = 60000 * (count($newTokens) ? count($newTokens) : 1);
 
         return Response::json($data);
     }
