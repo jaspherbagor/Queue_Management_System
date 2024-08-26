@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Admin\TokenController;
 use App\Http\Controllers\Authentication\AuthenticationController;
 use App\Http\Controllers\Front\HomeController;
 use Illuminate\Support\Facades\Route;
@@ -218,3 +219,6 @@ Route::post('/forgot-password-submit', [AuthenticationController::class, 'forgot
 Route::get('/reset-password/{token}/{email}', [AuthenticationController::class, 'reset_password'])->name('reset_password');
 
 Route::post('/reset-password-submit', [AuthenticationController::class, 'reset_password_submit'])->name('reset_password_submit');
+
+
+Route::post('/admin/token/recall', [TokenController::class, 'recallToken']);

@@ -221,6 +221,32 @@
             }
         });
     });
+
+    $("body").on("click", ".tokenRecall", function(e) {
+    e.preventDefault();
+    var tokenId = $(this).data('token-id');
+
+    $.ajax({
+        url: '/admin/token/recall',
+        type: 'POST',
+        dataType: 'json',
+        data: {
+            'id': tokenId,
+            '_token': '{{ csrf_token() }}'
+        },
+        success: function(data) {
+            if (data.status) {
+                alert('Token recalled successfully!');
+                // Optionally, you can refresh the DataTable or handle success feedback here
+            } else {
+                alert('Failed to recall token.');
+            }
+        },
+        error: function(xhr) {
+            alert('Error recalling token.');
+        }
+    });
+});
 })();
 </script>
 @endpush

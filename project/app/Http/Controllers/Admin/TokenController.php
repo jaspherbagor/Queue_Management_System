@@ -656,41 +656,67 @@ class TokenController extends Controller
             ->first();
     }
 
-    public function recall($id = null)
-{
-    @date_default_timezone_set(session('app.timezone'));
-
-    $token = DB::table('token AS t')
-        ->select("t.token_no AS token", "c.name AS window")
-        ->leftJoin('counter AS c', 'c.id', '=', 't.counter_id')
-        ->where('t.id', $id)
-        ->first();
-
-    if ($token) {
-        $announcement = "Token number " . $token->token . " please proceed to window " . $token->window;
-
-        $textToSpeechClient = new TextToSpeechClient();
-        $input = new SynthesisInput(['text' => $announcement]);
-        $voice = new VoiceSelectionParams([
-            'language_code' => 'en-US',
-            'ssml_gender' => 'FEMALE'
-        ]);
-        $audioConfig = new AudioConfig([
-            'audio_encoding' => AudioEncoding::MP3
-        ]);
-
-        $response = $textToSpeechClient->synthesizeSpeech($input, $voice, $audioConfig);
-        $audioContent = $response->getAudioContent();
-
-        file_put_contents('path/to/save/announcement.mp3', $audioContent);
-
-        $textToSpeechClient->close();
-
-        // Return or play the audio file in the front-end
+    public function recall($id)
+    {
+        // Set the timezone based on session or application settings
+        date_default_timezone_set(session('app.timezone') ?: config('app.timezone'));
+    
+        // Retrieve the token and associated counter information
+        $token = DB::table('token AS t')
+            ->select("t.token_no AS token", "c.name AS window")
+            ->leftJoin('counter AS c', 'c.id', '=', 't.counter_id')
+            ->where('t.id', $id)
+            ->first();
+    
+        if ($token) {
+            // Create the announcement text
+            $announcement = "Token number " . $token->token . " please proceed to window " . $token->window;
+    
+            // Instantiate the Google TextToSpeech client
+            $textToSpeechClient = new TextToSpeechClient();
+    
+            // Prepare the input for the TextToSpeech API
+            $input = new SynthesisInput(['text' => $announcement]);
+    
+            // Select the voice parameters
+            $voice = new VoiceSelectionParams([
+                'language_code' => 'en-US',
+                'ssml_gender' => 'FEMALE'
+            ]);
+    
+            // Configure the audio output
+            $audioConfig = new AudioConfig([
+                'audio_encoding' => AudioEncoding::MP3
+            ]);
+    
+            // Generate the speech
+            $response = $textToSpeechClient->synthesizeSpeech($input, $voice, $audioConfig);
+            $audioContent = $response->getAudioContent();
+    
+            // Close the TextToSpeech client
+            $textToSpeechClient->close();
+    
+            // Set headers to play audio directly in the browser
+            return response($audioContent)
+                ->header('Content-Type', 'audio/mpeg')
+                ->header('Content-Length', strlen($audioContent));
+        }
+    
+        // Redirect back with a success message
+        return redirect()->back()->with('message', trans('app.recall_successfully'));
     }
 
-    return redirect()->back()->with('message', trans('app.recall_successfully'));
-}
+    public function recallToken(Request $request)
+    {
+        $token = Token::find($request->id);
+        if ($token) {
+            // Logic to trigger the voice notification
+            // You may call the existing display3 method or create new logic here
+            return response()->json(['status' => true, 'message' => 'Token recalled successfully']);
+        }
+
+        return response()->json(['status' => false, 'message' => 'Token not found']);
+    }
 
     public function complete($id = null)
     {
