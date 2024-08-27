@@ -56,13 +56,29 @@
                             {{-- <td>{!! (!empty($token->generated_by)?("<a href='".url("officer/user/view/{$token->generated_by->id}")."'>".$token->generated_by->firstname." ". $token->generated_by->lastname."</a>"):null) !!}</td> 
                             <td>{{ (!empty($token->created_at)?date('j M Y h:i a',strtotime($token->created_at)):null) }}</td> --}}
                             <td>
-                                <div class="btn-group"> 
-                                    <a href="{{ url("officer/token/complete/$token->id") }}"  class="btn btn-success btn-sm btn-complete" onclick="return confirm('Are you sure?')" title="Complete"><i class="fa fa-check"></i></a> 
-
-                                    <a href="{{ url("officer/token/stoped/$token->id") }}"  class="btn btn-warning btn-sm btn-stop" onclick="return confirm('Are you sure?')" title="Stop"><i class="fa fa-stop"></i></a>
-
-                                    <button type="button" href='{{ url("officer/token/print") }}' data-token-id='{{ $token->id }}' class="tokenPrint btn btn-default btn-sm btn-print" title="Print" ><i class="fa fa-print"></i></button>
-                                </div>
+                                {{-- <div class="btn-group">  --}}
+                                    <a href="{{ url('officer/token/complete/'.$token->id) }}" 
+                                        class="btn btn-success btn-sm btn-complete mb-1" 
+                                        data-token-id="{{ $token->id }}" 
+                                        title="Complete">
+                                         <i class="fa fa-check"></i>
+                                     </a> 
+                                 
+                                     <a href="{{ url('officer/token/stoped/'.$token->id) }}" 
+                                        class="btn btn-warning btn-sm btn-stop mb-1" 
+                                        data-token-id="{{ $token->id }}" 
+                                        title="Stop">
+                                         <i class="fa fa-stop"></i>
+                                     </a>
+                                 
+                                     <button type="button" 
+                                             href='{{ url('officer/token/print') }}' 
+                                             data-token-id='{{ $token->id }}' 
+                                             class="tokenPrint btn btn-default btn-sm btn-print" 
+                                             title="Print">
+                                         <i class="fa fa-print"></i>
+                                     </button>
+                                {{-- </div> --}}
                             </td>
                         </tr> 
                     @endforeach
@@ -144,6 +160,42 @@
                 alert('failed!');
             }
         });  
+    });
+
+    $('.btn-complete').on('click', function(event) {
+        event.preventDefault();
+        let tokenId = $(this).data('token-id');
+        Swal.fire({
+            title: 'Are you sure?',
+            text: "You want to complete this queue number!",
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#28a745',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Yes, complete it!'
+        }).then((result) => {
+            if (result.isConfirmed) {
+                window.location.href = `{{ url('officer/token/complete') }}/${tokenId}`;
+            }
+        });
+    });
+
+    $('.btn-stop').on('click', function(event) {
+        event.preventDefault();
+        let tokenId = $(this).data('token-id');
+        Swal.fire({
+            title: 'Are you sure?',
+            text: "You want to stop this queue number!",
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#ffc107',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Yes, stop it!'
+        }).then((result) => {
+            if (result.isConfirmed) {
+                window.location.href = `{{ url('officer/token/stoped') }}/${tokenId}`;
+            }
+        });
     });
     
 })();

@@ -48,6 +48,8 @@
         {{-- Datatables Script --}}
         <script src="{{ asset('public/assets/js/datatables.min.js') }}"></script>
 
+        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
     </head>
     <body class="cm-no-transition cm-1-navbar loader-process">
         @include('backend.common.info')
