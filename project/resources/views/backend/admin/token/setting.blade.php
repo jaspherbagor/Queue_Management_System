@@ -23,7 +23,7 @@
                 </div> 
 
                 <div class="form-group @error('counter_id') has-error @enderror">
-                    <label for="counter">{{ trans('app.counter') }} <i class="text-danger">*</i></label><br/>
+                    <label for="counter">Window <i class="text-danger">*</i></label><br/>
                     {{ Form::select('counter_id', $countertList, null, ['placeholder' => 'Select Option', 'class'=>'select2 form-control']) }}<br/>
                     <span class="text-danger">{{ $errors->first('counter_id') }}</span> 
                 </div> 
@@ -47,7 +47,7 @@
                     <tr>
                         <th>#</th> 
                         <th>{{ trans('app.department') }}</th>
-                        <th>{{ trans('app.counter') }}</th>
+                        <th>Window</th>
                         <th>{{ trans('app.officer') }}</th> 
                         <th>{{ trans('app.action') }}</th>
                     </tr>
