@@ -64,11 +64,11 @@
                                     <a href="{{ url("admin/token/complete/$token->id") }}"  class="btn btn-success btn-sm btn-complete mb-1" title="Complete"><i class="fa fa-check"></i></a>
                                     <button type="button" data-toggle="modal" data-target=".transferModal" data-token-id='{{ $token->id }}' class="btn btn-primary btn-sm btn-transfer" title="Transfer"><i class="fa fa-exchange"></i></button> 
 
-                                    <a href="{{ url("admin/token/stoped/$token->id") }}"  class="btn btn-warning btn-sm btn-stop mb-1" onclick="return confirm('Are you sure you want this number to stop?')" title="Stoped"><i class="fa fa-stop"></i></a>
+                                    <a href="{{ url("admin/token/stoped/$token->id") }}"  class="btn btn-warning btn-sm btn-stop mb-1" title="Stop"><i class="fa fa-stop"></i></a>
 
                                     <button type="button" href='{{ url("admin/token/print") }}' data-token-id='{{ $token->id }}' class="tokenPrint btn btn-default btn-sm btn-print mb-1" title="Print" ><i class="fa fa-print"></i></button>
 
-                                    <a href='{{ url("admin/token/delete/$token->id") }}'class="btn btn-danger btn-sm btn-delete mb-1" onclick="return confirm('Are you sure you want to delete?');" title="Delete"><i class="fa fa-trash"></i></a>
+                                    <a href='{{ url("admin/token/delete/$token->id") }}'class="btn btn-danger btn-sm btn-delete mb-1" title="Delete"><i class="fa fa-trash"></i></a>
                                 {{-- </div> --}}
                             </td>
                         </tr> 
@@ -231,6 +231,59 @@
                 alert('failed!');
             }
         });  
+    });
+
+    $('.btn-complete').on('click', function(event) {
+        event.preventDefault();
+        let tokenId = $(this).data('token-id');
+        Swal.fire({
+            title: 'Are you sure?',
+            text: "You want to complete this queue number!",
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#28a745',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Yes, complete it!'
+        }).then((result) => {
+            if (result.isConfirmed) {
+                window.location.href = `{{ url('admin/token/complete') }}/${tokenId}`;
+            }
+        });
+    });
+
+    $('.btn-stop').on('click', function(event) {
+        event.preventDefault();
+        let tokenId = $(this).data('token-id');
+        Swal.fire({
+            title: 'Are you sure?',
+            text: "You want to stop this queue number!",
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#ffc107',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Yes, stop it!'
+        }).then((result) => {
+            if (result.isConfirmed) {
+                window.location.href = `{{ url('admin/token/stoped') }}/${tokenId}`;
+            }
+        });
+    });
+    $('.btn-delete').on('click', function(event) {
+        event.preventDefault();
+        let tokenId = $(this).data('token-id');
+        Swal.fire({
+            title: 'Are you sure?',
+            text: "You want to delete this queue number!",
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#ffc107',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Yes, delete it!'
+        }).then((result) => {
+            if (result.isConfirmed) {
+                window.location.href = `{{ url('admin/token/delete') }}/${tokenId}`;
+            }
+        });
     });
     
 })();
