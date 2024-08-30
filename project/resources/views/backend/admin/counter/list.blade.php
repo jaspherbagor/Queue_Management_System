@@ -45,7 +45,7 @@
                                 <td>
                                     <div class="btn-group">
                                         <a href="{{ url("admin/counter/edit/$counter->id") }}" class="btn btn-edit btn-sm" data-toggle="tooltip"  title="Edit"><i class="fa fa-edit"></i></a>
-                                        <a href="{{ url("admin/counter/delete/$counter->id") }}" class="btn btn-delete btn-sm" onclick="return confirm('{{ trans("app.are_you_sure") }}')" data-toggle="tooltip"  title="Delete"><i class="fa fa-trash"></i></a>
+                                        <a href="{{ url("admin/counter/delete/$counter->id") }}" class="btn btn-delete btn-sm" data-toggle="tooltip"  title="Delete"><i class="fa fa-trash"></i></a>
                                     </div>
                                 </td>
                             </tr>
@@ -78,5 +78,26 @@
   </div>
 </div>
 @endsection
+@push("scripts")
+<script>
+$('.btn-delete').on('click', function(event) {
+    event.preventDefault();
+    let counterId = $(this).data('counter-id');
+    Swal.fire({
+        title: 'Are you sure?',
+        text: "You want to delete this window!",
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#ffc107',
+        cancelButtonColor: '#d33',
+        confirmButtonText: 'Yes, delete it!'
+    }).then((result) => {
+        if (result.isConfirmed) {
+            window.location.href = `{{ url('admin/counter/delete') }}/${counterId}`;
+        }
+    });
+});
+</script>
 
+@endpush
 
