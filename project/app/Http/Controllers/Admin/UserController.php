@@ -103,9 +103,9 @@ class UserController extends Controller
                     'options'    => "<div class=\"btn-group\">
                         <a href='".url("admin/user/view/$user->id")."' class=\"btn btn-sm btn-info btn-view\"><i class=\"fa fa-eye\"></i></a>". 
                         (
-                            ($user->user_type != 5) ?
+                            ($user->user_type != 5) ? 
                             "<a href='".url("admin/user/edit/$user->id")."' class=\"btn btn-sm btn-success btn-edit\"><i class=\"fa fa-edit\"></i></a>
-                            <a href='".url("admin/user/delete/$user->id")."' onclick=\"return confirm('".trans('app.are_you_sure')."')\" class=\"btn btn-sm btn-danger btn-delete\"><i class=\"fa fa-trash\"></i></a>" : ""
+                            <a href='".url("admin/user/delete/$user->id")."' class=\"btn btn-sm btn-danger btn-delete\"><i class=\"fa fa-trash\"></i></a>" : ""
                         ).
                         "</div>"
                 ];  

@@ -213,5 +213,23 @@
     }
 })();
 
+$('.btn-delete').on('click', function(event) {
+    event.preventDefault();
+    let userId = $(this).data('user-id');
+    Swal.fire({
+        title: 'Are you sure?',
+        text: "You want to delete thuser!",
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#ffc107',
+        cancelButtonColor: '#d33',
+        confirmButtonText: 'Yes, delete it!'
+    }).then((result) => {
+        if (result.isConfirmed) {
+            window.location.href = `{{ url('admin/user/delete') }}/${userId}`;
+        }
+    });
+});
+
 </script>
 @endpush
