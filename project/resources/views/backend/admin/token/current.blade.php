@@ -233,58 +233,58 @@
         });  
     });
 
-    $('.btn-complete').on('click', function(event) {
-        event.preventDefault();
-        let tokenId = $(this).data('token-id');
-        Swal.fire({
-            title: 'Are you sure?',
-            text: "You want to complete this queue number!",
-            icon: 'warning',
-            showCancelButton: true,
-            confirmButtonColor: '#28a745',
-            cancelButtonColor: '#d33',
-            confirmButtonText: 'Yes, complete it!'
-        }).then((result) => {
-            if (result.isConfirmed) {
-                window.location.href = `{{ url('admin/token/complete') }}/${tokenId}`;
-            }
-        });
-    });
+    // $('.btn-complete').on('click', function(event) {
+    //     event.preventDefault();
+    //     let tokenId = $(this).data('token-id');
+    //     Swal.fire({
+    //         title: 'Are you sure?',
+    //         text: "You want to complete this queue number!",
+    //         icon: 'warning',
+    //         showCancelButton: true,
+    //         confirmButtonColor: '#28a745',
+    //         cancelButtonColor: '#d33',
+    //         confirmButtonText: 'Yes, complete it!'
+    //     }).then((result) => {
+    //         if (result.isConfirmed) {
+    //             window.location.href = `{{ url('admin/token/complete') }}/${tokenId}`;
+    //         }
+    //     });
+    // });
 
-    $('.btn-stop').on('click', function(event) {
-        event.preventDefault();
-        let tokenId = $(this).data('token-id');
-        Swal.fire({
-            title: 'Are you sure?',
-            text: "You want to stop this queue number!",
-            icon: 'warning',
-            showCancelButton: true,
-            confirmButtonColor: '#ffc107',
-            cancelButtonColor: '#d33',
-            confirmButtonText: 'Yes, stop it!'
-        }).then((result) => {
-            if (result.isConfirmed) {
-                window.location.href = `{{ url('admin/token/stoped') }}/${tokenId}`;
-            }
-        });
-    });
-    $('.btn-delete').on('click', function(event) {
-        event.preventDefault();
-        let tokenId = $(this).data('token-id');
-        Swal.fire({
-            title: 'Are you sure?',
-            text: "You want to delete this queue number!",
-            icon: 'warning',
-            showCancelButton: true,
-            confirmButtonColor: '#ffc107',
-            cancelButtonColor: '#d33',
-            confirmButtonText: 'Yes, delete it!'
-        }).then((result) => {
-            if (result.isConfirmed) {
-                window.location.href = `{{ url('admin/token/delete') }}/${tokenId}`;
-            }
-        });
-    });
+    // $('.btn-stop').on('click', function(event) {
+    //     event.preventDefault();
+    //     let tokenId = $(this).data('token-id');
+    //     Swal.fire({
+    //         title: 'Are you sure?',
+    //         text: "You want to stop this queue number!",
+    //         icon: 'warning',
+    //         showCancelButton: true,
+    //         confirmButtonColor: '#ffc107',
+    //         cancelButtonColor: '#d33',
+    //         confirmButtonText: 'Yes, stop it!'
+    //     }).then((result) => {
+    //         if (result.isConfirmed) {
+    //             window.location.href = `{{ url('admin/token/stoped') }}/${tokenId}`;
+    //         }
+    //     });
+    // });
+    // $('.btn-delete').on('click', function(event) {
+    //     event.preventDefault();
+    //     let tokenId = $(this).data('token-id');
+    //     Swal.fire({
+    //         title: 'Are you sure?',
+    //         text: "You want to delete this queue number!",
+    //         icon: 'warning',
+    //         showCancelButton: true,
+    //         confirmButtonColor: '#ffc107',
+    //         cancelButtonColor: '#d33',
+    //         confirmButtonText: 'Yes, delete it!'
+    //     }).then((result) => {
+    //         if (result.isConfirmed) {
+    //             window.location.href = `{{ url('admin/token/delete') }}/${tokenId}`;
+    //         }
+    //     });
+    // });
     
 })();
 </script>
