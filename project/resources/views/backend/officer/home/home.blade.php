@@ -10,7 +10,7 @@
                 <div class="col-md-4 col-sm-6 col-xs-12 mb-1">
                         <div class="p-1 total-token-card">
                             <img src="{{ asset('public/assets/img/sf/user-id.svg') }} " alt="" class="icon-img">
-                            <h5><span class="card-qty">{{ $total_queues }} Total Queues</span></h5>
+                            <h5><span class="card-qty">{{ $total_queues }} Total Numbers</span></h5>
                         </div>
                 </div>
             </a>
