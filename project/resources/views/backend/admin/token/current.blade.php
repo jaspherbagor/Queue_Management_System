@@ -233,58 +233,69 @@
         });  
     });
 
-    // $('.btn-complete').on('click', function(event) {
-    //     event.preventDefault();
-    //     let tokenId = $(this).data('token-id');
-    //     Swal.fire({
-    //         title: 'Are you sure?',
-    //         text: "You want to complete this queue number!",
-    //         icon: 'warning',
-    //         showCancelButton: true,
-    //         confirmButtonColor: '#28a745',
-    //         cancelButtonColor: '#d33',
-    //         confirmButtonText: 'Yes, complete it!'
-    //     }).then((result) => {
-    //         if (result.isConfirmed) {
-    //             window.location.href = `{{ url('admin/token/complete') }}/${tokenId}`;
-    //         }
-    //     });
-    // });
+    $(document).on('click', '.btn-delete', function(e) {
+        e.preventDefault(); // Prevent the default action (navigation)
 
-    // $('.btn-stop').on('click', function(event) {
-    //     event.preventDefault();
-    //     let tokenId = $(this).data('token-id');
-    //     Swal.fire({
-    //         title: 'Are you sure?',
-    //         text: "You want to stop this queue number!",
-    //         icon: 'warning',
-    //         showCancelButton: true,
-    //         confirmButtonColor: '#ffc107',
-    //         cancelButtonColor: '#d33',
-    //         confirmButtonText: 'Yes, stop it!'
-    //     }).then((result) => {
-    //         if (result.isConfirmed) {
-    //             window.location.href = `{{ url('admin/token/stoped') }}/${tokenId}`;
-    //         }
-    //     });
-    // });
-    // $('.btn-delete').on('click', function(event) {
-    //     event.preventDefault();
-    //     let tokenId = $(this).data('token-id');
-    //     Swal.fire({
-    //         title: 'Are you sure?',
-    //         text: "You want to delete this queue number!",
-    //         icon: 'warning',
-    //         showCancelButton: true,
-    //         confirmButtonColor: '#ffc107',
-    //         cancelButtonColor: '#d33',
-    //         confirmButtonText: 'Yes, delete it!'
-    //     }).then((result) => {
-    //         if (result.isConfirmed) {
-    //             window.location.href = `{{ url('admin/token/delete') }}/${tokenId}`;
-    //         }
-    //     });
-    // });
+        var url = $(this).attr('href'); // Get the URL from the href attribute
+
+        Swal.fire({
+            title: 'Are you sure you want to delete it?',
+            text: "You won't be able to revert this!",
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Yes, delete it!'
+        }).then((result) => {
+            if (result.isConfirmed) {
+                // If confirmed, proceed with the deletion
+                window.location.href = url;
+            }
+        });
+    });
+
+
+    $(document).on('click', '.btn-complete', function(e) {
+        e.preventDefault(); // Prevent the default action (navigation)
+
+        var url = $(this).attr('href'); // Get the URL from the href attribute
+
+        Swal.fire({
+            title: 'Are you sure?',
+            text: "You want to complete this number!",
+            icon: 'success',
+            showCancelButton: true,
+            confirmButtonColor: 'green',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Yes, complete it!'
+        }).then((result) => {
+            if (result.isConfirmed) {
+                // If confirmed, proceed with the deletion
+                window.location.href = url;
+            }
+        });
+    });
+
+    $(document).on('click', '.btn-stop', function(e) {
+        e.preventDefault(); // Prevent the default action (navigation)
+
+        var url = $(this).attr('href'); // Get the URL from the href attribute
+
+        Swal.fire({
+            title: 'Are you sure?',
+            text: "You want to stop this number!",
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: 'orangered',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Yes, stop it!'
+        }).then((result) => {
+            if (result.isConfirmed) {
+                // If confirmed, proceed with the deletion
+                window.location.href = url;
+            }
+        });
+    });
     
 })();
 </script>
