@@ -190,13 +190,13 @@
 
 
                             <li class="cm-submenu {{ (Request::segment(2)=='token' ? 'open' : '') }}">
-                                <a class="sf-user-id">Queues <span class="caret"></span></a>
+                                <a class="sf-user-id">Numbers <span class="caret"></span></a>
                                 <ul>
                                     <li class="{{ (Request::is('officer/token/current') ? 'active' : '') }}">
-                                        <a href="{{ url('officer/token/current') }}"><i class="bi bi-chevron-right"></i> {{ trans('app.active') }} / Current Queue <i class="fa fa-dot-circle-o" style="color:#03d003"></i></a>
+                                        <a href="{{ url('officer/token/current') }}"><i class="bi bi-chevron-right"></i> {{ trans('app.active') }} / Current Numbers <i class="fa fa-dot-circle-o" style="color:#03d003"></i></a>
                                     </li>
                                     <li class="{{ (Request::is('officer/token') ? 'active' : '') }}">
-                                        <a href="{{ url('officer/token') }}"><i class="bi bi-chevron-right"></i> Queue List</a>
+                                        <a href="{{ url('officer/token') }}"><i class="bi bi-chevron-right"></i> Number List</a>
                                     </li>
                                 </ul>
                             </li>
