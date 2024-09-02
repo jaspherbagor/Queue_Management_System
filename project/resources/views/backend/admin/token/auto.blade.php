@@ -294,8 +294,8 @@
                     "html, body {margin:0; padding:0; overflow:hidden; display:block; width:100%; font-family:Arial, sans-serif;}"+
                     ".receipt-token {width:100%; text-align:center; margin-top:30px; margin-bottom:30px; border: 1px dotted black}"+
                     ".receipt-token h4 {margin:5px 0; padding:0; font-size:20px; line-height:24px;}"+
-                    ".receipt-token h1 {margin:10px 0; padding:0; font-size:40px; line-height:45px;}"+
-                    ".receipt-token ul {margin:0; padding:0; font-size:14px; line-height:22px; list-style:none; text-align:center; align-items:center; justify-content:center;}"+
+                    ".receipt-token h1 {margin:5px 0; padding:0; font-size:40px; line-height:30px;}"+
+                    ".receipt-token ul {margin:0; padding:0; font-size:12px; line-height:8px; list-style:none; text-align:center; align-items:center; justify-content:center;}"+
                     ".receipt-token ul li.date {margin-bottom:20px !important;}" +
                     ".receipt-token ul li {margin:5px 0;}"+
                     "}</style>";
