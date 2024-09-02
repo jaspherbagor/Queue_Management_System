@@ -279,9 +279,12 @@
 
                     // Function to format the date
                     function formatDate(dateString) {
-                        var options = { year: 'numeric', month: 'long', day: 'numeric', hour: 'numeric', minute: 'numeric', hour12: true };
                         var date = new Date(dateString);
-                        return date.toLocaleDateString('en-US', options);
+                        var month = ('0' + (date.getMonth() + 1)).slice(-2); // Adding 1 because getMonth() returns 0-11
+                        var day = ('0' + date.getDate()).slice(-2);
+                        var year = date.getFullYear();
+                        
+                        return month + '/' + day + '/' + year;
                     }
 
                     // Example usage
@@ -297,12 +300,13 @@
                         "}</style>";
 
                     content += "<div class=\"receipt-token\">";
-                    content += "<h4>{{ \Session::get('app.title') }}</h4>";
+                    // content += "<h4>{{ \Session::get('app.title') }}</h4>";
                     content += "<h1>"+data.token.token_no+"</h1>";
                     content +="<ul>";
-                    content += "<li><strong>{{ trans('app.department') }}:</strong> "+data.token.department+"</li>";
                     content += "<li><strong>Window:</strong> "+data.token.counter+"</li>";
+                    content += "<li><strong>Dept:</strong> "+data.token.department+"</li>";
                     content += "<li><strong>{{ trans('app.date') }}:</strong> "+formattedDate+"</li>";
+                    content += "<li></li>";
                     content += "</ul>";
                     content += "</div>";
 
