@@ -29,7 +29,7 @@
         </li>
     </ul>
 </div>
-<div class="panel panel-primary panel-container" id="toggleScreenArea"> 
+<div class="panel panel-primary panel-container" id="toggleScreenArea">
     <div class="panel-body">
         <div class="col-sm-12" id="screen-content">
             @if($display->sms_alert || $display->show_note)
@@ -283,7 +283,7 @@
                         var month = ('0' + (date.getMonth() + 1)).slice(-2); // Adding 1 because getMonth() returns 0-11
                         var day = ('0' + date.getDate()).slice(-2);
                         var year = date.getFullYear();
-                        
+
                         return month + '/' + day + '/' + year;
                     }
 
@@ -291,24 +291,25 @@
                     var formattedDate = formatDate(data.token.created_at);
 
                     var content = "<style type=\"text/css\">@media print {"+
-                    "html, body {margin:10px; padding:5px; overflow:hidden; display:block; width:100%; font-family:Arial, sans-serif;}"+
+                    "html, body {margin:0; padding:0; overflow:hidden; display:block; width:100%; font-family:Arial, sans-serif;}"+
                     ".receipt-token {width:100%; text-align:center; margin-top:30px;}"+
                     ".receipt-token h4 {margin:5px 0; padding:0; font-size:20px; line-height:24px;}"+
                     ".receipt-token h1 {margin:10px 0; padding:0; font-size:40px; line-height:45px;}"+
                     ".receipt-token ul {margin:0; padding:0; font-size:18px; line-height:22px; list-style:none; text-align:center; align-items:center; justify-content:center;}"+
-                    ".receipt-token ul li.date {margin-bottom:50px !important;}" +
+                    ".receipt-token ul li.date {margin-bottom:20px;}" +
                     ".receipt-token ul li {margin:5px 0;}"+
                     "}</style>";
 
-                content += "<div class=\"receipt-token\">";
-                content += "<h1>"+data.token.token_no+"</h1>";
-                content +="<ul>";
-                content += "<li><strong>Window:</strong> "+data.token.counter+"</li>";
-                content += "<li><strong>Dept:</strong> "+data.token.department+"</li>";
-                content += "<li class=\"date\"><strong>{{ trans('app.date') }}:</strong> "+formattedDate+"</li>";
-                content += "</ul>";
-                content += "</div>";
-
+                    content += "<div class=\"receipt-token\">";
+                    // content += "<h4>{{ \Session::get('app.title') }}</h4>";
+                    content += "<h1>"+data.token.token_no+"</h1>";
+                    content +="<ul>";
+                    content += "<li><strong>Window:</strong> "+data.token.counter+"</li>";
+                    content += "<li><strong>Dept:</strong> "+data.token.department+"</li>";
+                    content += "<li><strong>{{ trans('app.date') }}:</strong> "+formattedDate+"</li>";
+                    content += "<li></li>";
+                    content += "</ul>";
+                    content += "</div>";
 
                     // print
                     printThis(content);
