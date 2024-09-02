@@ -292,7 +292,7 @@
 
                     var content = "<style type=\"text/css\">@media print {"+
                         "html, body {margin:0; padding:0; overflow:hidden; display:block; width:100%; font-family:Arial, sans-serif;}"+
-                        ".receipt-token {width:100%; text-align:center; margin-top:20px;}"+
+                        ".receipt-token {width:100%; text-align:center; margin-top:20px; margin-bottom:20px}"+
                         ".receipt-token h4 {margin:5px 0; padding:0; font-size:20px; line-height:24px;}"+
                         ".receipt-token h1 {margin:10px 0; padding:0; font-size:40px; line-height:45px;}"+
                         ".receipt-token ul {margin:0; padding:0; font-size:18px; line-height:22px; list-style:none; text-align:center; align-items:center; justify-content:center"+
