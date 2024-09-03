@@ -129,28 +129,38 @@
             },
             success:function(data)
             {  
-                var content = "<style type=\"text/css\">@media print {"+
-                       "html, body {margin:0; padding:0; overflow:hidden; display:block; width:80mm; height:80mm; font-family:Arial, sans-serif; border:1px dotted #000;}"+
-                       ".receipt-token {width:100%; text-align:center; margin-top:5mm;}"+
-                        ".receipt-token h4 {margin:2mm 0; padding:0; font-size:14px; line-height:16px;}"+
-                        ".receipt-token h1 {margin:4mm 0; padding:0; font-size:24px; line-height:28px;}"+
-                        ".receipt-token ul {margin:0; padding:0; font-size:12px; line-height:14px; list-style:none; text-align:center; align-items:center; justify-content:center;}"+
-                        ".receipt-token ul li {margin:3mm 0;}"+
-                       "}</style>";
-                       
-                content += "<div class=\"receipt-token\">";
-                content += "<h4>Queueing System for PCLU</h4>";
-                content += "<h1>"+data.token_no+"</h1>";
-                content +="<ul class=\"list-unstyled\">";
-                content += "<li><strong>{{ trans('app.department') }}: </strong>"+data.department+"</li>";
-                content += "<li><strong>Window: </strong>"+data.counter+"</li>";
-                if (data.note)
-                {
-                    content += "<li><strong>{{ trans('app.note') }} </strong>"+data.note+"</li>";
-                }
-                content += "<li><strong>{{ trans('app.date') }}: </strong>"+data.created_at+"</li>";
-                content += "</ul>";  
-                content += "</div>";   
+                // Function to format the date
+                function formatDate(dateString) {
+                        var date = new Date(dateString);
+                        var month = ('0' + (date.getMonth() + 1)).slice(-2); // Adding 1 because getMonth() returns 0-11
+                        var day = ('0' + date.getDate()).slice(-2);
+                        var year = date.getFullYear();
+
+                        return month + '/' + day + '/' + year;
+                    }
+
+                    // Example usage
+                    var formattedDate = formatDate(data.created_at);
+
+                    var content = "<style type=\"text/css\">@media print {"+
+                    "html, body {margin:0; padding:0; overflow:hidden; display:block; width:100%; font-family:Arial, sans-serif;}"+
+                    ".receipt-token {width:100%; text-align:center; margin-top:30px; margin-bottom:30px; border: 1px dotted black}"+
+                    ".receipt-token h4 {margin:5px 0; padding:0; font-size:20px; line-height:24px;}"+
+                    ".receipt-token h1 {margin:5px 0; padding:0; font-size:40px; line-height:30px;}"+
+                    ".receipt-token ul {margin:0; padding:0; font-size:12px; line-height:8px; list-style:none; text-align:center; align-items:center; justify-content:center;}"+
+                    ".receipt-token ul li.date {margin-bottom:20px !important;}" +
+                    ".receipt-token ul li {margin:5px 0;}"+
+                    "}</style>";
+
+                    content += "<div class=\"receipt-token\">";
+                    // content += "<h4>{{ \Session::get('app.title') }}</h4>";
+                    content += "<h1>"+data.token_no+"</h1>";
+                    content +="<ul>";
+                    content += "<li><strong>Window:</strong> "+data.counter+"</li>";
+                    content += "<li><strong>Dept:</strong> "+data.department+"</li>";
+                    content += "<li class=\"date\"><strong>{{ trans('app.date') }}:</strong> "+formattedDate+"</li>";
+                    content += "</ul>";
+                    content += "</div>";
                 
                 // print 
                 printThis(content);
