@@ -38,11 +38,6 @@
                             </td>
                             <td>{{ !empty($token->department)?$token->department->name:null }}</td>
                             <td>{{ !empty($token->counter)?$token->counter->name:null }}</td> 
-                            {{-- <td>
-                                {{ $token->client_mobile }}<br/>
-                                {!! (!empty($token->client)?("(<a href='".url("officer/user/view/{$token->client->id}")."'>".$token->client->firstname." ". $token->client->lastname."</a>)"):null) !!}
-                            </td> --}}
-                            {{-- <td>{{ $token->note }}</td> --}}
                             <td> 
                                 @if($token->status==0) 
                                 <span class="label label-primary status-pending">{{ trans('app.pending') }}</span> 
