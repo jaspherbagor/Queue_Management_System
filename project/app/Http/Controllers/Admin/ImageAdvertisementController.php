@@ -13,4 +13,11 @@ class ImageAdvertisementController extends Controller
         $images = ImageAds::get();
         return view('backend.admin.setting.ads_view', compact('images'));
     }
+
+    public function add()
+    {
+        return view(('backend.admin.setting.ads_add'));
+    }
+
+    
 }

@@ -6,7 +6,7 @@
     <div class="row">
         <div class="col-sm-12 ads-list-view">
             <h3>Advertisement List</h3>
-            <a href="#" class="btn btn-success">Add Image</a>
+        <a href="{{ route('ads_add') }}" class="btn btn-success">Add Image</a>
         </div>
     </div>
 </div>

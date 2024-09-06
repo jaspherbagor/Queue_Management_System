@@ -154,6 +154,8 @@ Route::group(['middleware' => ['auth']], function() {
 
 		#ads
 		Route::get('/setting/ads/view', [ImageAdvertisementController::class, 'index'])->name('ads_view');
+
+		Route::get('/setting/ads/add', [ImageAdvertisementController::class, 'add'])->name('ads_add');
 	});
 
 	# -----------------------------------------------------------
