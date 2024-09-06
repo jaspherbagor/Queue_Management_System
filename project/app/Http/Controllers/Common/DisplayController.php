@@ -4,7 +4,8 @@ namespace App\Http\Controllers\Common;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;  
 use App\Models\DisplaySetting; 
-use App\Models\DisplayCustom; 
+use App\Models\DisplayCustom;
+use App\Models\ImageAds;
 use App\Models\Setting;  
 use DB, Response, Validator;
 
@@ -609,6 +610,8 @@ class DisplayController extends Controller
         $width = (($request->width / 2 - 150 - ($size * 13.5)) / $size);
         $height = (($request->height - 200) / 5);
 
+        $ads_image = ImageAds::inRandomOrder()->first();
+
         $html = "<div class='left-half'>
                     <div id=\"clock\" class=\"well text-center\" style=\"background-color:".(!empty($setting->background_color) ? $setting->background_color : '#cdcdcd') .";border-color:".(!empty($setting->border_color) ? $setting->border_color : '#fff') .";color:".(!empty($setting->color) ? $setting->color : '#fff') .";padding:5px 0;margin:-20px 0 0 0;font-size:24px; font-family: Arial;\">".date("$setting->date_format $setting->time_format")."</div>
                     <div class=\"queue-box queue-box-status col-md-6\">
@@ -663,8 +666,8 @@ class DisplayController extends Controller
 
         // Add the right half for the video
         $html .= "<div class='right-half col-md-6'>
-                    <iframe width='727' height='620' src='https://www.youtube.com/embed/-Kza-8JmqHU?si=ni8GuYyn0UGB9fEK'></iframe>
-                </div>";
+            <img src='" . asset('public/assets/images/' . $ads_image->image) . "' class='display_ads_image'>
+          </div>";
 
         /*NOTIFICATION*/
         $viewTokens = $request->get('view_token');

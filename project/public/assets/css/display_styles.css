@@ -48,3 +48,16 @@
     height: 600px;
     margin-top: 5px
     }
+
+    .display_ads_image {
+        width:650px !important;
+        margin-top:60px !important;
+        border-radius:10px;
+        display:flex
+    }
+
+    .right-half {
+        margin: auto;
+        align-items:center;
+        justify-content: center;
+    }
