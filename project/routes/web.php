@@ -156,6 +156,10 @@ Route::group(['middleware' => ['auth']], function() {
 		Route::get('/setting/ads/view', [ImageAdvertisementController::class, 'index'])->name('ads_view');
 
 		Route::get('/setting/ads/add', [ImageAdvertisementController::class, 'add'])->name('ads_add');
+
+		Route::post('/setting/ads/submit', [ImageAdvertisementController::class, 'submit'])->name('ads_submit');
+
+		Route::get('/setting/ads/delete/{id}', [ImageAdvertisementController::class, 'delete'])->name('ads_delete');
 	});
 
 	# -----------------------------------------------------------

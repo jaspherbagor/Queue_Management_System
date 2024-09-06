@@ -2,11 +2,17 @@
 @section('title', 'Advertisement View')
 
 @section('content')
+@if(Session::has('success'))
+<div class="alert alert-success m-1">{{ Session::get('success') }}</div>
+@endif
+@if(Session::has('error'))
+<div class="alert alert-danger m-1">{{ Session::get('error') }}</div>
+@endif
 <div class="panel-heading">
     <div class="row">
         <div class="col-sm-12 ads-list-view">
-            <h3>Advertisement List</h3>
-        <a href="{{ route('ads_add') }}" class="btn btn-success">Add Image</a>
+            <h3>Advertisement Images</h3>
+        <a href="{{ route('ads_add') }}" class="btn btn-success save-btn">Add Image</a>
         </div>
     </div>
 </div>
@@ -16,23 +22,23 @@
         <table class="dataTables-server table table-bordered" cellspacing="0">
             <thead>
                 <tr>
-                    <th>Sl</th>
+                    <th>#</th>
                     <th>Image</th>
                     <th>Action</th>
                 </tr>
             </thead>
             <tbody>
-                @if($images->count() >= 1)
-                    @foreach($images as $row)
+                @if($images->count() > 0)
                     @php 
                     $sl = 1;
                     @endphp
-                    <tr>
+                    @foreach($images as $row)
+                    <tr class="images_data">
                     
                         <td>{{ $sl++ }}</td>
-                        <td>{{ $row->image }}</td>
+                        <td><img src="{{ asset('public/assets/images/'.$row->image) }}" class="ads_image"></td>
                         <td>
-                            <a href="#" class="btn btn-danger">Delete</a>
+                            <a href="{{ route('ads_delete', $row->id) }}" class="btn btn-danger btn-delete" data-toggle="tooltip"  title="Delete"><i class="fa fa-trash"></i></a>
                         </td>
                     </tr>
                     @endforeach

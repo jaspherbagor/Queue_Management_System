@@ -260,6 +260,15 @@ i.fa-arrow-circle-o-right {
     justify-content:space-between;
 }
 
+.ads_image {
+    height: 150px
+}
+
+tr.images_data td {
+    align-items:center;
+    justify-content: center;
+}
+
 
 @media only screen and (max-width: 427px) {
     .ads-list-view {
