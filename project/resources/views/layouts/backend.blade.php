@@ -287,8 +287,8 @@
                                     <li class="{{ (Request::is('admin/setting/display') ? 'active' : '') }}">
                                         <a href="{{ url('admin/setting/display') }}"><i class="bi bi-chevron-right"></i> {{ trans('app.display_setting') }}</a>
                                     </li>
-                                    <li class="">
-                                        <a href="#"><i class="bi bi-chevron-right"></i> Advertisement</a>
+                                    <li class="{{ (Request::is('admin/setting/ads/view') ? 'active' : '') }}"">
+                                        <a href="{{ route('ads_view') }}"><i class="bi bi-chevron-right"></i> Advertisement</a>
                                     </li>
                                     @endif
 

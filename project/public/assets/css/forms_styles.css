@@ -253,3 +253,16 @@ i.fa-arrow-circle-o-right {
     margin-right: 10px !important;
     color:#83c9ed !important
 }
+
+.ads-list-view {
+    display:flex;
+    align-items: center;
+    justify-content:space-between;
+}
+
+
+@media only screen and (max-width: 427px) {
+    .ads-list-view {
+        display:flex;
+    }
+}

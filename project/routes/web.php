@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Admin\ImageAdvertisementController;
 use App\Http\Controllers\Admin\TokenController;
 use App\Http\Controllers\Authentication\AuthenticationController;
 use App\Http\Controllers\Front\HomeController;
@@ -150,6 +151,9 @@ Route::group(['middleware' => ['auth']], function() {
 		Route::post('setting/display','DisplayController@setting');
 		Route::get('setting/display/custom','DisplayController@getCustom');
 		Route::post('setting/display/custom','DisplayController@custom');
+
+		#ads
+		Route::get('/setting/ads/view', [ImageAdvertisementController::class, 'index'])->name('ads_view');
 	});
 
 	# -----------------------------------------------------------
