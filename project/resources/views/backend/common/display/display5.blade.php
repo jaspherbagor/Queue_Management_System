@@ -18,7 +18,7 @@
  
       <div class="media" style="height:60px;background:#3498db;margin-top:-20px;margin-bottom:10px">
         <div class="media-left hidden-xs">
-          <img class="media-object" style="height:59px;" src="{{ asset('public/assets/img/icons/logo.jpg') }}" alt="Logo">
+          <img class="media-object" style="height:59px;" src="{{ asset('public/assets/images/pclu_banner.svg') }}" alt="Logo">
         </div>
         <div class="media-body" style="color:#ffffff">
           <h4 class="media-heading" style="font-size:50px;line-height:60px"><marquee direction="{{ (!empty($setting->direction)?$setting->direction:null) }}">{{ (!empty($setting->message)?$setting->message:null) }}</marquee></h4> 
