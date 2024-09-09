@@ -376,7 +376,7 @@ class DisplayController extends Controller
             })
             ->orderBy(DB::raw('LENGTH(name)'), 'ASC')
             ->orderBy('name', 'ASC')
-            ->limit(3)
+            ->limit(4)
             ->get();
 
         $token_list = array();
