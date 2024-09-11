@@ -1,20 +1,20 @@
 @extends('layouts.backend')
 @section('title', 'Queue Report')
 
-@section('content')  
-<div class="panel panel-primary">
-    <div class="panel-heading">
-        <div class="row">
-            <div class="col-sm-12 text-left">
-                <h3>Number Report</h3>
-            </div> 
-        </div>
-    </div> 
+@section('content')
+<div class="panel-heading">
+    <div class="row">
+        <div class="col-sm-12 text-left">
+            <h3>{{ trans('app.token_report') }}</h3>
+        </div> 
+    </div>
+</div>   
+<div class="panel panel-primary panel-container">
 
     <div class="panel-body"> 
         <table class="dataTables-server display table table-bordered" width="100%" cellspacing="0">
             <thead>
-                {{-- <tr>
+                <tr>
                     <th rowspan="3">#</th>
                     <td>
                         <label>{{ trans('app.start_date') }}</label><br/>
@@ -27,7 +27,7 @@
                     <th colspan="10">
                         
                     </th>
-                </tr>  --}}
+                </tr> 
                 <tr>
                     <th></th>
                     <th> 
@@ -39,13 +39,13 @@
                     <th> 
                         {{ Form::select('officer', $officers, null, ['id'=>'officer', 'class'=>'select2 filter', 'placeholder'=> trans('app.officer')]) }} 
                     </th>  
-                    {{-- <th></th> --}}
-                    {{-- <th></th> --}}
+                    <th></th>
+                    <th></th>
                     <th> 
                         {{ Form::select('status', ["'0'"=>trans("app.pending"), '1'=>trans("app.complete"), '2'=>trans("app.stop")],  null,  ['placeholder' => trans("app.status"), 'id'=> 'status', 'class'=>'select2 filter']) }} 
                     </th>  
-                    {{-- <th></th>
-                    <th></th> --}}
+                    <th></th>
+                    <th></th>
                     <th></th>
                     <th></th>
                     <th></th>
@@ -55,12 +55,12 @@
                     <th>Service</th>
                     <th>Window</th>
                     <th>{{ trans('app.officer') }}</th>
-                    {{-- <th>{{ trans('app.client_mobile') }}</th>
-                    <th>{{ trans('app.note') }}</th>  --}}
+                    <th>Number</th>
+                    <th>{{ trans('app.note') }}</th> 
                     <th>{{ trans('app.status') }}</th>
                     <th>{{ trans('app.created_by') }}</th>
-                    {{-- <th>{{ trans('app.created_at') }}</th>
-                    <th>{{ trans('app.updated_at') }}</th> --}}
+                    <th>{{ trans('app.created_at') }}</th>
+                    <th>{{ trans('app.updated_at') }}</th>
                     <th>{{ trans('app.complete_time') }}</th>
                     <th>{{ trans('app.action') }}</th>
                 </tr> 
@@ -135,23 +135,23 @@
                         counter    : $('#counter').val(),
                         department : $('#department').val(),
                         officer    : $('#officer').val(),
-                        // start_date : $('#start_date').val(),
-                        // end_date   : $('#end_date').val(),
+                        start_date : $('#start_date').val(),
+                        end_date   : $('#end_date').val(),
                     }
                 }
             },
             columns: [ 
-                // { data: 'serial' },
+                { data: 'serial' },
                 { data: 'token_no' },
                 { data: 'department' },
                 { data: 'counter' },
                 { data: 'officer' },
-                // { data: 'client_mobile' }, 
-                // { data: 'note' }, 
+                { data: 'client_mobile' }, 
+                { data: 'note' }, 
                 { data: 'status' }, 
                 { data: 'created_by' },
-                // { data: 'created_at' },
-                // { data: 'updated_at' }, 
+                { data: 'created_at' },
+                { data: 'updated_at' }, 
                 { data: 'complete_time' },
                 { data: 'options' }  
             ],  
@@ -159,18 +159,18 @@
             select    : true,
             pagingType: "full_numbers",
             lengthMenu: [[25, 50, 100, 150, 200, 500, -1], [25, 50, 100, 150, 200, 500, "All"]],
-            // dom: "<'row'<'col-sm-4'l><'col-sm-4 text-center'B><'col-sm-4'f>><'row'<'col-sm-12't>><'row'<'col-sm-6'i><'col-sm-6'p>>", 
-            // columnDefs: [
-            //     { "orderable": false, "targets": [12] }
-            // ], 
-            // buttons: [
-            //     { extend:'copy', text:'<i class="fa fa-copy"></i>', className:'btn-sm',exportOptions:{columns:':visible'}},
-            //     { extend: 'print', text  :'<i class="fa fa-print"></i>', className:'btn-sm', exportOptions: { columns: ':visible',  modifier: { selected: null } }},  
-            //     { extend: 'print', text:'<i class="fa fa-print"></i>  Selected', className:'btn-sm', exportOptions:{columns: ':visible'}},  
-            //     { extend:'excel',  text:'<i class="fa fa-file-excel-o"></i>', className:'btn-sm',exportOptions:{columns:':visible'}},
-            //     { extend:'pdf',  text:'<i class="fa fa-file-pdf-o"></i>',  className:'btn-sm',exportOptions:{columns:':visible'}},
-            //     { extend:'colvis', text:'<i class="fa fa-eye"></i>',className:'btn-sm'} 
-            // ] 
+            dom: "<'row'<'col-sm-4'l><'col-sm-4 text-center'B><'col-sm-4'f>><'row'<'col-sm-12't>><'row'<'col-sm-6'i><'col-sm-6'p>>", 
+            columnDefs: [
+                { "orderable": false, "targets": [12] }
+            ], 
+            buttons: [
+                { extend:'copy', text:'<i class="fa fa-copy"></i>', className:'btn-sm',exportOptions:{columns:':visible'}},
+                { extend: 'print', text  :'<i class="fa fa-print"></i>', className:'btn-sm', exportOptions: { columns: ':visible',  modifier: { selected: null } }},  
+                { extend: 'print', text:'<i class="fa fa-print"></i>  Selected', className:'btn-sm', exportOptions:{columns: ':visible'}},  
+                { extend:'excel',  text:'<i class="fa fa-file-excel-o"></i>', className:'btn-sm',exportOptions:{columns:':visible'}},
+                { extend:'pdf',  text:'<i class="fa fa-file-pdf-o"></i>',  className:'btn-sm',exportOptions:{columns:':visible'}},
+                { extend:'colvis', text:'<i class="fa fa-eye"></i>',className:'btn-sm'} 
+            ] 
         });   
     } 
 

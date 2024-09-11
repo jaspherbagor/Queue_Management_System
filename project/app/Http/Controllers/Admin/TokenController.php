@@ -455,7 +455,6 @@ class TokenController extends Controller
     }
 
 
-
     public function reportData(Request $request)
     {
         $columns = [
@@ -564,34 +563,34 @@ class TokenController extends Controller
                 # buttons
                 $options = "<div class=\"btn-group\">";
                 if ($token->status == 0) {
-                    $options .= "<a href=\"".url("admin/token/complete/$token->id")."\"  class=\"btn btn-success btn-sm btn-complete\" title=\"Complete\"><i class=\"fa fa-check\"></i></a>";
+                    $options .= "<a href=\"".url("admin/token/complete/$token->id")."\"  class=\"btn btn-success btn-sm\" onclick=\"return confirm('Are you sure?')\" title=\"Complete\"><i class=\"fa fa-check\"></i></a>";
                 }
-                // if ($token->status != 0 || !empty($token->updated_at)) {
-                //     $options .= "<a href=\"".url("admin/token/recall/$token->id")."\"  class=\"btn btn-info btn-sm\" onclick=\"return confirm('Are you sure?')\" title=\"Re-call\"><i class=\"fa fa-phone\"></i></a>";
-                // }
+                if ($token->status != 0 || !empty($token->updated_at)) {
+                    $options .= "<a href=\"".url("admin/token/recall/$token->id")."\"  class=\"btn btn-info btn-sm\" onclick=\"return confirm('Are you sure?')\" title=\"Re-call\"><i class=\"fa fa-phone\"></i></a>";
+                }
                 if ($token->status == 0) {
-                    $options .= "<button type=\"button\" data-toggle=\"modal\" data-target=\".transferModal\" data-token-id='{$token->id}' class=\"btn btn-primary btn-sm btn-transfer\" title=\"Transfer\"><i class=\"fa fa-exchange\"></i></button> 
-                        <a href=\"". url("admin/token/stoped/$token->id")."\"  class=\"btn btn-warning btn-sm btn-stop\" title=\"Stoped\"><i class=\"fa fa-stop\"></i></a>";
+                    $options .= "<button type=\"button\" data-toggle=\"modal\" data-target=\".transferModal\" data-token-id='{$token->id}' class=\"btn btn-primary btn-sm\" title=\"Transfer\"><i class=\"fa fa-exchange\"></i></button> 
+                        <a href=\"". url("admin/token/stoped/$token->id")."\"  class=\"btn btn-warning btn-sm\" onclick=\"return confirm('Are you sure?')\" title=\"Stoped\"><i class=\"fa fa-stop\"></i></a>";
                 } 
 
                 $options .= "<button type=\"button\" href=\"".url("admin/token/print")."\" data-token-id='$token->id' class=\"tokenPrint btn btn-default btn-sm\" title=\"Print\"><i class=\"fa fa-print\"></i></button>
-                    <a href=\"".url("admin/token/delete/$token->id")."\" class=\"btn btn-danger btn-sm btn-delete\" title=\"Delete\"><i class=\"fa fa-times\"></i></a>"; 
+                    <a href=\"".url("admin/token/delete/$token->id")."\" class=\"btn btn-danger btn-sm\" onclick=\"return confirm('Are you sure?');\" title=\"Delete\"><i class=\"fa fa-times\"></i></a>"; 
                 $options .= "</div>"; 
 
                 $data[] = [
-                    // 'serial'     => $loop++,
+                    'serial'     => $loop++,
                     'token_no'   => (!empty($token->is_vip)?("<span class=\"label label-danger\" title=\"VIP\">$token->token_no</span>"):$token->token_no),
                     'department' => (!empty($token->department)?$token->department->name:null),
                     'counter'    => (!empty($token->counter)?$token->counter->name:null),
                     'officer'    => (!empty($token->officer)?("<a href='".url("admin/user/view/{$token->officer->id}")."'>".$token->officer->firstname." ". $token->officer->lastname."</a>"):null),
 
-                    // 'client_mobile'    => $token->client_mobile. "<br/>" .(!empty($token->client)?("(<a href='".url("admin/user/view/{$token->client->id}")."'>".$token->client->firstname." ". $token->client->lastname."</a>)"):null),
+                    'client_mobile'    => $token->client_mobile. "<br/>" .(!empty($token->client)?("(<a href='".url("admin/user/view/{$token->client->id}")."'>".$token->client->firstname." ". $token->client->lastname."</a>)"):null),
 
-                    // 'note'       => $token->note,
+                    'note'       => $token->note,
                     'status'     => (($token->status==1)?("<span class='label label-success'>".trans('app.complete')."</span>"):(($token->status==2)?"<span class='label label-danger'>".trans('app.stop')."</span>":"<span class='label label-primary'>".trans('app.pending')."</span>")).(!empty($token->is_vip)?('<span class="label label-danger" title="VIP">VIP</span>'):''),
                     'created_by'    => (!empty($token->generated_by)?("<a href='".url("admin/user/view/{$token->generated_by->id}")."'>".$token->generated_by->firstname." ". $token->generated_by->lastname."</a>"):null),
-                    // 'created_at' => (!empty($token->created_at)?date('j M Y h:i a',strtotime($token->created_at)):null),
-                    // 'updated_at' => (!empty($token->updated_at)?date('j M Y h:i a',strtotime($token->updated_at)):null),
+                    'created_at' => (!empty($token->created_at)?date('j M Y h:i a',strtotime($token->created_at)):null),
+                    'updated_at' => (!empty($token->updated_at)?date('j M Y h:i a',strtotime($token->updated_at)):null),
                     'complete_time' => $complete_time,
                     'options'    => $options
                 ];  
@@ -605,7 +604,7 @@ class TokenController extends Controller
             "data"            => $data   
         ]);
     }
-
+    
     public function performance(Request $request)
     {
         @date_default_timezone_set(session('app.timezone'));
