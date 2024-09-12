@@ -604,6 +604,10 @@ class TokenController extends Controller
             "data"            => $data   
         ]);
     }
+
+    public function report_detail() {
+        
+    }
     
     public function performance(Request $request)
     {
