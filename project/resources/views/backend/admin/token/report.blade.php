@@ -6,311 +6,70 @@
     <div class="row">
         <div class="col-sm-12 text-left">
             <h3>Number Report</h3>
+        </div> 
+    </div>
+</div>   
+<div class="panel panel-primary panel-container">
+
+    <div class="panel-body">
+        <div class="col-sm-12">
+            <table class="datatable table table-bordered" cellspacing="0">
+                <thead>
+                    <tr>
+                        {{-- <th>#</th> --}}
+                        <th>Service</th>
+                        <th>{{ trans('app.description') }}</th>
+                        <th>Hot Key</th>
+                        <th>{{ trans('app.status') }}</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+
+                    @if (!empty($departments))
+                        <?php $sl = 1 ?>
+                        @foreach ($departments as $department)
+                            <tr>
+                                {{-- <td>{{ $sl++ }}</td> --}}
+                                <td>{{ $department->name }}</td>
+                                <td>{{ $department->description }}</td>
+                                <td>{{ $department->key }}</td>
+                                {{-- <td>{{ (!empty($department->created_at)?date('j M Y h:i a',strtotime($department->created_at)):null) }}</td> --}}
+                                {{-- <td>{{ (!empty($department->updated_at)?date('j M Y h:i a',strtotime($department->updated_at)):null) }}</td> --}}
+                                <td>{!! (($department->status==1)?"<span class='label label-success btn-active status-active'>". trans('app.active') ."</span>":"<span class='label label-danger status-inactive'>". trans('app.deactive') ."</span>") !!}</td>
+                                <td>
+                                    <a href="{{ route('report_detail', $department->id) }}" class="btn btn-info report-btn">View Report</a>
+                                </td>
+                            </tr>
+                        @endforeach
+                    @endif
+                </tbody>
+            </table>
         </div>
     </div>
 </div>
-<div class="panel panel-primary panel-container">
-    
-    <div class="panel-body">
-        <table class="dataTables-server display table table-bordered" width="100%" cellspacing="0">
-            <thead>
-                
-                <tr>
-                    <th>Queue</th>
-                    <th>
-                        {{-- {{ Form::select('department', $departments, null, ['id'=>'department', 'class'=>'select2 filter', 'placeholder'=> trans('app.department')]) }} --}}
-                        <p class="text-center mb-0 pb-0">Department</p>
-                    </th>
-                    <th>
-                        {{-- {{ Form::select('counter', $counters, null, ['id'=>'counter', 'class'=>'select2 filter', 'placeholder'=> trans('app.counter')]) }} --}}
-                        <p class="text-center mb-0 pb-0">Window</p>
-                    </th>
-                    <th>
-                        {{-- {{ Form::select('officer', $officers, null, ['id'=>'officer', 'class'=>'select2 filter', 'placeholder'=> trans('app.officer')]) }} --}}
-                        <p class="text-center mb-0 pb-0">Officer</p>
-                    </th>
-                    <th>
-                        {{-- {{ Form::select('status', ["'0'"=>trans("app.pending"), '1'=>trans("app.complete"), '2'=>trans("app.stop")],  null,  ['placeholder' => trans("app.status"), 'id'=> 'status', 'class'=>'select2 filter']) }} --}}
-                        <p class="text-center mb-0 pb-0">Status</p>
-                    </th>
-                    <th>{{ trans('app.complete_time') }}</th>
-                    <th>{{ trans('app.action') }}</th>
-                </tr>
-            </thead>
-        </table>
-    </div>
-</div>
 
-<!-- Transfer Modal -->
-<div class="modal fade transferModal" tabindex="-1" role="dialog" aria-labelledby="transferModalLabel">
-  <div class="modal-dialog" role="document">
-    {{ Form::open(['url' => 'admin/token/transfer', 'class'=>'transferFrm']) }}
-    <div class="modal-content">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <h4 class="modal-title" id="transferModalLabel">{{ trans('app.transfer_a_token_to_another_counter') }}</h4>
-      </div>
-      <div class="modal-body">
-        <div class="alert hide"></div>
-        <input type="hidden" name="id">
-        <p>
-            <label for="department_id" class="control-label">{{ trans('app.department') }} </label>
-            {{ Form::select('department_id', $departments, null, ['placeholder' => 'Select Option', 'class'=>'select2', 'id'=>'department_id']) }}
-        </p>
-        <p>
-            <label for="counter_id" class="control-label">{{ trans('app.counter') }} </label>
-            {{ Form::select('counter_id', $counters, null, ['placeholder' => 'Select Option', 'class'=>'select2', 'id'=>'counter_id']) }}
-        </p>
-        <p>
-            <label for="user_id" class="control-label">{{ trans('app.officer') }} </label>
-            {{ Form::select('user_id', $officers, null, ['placeholder' => 'Select Option', 'class'=>'select2', 'id'=>'user_id']) }}
-        </p>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-        <button class="button btn btn-success" type="submit"><span>{{ trans('app.transfer') }}</span></button>
-      </div>
+
+<!-- Modal -->
+<div class="modal-container">
+    <div class="modal fade rounded-1" id="infoModal" tabindex="-1" role="dialog" aria-labelledby="infoModalLabel">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content rounded-1">
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+              <h4 class="modal-title" id="infoModalLabel"><?= trans('app.note') ?></h4>
+            </div>
+            <div class="modal-body">
+              <p><strong class="label label-warning info-button"> Note 1 </strong> &nbsp;If you delete a Department then, the related tokens are not calling on the Display screen. Because the token is dependent on Department ID</p>
+              <p><strong class="label label-warning info-button"> Note 2 </strong> &nbsp;If you want to change a Department name you must rename the Department instead of deleting it.
+              </p>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            </div>
+          </div>
+        </div>
     </div>
-    {{ Form::close() }}
-  </div>
 </div>
 @endsection
-
-@push('scripts')
-<script>
-(function(){
-    drawDataTable();
-
-    $("body").on("change",".filter", function(){
-        drawDataTable();
-    });
-
-    function drawDataTable()
-    {
-        $('.dataTables-server').DataTable().destroy();
-        $('.dataTables-server').DataTable({
-            responsive: true,
-            processing: true,
-            serverSide: true,
-            ajax: {
-                url:'<?= url('admin/token/report/data'); ?>',
-                dataType: 'json',
-                type    : 'post',
-                data    : {
-                    _token : '{{ csrf_token() }}',
-                    search: {
-                        status     : $('#status').val(),
-                        counter    : $('#counter').val(),
-                        department : $('#department').val(),
-                        officer    : $('#officer').val(),
-                        start_date : $('#start_date').val(),
-                        end_date   : $('#end_date').val(),
-                    }
-                }
-            },
-            columns: [
-                { data: 'token_no' },
-                { data: 'department' },
-                { data: 'counter' },
-                { data: 'officer' },
-                { data: 'status' },
-                { data: 'complete_time' },
-                { data: 'options' }
-            ],
-            order: [ [0, 'desc'] ],
-            select    : true,
-            pagingType: "full_numbers",
-            lengthMenu: [[25, 50, 100, 150, 200, 500, -1], [25, 50, 100, 150, 200, 500, "All"]],
-            // dom: "<'row'<'col-sm-4'l><'col-sm-4 text-center'B><'col-sm-4'f>><'row'<'col-sm-12't>><'row'<'col-sm-6'i><'col-sm-6'p>>",
-            // columnDefs: [
-            //     { "orderable": false, "targets": [7] }
-            // ],
-            // buttons: [
-            //     { extend:'copy', text:'<i class="fa fa-copy"></i>', className:'btn-sm',exportOptions:{columns:':visible'}},
-            //     { extend: 'print', text  :'<i class="fa fa-print"></i>', className:'btn-sm', exportOptions: { columns: ':visible',  modifier: { selected: null } }},
-            //     { extend: 'print', text:'<i class="fa fa-print"></i>  Selected', className:'btn-sm', exportOptions:{columns: ':visible'}},
-            //     { extend:'excel',  text:'<i class="fa fa-file-excel-o"></i>', className:'btn-sm',exportOptions:{columns:':visible'}},
-            //     { extend:'pdf',  text:'<i class="fa fa-file-pdf-o"></i>',  className:'btn-sm',exportOptions:{columns:':visible'}},
-            //     { extend:'colvis', text:'<i class="fa fa-eye"></i>',className:'btn-sm'}
-            // ]
-        });
-    }
-
-    $('.modal').on('show.bs.modal', function (event) {
-        var button = $(event.relatedTarget);
-        $('input[name=id]').val(button.data('token-id'));
-    });
-
-    $('body').on('submit', '.transferFrm', function(e){
-        e.preventDefault();
-        $.ajax({
-            url: $(this).attr('action'),
-            type: $(this).attr('method'),
-            dataType: 'json',
-            headers: {'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')},
-            contentType: false,
-            processData: false,
-            data:  new FormData($(this)[0]),
-            beforeSend: function() {
-                $('.transferFrm').find('.alert')
-                    .addClass('hide')
-                    .html('');
-            },
-            success: function(data)
-            {
-                if (data.status)
-                {
-                    $('.transferFrm').find('.alert')
-                        .addClass('alert-success')
-                        .removeClass('hide alert-danger')
-                        .html(data.message);
-                    setTimeout(() => { window.location.reload() }, 1500);
-                }
-                else
-                {
-                    $('.transferFrm').find('.alert')
-                        .addClass('alert-danger')
-                        .removeClass('hide alert-success')
-                        .html(data.exception);
-                }
-            },
-            error: function(xhr)
-            {
-                alert('wait...');
-            }
-        });
-    });
-
-    $("body").on("click", ".tokenPrint", function(e) {
-        e.preventDefault();
-        $.ajax({
-            url: $(this).attr('href'),
-            type:'POST',
-            dataType: 'json',
-            data: {
-                'id' : $(this).attr('data-token-id'),
-                '_token':'<?php echo csrf_token() ?>'
-            },
-            success:function(data)
-            {
-                // Function to format the date
-                function formatDate(dateString) {
-                        var date = new Date(dateString);
-                        var month = ('0' + (date.getMonth() + 1)).slice(-2); // Adding 1 because getMonth() returns 0-11
-                        var day = ('0' + date.getDate()).slice(-2);
-                        var year = date.getFullYear();
-
-                        return month + '/' + day + '/' + year;
-                    }
-
-                    // Example usage
-                    var formattedDate = formatDate(data.created_at);
-
-                    var content = "<style type=\"text/css\">@media print {"+
-                    "html, body {margin:0; padding:0; overflow:hidden; display:block; width:100%; font-family:Arial, sans-serif;}"+
-                    ".receipt-token {width:100%; text-align:center; margin-top:30px; margin-bottom:30px; border: 1px dotted black}"+
-                    ".receipt-token h4 {margin:5px 0; padding:0; font-size:20px; line-height:24px;}"+
-                    ".receipt-token h1 {margin:5px 0; padding:0; font-size:40px; line-height:30px;}"+
-                    ".receipt-token ul {margin:0; padding:0; font-size:12px; line-height:8px; list-style:none; text-align:center; align-items:center; justify-content:center;}"+
-                    ".receipt-token ul li.date {margin-bottom:20px !important;}" +
-                    ".receipt-token ul li {margin:5px 0;}"+
-                    "}</style>";
-
-                    content += "<div class=\"receipt-token\">";
-                    // content += "<h4>{{ \Session::get('app.title') }}</h4>";
-                    content += "<h1>"+data.token_no+"</h1>";
-                    content +="<ul>";
-                    content += "<li><strong>Window:</strong> "+data.counter+"</li>";
-                    content += "<li><strong>Dept:</strong> "+data.department+"</li>";
-                    content += "<li class=\"date\"><strong>{{ trans('app.date') }}:</strong> "+formattedDate+"</li>";
-                    content += "</ul>";
-                    content += "</div>";
-
-                printThis(content);
-            }, error:function(err){
-                alert('failed!');
-            }
-        });
-    });
-
-    $('.btn-complete').on('click', function(event) {
-        event.preventDefault();
-        let tokenId = $(this).data('token-id');
-        Swal.fire({
-            title: 'Are you sure?',
-            text: "You want to complete this queue number!",
-            icon: 'warning',
-            showCancelButton: true,
-            confirmButtonColor: '#28a745',
-            cancelButtonColor: '#d33',
-            confirmButtonText: 'Yes, complete it!'
-        }).then((result) => {
-            if (result.isConfirmed) {
-                window.location.href = `{{ url('admin/token/complete') }}/${tokenId}`;
-            }
-        });
-    });
-
-    $('.btn-stop').on('click', function(event) {
-        event.preventDefault();
-        let tokenId = $(this).data('token-id');
-        Swal.fire({
-            title: 'Are you sure?',
-            text: "You want to stop this queue number!",
-            icon: 'warning',
-            showCancelButton: true,
-            confirmButtonColor: '#ffc107',
-            cancelButtonColor: '#d33',
-            confirmButtonText: 'Yes, stop it!'
-        }).then((result) => {
-            if (result.isConfirmed) {
-                window.location.href = `{{ url('admin/token/stoped') }}/${tokenId}`;
-            }
-        });
-    });
-    $('.btn-delete').on('click', function(event) {
-        event.preventDefault();
-        let tokenId = $(this).data('token-id');
-        Swal.fire({
-            title: 'Are you sure?',
-            text: "You want to delete this queue number!",
-            icon: 'warning',
-            showCancelButton: true,
-            confirmButtonColor: '#ffc107',
-            cancelButtonColor: '#d33',
-            confirmButtonText: 'Yes, delete it!'
-        }).then((result) => {
-            if (result.isConfirmed) {
-                window.location.href = `{{ url('admin/token/delete') }}/${tokenId}`;
-            }
-        });
-    });
-
-    $("body").on("click", ".tokenRecall", function(e) {
-    e.preventDefault();
-    var tokenId = $(this).data('token-id');
-
-    $.ajax({
-        url: '/admin/token/recall',
-        type: 'POST',
-        dataType: 'json',
-        data: {
-            'id': tokenId,
-            '_token': '{{ csrf_token() }}'
-        },
-        success: function(data) {
-            if (data.status) {
-                alert('Token recalled successfully!');
-                // Optionally, you can refresh the DataTable or handle success feedback here
-            } else {
-                alert('Failed to recall token.');
-            }
-        },
-        error: function(xhr) {
-            alert('Error recalling token.');
-        }
-    });
-});
-})();
-</script>
-@endpush
+ 

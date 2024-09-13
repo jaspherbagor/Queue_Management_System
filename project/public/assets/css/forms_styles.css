@@ -269,9 +269,22 @@ tr.images_data td {
     justify-content: center;
 }
 
+td, th {
+    font-size: 16px !important;
+}
+
 
 @media only screen and (max-width: 427px) {
     .ads-list-view {
         display:flex;
     }
+}
+
+.report-btn {
+    border-radius: 10px !important;
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+}
+
+.report-btn:hover {
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
 }

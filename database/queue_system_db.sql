@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Sep 08, 2024 at 04:15 AM
+-- Generation Time: Sep 08, 2024 at 04:06 PM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 7.2.5
 
@@ -159,8 +159,8 @@ CREATE TABLE `failed_jobs` (
 CREATE TABLE `image_ads` (
   `id` int(11) NOT NULL,
   `image` text NOT NULL,
-  `created_at` text NOT NULL DEFAULT current_timestamp(),
-  `updated_at` text NOT NULL DEFAULT current_timestamp()
+  `created_at` text NOT NULL,
+  `updated_at` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
@@ -334,7 +334,7 @@ CREATE TABLE `user` (
 --
 
 INSERT INTO `user` (`id`, `firstname`, `lastname`, `email`, `password`, `department_id`, `mobile`, `photo`, `user_type`, `remember_token`, `verification_token`, `created_at`, `updated_at`, `status`) VALUES
-(1, 'lyka', 'cagiuoa', 'lyka@gmail.com', '$2y$10$pPxoanU59Giukom19ln2qO/lYqyI.GfO4q72/dX5F2bZfmgbb1Yii', 0, '0123456789', NULL, 5, 'tpqwFMYA5IUPsqR0F5CTVwIxVUTvrJcgXYi2fGI3onxs58vSFTlbWoT6fo53', '', '2016-10-30 00:00:00', '2024-09-06 19:43:12', 1),
+(1, 'lyka', 'cagiuoa', 'lyka@gmail.com', '$2y$10$pPxoanU59Giukom19ln2qO/lYqyI.GfO4q72/dX5F2bZfmgbb1Yii', 0, '0123456789', NULL, 5, 'Eb4k7QkQy4UebB8m9rhrwzG2cMQoMpA5RL5qgqRzuuqrQZAYOusgwxtNJtoZ', '', '2016-10-30 00:00:00', '2024-09-08 20:42:23', 1),
 (31, 'yas', 'yas', 'yas', '$2y$10$VLM2azld/fRbJ5inEq2fHOJpLlrT4adrBzhwDm0LjiBRwCzLuwfEq', 13, '54654687987987', NULL, 1, 'KHdIhYnZqCOFKnBO7QT4ErYRJpmVCA49RI2Gd6VJ7B9wUz5EKnHwr1cfKRg4', NULL, '2024-05-24 00:00:00', '2024-09-05 20:26:04', 1),
 (32, 'lyy', 'lyy', 'lyy', '$2y$10$3PcER46KsYnhLp4ua8heuuLjCgrBqjoafVFwQl4wwagGChwyLhs4a', 14, '894849645132', NULL, 1, '5JMbMxtn0vaJRMyDGq3E6jHBd3iwP3FLqYej7m7p62NUs1MvpqYoXhRuO60Z', NULL, '2024-05-24 00:00:00', '2024-07-25 17:01:05', 1),
 (33, 'daryl', 'daryl', 'daryl', '$2y$10$VgTuAKUYhePVwMqqLuIlTeGd4XrJuzw69OrddgSrpQUB5FlSj.qHu', 15, '654897984132168', NULL, 1, 'RKohiiXAS5InsF1UDYBoq7LWoY79F6lJeLdQsYL9wz8wnf1NxNrlIeP1LWdb', NULL, '2024-05-24 00:00:00', '2024-08-01 09:05:02', 1),

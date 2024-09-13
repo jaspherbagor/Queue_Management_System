@@ -143,6 +143,7 @@ Route::group(['middleware' => ['auth']], function() {
 		Route::get('token/recall/{id}','TokenController@recall');
 		Route::get('token/delete/{id}','TokenController@delete');
 		Route::post('token/transfer','TokenController@transfer');
+		Route::get('token/report-detail/{id}', [TokenController::class, 'report_detail'])->name('report_detail');
 
 		# setting
 		Route::get('setting','SettingController@showForm');
