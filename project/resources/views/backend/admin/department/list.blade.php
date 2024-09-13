@@ -84,26 +84,3 @@
 </div>
 @endsection
 
-@push("scripts")
-<script>
-$('.btn-delete').on('click', function(event) {
-    event.preventDefault();
-    let departmentId = $(this).data('department-id');
-    Swal.fire({
-        title: 'Are you sure?',
-        text: "You want to delete this service!",
-        icon: 'warning',
-        showCancelButton: true,
-        confirmButtonColor: '#ffc107',
-        cancelButtonColor: '#d33',
-        confirmButtonText: 'Yes, delete it!'
-    }).then((result) => {
-        if (result.isConfirmed) {
-            window.location.href = `{{ url('admin/department/delete') }}/${departmentId}`;
-        }
-    });
-});
-</script>
-
-@endpush
-

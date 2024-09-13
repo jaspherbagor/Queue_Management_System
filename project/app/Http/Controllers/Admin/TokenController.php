@@ -440,173 +440,178 @@ class TokenController extends Controller
         return view('backend.admin.token.current', compact('counters', 'departments', 'officers', 'tokens'));
     }
 
-    public function report(Request $request)
-    {
-        @date_default_timezone_set(session('app.timezone'));
-        $counters = Counter::where('status',1)->pluck('name','id');
-        $departments = Department::where('status',1)->pluck('name','id');
-        $officers = User::select(DB::raw('CONCAT(firstname, " ", lastname) as name'), 'id')
-            ->where('user_type',1)
-            ->where('status',1)
-            ->orderBy('firstname', 'ASC')
-            ->pluck('name', 'id');
+    // public function report(Request $request)
+    // {
+    //     @date_default_timezone_set(session('app.timezone'));
+    //     $counters = Counter::where('status',1)->pluck('name','id');
+    //     $departments = Department::where('status',1)->pluck('name','id');
+    //     $officers = User::select(DB::raw('CONCAT(firstname, " ", lastname) as name'), 'id')
+    //         ->where('user_type',1)
+    //         ->where('status',1)
+    //         ->orderBy('firstname', 'ASC')
+    //         ->pluck('name', 'id');
 
-        return view('backend.admin.token.report', compact('counters', 'departments', 'officers'));
-    }
+    //     return view('backend.admin.token.report', compact('counters', 'departments', 'officers'));
+    // }
 
 
-    public function reportData(Request $request)
-    {
-        $columns = [
-            0 => 'id',
-            1 => 'token_no',
-            2 => 'department_id',
-            3 => 'counter_id',
-            4 => 'user_id',
-            5 => 'client_mobile',
-            6 => 'note',
-            7 => 'status',
-            8 => 'created_by',
-            9 => 'created_at',
-            10 => 'updated_at',
-            11 => 'updated_at',
-            12 => 'id',
-        ]; 
+    // public function reportData(Request $request)
+    // {
+    //     $columns = [
+    //         0 => 'id',
+    //         1 => 'token_no',
+    //         2 => 'department_id',
+    //         3 => 'counter_id',
+    //         4 => 'user_id',
+    //         5 => 'client_mobile',
+    //         6 => 'note',
+    //         7 => 'status',
+    //         8 => 'created_by',
+    //         9 => 'created_at',
+    //         10 => 'updated_at',
+    //         11 => 'updated_at',
+    //         12 => 'id',
+    //     ]; 
 
-        $totalData = Token::count();
-        $totalFiltered = $totalData; 
-        $limit = $request->input('length');
-        $start = $request->input('start');
-        $order = $columns[$request->input('order.0.column')];
-        $dir   = $request->input('order.0.dir'); 
-        $search = $request->input('search'); 
+    //     $totalData = Token::count();
+    //     $totalFiltered = $totalData; 
+    //     $limit = $request->input('length');
+    //     $start = $request->input('start');
+    //     $order = $columns[$request->input('order.0.column')];
+    //     $dir   = $request->input('order.0.dir'); 
+    //     $search = $request->input('search'); 
             
-        if(empty($search))
-        {            
-            $tokens = Token::offset($start)
-                 ->limit($limit)
-                 ->orderBy($order,$dir)
-                 ->get();
-        }
-        else 
-        { 
-            $tokensProccess = Token::where(function($query)  use($search) {
+    //     if(empty($search))
+    //     {            
+    //         $tokens = Token::offset($start)
+    //              ->limit($limit)
+    //              ->orderBy($order,$dir)
+    //              ->get();
+    //     }
+    //     else 
+    //     { 
+    //         $tokensProccess = Token::where(function($query)  use($search) {
 
-                    if (!empty($search['status'])) {
-                        $query->where('status', '=', $search['status']);
-                    }
-                    if (!empty($search['counter'])) {
-                        $query->where('counter_id', '=', $search['counter']);
-                    }
-                    if (!empty($search['department'])) {
-                        $query->where('department_id', '=', $search['department']);
-                    }
-                    if (!empty($search['officer'])) {
-                        $query->where('user_id', '=', $search['officer']);
-                    }
+    //                 if (!empty($search['status'])) {
+    //                     $query->where('status', '=', $search['status']);
+    //                 }
+    //                 if (!empty($search['counter'])) {
+    //                     $query->where('counter_id', '=', $search['counter']);
+    //                 }
+    //                 if (!empty($search['department'])) {
+    //                     $query->where('department_id', '=', $search['department']);
+    //                 }
+    //                 if (!empty($search['officer'])) {
+    //                     $query->where('user_id', '=', $search['officer']);
+    //                 }
 
-                    if (!empty($search['start_date']) && !empty($search['end_date'])) {
-                        $query->whereBetween("created_at",[
-                            date('Y-m-d', strtotime($search['start_date']))." 00:00:00", 
-                            date('Y-m-d', strtotime($search['end_date']))." 23:59:59"
-                        ]);
-                    }
+    //                 if (!empty($search['start_date']) && !empty($search['end_date'])) {
+    //                     $query->whereBetween("created_at",[
+    //                         date('Y-m-d', strtotime($search['start_date']))." 00:00:00", 
+    //                         date('Y-m-d', strtotime($search['end_date']))." 23:59:59"
+    //                     ]);
+    //                 }
  
-                    if (!empty($search['value'])) {
+    //                 if (!empty($search['value'])) {
 
-                        if ((strtolower($search['value']))=='vip') 
-                        {
-                            $query->where('is_vip', '1');
-                        }
-                        else
-                        {
-                            $date = date('Y-m-d', strtotime($search['value']));
-                            $query->where('token_no', 'LIKE',"%{$search['value']}%")
-                                ->orWhere('client_mobile', 'LIKE',"%{$search['value']}%")
-                                ->orWhere('note', 'LIKE',"%{$search['value']}%")
-                                ->orWhere(function($query)  use($date) {
-                                    $query->whereDate('created_at', 'LIKE',"%{$date}%");
-                                })
-                                ->orWhere(function($query)  use($date) {
-                                    $query->whereDate('updated_at', 'LIKE',"%{$date}%");
-                                })
-                                ->orWhereHas('generated_by', function($query) use($search) {
-                                    $query->where(DB::raw('CONCAT(firstname, " ", lastname)'), 'LIKE',"%{$search['value']}%");
-                                }); 
-                        }
-                    }
-                });
+    //                     if ((strtolower($search['value']))=='vip') 
+    //                     {
+    //                         $query->where('is_vip', '1');
+    //                     }
+    //                     else
+    //                     {
+    //                         $date = date('Y-m-d', strtotime($search['value']));
+    //                         $query->where('token_no', 'LIKE',"%{$search['value']}%")
+    //                             ->orWhere('client_mobile', 'LIKE',"%{$search['value']}%")
+    //                             ->orWhere('note', 'LIKE',"%{$search['value']}%")
+    //                             ->orWhere(function($query)  use($date) {
+    //                                 $query->whereDate('created_at', 'LIKE',"%{$date}%");
+    //                             })
+    //                             ->orWhere(function($query)  use($date) {
+    //                                 $query->whereDate('updated_at', 'LIKE',"%{$date}%");
+    //                             })
+    //                             ->orWhereHas('generated_by', function($query) use($search) {
+    //                                 $query->where(DB::raw('CONCAT(firstname, " ", lastname)'), 'LIKE',"%{$search['value']}%");
+    //                             }); 
+    //                     }
+    //                 }
+    //             });
 
-            $totalFiltered = $tokensProccess->count();
-            $tokens = $tokensProccess->offset($start)
-                ->limit($limit)
-                ->orderBy($order,$dir)
-                ->get(); 
+    //         $totalFiltered = $tokensProccess->count();
+    //         $tokens = $tokensProccess->offset($start)
+    //             ->limit($limit)
+    //             ->orderBy($order,$dir)
+    //             ->get(); 
 
-        }
+    //     }
 
-        $data = array();
-        if(!empty($tokens))
-        {
-            $loop = 1;
-            foreach ($tokens as $token)
-            {  
-                # complete time calculation
-                $complete_time = "";
-                if (!empty($token->updated_at)) {  
-                    $date1 = new \DateTime($token->created_at); 
-                    $date2 = new \DateTime($token->updated_at); 
-                    $diff  = $date2->diff($date1); 
-                    $complete_time = (($diff->d > 0) ? " $diff->d Days " : null) . "$diff->h Hours $diff->i Minutes ";
-                }
+    //     $data = array();
+    //     if(!empty($tokens))
+    //     {
+    //         $loop = 1;
+    //         foreach ($tokens as $token)
+    //         {  
+    //             # complete time calculation
+    //             $complete_time = "";
+    //             if (!empty($token->updated_at)) {  
+    //                 $date1 = new \DateTime($token->created_at); 
+    //                 $date2 = new \DateTime($token->updated_at); 
+    //                 $diff  = $date2->diff($date1); 
+    //                 $complete_time = (($diff->d > 0) ? " $diff->d Days " : null) . "$diff->h Hours $diff->i Minutes ";
+    //             }
 
-                # buttons
-                $options = "<div class=\"btn-group\">";
-                if ($token->status == 0) {
-                    $options .= "<a href=\"".url("admin/token/complete/$token->id")."\"  class=\"btn btn-success btn-sm\" onclick=\"return confirm('Are you sure?')\" title=\"Complete\"><i class=\"fa fa-check\"></i></a>";
-                }
-                if ($token->status != 0 || !empty($token->updated_at)) {
-                    $options .= "<a href=\"".url("admin/token/recall/$token->id")."\"  class=\"btn btn-info btn-sm\" onclick=\"return confirm('Are you sure?')\" title=\"Re-call\"><i class=\"fa fa-phone\"></i></a>";
-                }
-                if ($token->status == 0) {
-                    $options .= "<button type=\"button\" data-toggle=\"modal\" data-target=\".transferModal\" data-token-id='{$token->id}' class=\"btn btn-primary btn-sm\" title=\"Transfer\"><i class=\"fa fa-exchange\"></i></button> 
-                        <a href=\"". url("admin/token/stoped/$token->id")."\"  class=\"btn btn-warning btn-sm\" onclick=\"return confirm('Are you sure?')\" title=\"Stoped\"><i class=\"fa fa-stop\"></i></a>";
-                } 
+    //             # buttons
+    //             $options = "<div class=\"btn-group\">";
+    //             if ($token->status == 0) {
+    //                 $options .= "<a href=\"".url("admin/token/complete/$token->id")."\"  class=\"btn btn-success btn-sm\" onclick=\"return confirm('Are you sure?')\" title=\"Complete\"><i class=\"fa fa-check\"></i></a>";
+    //             }
+    //             if ($token->status != 0 || !empty($token->updated_at)) {
+    //                 $options .= "<a href=\"".url("admin/token/recall/$token->id")."\"  class=\"btn btn-info btn-sm\" onclick=\"return confirm('Are you sure?')\" title=\"Re-call\"><i class=\"fa fa-phone\"></i></a>";
+    //             }
+    //             if ($token->status == 0) {
+    //                 $options .= "<button type=\"button\" data-toggle=\"modal\" data-target=\".transferModal\" data-token-id='{$token->id}' class=\"btn btn-primary btn-sm\" title=\"Transfer\"><i class=\"fa fa-exchange\"></i></button> 
+    //                     <a href=\"". url("admin/token/stoped/$token->id")."\"  class=\"btn btn-warning btn-sm\" onclick=\"return confirm('Are you sure?')\" title=\"Stoped\"><i class=\"fa fa-stop\"></i></a>";
+    //             } 
 
-                $options .= "<button type=\"button\" href=\"".url("admin/token/print")."\" data-token-id='$token->id' class=\"tokenPrint btn btn-default btn-sm\" title=\"Print\"><i class=\"fa fa-print\"></i></button>
-                    <a href=\"".url("admin/token/delete/$token->id")."\" class=\"btn btn-danger btn-sm\" onclick=\"return confirm('Are you sure?');\" title=\"Delete\"><i class=\"fa fa-times\"></i></a>"; 
-                $options .= "</div>"; 
+    //             $options .= "<button type=\"button\" href=\"".url("admin/token/print")."\" data-token-id='$token->id' class=\"tokenPrint btn btn-default btn-sm\" title=\"Print\"><i class=\"fa fa-print\"></i></button>
+    //                 <a href=\"".url("admin/token/delete/$token->id")."\" class=\"btn btn-danger btn-sm\" onclick=\"return confirm('Are you sure?');\" title=\"Delete\"><i class=\"fa fa-times\"></i></a>"; 
+    //             $options .= "</div>"; 
 
-                $data[] = [
-                    'serial'     => $loop++,
-                    'token_no'   => (!empty($token->is_vip)?("<span class=\"label label-danger\" title=\"VIP\">$token->token_no</span>"):$token->token_no),
-                    'department' => (!empty($token->department)?$token->department->name:null),
-                    'counter'    => (!empty($token->counter)?$token->counter->name:null),
-                    'officer'    => (!empty($token->officer)?("<a href='".url("admin/user/view/{$token->officer->id}")."'>".$token->officer->firstname." ". $token->officer->lastname."</a>"):null),
+    //             $data[] = [
+    //                 'serial'     => $loop++,
+    //                 'token_no'   => (!empty($token->is_vip)?("<span class=\"label label-danger\" title=\"VIP\">$token->token_no</span>"):$token->token_no),
+    //                 'department' => (!empty($token->department)?$token->department->name:null),
+    //                 'counter'    => (!empty($token->counter)?$token->counter->name:null),
+    //                 'officer'    => (!empty($token->officer)?("<a href='".url("admin/user/view/{$token->officer->id}")."'>".$token->officer->firstname." ". $token->officer->lastname."</a>"):null),
 
-                    'client_mobile'    => $token->client_mobile. "<br/>" .(!empty($token->client)?("(<a href='".url("admin/user/view/{$token->client->id}")."'>".$token->client->firstname." ". $token->client->lastname."</a>)"):null),
+    //                 'client_mobile'    => $token->client_mobile. "<br/>" .(!empty($token->client)?("(<a href='".url("admin/user/view/{$token->client->id}")."'>".$token->client->firstname." ". $token->client->lastname."</a>)"):null),
 
-                    'note'       => $token->note,
-                    'status'     => (($token->status==1)?("<span class='label label-success'>".trans('app.complete')."</span>"):(($token->status==2)?"<span class='label label-danger'>".trans('app.stop')."</span>":"<span class='label label-primary'>".trans('app.pending')."</span>")).(!empty($token->is_vip)?('<span class="label label-danger" title="VIP">VIP</span>'):''),
-                    'created_by'    => (!empty($token->generated_by)?("<a href='".url("admin/user/view/{$token->generated_by->id}")."'>".$token->generated_by->firstname." ". $token->generated_by->lastname."</a>"):null),
-                    'created_at' => (!empty($token->created_at)?date('j M Y h:i a',strtotime($token->created_at)):null),
-                    'updated_at' => (!empty($token->updated_at)?date('j M Y h:i a',strtotime($token->updated_at)):null),
-                    'complete_time' => $complete_time,
-                    'options'    => $options
-                ];  
-            }
-        }
+    //                 'note'       => $token->note,
+    //                 'status'     => (($token->status==1)?("<span class='label label-success'>".trans('app.complete')."</span>"):(($token->status==2)?"<span class='label label-danger'>".trans('app.stop')."</span>":"<span class='label label-primary'>".trans('app.pending')."</span>")).(!empty($token->is_vip)?('<span class="label label-danger" title="VIP">VIP</span>'):''),
+    //                 'created_by'    => (!empty($token->generated_by)?("<a href='".url("admin/user/view/{$token->generated_by->id}")."'>".$token->generated_by->firstname." ". $token->generated_by->lastname."</a>"):null),
+    //                 'created_at' => (!empty($token->created_at)?date('j M Y h:i a',strtotime($token->created_at)):null),
+    //                 'updated_at' => (!empty($token->updated_at)?date('j M Y h:i a',strtotime($token->updated_at)):null),
+    //                 'complete_time' => $complete_time,
+    //                 'options'    => $options
+    //             ];  
+    //         }
+    //     }
             
-        return response()->json([
-            "draw"            => intval($request->input('draw')),  
-            "recordsTotal"    => intval($totalData),  
-            "recordsFiltered" => intval($totalFiltered), 
-            "data"            => $data   
-        ]);
+    //     return response()->json([
+    //         "draw"            => intval($request->input('draw')),  
+    //         "recordsTotal"    => intval($totalData),  
+    //         "recordsFiltered" => intval($totalFiltered), 
+    //         "data"            => $data   
+    //     ]);
+    // }
+
+    public function report() {
+        $departments = Department::get();
+        return view('backend.admin.token.report', compact('departments'));
     }
 
     public function report_detail() {
-        
+        return view('');
     }
     
     public function performance(Request $request)
