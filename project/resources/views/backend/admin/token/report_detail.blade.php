@@ -5,7 +5,7 @@
 <div class="panel-heading">
     <ul class="row list-inline m-0">
         <li class="col-xs-10 p-0 text-left">
-            <h3>Number Report Detail</h3>
+            <h3>Number Report for {{ $service_info->name }}</h3>
         </li>
         <li class="col-xs-2 p-0 text-right">
             <button type="button" class="btn btn-warning info-button btn-sm" data-toggle="modal" data-target="#infoModal">
@@ -27,27 +27,48 @@
                         <th>Officer</th>
                         <th>Status</th>
                         <th>Complete Time</th>
-                        <th><i class="fa fa-cogs"></i></th>
+                        {{-- <th><i class="fa fa-cogs"></i></th> --}}
                     </tr>
                 </thead>
                 <tbody>
 
-                    @if (!empty($counters))
+                    @if (!empty($queue_numbers))
                         <?php $sl = 1 ?>
-                        @foreach ($counters as $counter)
+                        @foreach ($queue_numbers as $row)
+
+                            @php 
+                            $window_info = \App\Models\Counter::where('id', $row->counter_id)->first();
+                            $officer_info = \App\Models\User::where('id', $row->user_id)->first();
+
+                            $complete_time = "";
+                            if (!empty($row->updated_at)) {  
+                                $date1 = new \DateTime($row->created_at); 
+                                $date2 = new \DateTime($row->updated_at); 
+                                $diff  = $date2->diff($date1); 
+                                $complete_time = (($diff->d > 0) ? " $diff->d Days " : null) . "$diff->h Hours $diff->i Minutes ";
+                            }
+                            @endphp
                             <tr>
-                                {{-- <td>{{ $sl++ }}</td> --}}
-                                <td>{{ $counter->name }}</td>
-                                <td>{{ $counter->description }}</td>
-                                {{-- <td>{{ (!empty($counter->created_at)?date('j M Y h:i a',strtotime($counter->created_at)):null) }}</td> --}}
-                                {{-- <td>{{ (!empty($counter->updated_at)?date('j M Y h:i a',strtotime($counter->updated_at)):null) }}</td> --}}
-                                <td>{!! (($counter->status==1)?"<span class='label label-success btn-active'>". trans('app.active') ."</span>":"<span class='label label-danger status-inactive'>". trans('app.deactive') ."</span>") !!}</td>
+                                <td>{{ $row->token_no }}</td>
+                                <td>{{ $service_info->name }}</td>
+                                <td>{{ $window_info->name }}</td>
+                                <td>{{ $officer_info->firstname }} {{ $officer_info->lastname }}</td>
                                 <td>
+                                    @if($row->status === 0)
+                                    <span class="label label-danger status-inactive">Pending</span>
+                                    @elseif($row->status === 1)
+                                    <span class="label label-success btn-active">Complete</span>
+                                    @else
+                                    <span class="label label-warning">Stop</span>
+                                    @endif
+                                </td>
+                                <td>{{ $complete_time }}</td>
+                                {{-- <td>
                                     <div class="btn-group">
                                         <a href="{{ url("admin/counter/edit/$counter->id") }}" class="btn btn-edit btn-sm" data-toggle="tooltip"  title="Edit"><i class="fa fa-edit"></i></a>
                                         <a href="{{ url("admin/counter/delete/$counter->id") }}" class="btn btn-delete btn-sm" data-toggle="tooltip"  title="Delete"><i class="fa fa-trash"></i></a>
                                     </div>
-                                </td>
+                                </td> --}}
                             </tr>
                         @endforeach
                     @endif

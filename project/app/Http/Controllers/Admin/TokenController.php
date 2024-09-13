@@ -610,8 +610,11 @@ class TokenController extends Controller
         return view('backend.admin.token.report', compact('departments'));
     }
 
-    public function report_detail() {
-        return view('');
+    public function report_detail($id) {
+        $service_info = Department::where('id', $id)->first();
+        $queue_numbers = Token::where('department_id', $id)->get();
+
+        return view('backend.admin.token.report_detail', compact('queue_numbers', 'service_info'));
     }
     
     public function performance(Request $request)

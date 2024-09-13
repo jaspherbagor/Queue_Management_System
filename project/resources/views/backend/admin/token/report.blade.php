@@ -38,7 +38,7 @@
                                 {{-- <td>{{ (!empty($department->updated_at)?date('j M Y h:i a',strtotime($department->updated_at)):null) }}</td> --}}
                                 <td>{!! (($department->status==1)?"<span class='label label-success btn-active status-active'>". trans('app.active') ."</span>":"<span class='label label-danger status-inactive'>". trans('app.deactive') ."</span>") !!}</td>
                                 <td>
-                                    <a href="#" class="btn btn-info report-btn">View Report</a>
+                                    <a href="{{ route('report_detail', $department->id) }}" class="btn btn-info report-btn">View Report</a>
                                 </td>
                             </tr>
                         @endforeach
