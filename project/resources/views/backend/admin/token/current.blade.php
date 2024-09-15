@@ -6,7 +6,7 @@
     <div class="row">
         <div class="col-sm-12 text-left">
             <h3>{{ trans('app.active') }} / Current Number</h3>
-        </div> 
+        </div>
     </div>
 </div>
 <div class="panel panel-primary panel-container">
@@ -25,9 +25,9 @@
                     <th>{{ trans('app.status') }}</th>
                     {{-- <th>{{ trans('app.created_by') }}</th> --}}
                     {{-- <th>{{ trans('app.created_at') }}</th> --}}
-                    <th width="100">{{ trans('app.action') }}</th>
+                    <th width="30">{{ trans('app.action') }}</th>
                 </tr>
-            </thead> 
+            </thead>
             <tbody>
                 @if (!empty($tokens))
                     <?php $sl = 1 ?>
@@ -35,7 +35,7 @@
                         <tr>
                             {{-- <td>{{ $sl++ }}</td> --}}
                             <td>
-                                {!! (!empty($token->is_vip)?("<span class=\"label label-danger\" title=\"VIP\">$token->token_no</span>"):$token->token_no) !!} 
+                                {!! (!empty($token->is_vip)?("<span class=\"label label-danger\" title=\"VIP\">$token->token_no</span>"):$token->token_no) !!}
                             </td>
                             <td>{{ !empty($token->department)?$token->department->name:null }}</td>
                             <td>{{ !empty($token->counter)?$token->counter->name:null }}</td>
@@ -47,12 +47,12 @@
                                 {!! (!empty($token->client)?("(<a href='".url("admin/user/view/{$token->client->id}")."'>".$token->client->firstname." ". $token->client->lastname."</a>)"):null) !!}
                             </td> --}}
                             {{-- <td>{{ $token->note }}</td> --}}
-                            <td> 
-                                @if($token->status==0) 
-                                <span class="label label-primary status-pending">{{ trans('app.pending') }}</span> 
-                                @elseif($token->status==1)   
+                            <td>
+                                @if($token->status==0)
+                                <span class="label label-primary status-pending">{{ trans('app.pending') }}</span>
+                                @elseif($token->status==1)
                                 <span class="label label-success">{{ trans('app.complete') }}</span>
-                                @elseif($token->status==2) 
+                                @elseif($token->status==2)
                                 <span class="label label-danger">{{ trans('app.stop') }}</span>
                                 @endif
                                 {!! (!empty($token->is_vip)?('<span class="label label-danger" title="VIP">VIP</span>'):'') !!}
@@ -71,13 +71,13 @@
                                     <a href='{{ url("admin/token/delete/$token->id") }}'class="btn btn-danger btn-sm btn-delete mb-1" title="Delete"><i class="fa fa-trash"></i></a>
                                 {{-- </div> --}}
                             </td>
-                        </tr> 
+                        </tr>
                     @endforeach
                 @endif
             </tbody>
         </table>
-    </div> 
-</div>  
+    </div>
+</div>
 
 <!-- Transfer Modal -->
 <div class="modal fade transferModal" tabindex="-1" role="dialog" aria-labelledby="transferModalLabel">
@@ -88,7 +88,7 @@
         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
         <h4 class="modal-title" id="transferModalLabel">{{ trans('app.transfer_a_token_to_another_counter') }}</h4>
       </div>
-      <div class="modal-body"> 
+      <div class="modal-body">
         <div class="alert hide"></div>
         <input type="hidden" name="id">
         <p>
@@ -99,12 +99,12 @@
         <p>
             <label for="counter_id" class="control-label">{{ trans('app.counter') }} </label><br/>
             {{ Form::select('counter_id', $departments, null, ['placeholder' => 'Select Option', 'class'=>'select2', 'id'=>'counter_id']) }}
-        </p> 
+        </p>
 
         <p>
             <label for="user_id" class="control-label">{{ trans('app.officer') }} </label><br/>
             {{ Form::select('user_id', $officers, null, ['placeholder' => 'Select Option', 'class'=>'select2', 'id'=>'user_id']) }}
-        </p>  
+        </p>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
@@ -113,7 +113,7 @@
     </div>
     {{ Form::close() }}
   </div>
-</div> 
+</div>
 @endsection
 
 @push("scripts")
@@ -133,15 +133,15 @@
         setTimeout(doMyStuff, 60000);
     }
 
-    function doMyStuff() { 
+    function doMyStuff() {
         window.location.reload();
     }
-  
+
     // modal open with token id
     $('.modal').on('show.bs.modal', function (event) {
         var button = $(event.relatedTarget);
         $('input[name=id]').val(button.data('token-id'));
-    }); 
+    });
 
     // transfer token
     $('body').on('submit', '.transferFrm', function(e){
@@ -149,10 +149,10 @@
         $.ajax({
             url: $(this).attr('action'),
             type: $(this).attr('method'),
-            dataType: 'json', 
+            dataType: 'json',
             headers: {'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')},
-            contentType: false,  
-            // cache: false,  
+            contentType: false,
+            // cache: false,
             processData: false,
             data:  new FormData($(this)[0]),
             beforeSend: function() {
@@ -163,7 +163,7 @@
             success: function(data)
             {
                 if (data.status)
-                {  
+                {
                     $('.transferFrm').find('.alert')
                         .addClass('alert-success')
                         .removeClass('hide alert-danger')
@@ -177,7 +177,7 @@
                         .addClass('alert-danger')
                         .removeClass('hide alert-success')
                         .html(data.exception);
-                }   
+                }
             },
             error: function(xhr)
             {
@@ -199,7 +199,7 @@
                 '_token':'<?php echo csrf_token() ?>'
             },
             success:function(data)
-            {   
+            {
                 // Function to format the date
                 function formatDate(dateString) {
                         var date = new Date(dateString);
@@ -232,18 +232,17 @@
                     content += "<li class=\"date\"><strong>{{ trans('app.date') }}:</strong> "+formattedDate+"</li>";
                     content += "</ul>";
                     content += "</div>";
-      
-                // print 
+
+                // print
                 printThis(content);
 
 
             }, error:function(err){
                 alert('failed!');
             }
-        });  
+        });
     });
-    
+
 })();
 </script>
 @endpush
- 
