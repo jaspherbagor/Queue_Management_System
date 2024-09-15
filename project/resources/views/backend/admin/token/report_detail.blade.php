@@ -26,7 +26,9 @@
                         <th>Window</th>
                         <th>Officer</th>
                         <th>Status</th>
+                        <th>Generated Time</th>
                         <th>Complete Time</th>
+                        <th>Action</th>
                         {{-- <th><i class="fa fa-cogs"></i></th> --}}
                     </tr>
                 </thead>
@@ -57,18 +59,23 @@
                                     @if($row->status === 0)
                                     <span class="label label-danger status-inactive">Pending</span>
                                     @elseif($row->status === 1)
-                                    <span class="label label-success btn-active">Complete</span>
+                                    <span class="label label-success btn-active">Completed</span>
                                     @else
                                     <span class="label label-warning">Stop</span>
                                     @endif
                                 </td>
+                                <td>{{ \Carbon\Carbon::parse($row->created_at)->format('F j, Y g:i A') }}                                </td>
                                 <td>{{ $complete_time }}</td>
-                                {{-- <td>
-                                    <div class="btn-group">
-                                        <a href="{{ url("admin/counter/edit/$counter->id") }}" class="btn btn-edit btn-sm" data-toggle="tooltip"  title="Edit"><i class="fa fa-edit"></i></a>
-                                        <a href="{{ url("admin/counter/delete/$counter->id") }}" class="btn btn-delete btn-sm" data-toggle="tooltip"  title="Delete"><i class="fa fa-trash"></i></a>
-                                    </div>
-                                </td> --}}
+                                <td>
+                                        @if($row->status === 0)
+                                        <a href="{{ url("admin/token/complete/$row->id") }}"  class="btn btn-success btn-sm btn-complete mb-1" title="Complete"><i class="fa fa-check"></i></a>
+    
+                                        <a href="{{ url("admin/token/stoped/$row->id") }}"  class="btn btn-warning btn-sm btn-stop mb-1" title="Stop"><i class="fa fa-stop"></i></a>
+
+                                        @endif
+                                        <a type="button" href="{{ url("admin/token/print") }}" data-token-id="{{ $row->id }}" class="tokenPrint btn btn-default btn-sm btn-print mb-1" title="Print" ><i class="fa fa-print"></i></a>
+                                        <a href='{{ url("admin/token/delete/$row->id") }}'class="btn btn-danger btn-sm btn-delete mb-1" title="Delete"><i class="fa fa-trash"></i></a>
+                                </td>
                             </tr>
                         @endforeach
                     @endif
