@@ -32,7 +32,7 @@ input[type=text], input[type=password], select, input[type=color] {
 
 textarea#description, textarea[type=text] {
     border:none;
-    font-size: 16px;  
+    font-size: 16px;
     border: none;
     background-color: transparent;
     box-shadow: rgba(0, 0, 0, 0.05) 0px 0px 0px 1px, rgb(209, 213, 219) 0px 0px 0px 1px inset;
@@ -209,7 +209,7 @@ input[type=search], select.input-sm {
 
 .btn-transfer, .btn-transfer:hover {
     background: rgb(32, 125, 232);
-    
+
 }
 
 .btn-print {
@@ -236,7 +236,7 @@ input[type=search], select.input-sm {
     color: #83c9ed !important;
 }
 
-/* 
+/*
 .cm-menu-items li a:hover {
     background: #83c9ed !important;
 } */
@@ -278,13 +278,4 @@ td, th {
     .ads-list-view {
         display:flex;
     }
-}
-
-.report-btn {
-    border-radius: 10px !important;
-    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
-}
-
-.report-btn:hover {
-    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
 }
