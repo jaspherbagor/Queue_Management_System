@@ -27,7 +27,7 @@
                         {{-- <th>Date Created</th> --}}
                         {{-- <th>{{ trans('app.updated_at') }}</th> --}}
                         <th>{{ trans('app.status') }}</th>
-                        <th width="80"><i class="fa fa-cogs"></i></th>
+                        <th><i class="fa fa-cogs"></i></th>
                     </tr>
                 </thead>
                 <tbody>
