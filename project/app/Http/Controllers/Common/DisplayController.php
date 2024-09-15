@@ -428,6 +428,8 @@ class DisplayController extends Controller
         $width = (($request->width / 2 - 150 - ($size * 13.5)) / $size);
         $height = (($request->height - 200) / 5);
 
+        $ads_image = ImageAds::inRandomOrder()->first();
+
         $html = "<div class='left-half'>
                     <div id=\"clock\" class=\"well text-center\" style=\"background-color:".(!empty($setting->background_color) ? $setting->background_color : '#cdcdcd') .";border-color:".(!empty($setting->border_color) ? $setting->border_color : '#fff') .";color:".(!empty($setting->color) ? $setting->color : '#fff') .";padding:5px 0;margin:-20px 0 0 0;font-size:24px; font-family: Arial;\">".date("$setting->date_format $setting->time_format")."</div>
                     <div class=\"queue-box queue-box-status col-md-6\">
@@ -481,11 +483,9 @@ class DisplayController extends Controller
         $html .= "</div>";
 
 
+        // Add the right half for the video
         $html .= "<div class='right-half col-md-6'>
-             <video id='display1Video' class='vdo-responsive-iframe' controls>
-                <source src='" . asset('public/assets/videos/452316237_8129343823796595_8776604880839953755_n(2).mp4') . "' type='video/mp4'>
-                Your browser does not support the video tag.
-             </video>
+            <img src='" . asset('public/assets/images/' . $ads_image->image) . "' class='display_ads_image'>
           </div>";
 
 
@@ -531,7 +531,7 @@ class DisplayController extends Controller
         $data['result'] = $html;
         $data['new_token'] = $newTokens;
         $data['all_token'] = $allTokens;
-        $data['interval'] = 60000 * (count($newTokens) ? count($newTokens) : 1);
+        $data['interval'] = 10000 * (count($newTokens) ? count($newTokens) : 1);
 
         return Response::json($data);
     }
@@ -711,7 +711,7 @@ class DisplayController extends Controller
         $data['result'] = $html;
         $data['new_token'] = $newTokens;
         $data['all_token'] = $allTokens;
-        $data['interval'] = 60000 * (count($newTokens) ? count($newTokens) : 1);
+        $data['interval'] = 10000 * (count($newTokens) ? count($newTokens) : 1);
 
         return Response::json($data);
     }
