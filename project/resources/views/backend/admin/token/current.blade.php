@@ -25,7 +25,7 @@
                     <th>{{ trans('app.status') }}</th>
                     {{-- <th>{{ trans('app.created_by') }}</th> --}}
                     {{-- <th>{{ trans('app.created_at') }}</th> --}}
-                    <th width="120">{{ trans('app.action') }}</th>
+                    <th width="100">{{ trans('app.action') }}</th>
                 </tr>
             </thead> 
             <tbody>
