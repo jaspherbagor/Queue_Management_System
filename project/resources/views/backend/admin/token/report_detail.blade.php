@@ -25,10 +25,10 @@
                         <th>Service</th>
                         <th>Window</th>
                         <th>Officer</th>
-                        <th>Status</th>
                         <th>Generated Time</th>
                         <th>Complete Time</th>
-                        <th>Action</th>
+                        <th>Status</th>
+                        {{-- <th>Action</th> --}}
                         {{-- <th><i class="fa fa-cogs"></i></th> --}}
                     </tr>
                 </thead>
@@ -55,6 +55,8 @@
                                 <td>{{ $service_info->name }}</td>
                                 <td>{{ $window_info->name }}</td>
                                 <td>{{ $officer_info->firstname }} {{ $officer_info->lastname }}</td>
+                                <td>{{ \Carbon\Carbon::parse($row->created_at)->format('F j, Y g:i A') }}                                </td>
+                                <td>{{ $complete_time }}</td>
                                 <td>
                                     @if($row->status === 0)
                                     <span class="label label-danger status-inactive">Pending</span>
@@ -64,9 +66,7 @@
                                     <span class="label label-warning">Stop</span>
                                     @endif
                                 </td>
-                                <td>{{ \Carbon\Carbon::parse($row->created_at)->format('F j, Y g:i A') }}                                </td>
-                                <td>{{ $complete_time }}</td>
-                                <td>
+                                {{-- <td>
                                         @if($row->status === 0)
                                         <a href="{{ url("admin/token/complete/$row->id") }}"  class="btn btn-success btn-sm btn-complete mb-1" title="Complete"><i class="fa fa-check"></i></a>
     
@@ -75,7 +75,7 @@
                                         @endif
                                         <a type="button" href="{{ url("admin/token/print") }}" data-token-id="{{ $row->id }}" class="tokenPrint btn btn-default btn-sm btn-print mb-1" title="Print" ><i class="fa fa-print"></i></a>
                                         <a href='{{ url("admin/token/delete/$row->id") }}'class="btn btn-danger btn-sm btn-delete mb-1" title="Delete"><i class="fa fa-trash"></i></a>
-                                </td>
+                                </td> --}}
                             </tr>
                         @endforeach
                     @endif
