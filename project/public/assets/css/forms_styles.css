@@ -279,3 +279,9 @@ td, th {
         display:flex;
     }
 }
+
+.report-btn, .delete-all-btn {
+    margin-bottom:10px !important;
+    border-radius:10px !important;
+    margin-right: 10px !important
+}

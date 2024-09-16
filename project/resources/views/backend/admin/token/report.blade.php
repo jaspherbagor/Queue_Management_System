@@ -6,9 +6,9 @@
     <div class="row">
         <div class="col-sm-12 text-left">
             <h3>Number Report</h3>
-        </div> 
+        </div>
     </div>
-</div>   
+</div>
 <div class="panel panel-primary panel-container">
 
     <div class="panel-body">
@@ -38,7 +38,10 @@
                                 {{-- <td>{{ (!empty($department->updated_at)?date('j M Y h:i a',strtotime($department->updated_at)):null) }}</td> --}}
                                 <td>{!! (($department->status==1)?"<span class='label label-success btn-active status-active'>". trans('app.active') ."</span>":"<span class='label label-danger status-inactive'>". trans('app.deactive') ."</span>") !!}</td>
                                 <td>
-                                    <a href="{{ route('report_detail', $department->id) }}" class="btn btn-info report-btn">View Report</a>
+                                    <div class="btn-group">
+                                        <a href="{{ route('report_detail', $department->id) }}" class="btn btn-info report-btn mb-1">View Report</a>
+                                        <a href="#" class="btn btn-danger delete-all-btn btn-delete"  data-toggle="tooltip"  title="Delete All Numbers"><i class="fa fa-trash" aria-hidden="true"></i></a>
+                                    </div>
                                 </td>
                             </tr>
                         @endforeach
@@ -72,4 +75,3 @@
     </div>
 </div>
 @endsection
- 
