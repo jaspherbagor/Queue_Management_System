@@ -471,25 +471,25 @@ class TokenController extends Controller
     //         10 => 'updated_at',
     //         11 => 'updated_at',
     //         12 => 'id',
-    //     ]; 
+    //     ];
 
     //     $totalData = Token::count();
-    //     $totalFiltered = $totalData; 
+    //     $totalFiltered = $totalData;
     //     $limit = $request->input('length');
     //     $start = $request->input('start');
     //     $order = $columns[$request->input('order.0.column')];
-    //     $dir   = $request->input('order.0.dir'); 
-    //     $search = $request->input('search'); 
-            
+    //     $dir   = $request->input('order.0.dir');
+    //     $search = $request->input('search');
+
     //     if(empty($search))
-    //     {            
+    //     {
     //         $tokens = Token::offset($start)
     //              ->limit($limit)
     //              ->orderBy($order,$dir)
     //              ->get();
     //     }
-    //     else 
-    //     { 
+    //     else
+    //     {
     //         $tokensProccess = Token::where(function($query)  use($search) {
 
     //                 if (!empty($search['status'])) {
@@ -507,14 +507,14 @@ class TokenController extends Controller
 
     //                 if (!empty($search['start_date']) && !empty($search['end_date'])) {
     //                     $query->whereBetween("created_at",[
-    //                         date('Y-m-d', strtotime($search['start_date']))." 00:00:00", 
+    //                         date('Y-m-d', strtotime($search['start_date']))." 00:00:00",
     //                         date('Y-m-d', strtotime($search['end_date']))." 23:59:59"
     //                     ]);
     //                 }
- 
+
     //                 if (!empty($search['value'])) {
 
-    //                     if ((strtolower($search['value']))=='vip') 
+    //                     if ((strtolower($search['value']))=='vip')
     //                     {
     //                         $query->where('is_vip', '1');
     //                     }
@@ -532,7 +532,7 @@ class TokenController extends Controller
     //                             })
     //                             ->orWhereHas('generated_by', function($query) use($search) {
     //                                 $query->where(DB::raw('CONCAT(firstname, " ", lastname)'), 'LIKE',"%{$search['value']}%");
-    //                             }); 
+    //                             });
     //                     }
     //                 }
     //             });
@@ -541,7 +541,7 @@ class TokenController extends Controller
     //         $tokens = $tokensProccess->offset($start)
     //             ->limit($limit)
     //             ->orderBy($order,$dir)
-    //             ->get(); 
+    //             ->get();
 
     //     }
 
@@ -550,13 +550,13 @@ class TokenController extends Controller
     //     {
     //         $loop = 1;
     //         foreach ($tokens as $token)
-    //         {  
+    //         {
     //             # complete time calculation
     //             $complete_time = "";
-    //             if (!empty($token->updated_at)) {  
-    //                 $date1 = new \DateTime($token->created_at); 
-    //                 $date2 = new \DateTime($token->updated_at); 
-    //                 $diff  = $date2->diff($date1); 
+    //             if (!empty($token->updated_at)) {
+    //                 $date1 = new \DateTime($token->created_at);
+    //                 $date2 = new \DateTime($token->updated_at);
+    //                 $diff  = $date2->diff($date1);
     //                 $complete_time = (($diff->d > 0) ? " $diff->d Days " : null) . "$diff->h Hours $diff->i Minutes ";
     //             }
 
@@ -569,13 +569,13 @@ class TokenController extends Controller
     //                 $options .= "<a href=\"".url("admin/token/recall/$token->id")."\"  class=\"btn btn-info btn-sm\" onclick=\"return confirm('Are you sure?')\" title=\"Re-call\"><i class=\"fa fa-phone\"></i></a>";
     //             }
     //             if ($token->status == 0) {
-    //                 $options .= "<button type=\"button\" data-toggle=\"modal\" data-target=\".transferModal\" data-token-id='{$token->id}' class=\"btn btn-primary btn-sm\" title=\"Transfer\"><i class=\"fa fa-exchange\"></i></button> 
+    //                 $options .= "<button type=\"button\" data-toggle=\"modal\" data-target=\".transferModal\" data-token-id='{$token->id}' class=\"btn btn-primary btn-sm\" title=\"Transfer\"><i class=\"fa fa-exchange\"></i></button>
     //                     <a href=\"". url("admin/token/stoped/$token->id")."\"  class=\"btn btn-warning btn-sm\" onclick=\"return confirm('Are you sure?')\" title=\"Stoped\"><i class=\"fa fa-stop\"></i></a>";
-    //             } 
+    //             }
 
     //             $options .= "<button type=\"button\" href=\"".url("admin/token/print")."\" data-token-id='$token->id' class=\"tokenPrint btn btn-default btn-sm\" title=\"Print\"><i class=\"fa fa-print\"></i></button>
-    //                 <a href=\"".url("admin/token/delete/$token->id")."\" class=\"btn btn-danger btn-sm\" onclick=\"return confirm('Are you sure?');\" title=\"Delete\"><i class=\"fa fa-times\"></i></a>"; 
-    //             $options .= "</div>"; 
+    //                 <a href=\"".url("admin/token/delete/$token->id")."\" class=\"btn btn-danger btn-sm\" onclick=\"return confirm('Are you sure?');\" title=\"Delete\"><i class=\"fa fa-times\"></i></a>";
+    //             $options .= "</div>";
 
     //             $data[] = [
     //                 'serial'     => $loop++,
@@ -593,15 +593,15 @@ class TokenController extends Controller
     //                 'updated_at' => (!empty($token->updated_at)?date('j M Y h:i a',strtotime($token->updated_at)):null),
     //                 'complete_time' => $complete_time,
     //                 'options'    => $options
-    //             ];  
+    //             ];
     //         }
     //     }
-            
+
     //     return response()->json([
-    //         "draw"            => intval($request->input('draw')),  
-    //         "recordsTotal"    => intval($totalData),  
-    //         "recordsFiltered" => intval($totalFiltered), 
-    //         "data"            => $data   
+    //         "draw"            => intval($request->input('draw')),
+    //         "recordsTotal"    => intval($totalData),
+    //         "recordsFiltered" => intval($totalFiltered),
+    //         "data"            => $data
     //     ]);
     // }
 
@@ -610,13 +610,23 @@ class TokenController extends Controller
         return view('backend.admin.token.report', compact('departments'));
     }
 
+    public function delete_all_numbers($id)
+    {
+        $service_numbers = Token::where('department_id', $id)->get();
+        foreach ($service_numbers as $service_number) {
+            $service_number->delete();
+        }
+
+        return redirect()->back()->with('success', 'All numbers that belongs to the service has been successfully deleted!');
+    }
+
     public function report_detail($id) {
         $service_info = Department::where('id', $id)->first();
         $queue_numbers = Token::where('department_id', $id)->get();
 
         return view('backend.admin.token.report_detail', compact('queue_numbers', 'service_info'));
     }
-    
+
     public function performance(Request $request)
     {
         @date_default_timezone_set(session('app.timezone'));
@@ -694,48 +704,48 @@ class TokenController extends Controller
     {
         // Set the timezone based on session or application settings
         date_default_timezone_set(session('app.timezone') ?: config('app.timezone'));
-    
+
         // Retrieve the token and associated counter information
         $token = DB::table('token AS t')
             ->select("t.token_no AS token", "c.name AS window")
             ->leftJoin('counter AS c', 'c.id', '=', 't.counter_id')
             ->where('t.id', $id)
             ->first();
-    
+
         if ($token) {
             // Create the announcement text
             $announcement = "Token number " . $token->token . " please proceed to window " . $token->window;
-    
+
             // Instantiate the Google TextToSpeech client
             $textToSpeechClient = new TextToSpeechClient();
-    
+
             // Prepare the input for the TextToSpeech API
             $input = new SynthesisInput(['text' => $announcement]);
-    
+
             // Select the voice parameters
             $voice = new VoiceSelectionParams([
                 'language_code' => 'en-US',
                 'ssml_gender' => 'FEMALE'
             ]);
-    
+
             // Configure the audio output
             $audioConfig = new AudioConfig([
                 'audio_encoding' => AudioEncoding::MP3
             ]);
-    
+
             // Generate the speech
             $response = $textToSpeechClient->synthesizeSpeech($input, $voice, $audioConfig);
             $audioContent = $response->getAudioContent();
-    
+
             // Close the TextToSpeech client
             $textToSpeechClient->close();
-    
+
             // Set headers to play audio directly in the browser
             return response($audioContent)
                 ->header('Content-Type', 'audio/mpeg')
                 ->header('Content-Length', strlen($audioContent));
         }
-    
+
         // Redirect back with a success message
         return redirect()->back()->with('message', trans('app.recall_successfully'));
     }

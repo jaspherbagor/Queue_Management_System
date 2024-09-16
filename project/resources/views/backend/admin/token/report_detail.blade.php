@@ -28,7 +28,7 @@
                         <th>Generated Time</th>
                         <th>Complete Time</th>
                         <th>Status</th>
-                        {{-- <th>Action</th> --}}
+                        <th>Action</th>
                         {{-- <th><i class="fa fa-cogs"></i></th> --}}
                     </tr>
                 </thead>
@@ -38,15 +38,15 @@
                         <?php $sl = 1 ?>
                         @foreach ($queue_numbers as $row)
 
-                            @php 
+                            @php
                             $window_info = \App\Models\Counter::where('id', $row->counter_id)->first();
                             $officer_info = \App\Models\User::where('id', $row->user_id)->first();
 
                             $complete_time = "";
-                            if (!empty($row->updated_at)) {  
-                                $date1 = new \DateTime($row->created_at); 
-                                $date2 = new \DateTime($row->updated_at); 
-                                $diff  = $date2->diff($date1); 
+                            if (!empty($row->updated_at)) {
+                                $date1 = new \DateTime($row->created_at);
+                                $date2 = new \DateTime($row->updated_at);
+                                $diff  = $date2->diff($date1);
                                 $complete_time = (($diff->d > 0) ? " $diff->d Days " : null) . "$diff->h Hours $diff->i Minutes ";
                             }
                             @endphp
@@ -66,16 +66,18 @@
                                     <span class="label label-warning">Stop</span>
                                     @endif
                                 </td>
-                                {{-- <td>
+                                <td>
                                         @if($row->status === 0)
                                         <a href="{{ url("admin/token/complete/$row->id") }}"  class="btn btn-success btn-sm btn-complete mb-1" title="Complete"><i class="fa fa-check"></i></a>
-    
+
                                         <a href="{{ url("admin/token/stoped/$row->id") }}"  class="btn btn-warning btn-sm btn-stop mb-1" title="Stop"><i class="fa fa-stop"></i></a>
+
+                                        <button type="button" data-toggle="modal" data-target="transferModal" data-token-id='{$token->id}' class="btn btn-primary btn-sm btn-transfer" title="Transfer"><i class="fa fa-exchange"></i></button>
 
                                         @endif
                                         <a type="button" href="{{ url("admin/token/print") }}" data-token-id="{{ $row->id }}" class="tokenPrint btn btn-default btn-sm btn-print mb-1" title="Print" ><i class="fa fa-print"></i></a>
                                         <a href='{{ url("admin/token/delete/$row->id") }}'class="btn btn-danger btn-sm btn-delete mb-1" title="Delete"><i class="fa fa-trash"></i></a>
-                                </td> --}}
+                                </td>
                             </tr>
                         @endforeach
                     @endif
@@ -84,6 +86,42 @@
         </div>
     </div>
 </div>
+
+<!-- Transfer Modal -->
+<div class="modal fade transferModal" tabindex="-1" role="dialog" aria-labelledby="transferModalLabel">
+  <div class="modal-dialog" role="document">
+    {{ Form::open(['url' => 'admin/token/transfer', 'class'=>'transferFrm']) }}
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="transferModalLabel">{{ trans('app.transfer_a_token_to_another_counter') }}</h4>
+      </div>
+      <div class="modal-body">
+        <div class="alert hide"></div>
+        <input type="hidden" name="id">
+        <p>
+            <label for="department_id" class="control-label">{{ trans('app.department') }} </label>
+            {{ Form::select('department_id', $departments, null, ['placeholder' => 'Select Option', 'class'=>'select2', 'id'=>'department_id']) }}
+        </p>
+
+        <p>
+            <label for="counter_id" class="control-label">{{ trans('app.counter') }} </label>
+            {{ Form::select('counter_id', $counters, null, ['placeholder' => 'Select Option', 'class'=>'select2', 'id'=>'counter_id']) }}
+        </p>
+
+        <p>
+            <label for="user_id" class="control-label">{{ trans('app.officer') }} </label>
+            {{ Form::select('user_id', $officers, null, ['placeholder' => 'Select Option', 'class'=>'select2', 'id'=>'user_id']) }}
+        </p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        <button class="button btn btn-success" type="submit"><span>{{ trans('app.transfer') }}</span></button>
+      </div>
+    </div>
+    {{ Form::close() }}
+  </div>
+</div> 
 
 
 <!-- Modal -->

@@ -144,6 +144,7 @@ Route::group(['middleware' => ['auth']], function() {
 		Route::get('token/delete/{id}','TokenController@delete');
 		Route::post('token/transfer','TokenController@transfer');
 		Route::get('token/report-detail/{id}', [TokenController::class, 'report_detail'])->name('report_detail');
+        Route::get('/token/delete-all/{id}', [TokenController::class, 'delete_all_numbers'])->name('delete_all_numbers');
 
 		# setting
 		Route::get('setting','SettingController@showForm');

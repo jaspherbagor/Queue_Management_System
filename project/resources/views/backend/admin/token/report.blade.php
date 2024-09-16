@@ -2,6 +2,13 @@
 @section('title', 'Queue Report')
 
 @section('content')
+@if(Session::has('success'))
+<div class="alert alert-success">{{ Session::get('success') }}</div>
+@endif
+
+@if(Session::has('error'))
+<div class="alert alert-danger">{{ Session::get('error') }}</div>
+@endif
 <div class="panel-heading">
     <div class="row">
         <div class="col-sm-12 text-left">
@@ -40,7 +47,7 @@
                                 <td>
                                     <div class="btn-group">
                                         <a href="{{ route('report_detail', $department->id) }}" class="btn btn-info report-btn mb-1">View Report</a>
-                                        <a href="#" class="btn btn-danger delete-all-btn btn-delete"  data-toggle="tooltip"  title="Delete All Numbers"><i class="fa fa-trash" aria-hidden="true"></i></a>
+                                        <a href="{{route('delete_all_numbers', $department->id)}}" class="btn btn-danger delete-all-btn btn-delete"  data-toggle="tooltip"  title="Delete All Numbers"><i class="fa fa-trash" aria-hidden="true"></i></a>
                                     </div>
                                 </td>
                             </tr>
