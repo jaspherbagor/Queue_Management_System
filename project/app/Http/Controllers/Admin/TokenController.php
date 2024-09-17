@@ -624,7 +624,15 @@ class TokenController extends Controller
         $service_info = Department::where('id', $id)->first();
         $queue_numbers = Token::where('department_id', $id)->get();
 
-        return view('backend.admin.token.report_detail', compact('queue_numbers', 'service_info'));
+        $counters = Counter::where('status',1)->pluck('name','id');
+        $departments = Department::where('status',1)->pluck('name','id');
+        $officers = User::select(DB::raw('CONCAT(firstname, " ", lastname) as name'), 'id')
+            ->where('user_type',1)
+            ->where('status',1)
+            ->orderBy('firstname', 'ASC')
+            ->pluck('name', 'id');
+
+        return view('backend.admin.token.report_detail', compact('queue_numbers', 'service_info','counters', 'departments', 'officers'));
     }
 
     public function performance(Request $request)

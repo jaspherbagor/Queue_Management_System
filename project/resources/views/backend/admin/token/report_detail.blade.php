@@ -72,7 +72,7 @@
 
                                         <a href="{{ url("admin/token/stoped/$row->id") }}"  class="btn btn-warning btn-sm btn-stop mb-1" title="Stop"><i class="fa fa-stop"></i></a>
 
-                                        <button type="button" data-toggle="modal" data-target="transferModal" data-token-id='{$token->id}' class="btn btn-primary btn-sm btn-transfer" title="Transfer"><i class="fa fa-exchange"></i></button>
+                                        <button type="button" data-toggle="modal" data-target="transferModal" data-token-id="{{ $row->id }}" class="btn btn-primary btn-sm btn-transfer mb-1" title="Transfer"><i class="fa fa-exchange"></i></button>
 
                                         @endif
                                         <a type="button" href="{{ url("admin/token/print") }}" data-token-id="{{ $row->id }}" class="tokenPrint btn btn-default btn-sm btn-print mb-1" title="Print" ><i class="fa fa-print"></i></a>
@@ -163,6 +163,58 @@ $('.btn-delete').on('click', function(event) {
         }
     });
 });
+
+function () {
+  // modal open with token id
+$('.modal').on('show.bs.modal', function (event) {
+        var button = $(event.relatedTarget);
+        $('input[name=id]').val(button.data('token-id'));
+    }); 
+
+// transfer token
+$('body').on('submit', '.transferFrm', function(e){
+    e.preventDefault();
+    $.ajax({
+        url: $(this).attr('action'),
+        type: $(this).attr('method'),
+        dataType: 'json', 
+        headers: {'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')},
+        contentType: false,  
+        // cache: false,  
+        processData: false,
+        data:  new FormData($(this)[0]),
+        beforeSend: function() {
+            $('.transferFrm').find('.alert')
+                .addClass('hide')
+                .html('');
+        },
+        success: function(data)
+        {
+            if (data.status)
+            {  
+                $('.transferFrm').find('.alert')
+                    .addClass('alert-success')
+                    .removeClass('hide alert-danger')
+                    .html(data.message);
+
+                setTimeout(() => { window.location.reload() }, 1500);
+            }
+            else
+            {
+                $('.transferFrm').find('.alert')
+                    .addClass('alert-danger')
+                    .removeClass('hide alert-success')
+                    .html(data.exception);
+            }   
+        },
+        error: function(xhr)
+        {
+            alert('wait...');
+        }
+    });
+
+});
+}
 </script>
 
 @endpush
