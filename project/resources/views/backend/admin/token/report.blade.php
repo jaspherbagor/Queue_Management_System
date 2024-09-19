@@ -60,7 +60,7 @@
 </div>
 
 
-<!-- Modal -->
+{{-- <!-- Modal -->
 <div class="modal-container">
     <div class="modal fade rounded-1" id="infoModal" tabindex="-1" role="dialog" aria-labelledby="infoModalLabel">
         <div class="modal-dialog" role="document">
@@ -80,5 +80,5 @@
           </div>
         </div>
     </div>
-</div>
+</div> --}}
 @endsection
