@@ -10,7 +10,7 @@
     </div>
 </div>
 <div class="panel panel-primary panel-container" id="printMe">
-    
+
     <div class="panel-body">
         <div class="form-container">
             {{ Form::open(['url' => 'admin/department/create', 'class'=>'col-md-7 col-sm-8 add-counter-form']) }}
