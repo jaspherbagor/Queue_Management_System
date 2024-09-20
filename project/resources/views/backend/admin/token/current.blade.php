@@ -17,7 +17,7 @@
                 <tr>
                     {{-- <th>#</th> --}}
                     <th>Queue</th>
-                    <th>{{ trans('app.department') }}</th>
+                    <th>Service</th>
                     <th>Window</th>
                     <th>{{ trans('app.officer') }}</th>
                     {{-- <th>{{ trans('app.client_mobile') }}</th>
@@ -62,7 +62,7 @@
                             <td>
                                 {{-- <div class="btn-group">  --}}
                                     <a href="{{ url("admin/token/complete/$token->id") }}"  class="btn btn-success btn-sm btn-complete mb-1" title="Complete"><i class="fa fa-check"></i></a>
-                                    <button type="button" data-toggle="modal" data-target=".transferModal" data-token-id='{{ $token->id }}' class="btn btn-primary btn-sm btn-transfer" title="Transfer"><i class="fa fa-exchange"></i></button> 
+                                    {{-- <button type="button" data-toggle="modal" data-target=".transferModal" data-token-id='{{ $token->id }}' class="btn btn-primary btn-sm btn-transfer" title="Transfer"><i class="fa fa-exchange"></i></button>  --}}
 
                                     <a href="{{ url("admin/token/stoped/$token->id") }}"  class="btn btn-warning btn-sm btn-stop mb-1" title="Stop"><i class="fa fa-stop"></i></a>
 
@@ -92,12 +92,12 @@
         <div class="alert hide"></div>
         <input type="hidden" name="id">
         <p>
-            <label for="department_id" class="control-label">{{ trans('app.department') }} </label><br/>
+            <label for="department_id" class="control-label">Window </label><br/>
             {{ Form::select('department_id', $counters, null, ['placeholder' => 'Select Option', 'class'=>'select2', 'id'=>'department_id']) }}<br/>
         </p>
 
         <p>
-            <label for="counter_id" class="control-label">{{ trans('app.counter') }} </label><br/>
+            <label for="counter_id" class="control-label">Service </label><br/>
             {{ Form::select('counter_id', $departments, null, ['placeholder' => 'Select Option', 'class'=>'select2', 'id'=>'counter_id']) }}
         </p>
 
