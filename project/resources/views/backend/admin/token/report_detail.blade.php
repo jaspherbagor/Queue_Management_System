@@ -28,7 +28,7 @@
                         <th>Generated Time</th>
                         <th>Complete Time</th>
                         <th>Status</th>
-                        <th>Action</th>
+                      {{--  <th>Action</th> --}}
                         {{-- <th><i class="fa fa-cogs"></i></th> --}}
                     </tr>
                 </thead>
@@ -66,7 +66,7 @@
                                     <span class="label label-warning">Stop</span>
                                     @endif
                                 </td>
-                                <td>
+                            {{--    <td>
                                         @if($row->status === 0)
                                         <a href="{{ url("admin/token/complete/$row->id") }}"  class="btn btn-success btn-sm btn-complete mb-1" title="Complete"><i class="fa fa-check"></i></a>
 
@@ -77,7 +77,7 @@
                                         @endif
                                         <a type="button" href="{{ url("admin/token/print") }}" data-token-id="{{ $row->id }}" class="tokenPrint btn btn-default btn-sm btn-print mb-1" title="Print" ><i class="fa fa-print"></i></a>
                                         <a href='{{ url("admin/token/delete/$row->id") }}'class="btn btn-danger btn-sm btn-delete mb-1" title="Delete"><i class="fa fa-trash"></i></a>
-                                </td>
+                                </td> --}}
                             </tr>
                         @endforeach
                     @endif
@@ -169,7 +169,7 @@ function () {
 $('.modal').on('show.bs.modal', function (event) {
         var button = $(event.relatedTarget);
         $('input[name=id]').val(button.data('token-id'));
-    }); 
+    });
 
 // transfer token
 $('body').on('submit', '.transferFrm', function(e){
@@ -177,10 +177,10 @@ $('body').on('submit', '.transferFrm', function(e){
     $.ajax({
         url: $(this).attr('action'),
         type: $(this).attr('method'),
-        dataType: 'json', 
+        dataType: 'json',
         headers: {'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')},
-        contentType: false,  
-        // cache: false,  
+        contentType: false,
+        // cache: false,
         processData: false,
         data:  new FormData($(this)[0]),
         beforeSend: function() {
@@ -191,7 +191,7 @@ $('body').on('submit', '.transferFrm', function(e){
         success: function(data)
         {
             if (data.status)
-            {  
+            {
                 $('.transferFrm').find('.alert')
                     .addClass('alert-success')
                     .removeClass('hide alert-danger')
@@ -205,7 +205,7 @@ $('body').on('submit', '.transferFrm', function(e){
                     .addClass('alert-danger')
                     .removeClass('hide alert-success')
                     .html(data.exception);
-            }   
+            }
         },
         error: function(xhr)
         {
