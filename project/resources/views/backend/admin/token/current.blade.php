@@ -153,7 +153,7 @@
             dataType: 'json',
             headers: {'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')},
             contentType: false,
-            // cache: false,
+            cache: false,
             processData: false,
             data:  new FormData($(this)[0]),
             beforeSend: function() {
