@@ -77,7 +77,7 @@
                                         @endif
                                         <a type="button" href="{{ url("admin/token/print") }}" data-token-id="{{ $row->id }}" class="tokenPrint btn btn-default btn-sm btn-print mb-1" title="Print" ><i class="fa fa-print"></i></a>
                                         <a href='{{ url("admin/token/delete/$row->id") }}'class="btn btn-danger btn-sm btn-delete mb-1" title="Delete"><i class="fa fa-trash"></i></a>
-                                </td> --}}
+                                </td>
                             </tr>
                         @endforeach
                     @endif
