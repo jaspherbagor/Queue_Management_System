@@ -31,7 +31,7 @@
                 </tr> --}}
                 <tr>
                     <th>Queue</th>
-                    <th>{{ trans('app.department') }}</th>
+                    <th>Service</th>
                     <th>Window</th>
                     <th>{{ trans('app.status') }}</th>
                     <th>{{ trans('app.complete_time') }}</th>
