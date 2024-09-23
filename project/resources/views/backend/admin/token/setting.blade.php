@@ -17,7 +17,7 @@
             {{ Form::open(['url' => 'admin/token/setting']) }}
 
                 <div class="form-group @error('department_id') has-error @enderror">
-                    <label for="department_id">{{ trans('app.department') }} <i class="text-danger">*</i></label><br/>
+                    <label for="department_id">Service <i class="text-danger">*</i></label><br/>
                     {{ Form::select('department_id', $departmentList, null, ['placeholder' => 'Select Option', 'class'=>'select2 form-control']) }}<br/>
                     <span class="text-danger">{{ $errors->first('department_id') }}</span>
                 </div> 
@@ -46,7 +46,7 @@
                 <thead>
                     <tr>
                         <th>#</th> 
-                        <th>{{ trans('app.department') }}</th>
+                        <th>Service</th>
                         <th>Window</th>
                         <th>{{ trans('app.officer') }}</th> 
                         <th>{{ trans('app.action') }}</th>
