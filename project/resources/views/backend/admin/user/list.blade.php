@@ -67,7 +67,7 @@
                     <th>{{ trans('app.user_type') }}</th>
                     <th>{{ trans('app.name') }}</th>
                     <th>{{ trans('app.email') }}</th>
-                    <th>{{ trans('app.department') }}</th>
+                    <th>Service</th>
                     {{-- <th>{{ trans('app.mobile') }}</th> --}}
                     <th>{{ trans('app.status') }}</th>
                     {{-- <th>{{ trans('app.created_at') }}</th>
