@@ -66,13 +66,13 @@
                                          <i class="fa fa-stop"></i>
                                      </a>
                                  
-                                     <button type="button" 
+                                     {{-- <button type="button" 
                                              href='{{ url('officer/token/print') }}' 
                                              data-token-id='{{ $token->id }}' 
                                              class="tokenPrint btn btn-default btn-sm btn-print" 
                                              title="Print">
                                          <i class="fa fa-print"></i>
-                                     </button>
+                                     </button> --}}
                                 {{-- </div> --}}
                             </td>
                         </tr> 
