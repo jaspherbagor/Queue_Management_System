@@ -28,7 +28,7 @@
                         <th>Generated Time</th>
                         <th>Complete Time</th>
                         <th>Status</th>
-                        <th>Action</th>
+                        {{-- <th>Action</th> --}}
                         {{-- <th><i class="fa fa-cogs"></i></th> --}}
                     </tr>
                 </thead>
@@ -66,7 +66,7 @@
                                     <span class="label label-warning">Stop</span>
                                     @endif
                                 </td>
-                                <td>
+                                {{-- <td>
                                         @if($row->status === 0)
                                         <a href="{{ url("admin/token/complete/$row->id") }}"  class="btn btn-success btn-sm btn-complete mb-1" title="Complete"><i class="fa fa-check"></i></a>
 
@@ -82,7 +82,7 @@
                                             <i class="fa fa-phone"></i>
                                         </a>
                                         @endif
-                                </td>
+                                </td> --}}
                                 {{-- <td> <!-- Action column -->
                                     <button type="button" class="btn btn-primary btn-sm btn-recall" data-token-id="{{ $row->id }}" title="Recall">
                                         <i class="fa fa-undo"></i> Recall
