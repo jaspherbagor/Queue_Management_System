@@ -28,7 +28,7 @@
                         <th>Generated Time</th>
                         <th>Complete Time</th>
                         <th>Status</th>
-                        {{-- <th>Action</th> --}}
+                        <th>Action</th>
                         {{-- <th><i class="fa fa-cogs"></i></th> --}}
                     </tr>
                 </thead>
@@ -66,7 +66,7 @@
                                     <span class="label label-warning">Stop</span>
                                     @endif
                                 </td>
-                                {{-- <td>
+                                <td>
                                         @if($row->status === 0)
                                         <a href="{{ url("admin/token/complete/$row->id") }}"  class="btn btn-success btn-sm btn-complete mb-1" title="Complete"><i class="fa fa-check"></i></a>
 
@@ -77,6 +77,16 @@
                                         @endif
                                         <a type="button" href="{{ url("admin/token/print") }}" data-token-id="{{ $row->id }}" class="tokenPrint btn btn-default btn-sm btn-print mb-1" title="Print" ><i class="fa fa-print"></i></a>
                                         <a href='{{ url("admin/token/delete/$row->id") }}'class="btn btn-danger btn-sm btn-delete mb-1" title="Delete"><i class="fa fa-trash"></i></a>
+                                        @if($row->status === 1)
+                                        <a type="button" href="{{ route('token.recall', $row->id) }}" class="btn btn-primary btn-sm btn-call" data-token-id="{{ $row->id }}" title="Recall">
+                                            <i class="fa fa-phone"></i>
+                                        </a>
+                                        @endif
+                                </td>
+                                {{-- <td> <!-- Action column -->
+                                    <button type="button" class="btn btn-primary btn-sm btn-recall" data-token-id="{{ $row->id }}" title="Recall">
+                                        <i class="fa fa-undo"></i> Recall
+                                    </button>
                                 </td> --}}
                             </tr>
                         @endforeach
@@ -214,7 +224,48 @@ $('body').on('submit', '.transferFrm', function(e){
     });
 
 });
+
+$(document).on('click', '.btn-call', function(event) {
+    event.preventDefault();
+    let tokenId = $(this).data('token-id');
+    
+    Swal.fire({
+        title: 'Are you sure?',
+        text: "You want to recall this token!",
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        confirmButtonText: 'Yes, recall it!'
+    }).then((result) => {
+        if (result.isConfirmed) {
+            $.ajax({
+                url: `/admin/token/recall/${tokenId}`, // Adjust the URL to your recall route
+                type: 'POST',
+                headers: {
+                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                },
+                success: function(response) {
+                    Swal.fire(
+                        'Recalled!',
+                        'The token has been recalled successfully.',
+                        'success'
+                    );
+                    setTimeout(() => { window.location.reload(); }, 1500);
+                },
+                error: function(xhr) {
+                    Swal.fire(
+                        'Error!',
+                        'Something went wrong. Please try again.',
+                        'error'
+                    );
+                }
+            });
+        }
+    });
+});
 }
+
 </script>
 
 @endpush
