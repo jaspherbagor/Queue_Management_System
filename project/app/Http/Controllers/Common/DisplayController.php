@@ -374,7 +374,7 @@ class DisplayController extends Controller
                     $q->whereIn('id', explode(',', $request->counters));
                 }
             })
-            ->orderBy(DB::raw('LENGTH(name)'), 'ASC')
+            ->orderBy(DB::raw('LENGTH(name)'), 'DESC')
             ->orderBy('name', 'ASC')
             ->limit(4)
             ->get();
@@ -482,12 +482,10 @@ class DisplayController extends Controller
 
         $html .= "</div>";
 
-
         // Add the right half for the video
         $html .= "<div class='right-half col-md-6'>
             <img src='" . asset('public/assets/images/' . $ads_image->image) . "' class='display_ads_image'>
           </div>";
-
 
         /*NOTIFICATION*/
         $viewTokens = $request->get('view_token');
