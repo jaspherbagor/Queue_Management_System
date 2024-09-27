@@ -121,7 +121,7 @@ class TokenController extends Controller
                     $options .= "<a href=\"".url("officer/token/complete/$token->id")."\"  class=\"btn btn-success btn-sm btn-complete\" title=\"Complete\"><i class=\"fa fa-check\"></i></a>";
                     $options .= "<a href=\"". url("officer/token/stoped/$token->id")."\"  class=\"btn btn-warning btn-sm btn-stop\" title=\"Stop\"><i class=\"fa fa-stop\"></i></a>";
                 } else {
-                    // $options .= "<a href=\"".url("officer/token/recall/$token->id")."\"  class=\"btn btn-info btn-sm btn-call\" title=\"Call\"><i class=\"fa fa-phone\"></i></a>";
+                    $options .= "<a href=\"".url("officer/token/recall/$token->id")."\"  class=\"btn btn-info btn-sm btn-call\" title=\"Call\"><i class=\"fa fa-phone\"></i></a>";
                 }
 
                 $options .= "<button type=\"button\" href=\"".url("officer/token/print")."\" data-token-id='$token->id' class=\"tokenPrint btn btn-default btn-sm btn-print\" title=\"Print\"><i class=\"fa fa-print\"></i></button>"; 
