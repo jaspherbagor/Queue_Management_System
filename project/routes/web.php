@@ -182,7 +182,7 @@ Route::group(['middleware' => ['auth']], function() {
 		Route::get('token/current','TokenController@current')->name('officer_current_token');
 		Route::get('token/complete/{id}','TokenController@complete');
 		Route::get('token/recall/{id}','TokenController@recall');
-		Route::post('token/recall/{id}', [TokenController::class, 'recall'])->name('token.recall');
+		// Route::post('token/recall/{id}', [TokenController::class, 'recall'])->name('token.recall');
 		Route::get('token/stoped/{id}','TokenController@stoped');
 		Route::post('token/print', 'TokenController@viewSingleToken');
 	});
