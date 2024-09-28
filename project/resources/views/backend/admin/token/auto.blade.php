@@ -305,7 +305,7 @@
                     content += "<h1>"+data.token.token_no+"</h1>";
                     content +="<ul>";
                     content += "<li><strong>Window:</strong> "+data.token.counter+"</li>";
-                    content += "<li><strong>Dept:</strong> "+data.token.department+"</li>";
+                    content += "<li><strong>Service:</strong> "+data.token.department+"</li>";
                     content += "<li class=\"date\"><strong>{{ trans('app.date') }}:</strong> "+formattedDate+"</li>";
                     content += "</ul>";
                     content += "</div>";
