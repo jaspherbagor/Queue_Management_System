@@ -195,7 +195,45 @@
             Notification.status = true;
           }
 
-        } 
+        }
+
+        function recallToken(id) {
+            $.ajax({
+                url: 'officer/token/recall/' + id, // Adjust the route accordingly
+                type: 'POST',
+                success: function (response) {
+                    // Dynamically create the announcement message based on the response keys
+                    let message = '';
+
+                    if (response.token) {
+                        message += `Calling the attention of number +  ${response.token} `;
+                    }
+
+                    if (response.counter) {
+                        message += `please proceed to window ${response.counter}`;
+                    }
+
+                    if (!message) {
+                        message = 'No token or counter data available.';
+                    }
+
+                    console.log(response.counter);
+
+                    // Use the Web Speech API for text-to-speech
+                    let speech = new SpeechSynthesisUtterance(message);
+                    speech.lang = 'en-US';  // Set the language (can be changed)
+                    speech.pitch = 1;  // Adjust the pitch if needed
+                    speech.rate = 1;   // Adjust the rate (speed) if needed
+
+                    // Speak the message
+                    window.speechSynthesis.speak(speech);
+                },
+                error: function (xhr) {
+                    console.error('Something went wrong!');
+                }
+            });
+        }
+
         </script>
   </body>
 </html>

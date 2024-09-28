@@ -296,6 +296,7 @@ class TokenController extends Controller
         //RECALL 
 
         return response()->json($token);
+        
         // return redirect()->back()->with('message', trans('app.recall_successfully'));
     } 
     
