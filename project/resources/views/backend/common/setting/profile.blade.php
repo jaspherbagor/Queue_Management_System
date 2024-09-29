@@ -27,18 +27,14 @@
                 <span class="label label-info">{{ auth()->user()->roles($user->user_type) }}</span> 
 
             </div> 
-            @php
-            use Carbon\Carbon;
-            @endphp
 
             <div class="col-sm-9"> 
                 <dl class="dl-horizontal"> 
                     <dt>{{ trans('app.department') }}</dt><dd>{{ ($user->department?$user->department:"N/A") }}</dd>
                     <dt>{{ trans('app.email') }}</dt><dd>{{ $user->email }}</dd>
-                    <dt>Created</dt>
-                    <dd>{{ Carbon::parse($user->created_at)->format('F j, Y g:i A') }}</dd>
-                    <dt>Updated</dt>
-                    <dd>{{ Carbon::parse($user->updated_at)->format('F j, Y g:i A') }}</dd>
+                    <dt>{{ trans('app.mobile') }}</dt><dd>{{ $user->mobile }}</dd>
+                    <dt>{{ trans('app.created_at') }}</dt><dd>{{ $user->created_at }}</dd>
+                    <dt>{{ trans('app.updated_at') }}</dt><dd>{{ $user->updated_at }}</dd>
                     <dt>{{ trans('app.status') }}</dt>
                     <dd>
                         @if ($user->status==1)
@@ -58,7 +54,7 @@
                     <thead>
                         <tr class="active">
                             <th>{{ trans('app.status') }}</th>
-                            <td>My Queues</td>
+                            <td>{{ trans('app.my_token') }}</td>
                             <td>{{ trans('app.generated_by_me') }}</td>
                             <td>{{ trans('app.assigned_to_me') }}</td>
                             <td>{{ trans('app.total') }}</td>
@@ -69,22 +65,22 @@
                             <th scope="row" class="active">{{ trans('app.pending') }}</th>
                             <td class="info">{{ !empty($myToken['0'])?$myToken['0']:0 }}</td> 
                             <td class="info">{{ !empty($myToken['1'])?$myToken['1']:0 }}</td> 
-                            <td class="info">{{ !empty($myToken['2'])?$myToken['2']:0 }}</td> 
+                            <td class="info">{{ !empty($assignedToMe['0'])?$assignedToMe['0']:0 }}</td> 
                             <td class="active">{{ @$myToken['0']+@$myToken['1']+@$myToken['2'] }}</td> 
                         </tr> 
                         <tr>
                             <th scope="row" class="active">{{ trans('app.complete') }}</th> 
-                            <td class="danger">{{ !empty($assignedToMe['0'])?$assignedToMe['0']:0 }}</td> 
-                            <td class="danger">{{ !empty($assignedToMe['1'])?$assignedToMe['1']:0 }}</td> 
-                            <td class="danger">{{ !empty($assignedToMe['2'])?$assignedToMe['2']:0 }}</td> 
-                            <td class="active">{{ @$assignedToMe['0']+@$assignedToMe['1']+@$assignedToMe['2'] }}</td> 
-                        </tr> 
-                        <tr>
-                            <th scope="row" class="active">{{ trans('app.stop') }}</th>
                             <td class="success">{{ !empty($generatedByMe['0'])?$generatedByMe['0']:0 }}</td> 
                             <td class="success">{{ !empty($generatedByMe['1'])?$generatedByMe['1']:0 }}</td> 
-                            <td class="success">{{ !empty($generatedByMe['2'])?$generatedByMe['2']:0 }}</td> 
-                            <td class="active">{{ @$generatedByMe['0']+@$generatedByMe['1']+@$generatedByMe['2'] }}</td>  
+                            <td class="success">{{ !empty($assignedToMe['1'])?$assignedToMe['1']:0 }}</td> 
+                            <td class="active">{{ @$generatedByMe['0']+@$generatedByMe['1']+@$generatedByMe['2'] }}</td> 
+                        </tr> 
+                        <tr>
+                            <th scope="row" class="active">{{ trans('app.stop') }}</th> 
+                            <td class="danger">{{ !empty($myToken['2'])?$myToken['2']:0 }}</td> 
+                            <td class="danger">{{ !empty($generatedByMe['2'])?$generatedByMe['2']:0 }}</td> 
+                            <td class="danger">{{ !empty($assignedToMe['2'])?$assignedToMe['2']:0 }}</td> 
+                            <td class="active">{{ @$assignedToMe['0']+@$assignedToMe['1']+@$assignedToMe['2'] }}</td> 
                         </tr> 
                     </tbody>
                     <thead>
