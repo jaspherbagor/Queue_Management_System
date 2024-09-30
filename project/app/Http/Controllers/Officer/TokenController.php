@@ -236,69 +236,27 @@ class TokenController extends Controller
     {
         @date_default_timezone_set(session('app.timezone'));
 
-        //send sms immediately
-        // $setting  = SmsSetting::first(); 
+        // Fetch token data from the database
         $token = DB::table('token AS t')
             ->select(
                 "t.token_no AS token",
                 "d.name AS department",
                 "c.name AS counter",
                 DB::raw("CONCAT_WS(' ', u.firstname, u.lastname) AS officer"),
-                "t.created_at AS date" 
+                "t.created_at AS date"
             )
             ->leftJoin('department AS d', 'd.id', '=', 't.department_id')
             ->leftJoin('counter AS c', 'c.id', '=', 't.counter_id')
             ->leftJoin('user AS u', 'u.id', '=', 't.user_id')
             ->where('t.id', $id)
             ->first();
-            
-        // if (!empty($token->mobile))
-        // {
-        //     $response = (new SMS_lib)
-        //         ->provider("$setting->provider")
-        //         ->api_key("$setting->api_key")
-        //         ->username("$setting->username")
-        //         ->password("$setting->password")
-        //         ->from("$setting->from")
-        //         ->to($token->mobile)
-        //         ->message($setting->recall_sms_template, array(
-        //             'TOKEN'  =>$token->token,
-        //             'MOBILE' =>$token->mobile,
-        //             'DEPARTMENT'=>$token->department,
-        //             'COUNTER'=>$token->counter,
-        //             'OFFICER'=>$token->officer,
-        //             'DATE'   =>$token->date
-        //         ))
-        //         ->response();
-        //     $api = json_decode($response, true); 
 
-        //     //store sms information 
-        //     $sms = new SmsHistory; 
-        //     $sms->from        = $setting->from;
-        //     $sms->to          = $token->mobile;
-        //     $sms->message     = $api['message'];
-        //     $sms->response    = $response;
-        //     $sms->created_at  = date('Y-m-d H:i:s');
-        //     $sms->save();
-        // } 
+        // Store token information in session
+        session()->put('current_token', $token);
 
-        // Token::where('id', $id)
-        //     ->where('user_id', auth()->user()->id )
-        //     ->update([
-        //         'updated_at' => date('Y-m-d H:i:s'), 
-        //         'status'     => 0,
-        //         'sms_status' => 2
-        //     ]);
-
-        // dd($token);
-
-
-        //RECALL 
-
-        return response()->json($token);
-        
-        // return redirect()->back()->with('message', trans('app.recall_successfully'));
-    } 
+        // Return a success message or redirect
+        return redirect()->back()->with('message', trans('app.recall_successfully'));
+    }
     
     public function stoped($id = null)
     {

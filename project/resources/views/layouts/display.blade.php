@@ -200,7 +200,7 @@
         function recallToken(id) {
             $.ajax({
                 url: 'officer/token/recall/' + id, // Adjust the route accordingly
-                type: 'POST',
+                type: 'GET',
                 success: function (response) {
                     // Dynamically create the announcement message based on the response keys
                     let message = '';

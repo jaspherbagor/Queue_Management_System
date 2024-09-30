@@ -153,6 +153,42 @@
         });
     });
 
+
 })();
+
+// Pass session data from Laravel to JavaScript
+let tokenData = @json(session('current_token'));
+
+function recallToken() {
+    console.log("Recall Token function called");
+    if (tokenData) {
+        let message = '';
+
+        if (tokenData.token) {
+            message += `Calling the attention of number ${tokenData.token}. `;
+        }
+
+        if (tokenData.counter) {
+            message += `Please proceed to window ${tokenData.counter}.`;
+        }
+
+        if (!message) {
+            message = 'No token or counter data available.';
+        }
+
+        // Use the Web Speech API for text-to-speech
+        let speech = new SpeechSynthesisUtterance(message);
+        speech.lang = 'en-US';  // Set the language (can be changed)
+        speech.pitch = 1;  // Adjust the pitch if needed
+        speech.rate = 1;   // Adjust the rate (speed) if needed
+
+        // Speak the message
+        window.speechSynthesis.speak(speech);
+        console.log("Message spoken: ", message);
+    } else {
+        console.log("No token data found in session.");
+    }
+}
+
 </script>
 @endpush
