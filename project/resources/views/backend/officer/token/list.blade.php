@@ -169,7 +169,7 @@ function recallToken() {
         }
 
         if (tokenData.counter) {
-            message += `Please proceed to window ${tokenData.counter}.`;
+            message += `Please proceed to window ${tokenData.counter}. `;
         }
 
         if (!message) {
@@ -178,9 +178,9 @@ function recallToken() {
 
         // Use the Web Speech API for text-to-speech
         let speech = new SpeechSynthesisUtterance(message);
-        speech.lang = 'en-US';  // Set the language (can be changed)
-        speech.pitch = 1;  // Adjust the pitch if needed
-        speech.rate = 1;   // Adjust the rate (speed) if needed
+        speech.lang = 'en-US';  // Set the language
+        speech.pitch = 1;       // Adjust the pitch if needed
+        speech.rate = 1;        // Adjust the rate (speed)
 
         // Speak the message
         window.speechSynthesis.speak(speech);
@@ -189,6 +189,7 @@ function recallToken() {
         console.log("No token data found in session.");
     }
 }
+
 
 </script>
 @endpush
