@@ -796,7 +796,7 @@ class TokenController extends Controller
     public function stoped($id = null)
     {
         Token::where('id', $id)->update(['updated_at' => null, 'status' => 2,'sms_status' => 1]);
-        return redirect()->back()->with('message', trans('app.update_successfully'));
+        return redirect()->back();
     }
 
     public function transfer(Request $request)
@@ -851,7 +851,7 @@ class TokenController extends Controller
     public function delete($id = null)
     {
         Token::where('id', $id)->delete();
-        return redirect()->back()->with('message', trans('app.delete_successfully'));
+        return redirect()->back();
     }
 
 }

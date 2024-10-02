@@ -530,8 +530,11 @@
                 confirmButtonText: 'Yes, delete it!'
             }).then((result) => {
                 if (result.isConfirmed) {
+                    Swal.fire("Success!", "Deleted successfully", "success");
                     // If confirmed, proceed with the deletion
-                    window.location.href = url;
+                    setTimeout(() => {
+                        window.location.href = url;
+                    }, 1500)
                 }
             });
         });
@@ -576,8 +579,11 @@
                 confirmButtonText: 'Yes, stop it!'
             }).then((result) => {
                 if (result.isConfirmed) {
+                    Swal.fire("Success!", "The number has been stopped successfully", "success");
                     // If confirmed, proceed with the deletion
-                    window.location.href = url;
+                    setTimeout(() => {
+                        window.location.href = url;
+                    }, 1500);
                 }
             });
         });
