@@ -552,8 +552,11 @@
                 confirmButtonText: 'Yes, complete it!'
             }).then((result) => {
                 if (result.isConfirmed) {
-                    // If confirmed, proceed with the deletion
-                    window.location.href = url;
+                    // If confirmed, proceed with the completion
+                    Swal.fire("Success!", "The number has been successfully completed", "success");
+                    setTimeout(() => {
+                        window.location.href = url;
+                    }, 1500);
                 }
             });
         });

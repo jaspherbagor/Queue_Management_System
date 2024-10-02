@@ -790,7 +790,7 @@ class TokenController extends Controller
         @date_default_timezone_set(session('app.timezone'));
 
         Token::where('id', $id)->update(['updated_at' => date('Y-m-d H:i:s'), 'status' => 1, 'sms_status' => 1]);
-        return redirect()->back()->with('message', trans('app.complete_successfully'));
+        return redirect()->back();
     }
 
     public function stoped($id = null)
