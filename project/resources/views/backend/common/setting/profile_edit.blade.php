@@ -2,16 +2,14 @@
 @section('title', trans('app.update_user'))
 
 @section('content')
-<div class="panel panel-primary">
-
-    <div class="panel-heading">
-        <div class="row">
-            <div class="col-sm-12 text-left">
-                <h3>{{ trans('app.update_user') }}</h3>
-            </div> 
-        </div>
+<div class="panel-heading">
+    <div class="row">
+        <div class="col-sm-12 text-left">
+            <h3>{{ trans('app.update_user') }}</h3>
+        </div> 
     </div>
-
+</div>
+<div class="panel panel-primary panel-container">
     <div class="panel-body"> 
         {{ Form::open(['url' => 'common/setting/profile/edit', 'files' => true, 'class'=>'col-md-7 col-sm-8']) }}
 
