@@ -30,15 +30,15 @@
 
             <div class="col-sm-9">
                 <dl class="dl-horizontal">
-                    <dt>{{ trans('app.department') }}</dt><dd>{{ ($user->department?$user->department:"N/A") }}</dd>
-                    <dt>{{ trans('app.email') }}</dt><dd>{{ $user->email }}</dd>
-                    <dt>{{ trans('app.mobile') }}</dt><dd>{{ $user->mobile }}</dd>
-                    <dt>{{ trans('app.created_at') }}</dt><dd>{{ $user->created_at }}</dd>
-                    <dt>{{ trans('app.updated_at') }}</dt><dd>{{ $user->updated_at }}</dd>
-                    <dt>{{ trans('app.status') }}</dt>
+                    <dt>Service: </dt><dd>{{ ($user->department?$user->department:"N/A") }}</dd>
+                    <dt>{{ trans('app.email') }}:  </dt><dd>{{ $user->email }}</dd>
+                    <dt>{{ trans('app.mobile') }}: </dt><dd>{{ $user->mobile }}</dd>
+                    <dt>Created:</dt><dd>{{ \Carbon\Carbon::parse($user->created_at)->format('F j, Y') }}</dd>
+                    {{-- <dt>{{ trans('app.updated_at') }}</dt><dd>{{ $user->updated_at }}</dd> --}}
+                    <dt>{{ trans('app.status') }}: </dt>
                     <dd>
                         @if ($user->status==1)
-                        <span class="label label-success">{{ trans('app.active') }}</span>
+                        <span class="label label-success btn-active">{{ trans('app.active') }}</span>
                         @else
                         <span class="label label-danger">{{ trans('app.deactive') }}</span>
                         @endif
@@ -50,6 +50,7 @@
 
         <div class="row">
             <div class="col-sm-12 panel-body table-responsive">
+                <h4>Number Information</h4>
                 <table class="table table-bordered text-center">
                     <thead>
                         <tr class="active">
