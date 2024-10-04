@@ -55,7 +55,7 @@
                     <thead>
                         <tr class="active">
                             <th>{{ trans('app.status') }}</th>
-                            <td>{{ trans('app.my_token') }}</td>
+                            <td>My Numbers</td>
                             <td>{{ trans('app.generated_by_me') }}</td>
                             <td>{{ trans('app.assigned_to_me') }}</td>
                             <td>{{ trans('app.total') }}</td>
