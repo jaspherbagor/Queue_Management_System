@@ -19,16 +19,18 @@
 
     <div class="panel-body" id="printThis">
         <div class="row">
-            <div class="col-sm-3" align="center">
-                <img alt="Picture" src="{{ asset((!empty($user->photo)?$user->photo:'public/assets/img/icons/no_user.jpg')) }}" class="img-thumbnail img-responsive">
-                <h3>
+            <div class="col-sm-12" align="center">
+                <img alt="Picture" src="{{ asset((!empty($user->photo)?$user->photo:'public/assets/img/icons/no_user.jpg')) }}" class="img-thumbnail img-responsive profile_img">
+                <h3 class="user_name">
                     {{ $user->firstname .' '. $user->lastname }}
                 </h3>
-                <span class="label label-info">{{ auth()->user()->roles($user->user_type) }}</span>
+                <span class="label user_role">
+                    <button class="btn btn_user_role">{{ auth()->user()->roles($user->user_type) }}</button>
+                </span>
 
             </div>
 
-            <div class="col-sm-9">
+            <div class="col-sm-12 profile_user_info">
                 <dl class="dl-horizontal">
                     <dt>Service: </dt><dd>{{ ($user->department?$user->department:"N/A") }}</dd>
                     <dt>{{ trans('app.email') }}:  </dt><dd>{{ $user->email }}</dd>

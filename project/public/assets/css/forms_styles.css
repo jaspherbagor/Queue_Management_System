@@ -289,3 +289,24 @@ td, th {
 dt, dd {
     font-size: 16px !important;
 }
+
+h3.user_name {
+    text-transform: capitalize !important;
+    font-weight: 400 !important;
+}
+
+div.profile_user_info {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top:20px !important
+}
+
+img.profile_img {
+    border-radius: 10PX !important;
+}
+
+.btn_user_role {
+    border-radius: 10px !important;
+    background: rgb(7, 147, 179);
+}
