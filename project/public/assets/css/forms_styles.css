@@ -285,3 +285,7 @@ td, th {
     border-radius:10px !important;
     margin-right: 10px !important
 }
+
+dt, dd {
+    font-size: 16px !important;
+}
