@@ -17,7 +17,7 @@ class TokenController extends Controller
 {
 
     public function index(Request $request)
-    {  
+    {
         @date_default_timezone_set(session('app.timezone'));
         $counters = Counter::where('status',1)->pluck('name','id');
         $departments = Department::where('status',1)->pluck('name','id');
@@ -25,10 +25,10 @@ class TokenController extends Controller
             ->where('user_type',1)
             ->where('status',1)
             ->orderBy('firstname', 'ASC')
-            ->pluck('name', 'id');  
+            ->pluck('name', 'id');
 
         return view('backend.officer.token.list', compact('counters', 'departments', 'officers'));
-    }  
+    }
 
     public function tokenData(Request $request)
     {
@@ -39,26 +39,26 @@ class TokenController extends Controller
             3 => 'status',
             4 => 'complete_time',
             5 => 'option',
-        ]; 
+        ];
 
         $totalData = Token::count();
-        $totalFiltered = $totalData; 
+        $totalFiltered = $totalData;
         $limit = $request->input('length');
         $start = $request->input('start');
         $order = $columns[$request->input('order.0.column')];
-        $dir   = $request->input('order.0.dir'); 
-        $search = $request->input('search'); 
-            
+        $dir   = $request->input('order.0.dir');
+        $search = $request->input('search');
+
         if(empty($search))
-        {            
+        {
             $tokens = Token::where('user_id', auth()->user()->id)
                 ->offset($start)
                 ->limit($limit)
                 ->orderBy($order,$dir)
                 ->get();
         }
-        else 
-        { 
+        else
+        {
             $tokensProccess = Token::where(function($query)  use($search) {
                 $query->where('user_id', auth()->user()->id);
 
@@ -70,24 +70,24 @@ class TokenController extends Controller
                 }
                 if (!empty($search['department'])) {
                     $query->where('department_id', '=', $search['department']);
-                } 
+                }
 
                 if (!empty($search['start_date']) && !empty($search['end_date'])) {
                     $query->whereBetween("created_at",[
-                        date('Y-m-d', strtotime($search['start_date']))." 00:00:00", 
+                        date('Y-m-d', strtotime($search['start_date']))." 00:00:00",
                         date('Y-m-d', strtotime($search['end_date']))." 23:59:59"
                     ]);
                 }
 
                 if (!empty($search['value'])) {
-                    if ((strtolower($search['value']))=='vip') 
+                    if ((strtolower($search['value']))=='vip')
                     {
                         $query->where('is_vip', '1');
                     }
                     else
                     {
                         $date = date('Y-m-d', strtotime($search['value']));
-                        $query->where('token_no', 'LIKE',"%{$search['value']}%"); 
+                        $query->where('token_no', 'LIKE',"%{$search['value']}%");
                     }
                 }
             });
@@ -96,7 +96,7 @@ class TokenController extends Controller
             $tokens = $tokensProccess->offset($start)
                 ->limit($limit)
                 ->orderBy($order,$dir)
-                ->get(); 
+                ->get();
 
         }
 
@@ -105,13 +105,13 @@ class TokenController extends Controller
         {
             $loop = 1;
             foreach ($tokens as $token)
-            {  
+            {
                 # complete time calculation
                 $complete_time = "";
-                if (!empty($token->updated_at)) {  
-                    $date1 = new \DateTime($token->created_at); 
-                    $date2 = new \DateTime($token->updated_at); 
-                    $diff  = $date2->diff($date1); 
+                if (!empty($token->updated_at)) {
+                    $date1 = new \DateTime($token->created_at);
+                    $date2 = new \DateTime($token->updated_at);
+                    $diff  = $date2->diff($date1);
                     $complete_time = (($diff->d > 0) ? " $diff->d Days " : null) . "$diff->h Hours $diff->i Minutes ";
                 }
 
@@ -121,42 +121,42 @@ class TokenController extends Controller
                     $options .= "<a href=\"".url("officer/token/complete/$token->id")."\"  class=\"btn btn-success btn-sm btn-complete\" title=\"Complete\"><i class=\"fa fa-check\"></i></a>";
                     $options .= "<a href=\"". url("officer/token/stoped/$token->id")."\"  class=\"btn btn-warning btn-sm btn-stop\" title=\"Stop\"><i class=\"fa fa-stop\"></i></a>";
                 } else {
-                    $options .= "<a href=\"".url("officer/token/recall/$token->id")."\"  class=\"btn btn-info btn-sm btn-call\" title=\"Call\"><i class=\"fa fa-phone\"></i></a>";
+                    // $options .= "<a href=\"".url("officer/token/recall/$token->id")."\"  class=\"btn btn-info btn-sm btn-call\" title=\"Call\"><i class=\"fa fa-phone\"></i></a>";
                 }
 
-                $options .= "<button type=\"button\" href=\"".url("officer/token/print")."\" data-token-id='$token->id' class=\"tokenPrint btn btn-default btn-sm btn-print\" title=\"Print\"><i class=\"fa fa-print\"></i></button>"; 
-                $options .= "</div>"; 
+                $options .= "<button type=\"button\" href=\"".url("officer/token/print")."\" data-token-id='$token->id' class=\"tokenPrint btn btn-default btn-sm btn-print\" title=\"Print\"><i class=\"fa fa-print\"></i></button>";
+                $options .= "</div>";
 
                 $data[] = [
                     'token_no'   => (!empty($token->is_vip)?("<span class=\"label label-danger\" title=\"VIP\">$token->token_no</span>"):$token->token_no),
                     'department' => (!empty($token->department)?$token->department->name:null),
-                    'counter'    => (!empty($token->counter)?$token->counter->name:null), 
+                    'counter'    => (!empty($token->counter)?$token->counter->name:null),
                     'status'     => (($token->status==1)?("<span class='label label-success status-complete'>".trans('app.complete')."</span>"):(($token->status==2)?"<span class='label label-danger'>".trans('app.stop')."</span>":"<span class='label label-primary status-pending'>".trans('app.pending')."</span>")).(!empty($token->is_vip)?('<span class="label label-danger" title="VIP">VIP</span>'):''),
                     'complete_time' => $complete_time,
-                    'options'    => $options
-                ];  
+                    // 'options'    => $options
+                ];
             }
         }
-            
+
         return response()->json([
-            "draw"            => intval($request->input('draw')),  
-            "recordsTotal"    => intval($totalData),  
-            "recordsFiltered" => intval($totalFiltered), 
-            "data"            => $data   
+            "draw"            => intval($request->input('draw')),
+            "recordsTotal"    => intval($totalData),
+            "recordsFiltered" => intval($totalFiltered),
+            "data"            => $data
         ]);
     }
- 
+
     public function current()
-    {  
+    {
         @date_default_timezone_set(session('app.timezone'));
         $tokens = Token::where('status', '0')
             ->where('user_id', auth()->user()->id )
             ->orderBy('is_vip', 'DESC')
             ->orderBy('id', 'ASC')
-            ->get(); 
+            ->get();
 
         return view('backend.officer.token.current', compact('tokens'));
-    } 
+    }
 
     public function viewSingleToken(Request $request)
     {
@@ -166,15 +166,15 @@ class TokenController extends Controller
             ->leftJoin('user', 'token.user_id', '=', 'user.id')
             ->where('token.id', $request->id)
             ->where('user_id', auth()->user()->id )
-            ->first(); 
-    } 
+            ->first();
+    }
 
     // public function recall($id = null)
     // {
     //     @date_default_timezone_set(session('app.timezone'));
 
     //     //send sms immediately
-    //     $setting  = SmsSetting::first(); 
+    //     $setting  = SmsSetting::first();
     //     $token = DB::table('token AS t')
     //         ->select(
     //             "t.token_no AS token",
@@ -182,14 +182,14 @@ class TokenController extends Controller
     //             "d.name AS department",
     //             "c.name AS counter",
     //             DB::raw("CONCAT_WS(' ', u.firstname, u.lastname) AS officer"),
-    //             "t.created_at AS date" 
+    //             "t.created_at AS date"
     //         )
     //         ->leftJoin('department AS d', 'd.id', '=', 't.department_id')
     //         ->leftJoin('counter AS c', 'c.id', '=', 't.counter_id')
     //         ->leftJoin('user AS u', 'u.id', '=', 't.user_id')
     //         ->where('t.id', $id)
     //         ->first();
-            
+
     //     if (!empty($token->mobile))
     //     {
     //         $response = (new SMS_lib)
@@ -208,29 +208,29 @@ class TokenController extends Controller
     //                 'DATE'   =>$token->date
     //             ))
     //             ->response();
-    //         $api = json_decode($response, true); 
+    //         $api = json_decode($response, true);
 
-    //         //store sms information 
-    //         $sms = new SmsHistory; 
+    //         //store sms information
+    //         $sms = new SmsHistory;
     //         $sms->from        = $setting->from;
     //         $sms->to          = $token->mobile;
     //         $sms->message     = $api['message'];
     //         $sms->response    = $response;
     //         $sms->created_at  = date('Y-m-d H:i:s');
     //         $sms->save();
-    //     } 
+    //     }
 
     //     Token::where('id', $id)
     //         ->where('user_id', auth()->user()->id )
     //         ->update([
-    //             'updated_at' => date('Y-m-d H:i:s'), 
+    //             'updated_at' => date('Y-m-d H:i:s'),
     //             'status'     => 0,
     //             'sms_status' => 2
     //         ]);
 
-    //     //RECALL 
+    //     //RECALL
     //     return redirect()->back()->with('message', trans('app.recall_successfully'));
-    // } 
+    // }
 
     public function recall($id = null)
     {
@@ -257,24 +257,24 @@ class TokenController extends Controller
         // Return a success message or redirect
         return redirect()->back()->with('message', trans('app.recall_successfully'));
     }
-    
+
     public function stoped($id = null)
     {
         Token::where('id', $id)
             ->where('user_id', auth()->user()->id )
             ->update([
-                'updated_at' => date('Y-m-d H:i:s'), 
+                'updated_at' => date('Y-m-d H:i:s'),
                 'status'     => 2,
                 'sms_status' => 1
             ]);
 
         return redirect()->back()->with('message', trans('app.update_successfully'));
-    } 
+    }
 
     public function complete($id = null)
     {
         @date_default_timezone_set(session('app.timezone'));
-        
+
         Token::where('id', $id)
             ->where('user_id', auth()->user()->id )
             ->update(['updated_at' => date('Y-m-d H:i:s'), 'status' => 1]);
@@ -283,4 +283,3 @@ class TokenController extends Controller
 
 }
 
- 

@@ -66,17 +66,17 @@
                     <tbody>
                         <tr>
                             <th scope="row" class="active">{{ trans('app.pending') }}</th>
-                            <td class="info">{{ !empty($myToken['0'])?$myToken['0']:0 }}</td>
+                            <td class="info">{{ !empty($generatedByMe['0'])?$generatedByMe['0']:0 }}</td>
                             <td class="info">{{ !empty($myToken['1'])?$myToken['1']:0 }}</td>
                             <td class="info">{{ !empty($assignedToMe['0'])?$assignedToMe['0']:0 }}</td>
-                            <td class="active">{{ @$myToken['0']+@$myToken['1']+@$assignedToMe['0'] }}</td>
+                            <td class="active">{{ @$generatedByMe['0']+@$myToken['1']+@$assignedToMe['0'] }}</td>
                         </tr>
                         <tr>
                             <th scope="row" class="active">{{ trans('app.complete') }}</th>
-                            <td class="success">{{ !empty($generatedByMe['0'])?$generatedByMe['0']:0 }}</td>
+                            <td class="success">{{ !empty($myToken['0'])?$myToken['0']:0 }}</td>
                             <td class="success">{{ !empty($generatedByMe['1'])?$generatedByMe['1']:0 }}</td>
                             <td class="success">{{ !empty($assignedToMe['1'])?$assignedToMe['1']:0 }}</td>
-                            <td class="active">{{ @$generatedByMe['0']+@$generatedByMe['1']+@$assignedToMe['1'] }}</td>
+                            <td class="active">{{ @$myToken['0']+@$generatedByMe['1']+@$assignedToMe['1'] }}</td>
                         </tr>
                         <tr>
                             <th scope="row" class="active">{{ trans('app.stop') }}</th>

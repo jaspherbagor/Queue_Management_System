@@ -142,9 +142,9 @@
                     content += "<li><strong>Service:</strong> "+data.department+"</li>";
                     content += "<li class=\"date\"><strong>{{ trans('app.date') }}:</strong> "+formattedDate+"</li>";
                     content += "</ul>";
-                    content += "</div>"; 
-                
-                // print 
+                    content += "</div>";
+
+                // print
                 printThis(content);
 
             }, error:function(err){
