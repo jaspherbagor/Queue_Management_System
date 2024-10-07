@@ -1,5 +1,5 @@
 @extends('layouts.backend')
-@section('title', trans('app.update_department')) 
+@section('title', 'Update Service') 
 
 @section('content')
 <div class="panel-heading">
