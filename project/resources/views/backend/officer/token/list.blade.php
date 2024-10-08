@@ -14,28 +14,13 @@
     <div class="panel-body">
         <table class="dataTables-server display table table-bordered" width="100%" cellspacing="0">
             <thead>
-
-                {{-- <tr>
-                    <th></th>
-                    <th>
-                        {{ Form::select('department', $departments, null, ['id'=>'department', 'class'=>'select2 filter', 'placeholder'=> trans('app.department')]) }}
-                    </th>
-                    <th>
-                        {{ Form::select('counter', $counters, null, ['id'=>'counter', 'class'=>'select2 filter', 'placeholder'=> trans('app.counter')]) }}
-                    </th>
-                    <th>
-                        {{ Form::select('status', ["'0'"=>trans("app.pending"), '1'=>trans("app.complete"), '2'=>trans("app.stop")],  null,  ['placeholder' => trans("app.status"), 'id'=> 'status', 'class'=>'select2 filter']) }}
-                    </th>
-                    <th></th>
-                    <th></th>
-                </tr> --}}
                 <tr>
                     <th>Queue</th>
                     <th>Service</th>
                     <th>Window</th>
                     <th>{{ trans('app.status') }}</th>
                     <th>{{ trans('app.complete_time') }}</th>
-                    <th>{{ trans('app.action') }}</th>
+                    {{-- Removed the action column --}}
                 </tr>
             </thead>
         </table>
@@ -80,8 +65,8 @@
                 { data: 'department' },
                 { data: 'counter' },
                 { data: 'status' },
-                { data: 'complete_time' },
-                { data: 'options' }
+                { data: 'complete_time' }
+                // Removed the options column
             ],
             order: [ [0, 'desc'] ],
             select    : true,
@@ -90,13 +75,11 @@
         });
     }
 
-
     // modal open with token id
     $('.modal').on('show.bs.modal', function (event) {
         var button = $(event.relatedTarget);
         $('input[name=id]').val(button.data('token-id'));
     });
-
 
     // print token
     $("body").on("click", ".tokenPrint", function(e) {
@@ -135,7 +118,6 @@
                     "}</style>";
 
                     content += "<div class=\"receipt-token\">";
-                    // content += "<h4>{{ \Session::get('app.title') }}</h4>";
                     content += "<h1>"+data.token_no+"</h1>";
                     content +="<ul>";
                     content += "<li><strong>Window:</strong> "+data.counter+"</li>";
@@ -152,8 +134,6 @@
             }
         });
     });
-
-
 })();
 
 // Pass session data from Laravel to JavaScript
@@ -189,7 +169,5 @@ function recallToken() {
         console.log("No token data found in session.");
     }
 }
-
-
 </script>
 @endpush
