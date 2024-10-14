@@ -33,6 +33,7 @@
     <div class="panel-body">
         <div class="col-sm-12" id="screen-content">
         <h3 class="mb-1 queue_note"><strong>Note: Sa pag kuha ng number, kailangan niyo lamang po pumili sa pag pipilian at pindutin ito para makaroon kayo ng number.</strong> </h3>
+        <h3 class="mb-2 queue-note text-danger"><strong>Reminder: Kung hindi nakapunta sa time na tinawag ang inyong number, kumuha kayo ulit ng bagong number.</strong></h3>
             @if($display->sms_alert || $display->show_note)
                 <!-- With Mobile No -->
                 @foreach ($departmentList as $department)
