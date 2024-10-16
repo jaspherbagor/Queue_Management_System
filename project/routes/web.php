@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Admin\DatabaseController;
 use App\Http\Controllers\Admin\ImageAdvertisementController;
 use App\Http\Controllers\Admin\TokenController;
 use App\Http\Controllers\Authentication\AuthenticationController;
@@ -162,6 +163,9 @@ Route::group(['middleware' => ['auth']], function() {
 		Route::post('/setting/ads/submit', [ImageAdvertisementController::class, 'submit'])->name('ads_submit');
 
 		Route::get('/setting/ads/delete/{id}', [ImageAdvertisementController::class, 'delete'])->name('ads_delete');
+		
+		# Database Routes
+		Route::get('/database/backup-database', DatabaseController::class, 'backupDatabase')->name('backup-database');
 	});
 
 	# -----------------------------------------------------------
