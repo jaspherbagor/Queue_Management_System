@@ -281,7 +281,7 @@
                                 <a class="sf-cog">{{ trans('app.setting') }} <span class="caret"></span></a>
                                 <ul>
                                     @if (auth()->user()->hasRole('admin'))
-  <!--sidebar sa may settings  -->
+                                    <!--sidebar sa may settings  -->
                                     <!-- <li class="{{ (Request::is('admin/setting') ? 'active' : '') }}">
                                         <a href="{{ url('admin/setting') }}"><i class="bi bi-chevron-right"></i> {{ trans('app.app_setting') }}</a>
                                     </li> -->
@@ -290,6 +290,9 @@
                                     </li> -->
                                     <li class="{{ (Request::is('admin/setting/ads/view') ? 'active' : '') }}">
                                         <a href="{{ route('ads_view') }}"><i class="bi bi-chevron-right"></i> Advertisement</a>
+                                    </li>
+                                    <li class="">
+                                        <a href=""><i class="bi bi-chevron-right"></i> Backup and Restore</a>
                                     </li>
                                     @endif
 
