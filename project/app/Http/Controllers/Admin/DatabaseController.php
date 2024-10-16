@@ -8,6 +8,11 @@ use Artisan;
 
 class DatabaseController extends Controller
 {
+
+    public function index()
+    {
+        return view('backend.admin.setting.backup_and_restore');
+    }
     // Method to trigger the backup command
     public function backupDatabase()
     {

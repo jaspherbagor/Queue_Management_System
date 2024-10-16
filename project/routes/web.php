@@ -165,7 +165,8 @@ Route::group(['middleware' => ['auth']], function() {
 		Route::get('/setting/ads/delete/{id}', [ImageAdvertisementController::class, 'delete'])->name('ads_delete');
 		
 		# Database Routes
-		Route::get('/database/backup-database', DatabaseController::class, 'backupDatabase')->name('backup-database');
+		Route::get('/database/backup-and-restore', [DatabaseController::class, 'index'])->name('backup_and_restore');
+		Route::get('/database/backup-database',[ DatabaseController::class, 'backupDatabase'])->name('backup_database');
 	});
 
 	# -----------------------------------------------------------

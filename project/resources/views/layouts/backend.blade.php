@@ -291,8 +291,8 @@
                                     <li class="{{ (Request::is('admin/setting/ads/view') ? 'active' : '') }}">
                                         <a href="{{ route('ads_view') }}"><i class="bi bi-chevron-right"></i> Advertisement</a>
                                     </li>
-                                    <li class="">
-                                        <a href=""><i class="bi bi-chevron-right"></i> Backup and Restore</a>
+                                    <li class="{{ (Request::is('admin/database/backup-and-restore') ? 'active' : '') }}">
+                                        <a href="{{ route('backup_and_restore') }}"><i class="bi bi-chevron-right"></i> Backup and Restore</a>
                                     </li>
                                     @endif
 
