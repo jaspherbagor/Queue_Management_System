@@ -19,6 +19,7 @@
         "laravel/tinker": "^2.0",
         "laravel/ui": "^2.1",
         "laravelcollective/html": "^6.1",
+        "spatie/db-dumper": "^2.21",
         "spatie/laravel-backup": "^6.11"
     },
     "require-dev": {
