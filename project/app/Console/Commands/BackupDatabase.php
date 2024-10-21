@@ -47,8 +47,8 @@ class BackupDatabase extends Command
         $dbPassword = env('DB_PASSWORD');
 
         // Define the backup file name with timestamp
-        $fileName = 'backup-' . Carbon::now()->format('Y-m-d_H-i-s') . '.sql';
-        $filePath = storage_path('app/backups/' . $fileName);
+        $fileName = 'db-backup-' . Carbon::now()->format('Y-m-d_H-i-s') . '.sql';
+        $filePath = storage_path('app/backup-temp/' . $fileName);
 
         // Command to back up the database using mysqldump
         $command = "mysqldump --user={$dbUser} --password={$dbPassword} --host={$dbHost} {$dbName} > {$filePath}";
