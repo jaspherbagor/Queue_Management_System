@@ -20,4 +20,22 @@ class DatabaseController extends Controller
 
         return redirect()->back()->with('success', 'Database backup completed successfully.');
     }
+
+     // Method to trigger the restore command
+     public function restoreDatabase(Request $request)
+     {
+         $request->validate([
+             'backup_file' => 'required|file'
+         ]);
+ 
+         // Get the uploaded backup file
+         $file = $request->file('backup_file');
+         $fileName = $file->getClientOriginalName();
+         $file->storeAs('backup-temp', $fileName);
+ 
+         // Call the restore command
+         Artisan::call('restore:database', ['file' => $fileName]);
+ 
+         return redirect()->back()->with('success', 'Database restored successfully.');
+     }
 }
