@@ -4,7 +4,6 @@ namespace App\Console\Commands;
 
 use Illuminate\Console\Command;
 use Illuminate\Support\Facades\File;
-use Spatie\DbDumper\Databases\MySql;
 use Illuminate\Support\Carbon;
 
 class BackupDatabase extends Command
@@ -21,7 +20,7 @@ class BackupDatabase extends Command
      *
      * @var string
      */
-    protected $description = 'This backups the database';
+    protected $description = 'This command backs up the database';
 
     /**
      * Create a new command instance.
@@ -61,10 +60,13 @@ class BackupDatabase extends Command
         // Check if backup was successful
         if ($result === 0) {
             $this->info('Database backup completed successfully.');
+
+            // Return the file path for downloading
+            return $filePath;
+
         } else {
             $this->error('Database backup failed.');
+            return false;
         }
-        
-
     }
 }

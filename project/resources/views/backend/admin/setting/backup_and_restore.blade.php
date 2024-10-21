@@ -34,7 +34,7 @@
             <div class="card">
                 <div class="card-body">
                     <h4 class="card-title">Restore Database</h4>
-                    <form action="" method="POST" enctype="multipart/form-data">
+                    <form action="{{ route('restore_database') }}" method="POST" enctype="multipart/form-data">
                         @csrf
                         <div class="form-group">
                             <label for="backup_file">Select Backup File:</label>
