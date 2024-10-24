@@ -24,7 +24,7 @@
                 <div class="card-body">
                     <h4 class="card-title">Backup Database</h4>
                     <form action="{{ route('backup_database') }}" method="GET">
-                        <button type="submit" class="btn btn-primary">Backup Now</button>
+                        <button type="submit" class="btn btn-primary backup-db-btn">Backup Now</button>
                     </form>
                 </div>
                 {{-- <button class="btn btn-success backup-db-btn">Backup Database</button> --}}
@@ -40,7 +40,7 @@
                             <label for="backup_file">Select Backup File:</label>
                             <input type="file" class="form-control" id="backup_file" name="backup_file" required>
                         </div>
-                        <button type="submit" class="btn btn-danger">Restore Now</button>
+                        <button type="submit" class="btn btn-danger restore-db-btn">Restore Now</button>
                     </form>
                 </div>
             </div>

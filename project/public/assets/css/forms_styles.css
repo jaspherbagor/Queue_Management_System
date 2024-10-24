@@ -310,3 +310,7 @@ img.profile_img {
     border-radius: 10px !important;
     background: rgb(7, 147, 179);
 }
+
+.backup-db-btn, .restore-db-btn {
+    border-radius: 5px !important;
+}
