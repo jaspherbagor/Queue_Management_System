@@ -14,6 +14,7 @@ class DatabaseController extends Controller
     {
         return view('backend.admin.setting.backup_and_restore');
     }
+
     // Method to trigger the backup command
     public function backupDatabase()
     {
@@ -36,21 +37,21 @@ class DatabaseController extends Controller
         }
     }
 
-     // Method to trigger the restore command
-     public function restoreDatabase(Request $request)
-     {
-         $request->validate([
-             'backup_file' => 'required|file'
-         ]);
- 
-         // Get the uploaded backup file
-         $file = $request->file('backup_file');
-         $fileName = $file->getClientOriginalName();
-         $file->storeAs('backup-temp', $fileName);
- 
-         // Call the restore command
-         Artisan::call('restore:database', ['file' => $fileName]);
- 
-         return redirect()->back()->with('success', 'Database restored successfully.');
-     }
+    // Method to trigger the restore command
+    public function restoreDatabase(Request $request)
+    {
+        $request->validate([
+            'backup_file' => 'required|file'
+        ]);
+
+        // Get the uploaded backup file
+        $file = $request->file('backup_file');
+        $fileName = $file->getClientOriginalName();
+        $file->storeAs('backup-temp', $fileName);
+
+        // Call the restore command
+        Artisan::call('restore:database', ['file' => $fileName]);
+
+        return redirect()->back()->with('success', 'Database restored successfully.');
+    }
 }
