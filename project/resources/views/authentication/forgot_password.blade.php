@@ -1,6 +1,5 @@
 @extends('authentication.layout.app')
 @section('heading', 'FORGOT PASSWORD')
-{{-- Comment line --}}
 @section('main_content')
 <form action="{{ route('forgot_password_submit') }}" method="post">
     @csrf
