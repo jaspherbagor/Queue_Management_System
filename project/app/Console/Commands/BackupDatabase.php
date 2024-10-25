@@ -8,62 +8,37 @@ use Illuminate\Support\Carbon;
 
 class BackupDatabase extends Command
 {
-    /**
-     * The name and signature of the console command.
-     *
-     * @var string
-     */
     protected $signature = 'backup:database';
-
-    /**
-     * The console command description.
-     *
-     * @var string
-     */
     protected $description = 'This command backs up the database';
 
-    /**
-     * Create a new command instance.
-     *
-     * @return void
-     */
     public function __construct()
     {
         parent::__construct();
     }
 
-    /**
-     * Execute the console command.
-     *
-     * @return int
-     */
     public function handle()
     {
-        // Get DB credentials from .env
+        // Database credentials
         $dbHost = env('DB_HOST');
         $dbName = env('DB_DATABASE');
         $dbUser = env('DB_USERNAME');
         $dbPassword = env('DB_PASSWORD');
 
-        // Define the backup file name with timestamp
+        // Define backup file name and path
         $fileName = 'db-backup-' . Carbon::now()->format('Y-m-d_H-i-s') . '.sql';
         $filePath = storage_path('app/backup-temp/' . $fileName);
 
-        // Command to back up the database using mysqldump
+        // MySQL dump command
         $command = "mysqldump --user={$dbUser} --password={$dbPassword} --host={$dbHost} {$dbName} > {$filePath}";
 
-        // Execute the command
+        // Execute command
         $result = null;
-        $output = [];
         exec($command, $output, $result);
 
-        // Check if backup was successful
+        // Confirm backup success or failure
         if ($result === 0) {
             $this->info('Database backup completed successfully.');
-
-            // Return the file path for downloading
-            return $filePath;
-
+            return $filePath; // Optional for debugging
         } else {
             $this->error('Database backup failed.');
             return false;

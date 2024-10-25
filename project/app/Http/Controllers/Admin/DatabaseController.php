@@ -15,26 +15,10 @@ class DatabaseController extends Controller
         return view('backend.admin.setting.backup_and_restore');
     }
 
-    // Method to trigger the backup command
     public function backupDatabase()
     {
-        // Trigger the artisan command for database backup
         Artisan::call('backup:database');
-
-        // Retrieve the output of the command (which is the backup file path)
-        $filePath = trim(Artisan::output());
-
-        // Modify the file path to match the backup-temp folder
-        $filePath = storage_path('app/backup-temp/' . basename($filePath));
-
-        // Check if the backup file exists at the path
-        if (File::exists($filePath)) {
-            // Download the file without deleting it from the server
-            return response()->download($filePath);
-        } else {
-            // If the file doesn't exist, show an error message
-            return redirect()->back()->with('error', 'Failed to create database backup.');
-        }
+        return redirect()->back()->with('success', 'Database backup completed successfully.');
     }
 
     // Method to trigger the restore command
