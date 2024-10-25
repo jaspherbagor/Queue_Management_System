@@ -294,6 +294,9 @@
                                     <li class="{{ (Request::is('admin/database/backup-and-restore') ? 'active' : '') }}">
                                         <a href="{{ route('backup_and_restore') }}"><i class="bi bi-chevron-right"></i> Backup and Restore</a>
                                     </li>
+                                    <li class="">
+                                        <a href="#"><i class="bi bi-chevron-right"></i> Backup Files</a>
+                                    </li>
                                     @endif
 
                                     <li class="{{ (Request::is('common/setting/*') ? 'active' : '') }}">
