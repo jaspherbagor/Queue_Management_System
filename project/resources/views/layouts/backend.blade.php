@@ -281,10 +281,10 @@
                                 <a class="sf-cog">General Settings <span class="caret"></span></a>
                                 <ul>
                                     @if (auth()->user()->hasRole('admin'))
-                                    <!--sidebar sa may settings  -->
+  <!--sidebar sa may settings  -->
                                     <!-- <li class="{{ (Request::is('admin/setting') ? 'active' : '') }}">
                                         <a href="{{ url('admin/setting') }}"><i class="bi bi-chevron-right"></i> {{ trans('app.app_setting') }}</a>
-                                    </li> -->
+                                    </li>
                                     <!-- <li class="{{ (Request::is('admin/setting/display') ? 'active' : '') }}">
                                         <a href="{{ url('admin/setting/display') }}"><i class="bi bi-chevron-right"></i> {{ trans('app.display_setting') }}</a>
                                     </li> -->
