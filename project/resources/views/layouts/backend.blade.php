@@ -278,7 +278,7 @@
                             </li>
                             @if(!Auth::user()->hasRole('receptionist'))
                             <li class="cm-submenu {{ (Request::segment(2)=='setting' ? 'open' : '') }}">
-                                <a class="sf-cog">{{ trans('app.setting') }} <span class="caret"></span></a>
+                                <a class="sf-cog">General Settings <span class="caret"></span></a>
                                 <ul>
                                     @if (auth()->user()->hasRole('admin'))
                                     <!--sidebar sa may settings  -->
@@ -294,8 +294,8 @@
                                     <li class="{{ (Request::is('admin/database/backup-and-restore') ? 'active' : '') }}">
                                         <a href="{{ route('backup_and_restore') }}"><i class="bi bi-chevron-right"></i> Backup and Restore</a>
                                     </li>
-                                    <li class="">
-                                        <a href="#"><i class="bi bi-chevron-right"></i> Backup Files</a>
+                                    <li class="{{ (Request::is('admin/database/backup-files') ? 'active' : '') }}">
+                                        <a href="{{ route('show_backup') }}"><i class="bi bi-chevron-right"></i> Backup Files</a>
                                     </li>
                                     @endif
 

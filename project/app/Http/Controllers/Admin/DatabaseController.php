@@ -38,4 +38,16 @@ class DatabaseController extends Controller
 
         return redirect()->back()->with('success', 'Database restored successfully.');
     }
+
+    public function showBackups()
+    {
+        // Path to the backup-temp folder
+        $backupPath = storage_path('app/backup-temp');
+
+        // Get all backup files in the folder
+        $files = File::files($backupPath);
+
+        // Pass files to the view
+        return view('backend.admin.setting.backup_file', compact('files'));
+    }
 }
