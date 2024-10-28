@@ -50,4 +50,19 @@ class DatabaseController extends Controller
         // Pass files to the view
         return view('backend.admin.setting.backup_file', compact('files'));
     }
+
+    public function downloadBackup($filename)
+    {
+        // Path to the backup-temp folder
+        $filePath = storage_path('app/backup-temp/' . $filename);
+
+        // Check if the file exists
+        if (File::exists($filePath)) {
+            // Return a response to download the file
+            return response()->download($filePath);
+        } else {
+            // Redirect back with an error if the file doesn't exist
+            return redirect()->back()->with('error', 'File not found.');
+        }
+    }
 }
