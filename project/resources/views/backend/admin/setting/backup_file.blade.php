@@ -26,7 +26,7 @@
                             <td>{{ $file->getFilename() }}</td>
                             <td>{{ round($file->getSize() / 1024, 2) }}</td>
                             <td>
-                                <a href="" class="btn btn-primary">Download</a>
+                                <a href="{{ route('download_backup', $file->getFilename()) }}" class="btn btn-primary download-btn">Download</a>
                             </td>
                         </tr>
                     @empty

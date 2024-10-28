@@ -169,6 +169,7 @@ Route::group(['middleware' => ['auth']], function() {
 		Route::get('/database/backup-database',[ DatabaseController::class, 'backupDatabase'])->name('backup_database');
 		Route::post('/database/restore', [DatabaseController::class, 'restoreDatabase'])->name('restore_database');
 		Route::get('/database/backup-files', [DatabaseController::class, 'showBackups'])->name('show_backup');
+		Route::get('/database/backup-file/download/{filename}', [DatabaseController::class, 'downloadBackup'])->name('download_backup');
 	});
 
 	# -----------------------------------------------------------
