@@ -44,8 +44,6 @@
                     </form>
                 </div>
             </div>
-    
-            {{-- <button class="btn btn-warning restore-db-btn">Restore Database</button> --}}
         </div>
     </div>
 </div>
