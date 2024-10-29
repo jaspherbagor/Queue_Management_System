@@ -26,7 +26,7 @@ class BackupDatabase extends Command
 
         // Define backup file name and path
         $fileName = 'db-backup-' . Carbon::now()->format('Y-m-d_H-i-s') . '.sql';
-        $filePath = storage_path('app/backup/' . $fileName);
+        $filePath = storage_path('app/backup-temp/' . $fileName);
 
         // MySQL dump command
         $command = "mysqldump --user={$dbUser} --password={$dbPassword} --host={$dbHost} {$dbName} > {$filePath}";

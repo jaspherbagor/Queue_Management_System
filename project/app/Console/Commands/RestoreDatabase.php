@@ -19,7 +19,7 @@ class RestoreDatabase extends Command
 
         // Get the backup file from the command argument
         $fileName = $this->argument('file');
-        $filePath = storage_path('app/backup/' . $fileName);
+        $filePath = storage_path('app/backup-temp/' . $fileName);
 
         // Check if the file exists
         if (!file_exists($filePath)) {

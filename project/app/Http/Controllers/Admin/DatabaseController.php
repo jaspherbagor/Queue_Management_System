@@ -31,7 +31,7 @@ class DatabaseController extends Controller
         // Get the uploaded backup file
         $file = $request->file('backup_file');
         $fileName = $file->getClientOriginalName();
-        $file->storeAs('backup', $fileName);
+        $file->storeAs('backup-temp', $fileName);
 
         // Call the restore command
         Artisan::call('restore:database', ['file' => $fileName]);
@@ -42,7 +42,7 @@ class DatabaseController extends Controller
     public function showBackups()
     {
         // Path to the backup-temp folder
-        $backupPath = storage_path('app/backup');
+        $backupPath = storage_path('app/backup-temp');
 
         // Get all backup files in the folder
         $files = File::files($backupPath);
@@ -54,7 +54,7 @@ class DatabaseController extends Controller
     public function downloadBackup($filename)
     {
         // Path to the backup-temp folder
-        $filePath = storage_path('app/backup/' . $filename);
+        $filePath = storage_path('app/backup-temp/' . $filename);
 
         // Check if the file exists
         if (File::exists($filePath)) {
