@@ -27,7 +27,6 @@
                         <button type="submit" class="btn btn-primary backup-db-btn">Backup Now</button>
                     </form>
                 </div>
-                {{-- <button class="btn btn-success backup-db-btn">Backup Database</button> --}}
             </div>
         </div>
         <div class="container">
