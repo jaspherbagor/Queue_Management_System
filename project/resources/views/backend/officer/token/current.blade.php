@@ -17,7 +17,7 @@
                 <tr>
                     {{-- <th>#</th> --}}
                     <th>Queue</th>
-                    <th>Service</th>
+                    <th>Department</th>
                     <th>Window</th>
                     {{-- <th>{{ trans('app.client_mobile') }}</th> --}}
                     {{-- <th>{{ trans('app.note') }}</th> --}}

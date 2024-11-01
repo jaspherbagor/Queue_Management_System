@@ -22,7 +22,7 @@
                 <thead>
                     <tr>
                         <th>Queue Number</th>
-                        <th>Service</th>
+                        <th>Department</th>
                         <th>Window</th>
                         <th>Officer</th>
                         <th>Generated Time</th>

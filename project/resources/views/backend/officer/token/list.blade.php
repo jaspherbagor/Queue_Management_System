@@ -16,7 +16,7 @@
             <thead>
                 <tr>
                     <th>Queue</th>
-                    <th>Service</th>
+                    <th>Department</th>
                     <th>Window</th>
                     <th>{{ trans('app.status') }}</th>
                     <th>{{ trans('app.complete_time') }}</th>
@@ -121,7 +121,7 @@
                     content += "<h1>"+data.token_no+"</h1>";
                     content +="<ul>";
                     content += "<li><strong>Window:</strong> "+data.counter+"</li>";
-                    content += "<li><strong>Service:</strong> "+data.department+"</li>";
+                    content += "<li><strong>Department:</strong> "+data.department+"</li>";
                     content += "<li class=\"date\"><strong>{{ trans('app.date') }}:</strong> "+formattedDate+"</li>";
                     content += "</ul>";
                     content += "</div>";

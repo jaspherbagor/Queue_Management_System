@@ -16,13 +16,13 @@
             {{ Form::open(['url' => 'admin/department/create', 'class'=>'col-md-7 col-sm-8 add-counter-form']) }}
                 <div class="form-group @error('name') has-error @enderror">
                     <label for="name">Name:</label>
-                    <input type="text" name="name" id="name" class="form-control" placeholder="Enter service name:" value="{{ old('name') }}">
+                    <input type="text" name="name" id="name" class="form-control" placeholder="Enter department name:" value="{{ old('name') }}">
                     <span class="text-danger">{{ $errors->first('name') }}</span>
                 </div>
 
                 <div class="form-group @error('description') has-error @enderror">
                     <label for="description">Description: </label>
-                    <textarea name="description" id="description" placeholder="Enter service description:" class="form-control">{{ old('description') }}</textarea>
+                    <textarea name="description" id="description" placeholder="Enter department description:" class="form-control">{{ old('description') }}</textarea>
                     <span class="text-danger">{{ $errors->first('description') }}</span>
                 </div>
 

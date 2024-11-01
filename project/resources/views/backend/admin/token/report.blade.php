@@ -24,7 +24,7 @@
                 <thead>
                     <tr>
                         {{-- <th>#</th> --}}
-                        <th>Service</th>
+                        <th>Department</th>
                         <th>{{ trans('app.description') }}</th>
                         <th>Hot Key</th>
                         <th>{{ trans('app.status') }}</th>

@@ -17,7 +17,7 @@
                 <tr>
                     {{-- <th>#</th> --}}
                     <th>Queue</th>
-                    <th>Service</th>
+                    <th>Department</th>
                     <th>Window</th>
                     <th>{{ trans('app.officer') }}</th>
                     {{-- <th>{{ trans('app.client_mobile') }}</th>
@@ -229,7 +229,7 @@
                     content += "<h1>"+data.token_no+"</h1>";
                     content +="<ul>";
                     content += "<li><strong>Window:</strong> "+data.counter+"</li>";
-                    content += "<li><strong>Service:</strong> "+data.department+"</li>";
+                    content += "<li><strong>Dapartment:</strong> "+data.department+"</li>";
                     content += "<li class=\"date\"><strong>{{ trans('app.date') }}:</strong> "+formattedDate+"</li>";
                     content += "</ul>";
                     content += "</div>";
