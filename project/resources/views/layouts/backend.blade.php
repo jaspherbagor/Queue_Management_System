@@ -102,14 +102,14 @@
 
                             <li class="cm-submenu {{ (Request::segment(2)=='department' ? 'open' : '') }}">
                                 <a class="sf-building">
-                                    Services <span class="caret"></span>
+                                    Department <span class="caret"></span>
                                 </a>
                                 <ul>
                                     <li class="{{ (Request::is('admin/department/create') ? 'active' : '') }}">
-                                        <a href="{{ url('admin/department/create') }}"><i class="bi bi-chevron-right"></i> Add Services</a>
+                                        <a href="{{ url('admin/department/create') }}"><i class="bi bi-chevron-right"></i> Add Department</a>
                                     </li>
                                     <li class="{{ (Request::is('admin/department') ? 'active' : '') }}">
-                                        <a href="{{ url('admin/department') }}"><i class="bi bi-chevron-right"></i> Services List</a>
+                                        <a href="{{ url('admin/department') }}"><i class="bi bi-chevron-right"></i> Department List</a>
                                     </li>
                                 </ul>
                             </li>
