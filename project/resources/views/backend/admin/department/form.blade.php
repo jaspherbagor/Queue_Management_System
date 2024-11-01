@@ -5,7 +5,7 @@
 <div class="panel-heading">
     <div class="row">
         <div class="col-sm-12 text-start">
-            <h3 class="form-heading">Add Services</h3>
+            <h3 class="form-heading">Add Department</h3>
         </div>
     </div>
 </div>
