@@ -17,7 +17,7 @@
                             <div class="col-md-4 col-sm-6 col-xs-12 mb-1">
                                 <div class="p-1 department-card">
                                         <img src="{{ asset('public/assets/img/sf/building.svg') }} " alt="" class="icon-img">
-                                    <h5><span class="card-qty">{{ (isset($infobox->department)?$infobox->department:0) }} Services</span> </h5>
+                                    <h5><span class="card-qty">{{ (isset($infobox->department)?$infobox->department:0) }} Departments</span> </h5>
                                 </div>
                             </div>
                         </a>
@@ -134,7 +134,7 @@
             </div>
             <div class="col-md-6">
                 <div class="card counter-card-info p-1">
-                    <h4 class="card-header">WINDOWS</h4>
+                    <h4 class="card-header">WIND</h4>
                     @php
                     $counters = App\Models\Counter::all();
                     @endphp
