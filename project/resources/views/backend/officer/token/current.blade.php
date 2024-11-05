@@ -19,11 +19,7 @@
                     <th>Queue</th>
                     <th>Department</th>
                     <th>Window</th>
-                    {{-- <th>{{ trans('app.client_mobile') }}</th> --}}
-                    {{-- <th>{{ trans('app.note') }}</th> --}}
                     <th>{{ trans('app.status') }}</th>
-                    {{-- <th>{{ trans('app.created_by') }}</th>
-                    <th>{{ trans('app.created_at') }}</th> --}}
                     <th width="120">{{ trans('app.action') }}</th>
                 </tr>
             </thead> 
