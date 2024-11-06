@@ -50,7 +50,16 @@
         
         {{ Form::close() }} 
     </div> 
-</div>  
+</div>
+<script>
+    $(document).on('click', '.save-btn', function(e) {
+        Swal.fire(
+            "Success!",
+            "The number has been successfully completed",
+            "success"
+        );
+    });
+</script>  
 @endsection
 
 

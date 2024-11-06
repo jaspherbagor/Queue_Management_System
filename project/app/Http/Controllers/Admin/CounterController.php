@@ -95,8 +95,7 @@ class CounterController extends Controller
                 ]);
 
             if ($update) {
-                return back()
-                        ->with('message', trans('app.update_successfully'));
+                return redirect()->back();
             } else {
                 return back()
                         ->with('exception', trans('app.please_try_again'));
