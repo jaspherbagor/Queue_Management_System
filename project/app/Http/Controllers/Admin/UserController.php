@@ -315,8 +315,7 @@ class UserController extends Controller
             if ($update) {
                 return back()
                     ->withInput()  
-                    ->with('photo', $filePath)
-                    ->with('message', trans('app.update_successfully'));
+                    ->with('photo', $filePath);
             } else {
                 return back()
                     ->withInput()

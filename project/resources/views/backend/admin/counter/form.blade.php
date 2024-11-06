@@ -48,6 +48,14 @@
         </div>
 
     </div>
-    {{-- This is a comment... --}}
-</div> 
+</div>
+<script>
+    $(document).on('click', '.save-btn', function(e) {
+        Swal.fire(
+            "Success!",
+            "The window has been successfully added",
+            "success"
+        );
+    });
+</script>   
 @endsection

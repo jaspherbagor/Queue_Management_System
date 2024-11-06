@@ -121,5 +121,14 @@ $(document).ready(function() {
     });
 });  
 </script>
+<script>
+    $(document).on('click', '.save-btn', function(e) {
+        Swal.fire(
+            "Success!",
+            "User has been successfully added",
+            "success"
+        );
+    });
+</script>  
 @endpush
  

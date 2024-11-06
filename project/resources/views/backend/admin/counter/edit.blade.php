@@ -55,7 +55,7 @@
     $(document).on('click', '.save-btn', function(e) {
         Swal.fire(
             "Success!",
-            "The number has been successfully completed",
+            "The  has window been successfully completed",
             "success"
         );
     });

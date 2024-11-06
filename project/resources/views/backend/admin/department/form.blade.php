@@ -54,4 +54,13 @@
 
     </div>
 </div>
+<script>
+    $(document).on('click', '.save-btn', function(e) {
+        Swal.fire(
+            "Success!",
+            "Department has been successfully added",
+            "success"
+        );
+    });
+</script>  
 @endsection

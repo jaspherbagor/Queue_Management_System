@@ -119,5 +119,14 @@ $(document).ready(function() {
     }); 
 });  
 </script>
+<script>
+    $(document).on('click', '.save-btn', function(e) {
+        Swal.fire(
+            "Success!",
+            "The user has been successfully completed",
+            "success"
+        );
+    });
+</script>  
 @endpush
  

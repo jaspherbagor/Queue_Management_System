@@ -74,7 +74,16 @@
             </table>
         </div>
     </div> 
-</div>  
+</div>
+<script>
+    $(document).on('click', '.save-btn', function(e) {
+        Swal.fire(
+            "Success!",
+            "The number setting has been successfully set up",
+            "success"
+        );
+    });
+</script>    
 @endsection
 
  

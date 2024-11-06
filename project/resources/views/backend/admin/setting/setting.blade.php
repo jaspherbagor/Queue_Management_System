@@ -101,5 +101,14 @@
 
     </div>
 </div>
+<script>
+    $(document).on('click', '.save-btn', function(e) {
+        Swal.fire(
+            "Success!",
+            "The changes has been successfully updated",
+            "success"
+        );
+    });
+</script>  
 @endsection
 
