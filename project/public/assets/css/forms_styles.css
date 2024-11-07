@@ -311,10 +311,10 @@ img.profile_img {
     background: rgb(7, 147, 179);
 }
 
-.backup-db-btn, .restore-db-btn, .download-backup-btn {
+.backup-db-btn, .restore-db-btn, .download-backup-btn, .delete-backup-btn {
     border-radius: 5px !important;
 }
 
-.backup-db-btn:hover, .restore-db-btn:hover, .download-backup-btn:hover {
+.backup-db-btn:hover, .restore-db-btn:hover, .download-backup-btn:hover, .delete-backup-btn:hover {
     box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px;;
 }
