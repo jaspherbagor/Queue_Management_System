@@ -65,4 +65,18 @@ class DatabaseController extends Controller
             return redirect()->back()->with('error', 'File not found.');
         }
     }
+
+    public function deleteBackup($filename)
+    {
+        $filePath = storage_path('app/backup-temp/' . $filename);
+
+        if (File::exists($filePath)) {
+            // Return a response to download the file
+            File::delete($filePath);
+            return redirect()->back();
+        } else {
+            // Redirect back with an error if the file doesn't exist
+            return redirect()->back()->with('error', 'File not found.');
+        }
+    }
 }
