@@ -50,8 +50,7 @@ class CounterController extends Controller
             ]);
 
         	if ($save) {
-	            return back()->withInput()
-                        ->with('message', trans('app.save_successfully'));
+	            return back()->withInput();
         	} else {
 	            return back()->withInput()
                         ->with('exception', trans('app.please_try_again'));
@@ -108,6 +107,6 @@ class CounterController extends Controller
     {
         $delete = Counter::where('id', $id)
             ->delete();
-        return redirect('admin/counter')->with('message', trans('app.delete_successfully'));
+        return redirect('admin/counter');
     }  
 }

@@ -79,25 +79,5 @@
 </div>
 @endsection
 @push("scripts")
-<script>
-$('.btn-delete').on('click', function(event) {
-    event.preventDefault();
-    let counterId = $(this).data('counter-id');
-    Swal.fire({
-        title: 'Are you sure?',
-        text: "You want to delete this window!",
-        icon: 'warning',
-        showCancelButton: true,
-        confirmButtonColor: '#ffc107',
-        cancelButtonColor: '#d33',
-        confirmButtonText: 'Yes, delete it!'
-    }).then((result) => {
-        if (result.isConfirmed) {
-            window.location.href = `{{ url('admin/counter/delete') }}/${counterId}`;
-        }
-    });
-});
-</script>
-
 @endpush
 
