@@ -617,7 +617,7 @@ class TokenController extends Controller
             $service_number->delete();
         }
 
-        return redirect()->back()->with('success', 'All numbers that belongs to the service has been successfully deleted!');
+        return redirect()->back();
     }
 
     public function report_detail($id) {

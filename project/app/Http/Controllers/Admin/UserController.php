@@ -190,8 +190,7 @@ class UserController extends Controller
         	if ($save) {
 	            return back()
                     ->withInput()  
-                    ->with('photo', $filePath)
-                    ->with('message',trans('app.save_successfully'));
+                    ->with('photo', $filePath);
         	} else {
 	            return back()
                     ->withInput()
@@ -334,8 +333,7 @@ class UserController extends Controller
             ->delete();
 
         if ($delete) {
-            return back()
-                    ->with('message', trans('app.delete_successfully'));
+            return back();
         } else {
             return back()
                     ->with('exception', trans('app.please_try_again'));

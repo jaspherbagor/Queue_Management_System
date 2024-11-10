@@ -64,7 +64,7 @@
                                 <td>{{ $token->firstname }} {{ $token->lastname }}</td>
                                 <td>
                                     <div class="btn-group">   
-                                        <a href="{{ url("admin/token/setting/delete/$token->id") }}" class="btn btn-danger btn-sm btn-delete" onclick="return confirm('Are you sure?')" title="Delete"><i class="fa fa-trash"></i></a>
+                                        <a href="{{ url("admin/token/setting/delete/$token->id") }}" class="btn btn-danger btn-sm btn-delete" title="Delete"><i class="fa fa-trash"></i></a>
                                     </div>
                                 </td>
                             </tr> 
