@@ -59,7 +59,7 @@
     $(document).on('click', '.save-btn', function(e) {
         Swal.fire(
             "Success!",
-            "The department has been successfully completed",
+            "The department has been successfully updated",
             "success"
         );
     });

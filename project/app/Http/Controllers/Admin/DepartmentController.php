@@ -54,8 +54,7 @@ class DepartmentController extends Controller
             ]);
 
             if ($save) {
-                return back()->withInput()
-                        ->with('message',trans('app.save_successfully'));
+                return back()->withInput();
             } else {
                 return back()->withInput()
                         ->with('exception', trans('app.please_try_again'));
@@ -117,7 +116,7 @@ class DepartmentController extends Controller
     public function delete($id = null)
     {
         $delete = Department::where('id', $id)->delete();
-        return redirect('admin/department')->with('message', trans('app.delete_successfully'));
+        return redirect('admin/department');
     } 
  
     public function keyList()
