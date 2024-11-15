@@ -66,28 +66,6 @@
                                     <span class="label label-warning">Stop</span>
                                     @endif
                                 </td>
-                                {{-- <td>
-                                        @if($row->status === 0)
-                                        <a href="{{ url("admin/token/complete/$row->id") }}"  class="btn btn-success btn-sm btn-complete mb-1" title="Complete"><i class="fa fa-check"></i></a>
-
-                                        <a href="{{ url("admin/token/stoped/$row->id") }}"  class="btn btn-warning btn-sm btn-stop mb-1" title="Stop"><i class="fa fa-stop"></i></a>
-
-                                        <button type="button" data-toggle="modal" data-target="transferModal" data-token-id="{{ $row->id }}" class="btn btn-primary btn-sm btn-transfer mb-1" title="Transfer"><i class="fa fa-exchange"></i></button>
-
-                                        @endif
-                                        <a type="button" href="{{ url("admin/token/print") }}" data-token-id="{{ $row->id }}" class="tokenPrint btn btn-default btn-sm btn-print mb-1" title="Print" ><i class="fa fa-print"></i></a>
-                                        <a href='{{ url("admin/token/delete/$row->id") }}'class="btn btn-danger btn-sm btn-delete mb-1" title="Delete"><i class="fa fa-trash"></i></a>
-                                        @if($row->status === 1)
-                                        <a type="button" href="{{ route('token.recall', $row->id) }}" class="btn btn-primary btn-sm btn-call" data-token-id="{{ $row->id }}" title="Recall">
-                                            <i class="fa fa-phone"></i>
-                                        </a>
-                                        @endif
-                                </td> --}}
-                                {{-- <td> <!-- Action column -->
-                                    <button type="button" class="btn btn-primary btn-sm btn-recall" data-token-id="{{ $row->id }}" title="Recall">
-                                        <i class="fa fa-undo"></i> Recall
-                                    </button>
-                                </td> --}}
                             </tr>
                         @endforeach
                     @endif
