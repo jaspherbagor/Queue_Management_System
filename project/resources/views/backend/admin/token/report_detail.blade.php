@@ -1,5 +1,5 @@
 @extends('layouts.backend')
-@section('title', 'Window List')
+@section('title', 'Report Detail')
 
 @section('content')
 <div class="panel-heading">

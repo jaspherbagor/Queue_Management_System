@@ -1,5 +1,5 @@
 @extends('layouts.backend')
-@section('title', trans('app.todays_token'))
+@section('title', 'Todays Queue')
 
 @section('content')
 <div class="panel-heading">
