@@ -58,27 +58,4 @@
         </div>
     </div>
 </div>
-
-
-{{-- <!-- Modal -->
-<div class="modal-container">
-    <div class="modal fade rounded-1" id="infoModal" tabindex="-1" role="dialog" aria-labelledby="infoModalLabel">
-        <div class="modal-dialog" role="document">
-          <div class="modal-content rounded-1">
-            <div class="modal-header">
-              <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-              <h4 class="modal-title" id="infoModalLabel"><?= trans('app.note') ?></h4>
-            </div>
-            <div class="modal-body">
-              <p><strong class="label label-warning info-button"> Note 1 </strong> &nbsp;If you delete a Department then, the related tokens are not calling on the Display screen. Because the token is dependent on Department ID</p>
-              <p><strong class="label label-warning info-button"> Note 2 </strong> &nbsp;If you want to change a Department name you must rename the Department instead of deleting it.
-              </p>
-            </div>
-            <div class="modal-footer">
-              <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-            </div>
-          </div>
-        </div>
-    </div>
-</div> --}}
 @endsection

@@ -28,8 +28,6 @@
                         <th>Generated Time</th>
                         <th>Complete Time</th>
                         <th>Status</th>
-                        {{-- <th>Action</th> --}}
-                        {{-- <th><i class="fa fa-cogs"></i></th> --}}
                     </tr>
                 </thead>
                 <tbody>
