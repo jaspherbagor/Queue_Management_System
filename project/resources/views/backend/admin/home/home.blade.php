@@ -138,21 +138,21 @@
         </div>
 
         <div class="row mt-1">
-            <div class="col-sm-4">
+            <div class="col-sm-6">
                 <div class="panel panel-primary line-chart shadowed">
                     <div class="panel-heading">This Month (All Numbers)</div>
                     <div class="panel-body"><canvas id="lineChart"></canvas></div>
                 </div>
             </div>
 
-            <div class="col-sm-4">
+            <div class="col-sm-6">
                 <div class="panel panel-primary bar-chart shadowed">
                     <div class="panel-heading">This Year (All Numbers)</div>
                     <div class="panel-body"><canvas id="singelBarChart" style="height:200px"></canvas></div>
                 </div>
             </div>
 
-            <div class="col-md-4">
+            <div class="col-md-12">
                 <div class="panel panel-primary shadowed">
                     <div class="performance_heading panel-heading">{{ trans('app.today_user_performance') }}</div>
                     <div class="panel-body">
@@ -183,6 +183,7 @@
                     @endif
                     </div>
                 </div>
+
             </div>
 
             <div class="col-sm-6">
