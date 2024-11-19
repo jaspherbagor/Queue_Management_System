@@ -29,17 +29,17 @@
                 </div>
             </div>
 
-            {{-- <div class="col-sm-12">
+            <div class="col-sm-12">
                 <div class="panel panel-default">
-                    <div class="panel-heading">{{ trans('app.this_month') }}</div>
-                    <div class="panel-body"><canvas id="lineChart" style="height:200px"></canvas></div>
+                    <div class="panel-heading">This Month (Numbers)</div>
+                    <div class="panel-body paanel-container"><canvas id="lineChart" style="height:200px"></canvas></div>
                 </div>
             </div>
 
             <div class="col-sm-12">
                 <div class="panel panel-default">
                     <div class="panel-heading"> {{ trans('app.today_user_performance') }} (Total {{ $performance->total }})</div>
-                    <div class="panel-body">
+                    <div class="panel-body panel-container">
                     @if (!empty($performance))    
                     <?php
                     $pending = number_format(((($performance->pending?$performance->pending:0)/($performance->total?$performance->total:1))*100),1);
@@ -71,17 +71,17 @@
             
             <div class="col-sm-6">
                 <div class="panel panel-default">
-                    <div class="panel-heading">{{ trans('app.this_year') }}</div>
+                    <div class="panel-heading">This Year (Numbers)</div>
                     <div class="panel-body"><canvas id="singelBarChart" style="height:200px"></canvas></div>
                 </div>
             </div>
             
             <div class="col-sm-6">
                 <div class="panel panel-default">
-                    <div class="panel-heading">{{ trans('app.from_the_begining') }}</div>
+                    <div class="panel-heading">From the Beginning (Numbers)</div>
                     <div class="panel-body"><canvas id="pieChart" style="height:200px"></canvas></div>
                 </div>
-            </div>  --}}
+            </div> 
 
         </div> 
     </div>
