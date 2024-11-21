@@ -44,9 +44,6 @@
                     @endforeach
                 @else
                     <tr>
-                        {{-- <td></td>
-                        <td>No data available in the table</td>
-                        <td></td> --}}
                         No data available in the table
                     </tr>
                 @endif
