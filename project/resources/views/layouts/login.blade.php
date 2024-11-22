@@ -37,52 +37,6 @@
         </div>
     </div> -->
 
-   <!-- <div class="login-body-container">
-       <div class="login-container">
-            <div class="text-center">
-                <h2 class="text-primary text-center text-uppercase">{{ \Session::get('app.title') }}</h2>
-                <img src="{{ asset('public/assets/img/icons/logo.jpg') }}" width="300" >
-            </div>
-
-            <div class="login-body">
-                @include('backend.common.info')
-                Starts of Message
-                <div class="col-xs-12">
-                    @yield('info.message')
-                </div>
-
-                {{ Form::open(['url' => 'login', 'class'=>'']) }}
-                <div class="container">
-                    <div class="form-group">
-                        <label for="email" class="control-label sr-only">{{ trans('app.email') }}</label>
-                        <div class="input-group">
-                            <div class="input-group-addon"><i class="fa fa-fw fa-envelope"></i></div>
-                            <input type="text" name="email" class="form-control" id="email" placeholder="{{ trans('app.email') }}"  value="{{ old('email') }}" autocomplete="off">
-                        </div>
-                        <span class="text-danger">{{ $errors->first('email') }}</span>
-                    </div>
-                    <div class="form-group">
-                        <label for="password" class="control-label sr-only">{{ trans('app.password') }}</label>
-                        <div class="input-group">
-                            <div class="input-group-addon"><i class="fa fa-fw fa-lock"></i></div>
-                            <input type="password" name="password" id="password" class="form-control" placeholder="{{ trans('app.password') }}" value="{{ old('password') }}" autocomplete="off">
-                        </div>
-                        <span class="text-danger">{{ $errors->first('password') }}</span>
-                    </div>
-                </div>
-                <div class="col-xs-6">
-                    @yield('info.language')
-                </div>
-                <div class="col-xs-6">
-                    <button type="submit" class="btn btn-block btn-primary">{{ trans('app.signin')}}</button>
-                </div>
-                {{ Form::close() }}
-
-                @yield('info.login-credentials')
-            </div>
-       </div>
-   </div> -->
-
    <div class="login-body-container">
     <div class="login-container">
         <div class="login-logo">
