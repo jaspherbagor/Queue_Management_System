@@ -21,21 +21,6 @@
     <link rel="stylesheet" href="{{asset('public/assets/css/login_styles.css')}}">
 </head>
 <body class="cm-login">
-    <!-- <div class="loader">
-        <div>
-            <span>C</span>
-            <span>O</span>
-            <span>D</span>
-            <span>E</span>
-            <span></span>
-            <span>K</span>
-            <span>E</span>
-            <span>R</span>
-            <span>N</span>
-            <span>E</span>
-            <span>L</span>
-        </div>
-    </div> -->
 
    <div class="login-body-container">
     <div class="login-container">
