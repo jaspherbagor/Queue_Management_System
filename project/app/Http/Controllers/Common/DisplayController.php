@@ -435,10 +435,10 @@ class DisplayController extends Controller
                     <div class=\"queue-box queue-box-status col-md-6\">
                         <h4 class='deprt'>".trans('app.q_c')."</h4> 
                         <div class=\"item text-center\">
-                            <div class='queue2' style='height:{$height}px;'>".trans('app.waiting_4')." </div>
-                            <div class='queue2' style='height:{$height}px;'>".trans('app.waiting_3')." </div>
-                            <div class='queue2' style='height:{$height}px;'>".trans('app.waiting_2')."</div>
-                            <div class='queue2' style='height:{$height}px;'>".trans('app.waiting_1')."</div>
+                            <div class='queue2' style='height:{$height}px; background-color: #afe3f0; color: #000'>".trans('app.waiting_4')." </div>
+                            <div class='queue2' style='height:{$height}px; background-color: #afe3f0; color: #000'>".trans('app.waiting_3')." </div>
+                            <div class='queue2' style='height:{$height}px; background-color: #afe3f0; color: #000'>".trans('app.waiting_2')."</div>
+                            <div class='queue2' style='height:{$height}px; background-color: #afe3f0; color: #000'>".trans('app.waiting_1')."</div>
                             <div class='queue2 active' style='height:{$height}px;'>".trans('app.now_serving')."</div>
                         </div>
                     </div>";
@@ -615,10 +615,10 @@ class DisplayController extends Controller
                     <div class=\"queue-box queue-box-status col-md-6\">
                         <h4 class='deprt'>".trans('app.q_c')."</h4> 
                         <div class=\"item text-center\">
-                            <div class='queue2' style='height:{$height}px;'>".trans('app.waiting_4')." </div>
-                            <div class='queue2' style='height:{$height}px;'>".trans('app.waiting_3')." </div>
-                            <div class='queue2' style='height:{$height}px;'>".trans('app.waiting_2')."</div>
-                            <div class='queue2' style='height:{$height}px;'>".trans('app.waiting_1')."</div>
+                            <div class='queue2' style='height:{$height}px; background-color: #afe3f0; color: #000'>".trans('app.waiting_4')." </div>
+                            <div class='queue2' style='height:{$height}px; background-color: #afe3f0; color: #000'>".trans('app.waiting_3')." </div>
+                            <div class='queue2' style='height:{$height}px; background-color: #afe3f0; color: #000'>".trans('app.waiting_2')."</div>
+                            <div class='queue2' style='height:{$height}px; background-color: #afe3f0; color: #000'>".trans('app.waiting_1')."</div>
                             <div class='queue2 active' style='height:{$height}px;'>".trans('app.now_serving')."</div>
                         </div>
                     </div>";
