@@ -93,26 +93,6 @@
             $("input[name=password]").val($(this).children().first().next().text());
         });
 
-        //  select2
-        // $("select").select2();
-
-        // language switch
-        // $("#lang-select").on('change', function() {
-        //     var x = $(this).val();
-        //     $.ajax({
-        //        type:'GET',
-            //    url:'{{ URL::to("common/language/") }}',
-        //        data: {
-        //           'locale' : x,
-        //           '_token' : '<?php echo csrf_token() ?>'
-        //        },
-        //        success:function(data){
-        //           history.go(0);
-        //        }, error: function() {
-        //         alert('failed');
-        //        }
-        //     });
-        // });
     }(jQuery));
 
     //preloader
