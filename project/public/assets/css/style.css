@@ -376,3 +376,20 @@ li.active {
     margin-left: 3px !important;
     margin-bottom: 4px !important
 }
+
+.cm-submenu ul li.active {
+    background: #caf0f8 !important;
+}
+
+.cm-submenu ul li.active a, .cm-menu-items li.active a,.cm-menu-items li.active a:hover  {
+    color: rgb(14, 15, 14) !important;
+    font-weight: 500 !important;
+}
+
+.cm-menu-items li.active {
+    background: #caf0f8 !important;
+}
+
+/* .cm-menu-items li a:hover, .cm-submenu ul li.active a:hover {
+    color: red !important
+} */

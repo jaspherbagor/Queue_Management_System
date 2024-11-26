@@ -277,7 +277,7 @@
                                 </ul> -->
                             </li>
                             @if(!Auth::user()->hasRole('receptionist'))
-                            <li class="cm-submenu {{ (Request::segment(2)=='setting' ? 'open' : '') }}">
+                            <li class="cm-submenu {{ (Request::segment(2)=='setting' || Request::is('admin/database/backup-files') || Request::is('admin/setting/ads/view') || Request::is('common/setting/*') || Request::is('admin/database/backup-and-restore') ? 'open' : '') }}">
                                 <a class="sf-cog">General Settings <span class="caret"></span></a>
                                 <ul>
                                     @if (auth()->user()->hasRole('admin'))
