@@ -29,59 +29,63 @@
                 </div>
             </div>
 
-            <div class="col-sm-12">
-                <div class="panel panel-default">
-                    <div class="panel-heading">This Month (Numbers)</div>
-                    <div class="panel-body paanel-container"><canvas id="lineChart" style="height:200px"></canvas></div>
-                </div>
-            </div>
-
-            <div class="col-sm-12">
-                <div class="panel panel-default">
-                    <div class="panel-heading"> {{ trans('app.today_user_performance') }} (Total {{ $performance->total }})</div>
-                    <div class="panel-body panel-container">
-                    @if (!empty($performance))    
-                    <?php
-                    $pending = number_format(((($performance->pending?$performance->pending:0)/($performance->total?$performance->total:1))*100),1);
-                    $complete = number_format(((($performance->complete?$performance->complete:0)/($performance->total?$performance->total:1))*100),1);
-                    $stop = number_format(((($performance->stop?$performance->stop:0)/($performance->total?$performance->total:1))*100),1);
-                    ?>
-                    <label>{{trans("app.complete")}} ({{ $performance->complete }})</label>
-                    <div class="progress"> 
-                      <div class="progress-bar progress-bar-success" style="width: {{ $complete }}%">
-                        <span>{{ $complete }}% {{trans("app.complete")}} ({{ $performance->complete }}) </span>
-                      </div>
-                    </div>
-                    <label>{{trans("app.pending")}} ({{ $performance->pending }})</label>
-                    <div class="progress"> 
-                      <div class="progress-bar progress-bar-striped active" role="progressbar" aria-valuenow="{{ $pending }}" aria-valuemin="0" aria-valuemax="100" style="width: {{ $pending }}%">
-                        <span>{{ $pending }}% {{trans("app.pending")}} ({{ $performance->pending }}) </span>
-                      </div>
-                    </div>
-                    <label>{{trans("app.stop")}} ({{ $performance->stop }})</label>
-                    <div class="progress"> 
-                      <div class="progress-bar progress-bar-danger" style="width: {{ $stop }}%">
-                        <span>{{ $stop }}% {{trans("app.stop")}} ({{ $performance->stop }}) </span>
-                      </div>
-                    </div>
-                    @endif                 
+            <div class="row">
+                <div class="col-sm-6">
+                    <div class="panel panel-default">
+                        <div class="panel-heading">This Month (Numbers)</div>
+                        <div class="panel-body"><canvas id="lineChart" style="height:150px"></canvas></div>
                     </div>
                 </div>
-            </div>
-            
-            <div class="col-sm-6">
-                <div class="panel panel-default">
-                    <div class="panel-heading">This Year (Numbers)</div>
-                    <div class="panel-body"><canvas id="singelBarChart" style="height:200px"></canvas></div>
+    
+                <div class="col-sm-6">
+                    <div class="panel panel-default">
+                        <div class="panel-heading"> {{ trans('app.today_user_performance') }} (Total {{ $performance->total }})</div>
+                        <div class="panel-body">
+                            @if (!empty($performance))    
+                            <?php
+                            $pending = number_format(((($performance->pending?$performance->pending:0)/($performance->total?$performance->total:1))*100),1);
+                            $complete = number_format(((($performance->complete?$performance->complete:0)/($performance->total?$performance->total:1))*100),1);
+                            $stop = number_format(((($performance->stop?$performance->stop:0)/($performance->total?$performance->total:1))*100),1);
+                            ?>
+                            <label>{{trans("app.complete")}} ({{ $performance->complete }})</label>
+                            <div class="progress"> 
+                            <div class="progress-bar progress-bar-success" style="width: {{ $complete }}%">
+                                <span>{{ $complete }}% {{trans("app.complete")}} ({{ $performance->complete }}) </span>
+                            </div>
+                            </div>
+                            <label>{{trans("app.pending")}} ({{ $performance->pending }})</label>
+                            <div class="progress"> 
+                            <div class="progress-bar progress-bar-striped active" role="progressbar" aria-valuenow="{{ $pending }}" aria-valuemin="0" aria-valuemax="100" style="width: {{ $pending }}%">
+                                <span>{{ $pending }}% {{trans("app.pending")}} ({{ $performance->pending }}) </span>
+                            </div>
+                            </div>
+                            <label>{{trans("app.stop")}} ({{ $performance->stop }})</label>
+                            <div class="progress"> 
+                            <div class="progress-bar progress-bar-danger" style="width: {{ $stop }}%">
+                                <span>{{ $stop }}% {{trans("app.stop")}} ({{ $performance->stop }}) </span>
+                            </div>
+                            </div>
+                            @endif                 
+                        </div>
+                    </div>
                 </div>
             </div>
             
-            <div class="col-sm-6">
-                <div class="panel panel-default">
-                    <div class="panel-heading">From the Beginning (Numbers)</div>
-                    <div class="panel-body"><canvas id="pieChart" style="height:200px"></canvas></div>
+            <div class="row mt-1">
+                <div class="col-md-6 col-sm-6">
+                    <div class="panel panel-default">
+                        <div class="panel-heading">This Year (Numbers)</div>
+                        <div class="panel-body"><canvas id="singelBarChart" style="height:150px"></canvas></div>
+                    </div>
                 </div>
-            </div> 
+                
+                <div class="col-md-6 col-sm-6">
+                    <div class="panel panel-default">
+                        <div class="panel-heading">From the Beginning (Numbers)</div>
+                        <div class="panel-body"><canvas id="pieChart" style="height:150px"></canvas></div>
+                    </div>
+                </div> 
+            </div>
 
         </div> 
     </div>
