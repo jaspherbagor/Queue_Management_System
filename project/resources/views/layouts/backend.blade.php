@@ -226,7 +226,7 @@
                             <!-------------------------------------------------------->
                             <!-- COMMON MENU                                        -->
                             <!-------------------------------------------------------->
-                            @if(!Auth::user()->hasRole('receptionist'))
+                            @if(!Auth::user()->hasRole('receptionist') && !Auth::user()->hasRole('officer'))
                             <li class="cm-submenu {{ (Request::segment(2)=='display' ? 'open' : '') }}">
                                 <a target="_blank" class="sf-device-tablet">
                                     {{ trans('app.display') }}
