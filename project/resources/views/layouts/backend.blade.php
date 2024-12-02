@@ -100,6 +100,12 @@
                                 </a>
                             </li>
 
+                            <li class="{{ ((Request::is('admin/user-manual')) ? '' : '') }}">
+                                <a href="{{ route('user_manual') }}" class="sf-book">
+                                    User Manual
+                                </a>
+                            </li>
+
                             <li class="cm-submenu {{ (Request::segment(2)=='department' ? 'open' : '') }}">
                                 <a class="sf-building">
                                     Department <span class="caret"></span>

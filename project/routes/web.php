@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Admin\AdminUserManualController;
 use App\Http\Controllers\Admin\DatabaseController;
 use App\Http\Controllers\Admin\ImageAdvertisementController;
 use App\Http\Controllers\Admin\TokenController;
@@ -158,6 +159,9 @@ Route::group(['middleware' => ['auth']], function() {
 		Route::get('/database/backup-files', [DatabaseController::class, 'showBackups'])->name('show_backup');
 		Route::get('/database/backup-file/download/{filename}', [DatabaseController::class, 'downloadBackup'])->name('download_backup');
 		Route::get('/database/backup-file/delete/{filename}', [DatabaseController::class, 'deleteBackup'])->name('delete_backup');
+
+		#User Manual Routes
+		Route::get('/user-manual', [AdminUserManualController::class, 'index'])->name('user_manual');
 	});
 
 	# -----------------------------------------------------------
