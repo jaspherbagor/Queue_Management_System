@@ -100,11 +100,11 @@
                                 </a>
                             </li>
 
-                            <li class="{{ ((Request::is('admin/user-manual')) ? '' : '') }}">
+                            <!-- <li class="{{ ((Request::is('admin/user-manual')) ? '' : '') }}">
                                 <a href="{{ route('user_manual') }}" class="sf-book">
                                     User Manual
                                 </a>
-                            </li>
+                            </li> -->
 
                             <li class="cm-submenu {{ (Request::segment(2)=='department' ? 'open' : '') }}">
                                 <a class="sf-building">
@@ -311,6 +311,13 @@
                                 </ul>
                             </li>
                             @endif
+                            <!-- USERMANUAL -->
+                            <li class="{{ ((Request::is('admin/user-manual')) ? '' : '') }}">
+                                <a href="{{ route('user_manual') }}" class="sf-book">
+                                    User Manual
+                                </a>
+                            </li>
+
                             @if(!Auth::user()->hasRole('receptionist'))
                             <li class="{{ ((Request::is('logout')) ? 'active' : '') }}">
                                 <a href="{{ url('logout') }}" class="sf-lock">
