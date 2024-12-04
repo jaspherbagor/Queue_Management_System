@@ -22,7 +22,7 @@ class User extends Authenticatable
         'Admin'   => '5',
         'Officer' => '1',
         'Receptionist' => '2',
-        'Client'  => '3',
+        // 'Client'  => '3',
     ];
 
     public function hasRole($role)
